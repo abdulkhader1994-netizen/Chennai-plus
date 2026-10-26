@@ -10,6 +10,10 @@ const CATS = {
   hotel:   ['nwr["tourism"~"^(hotel|guest_house|motel|hostel)$"]'],
   food:    ['nwr["amenity"~"^(restaurant|fast_food)$"]'],
   tea:     ['nwr["amenity"="cafe"]', 'nwr["shop"="tea"]'],
+  mall:    ['nwr["shop"~"^(mall|department_store)$"]'],
+  cinema:  ['nwr["amenity"="cinema"]'],
+  hospital:['nwr["amenity"="hospital"]'],
+  mechanic:['nwr["shop"~"^(car_repair|motorcycle_repair|tyres)$"]', 'nwr["craft"="mechanic"]'],
 };
 const ENDPOINTS = [
   "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
@@ -33,6 +37,8 @@ const info = (t) => [
   t.cuisine && t.cuisine.replace(/;/g, ", ").replace(/_/g, " "),
   t.route_ref && "Routes " + t.route_ref.replace(/;/g, ", "),
   t.stars && t.stars + "-star",
+  t.emergency === "yes" && "Emergency",
+  t.shop === "motorcycle_repair" && "Two-wheeler", t.shop === "car_repair" && "Car", t.shop === "tyres" && "Tyres",
   t.opening_hours === "24/7" ? "24 hrs" : t.opening_hours,
 ].filter(Boolean).slice(0, 2).join(" • ");
 
