@@ -263,6 +263,41 @@ header{background:var(--navbg);backdrop-filter:saturate(1.6) blur(14px);-webkit-
 nav{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:4px 6px;border:1px solid var(--line);border-radius:26px;background:var(--navbg);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);box-shadow:0 12px 30px rgba(40,20,90,.18);max-width:520px;margin:0 auto}
 .app{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
 .tab[aria-selected="true"] .ic{background:var(--grad)}.tab[aria-selected="true"] svg{stroke:#fff}
+
+.banner{position:relative;border-radius:26px;padding:22px 18px 18px;min-height:138px;overflow:hidden;color:#fff;display:grid;align-content:end;box-shadow:0 14px 30px rgba(40,20,90,.18);isolation:isolate}
+.banner::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.12);right:-40px;top:-60px;z-index:-1}
+.banner::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.1);left:-20px;bottom:-40px;z-index:-1}
+.banner h1{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.05;margin:0;max-width:62%;text-wrap:balance}
+.banner p{margin:6px 0 0;font-size:13.5px;opacity:.92;max-width:58%}
+.bart3{position:absolute;right:6px;top:8px;width:150px;height:124px}
+.bart3 svg{position:absolute;filter:drop-shadow(0 8px 10px rgba(0,0,0,.2))}
+.bart3 .b0{width:80px;height:80px;right:6px;top:4px;transform:rotate(8deg)}
+.bart3 .b1{width:62px;height:62px;right:74px;top:52px;transform:rotate(-10deg)}
+.bart3 .b2{width:54px;height:54px;right:10px;top:76px;transform:rotate(5deg)}
+@media (prefers-reduced-motion:no-preference){.bart3 .b0{animation:bob 4s ease-in-out infinite}.bart3 .b1{animation:bob 4.6s ease-in-out .6s infinite}.bart3 .b2{animation:bob 5s ease-in-out 1.1s infinite}@keyframes bob{50%{translate:0 -5px}}}
+.ibadge{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;flex:none}.ibadge svg{width:32px;height:32px}
+.feat{position:relative;display:grid;gap:6px;border-radius:24px;padding:18px 18px 18px;min-height:170px;align-content:end;color:#fff;text-decoration:none;overflow:hidden;box-shadow:0 14px 30px rgba(40,20,90,.18)}
+.feat h3{margin:0;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15;max-width:78%;text-wrap:balance}
+.fcat{justify-self:start;background:rgba(255,255,255,.22);border-radius:999px;padding:3px 10px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.fmeta{font-size:12.5px;opacity:.9}
+.fart{position:absolute;right:-6px;top:-4px;width:110px;height:110px;opacity:.95;transform:rotate(10deg);filter:drop-shadow(0 8px 12px rgba(0,0,0,.2))}
+.erow{position:relative}.erow .txt{padding-right:34px}
+.dtile{width:54px;height:58px;flex:none;border-radius:16px;background:linear-gradient(160deg,#f43f5e,#f59e0b);color:#fff;display:grid;place-items:center;align-content:center;line-height:1}
+.dtile b{font-family:var(--display);font-size:24px;font-weight:800}.dtile span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.eart{position:absolute;right:12px;top:50%;width:30px;height:30px;transform:translateY(-50%);opacity:.9}
+.hband{position:relative}.hband h3{max-width:74%}.bandart{position:absolute;right:10px;bottom:8px;width:46px;height:46px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.2))}
+.bigcta{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:20px;padding:12px 14px;text-decoration:none;color:var(--ink);box-shadow:0 6px 22px rgba(40,20,90,.07);margin-bottom:12px}
+.bigcta svg{width:44px;height:44px;flex:none}.bigcta span{display:grid;flex:1}.bigcta b{font-size:16px}.bigcta small{font-size:12.5px;color:var(--muted)}.bigcta i{font-style:normal;font-size:26px;color:var(--sea)}
+.ftiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ftile{display:grid;justify-items:center;gap:6px;text-decoration:none;color:var(--ink);font:600 12px/1.2 var(--body);text-align:center;background:var(--surface);border-radius:18px;padding:12px 4px 10px;box-shadow:0 6px 18px rgba(40,20,90,.06)}
+.ftile svg{width:40px;height:40px}
+.ocard{grid-template-columns:auto minmax(0,1fr) auto}
+.btile{position:relative;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;font-family:var(--display);font-weight:800;font-size:24px}
+.btag{position:absolute;right:-8px;bottom:-8px;width:26px;height:26px;transform:rotate(-12deg)}
+.credits{font-size:11.5px;color:var(--muted);text-align:center;margin:8px 8px 0;line-height:1.5}.credits a{color:var(--muted)}
+nav{left:0;right:0;bottom:0;margin:0;max-width:none;border:0;border-top:1px solid var(--line);border-radius:22px 22px 0 0;background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -8px 24px rgba(40,20,90,.08);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.app{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+.hot .tip{display:none}.hcard .tip{font-size:12.5px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -322,7 +357,7 @@ const hot=[
  {k:"food",tag:"Trending",t:"Atho and burma kaosuey",w:"Parry's Corner",why:"The Burma Bazaar street classic, now on every reel.",h:73},
  {k:"event",tag:"This weekend",t:"Mylapore kolam & craft fair",w:"Kapaleeshwarar tank • Sat",why:"Kolam contest, handloom stalls, kids' corner.",h:69}];
 let hotF="All";
-const hotCard=x=>x.u?`<a class="hcard nlink" href="${esc(x.u)}" target="_blank" rel="noopener"><div class="hband k-${x.k}"><span class="htag">${esc(x.tag)}</span><h3>${esc(x.t)}</h3></div><div class="hbody"><div>${esc(x.w)}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></a>`:`<article class="hcard"><div class="hband k-${x.k}"><span class="htag">${x.tag}</span><h3>${esc(x.t)}</h3></div><div class="hbody"><div>${x.w}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></article>`;
+const hotCard=x=>x.u?`<a class="hcard nlink" href="${esc(x.u)}" target="_blank" rel="noopener"><div class="hband k-${x.k}"><span class="htag">${esc(x.tag)}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="hbody"><div>${esc(x.w)}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></a>`:`<article class="hcard"><div class="hband k-${x.k}"><span class="htag">${x.tag}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="hbody"><div>${x.w}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></article>`;
 function hotSec(){const L={All:"All",place:"New places",event:"New events",food:"Must try"};
  return `<section><h2><svg class="flame" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>What's hot in Chennai${contentLive?"":`<span class="stag">Sample</span>`}</h2>
  <div class="chips">${Object.keys(L).map(k=>`<button class="chip" data-h="${k}" aria-pressed="${k===hotF}">${L[k]}</button>`).join("")}</div>
@@ -364,7 +399,7 @@ async function findNear(){
  }catch(e){nearState[key]="error"}
  rerenderNear();
 }
-function rerenderNear(){const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&cur.dataset.v==="near"){const y=window.scrollY;view.innerHTML=nearView();centerCat();window.scrollTo(0,y)}}
+function rerenderNear(){const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&cur.dataset.v==="near"){const y=window.scrollY;view.innerHTML=nearView()+credits("near");centerCat();window.scrollTo(0,y)}}
 function useGPS(){
  if(!navigator.geolocation){nearMsg="Location isn't available on this device. Pick an area instead.";rerenderNear();return}
  nearMsg="Finding your location…";rerenderNear();
@@ -384,7 +419,7 @@ function nearView(){
   :st.length===0?msgRow("Nothing found within 4 km","Try another category or change the area.")
   :st.map((r,i)=>`<div class="prow"><div class="badge">${ic}</div><div style="min-width:0">${i===0?`<span class="near1">Nearest</span>`:""}<h3>${esc(r.name)}</h3><div class="meta">${esc(cleanInfo(r.info)||NCAT[nearC])}</div>${(nearC==="bus"||nearC==="station")?routeChips(r.la,r.lo,nearC==="bus"):""}</div><div class="pd"><b>${fmt(r.d)}<small>${eta(r.d)}</small></b><a class="dirbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}" aria-label="Directions to ${esc(r.name)}"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Go</a></div></div>`).join("");
  const n=Array.isArray(st)?st.length:0;
- return `<section><h2>Near me</h2>
+ return `${banner("near","Near me","Petrol, hospitals, food &amp; more around you",["pin","bus","coffee"])}<section>
  <div class="loccard"><div class="lrow"><span class="lpin"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
   <div class="ltxt"><div class="eyebrow">Places near</div><b>${nearLoc.gps?"Your location":esc(nearA)}</b></div>
   <select id="area" class="lsel" aria-label="Change area"><option value="" selected disabled>Change ▾</option>${Object.keys(AREAS).map(a=>`<option>${a}</option>`).join("")}</select></div>
@@ -395,7 +430,7 @@ function nearView(){
  ${nearC==="hospital"?`<div class="alert"><span class="pill">Emergency</span><p>Call <a href="tel:108" style="color:inherit;font-weight:700">108</a> for an ambulance. Call the hospital before going to check they can treat the case.</p></div>`:""}
  ${n?`<div class="rhead"><span><b>${n} ${NCAT[nearC].toLowerCase()}</b> within 4 km</span><span>Nearest first</span></div>`:""}
  <div class="list">${list}</div>
- <p class="note">Places from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:var(--muted)">© OpenStreetMap contributors</a>. Times are estimates.</p></section>`}
+ </section>`}
 function centerCat(){const c=document.getElementById("ncats");const el=c&&c.querySelector('[aria-pressed="true"]');if(el)c.scrollLeft=el.offsetLeft-c.offsetLeft-16}
 let R=null;
 async function loadRates(){try{const r=await fetch("data/rates.json?ts="+Date.now());if(!r.ok)return;R=await r.json();
@@ -410,13 +445,13 @@ function ratesSec(){
   <div class="rline"><span>22K</span><b>${g?inr(g.k22):"--"}</b></div><div class="rline"><span>24K</span><b>${g?inr(g.k24):"--"}</b></div>${ch}</div>
  <div class="rate"><div class="lbl"><span class="dot" style="background:#d92d3a"></span>Fuel / litre</div>
   <div class="rline"><span>Petrol</span><b>${f?inr(f.petrol):"--"}</b></div><div class="rline"><span>Diesel</span><b>${f?inr(f.diesel):"--"}</b></div><div class="meta" style="font-size:12px;color:var(--muted)">${f?"As of "+dstr(f.asOf):""}</div></div>
- </div>${g?`<p class="note">Gold is estimated from the international price, import duty and GST. Your jeweller's rate may differ slightly.</p>`:""}</section>`}
+ </div></section>`}
 
 const online=[
  {b:"Swiggy",t:"Flat ₹100 off on biryani orders above ₹399",v:"Till 31 Oct",u:"https://www.swiggy.com"},
  {b:"Zomato",t:"Free delivery on your first 3 orders from new restaurants",v:"Till 5 Nov",u:"https://www.zomato.com"},
  {b:"Amazon",t:"Up to 40% off on kitchen appliances, festive sale",v:"Till 2 Nov",u:"https://www.amazon.in"}];
-const onlineCard=o=>`<div class="ocard"><div class="txt"><span class="brandtag">${o.b}</span><h3>${esc(o.t)}</h3><div class="meta" style="font-size:12.5px;color:var(--muted)">${o.v} • Opens ${o.b}</div></div><a class="getdeal" href="${o.u}" target="_blank" rel="noopener">Get deal</a></div>`;
+const onlineCard=o=>`<div class="ocard"><div class="btile" style="background:${BRAND[o.b]||"#d92d3a"}">${esc((o.b||"?")[0])}${art("tag","btag")}</div><div class="txt"><span class="brandtag">${esc(o.b)}</span><h3>${esc(o.t)}</h3><div class="meta" style="font-size:12.5px;color:var(--muted)">${o.v} • Opens ${o.b}</div></div><a class="getdeal" href="${o.u}" target="_blank" rel="noopener">Get deal</a></div>`;
 const movies=[
  {t:"Vettai Raja",l:"Tamil • Action",d:"Fri 31 Oct",r:"Releasing",g:"linear-gradient(160deg,#1f1f24,#e03131 60%,#ff8787)",n:"Advance booking open"},
  {t:"Marina Nights",l:"Tamil • Romance",d:"Now showing",r:"Hit",g:"linear-gradient(160deg,#1d3a5f,#c92a2a 70%,#d92d3a)",n:"Housefull in 12 screens"},
@@ -437,17 +472,70 @@ async function loadMovies(){try{const r=await fetch("data/movies.json?ts="+Date.
  movies.length=0;items.forEach((m,i)=>movies.push({t:m.title,img:m.poster,g:gs[i%4],l:[m.lang,m.genre].filter(Boolean).join(" • "),
   d:m.date<=today?"Now showing":dd(m.date),r:m.date<=today?(m.rating>=7?"Hit":"Now showing"):m.date<=soon?"Releasing":"Coming soon",n:m.rating?`Rated ${m.rating}/10`:(m.date<=today?"In theatres":"Release "+dd(m.date))}));
  moviesLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&["home","news"].includes(cur.dataset.v)){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}catch(e){}}
-const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.img?`linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.75)),url('${x.img}') center/cover,`:""}${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3></div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span><a class="go" style="justify-self:start;margin-top:4px" href="https://in.bookmyshow.com/explore/movies-chennai" target="_blank" rel="noopener">Book tickets</a></div></article>`;
+const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.img?`linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.75)),url('${x.img}') center/cover,`:""}${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span><a class="go" style="justify-self:start;margin-top:4px" href="https://in.bookmyshow.com/explore/movies-chennai" target="_blank" rel="noopener">Book tickets</a></div></article>`;
 function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${all?"":more("news")}</div>
  <div class="chips">${["Movies","City buzz"].map(k=>`<button class="chip" data-b="${k}" aria-pressed="${k===buzzF}">${k==="Movies"?"Movie releases":k}</button>`).join("")}</div>
- ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>${moviesLive?`<p class="note">Movie data from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>`:""}`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
+ ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const demo=`<div class="demo">Weather, rain alerts, news and rates are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
-const newsRow=n=>n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.m)}</div></div></a>`:`<div class="row"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${n.m}</div></div></div>`;
-const evRow=e=>e.u?`<a class="row nlink" href="${esc(e.u)}" target="_blank" rel="noopener"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${esc(e.m)}</div></div></a>`:`<div class="row"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${e.m}</div></div></div>`;
+const ART={
+rain:'<path d="M18 38a10 10 0 0 1 2-19.8A14 14 0 0 1 46 22a9 9 0 0 1 0 16z" fill="#e0ecff"/><ellipse cx="22" cy="49" rx="2.6" ry="4.2" fill="#3b82f6"/><ellipse cx="33" cy="52" rx="2.6" ry="4.2" fill="#3b82f6"/><ellipse cx="44" cy="49" rx="2.6" ry="4.2" fill="#3b82f6"/>',
+metro:'<rect x="14" y="8" width="36" height="40" rx="10" fill="#3b82f6"/><rect x="19" y="14" width="26" height="14" rx="4" fill="#dbeafe"/><circle cx="22" cy="38" r="3" fill="#fde68a"/><circle cx="42" cy="38" r="3" fill="#fde68a"/><path d="M20 48l-6 8M44 48l6 8" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round"/>',
+train:'<rect x="14" y="8" width="36" height="40" rx="8" fill="#f59e0b"/><rect x="19" y="14" width="26" height="12" rx="3" fill="#fff7ed"/><rect x="19" y="30" width="26" height="4" fill="#b45309"/><circle cx="22" cy="40" r="3" fill="#fff"/><circle cx="42" cy="40" r="3" fill="#fff"/><path d="M20 48l-6 8M44 48l6 8" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>',
+bus:'<rect x="10" y="10" width="44" height="38" rx="8" fill="#ef4444"/><rect x="15" y="16" width="34" height="14" rx="3" fill="#fee2e2"/><rect x="15" y="34" width="10" height="5" rx="2" fill="#fde68a"/><rect x="39" y="34" width="10" height="5" rx="2" fill="#fde68a"/><circle cx="20" cy="50" r="5" fill="#1f2937"/><circle cx="44" cy="50" r="5" fill="#1f2937"/>',
+film:'<rect x="8" y="24" width="48" height="30" rx="4" fill="#1f2937"/><path d="M8 16l46-8 2 10-46 8z" fill="#4b5563"/><path d="M15 15l5 9M27 13l5 9M39 11l5 9" stroke="#fff" stroke-width="3"/><circle cx="32" cy="39" r="7" fill="#f43f5e"/>',
+civic:'<path d="M32 6l24 12H8z" fill="#a78bfa"/><rect x="9" y="18" width="46" height="5" fill="#7c3aed"/><rect x="13" y="25" width="7" height="21" fill="#ddd6fe"/><rect x="24" y="25" width="7" height="21" fill="#ddd6fe"/><rect x="35" y="25" width="7" height="21" fill="#ddd6fe"/><rect x="46" y="25" width="6" height="21" fill="#ddd6fe"/><rect x="8" y="46" width="48" height="8" rx="2" fill="#7c3aed"/>',
+business:'<rect x="8" y="20" width="48" height="32" rx="6" fill="#d97706"/><path d="M24 20v-5a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v5" fill="none" stroke="#92400e" stroke-width="4"/><rect x="8" y="32" width="48" height="4" fill="#92400e"/><rect x="28" y="29" width="8" height="9" rx="2" fill="#fde68a"/>',
+sports:'<g transform="rotate(35 40 28)"><rect x="35" y="4" width="11" height="36" rx="5" fill="#f59e0b"/><rect x="38" y="38" width="5" height="16" rx="2" fill="#92400e"/></g><circle cx="18" cy="44" r="9" fill="#dc2626"/><path d="M13 38q5 6 0 12M23 38q-5 6 0 12" stroke="#fff" stroke-width="1.5" fill="none"/>',
+festival:'<path d="M10 56l14-36 22 22z" fill="#f59e0b"/><path d="M15 45l6-15M20 51l9-21" stroke="#fff" stroke-width="2.5"/><circle cx="44" cy="12" r="3" fill="#ec4899"/><circle cx="54" cy="25" r="3" fill="#3b82f6"/><rect x="34" y="6" width="4" height="9" rx="2" fill="#10b981" transform="rotate(30 36 10)"/><rect x="50" y="34" width="4" height="9" rx="2" fill="#8b5cf6" transform="rotate(-30 52 38)"/><circle cx="57" cy="11" r="2" fill="#f43f5e"/>',
+city:'<rect x="6" y="28" width="12" height="28" rx="1" fill="#60a5fa"/><rect x="20" y="14" width="14" height="42" rx="1" fill="#3b82f6"/><rect x="36" y="22" width="10" height="34" rx="1" fill="#93c5fd"/><rect x="48" y="32" width="10" height="24" rx="1" fill="#2563eb"/><g fill="#fff" opacity=".75"><rect x="24" y="20" width="3" height="3"/><rect x="29" y="20" width="3" height="3"/><rect x="24" y="28" width="3" height="3"/><rect x="29" y="28" width="3" height="3"/><rect x="24" y="36" width="3" height="3"/><rect x="29" y="36" width="3" height="3"/></g>',
+temple:'<path d="M12 58l4-12h32l4 12z" fill="#ea580c"/><path d="M16 46l3-10h26l3 10z" fill="#f97316"/><path d="M19 36l3-9h20l3 9z" fill="#fb923c"/><path d="M22 27l3-8h14l3 8z" fill="#fdba74"/><path d="M25 19c0-6 3-9 7-9s7 3 7 9z" fill="#facc15"/><rect x="31" y="4" width="2" height="6" fill="#ca8a04"/><path d="M28 58V51a4 4 0 0 1 8 0v7z" fill="#7c2d12"/>',
+beach:'<circle cx="49" cy="14" r="7" fill="#fbbf24"/><path d="M0 44q8-4 16 0t16 0 16 0 16 0v20H0z" fill="#38bdf8"/><path d="M0 52q8-4 16 0t16 0 16 0 16 0v12H0z" fill="#0ea5e9"/><path d="M8 30a16 14 0 0 1 32 0z" fill="#ef4444"/><path d="M16 30a8 14 0 0 1 16 0z" fill="#fff"/><path d="M24 30v24" stroke="#7c2d12" stroke-width="2.5"/>',
+heritage:'<rect x="8" y="26" width="48" height="30" fill="#b45309"/><rect x="8" y="20" width="8" height="8" fill="#b45309"/><rect x="20" y="20" width="8" height="8" fill="#b45309"/><rect x="36" y="20" width="8" height="8" fill="#b45309"/><rect x="48" y="20" width="8" height="8" fill="#b45309"/><path d="M26 56V44a6 6 0 0 1 12 0v12z" fill="#451a03"/><path d="M32 20V6" stroke="#78350f" stroke-width="2"/><path d="M32 6h12l-3 4 3 4H32z" fill="#ef4444"/>',
+nature:'<rect x="29" y="38" width="6" height="18" rx="2" fill="#92400e"/><circle cx="32" cy="24" r="14" fill="#22c55e"/><circle cx="20" cy="32" r="9" fill="#16a34a"/><circle cx="44" cy="32" r="9" fill="#16a34a"/><circle cx="36" cy="17" r="6" fill="#4ade80"/>',
+shopping:'<path d="M12 22h40l-4 34H16z" fill="#ec4899"/><path d="M24 22v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#9d174d" stroke-width="4"/><circle cx="24" cy="30" r="2.5" fill="#fff"/><circle cx="40" cy="30" r="2.5" fill="#fff"/>',
+daytrip:'<path d="M8 40l6-14a6 6 0 0 1 5-4h26a6 6 0 0 1 5 4l6 14v10H8z" fill="#14b8a6"/><path d="M17 30l3-6h24l3 6z" fill="#ccfbf1"/><circle cx="18" cy="50" r="6" fill="#1f2937"/><circle cx="46" cy="50" r="6" fill="#1f2937"/><rect x="10" y="38" width="6" height="4" rx="2" fill="#fde68a"/><rect x="48" y="38" width="6" height="4" rx="2" fill="#fde68a"/>',
+store:'<rect x="10" y="26" width="44" height="30" fill="#fff"/><path d="M8 14h48l-2 12H10z" fill="#ef4444"/><path d="M16 14l-2 12M24 14v12M32 14v12M40 14v12M48 14l2 12" stroke="#fff" stroke-width="3"/><rect x="16" y="34" width="12" height="22" fill="#fca5a5"/><rect x="34" y="34" width="14" height="10" fill="#bfdbfe"/>',
+ticket:'<g transform="rotate(-12 32 32)"><path d="M8 20h48v8a4 4 0 0 0 0 8v8H8v-8a4 4 0 0 0 0-8z" fill="#facc15"/><path d="M22 20v24" stroke="#ca8a04" stroke-width="2" stroke-dasharray="3 3"/><path d="M38 25l2.4 4.8 5.3.8-3.8 3.7.9 5.2-4.8-2.5-4.8 2.5.9-5.2-3.8-3.7 5.3-.8z" fill="#ef4444"/></g>',
+dosa:'<ellipse cx="32" cy="44" rx="28" ry="12" fill="#22c55e"/><ellipse cx="32" cy="42" rx="24" ry="9" fill="#86efac"/><path d="M8 41l42-20 5 6z" fill="#f59e0b"/><path d="M8 41l47-14-1 6z" fill="#d97706"/><circle cx="44" cy="46" r="5" fill="#fff"/><circle cx="20" cy="47" r="4" fill="#ef4444"/>',
+biryani:'<path d="M24 14q-3-4 0-8M32 14q-3-4 0-8M40 14q-3-4 0-8" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="32" cy="24" rx="20" ry="6" fill="#fde68a"/><path d="M12 25h40l-4 25a6 6 0 0 1-6 5H22a6 6 0 0 1-6-5z" fill="#b45309"/><rect x="8" y="23" width="48" height="5" rx="2.5" fill="#78350f"/><circle cx="34" cy="21" r="2" fill="#f97316"/><circle cx="26" cy="21" r="1.6" fill="#16a34a"/>',
+coffee:'<path d="M22 12q-3-4 0-8M30 12q-3-4 0-8" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M18 16h22l-3 30H21z" fill="#cbd5e1"/><ellipse cx="29" cy="16" rx="11" ry="3" fill="#92400e"/><path d="M6 46h44l-5 10H11z" fill="#94a3b8"/><ellipse cx="28" cy="46" rx="22" ry="3" fill="#cbd5e1"/>',
+dessert:'<path d="M22 30h20L32 60z" fill="#f59e0b"/><path d="M24 35l15 4M27 43l9 3" stroke="#b45309" stroke-width="1.5"/><circle cx="26" cy="25" r="9" fill="#f472b6"/><circle cx="38" cy="25" r="9" fill="#fde68a"/><circle cx="32" cy="16" r="8" fill="#a78bfa"/><circle cx="33" cy="7" r="3" fill="#ef4444"/>',
+fish:'<path d="M8 32c8-12 24-14 36-4l12-8v24l-12-8C32 46 16 44 8 32z" fill="#fb923c"/><circle cx="18" cy="30" r="2.5" fill="#1f2937"/><path d="M28 24q4 8 0 16" stroke="#ea580c" stroke-width="2" fill="none"/>',
+tea:'<path d="M18 14h28l-4 42H22z" fill="#fde7c7"/><path d="M19.6 26h24.8l-2.9 30H22.5z" fill="#c2732e"/><rect x="17" y="12" width="30" height="4" rx="2" fill="#e5e7eb"/>',
+gift:'<rect x="10" y="26" width="44" height="30" rx="4" fill="#ef4444"/><rect x="8" y="18" width="48" height="10" rx="3" fill="#f87171"/><rect x="28" y="18" width="8" height="38" fill="#fde68a"/><path d="M32 18c-6-10-16-8-14-2s14 2 14 2zM32 18c6-10 16-8 14-2s-14 2-14 2z" fill="#facc15"/>',
+tag:'<path d="M34 8h18a4 4 0 0 1 4 4v18L30 56a4 4 0 0 1-6 0L8 40a4 4 0 0 1 0-6z" fill="#8b5cf6"/><circle cx="46" cy="18" r="4" fill="#fff"/><text x="21" y="44" font-size="18" font-weight="800" fill="#fff" font-family="system-ui,sans-serif" transform="rotate(-45 28 38)">%</text>',
+music:'<path d="M24 46V14l26-6v32" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-linejoin="round"/><ellipse cx="18" cy="46" rx="8" ry="6" fill="#8b5cf6"/><ellipse cx="44" cy="40" rx="8" ry="6" fill="#8b5cf6"/>',
+mic:'<rect x="24" y="6" width="16" height="28" rx="8" fill="#6b7280"/><path d="M18 26a14 14 0 0 0 28 0" fill="none" stroke="#374151" stroke-width="4"/><path d="M32 40v12M22 56h20" stroke="#374151" stroke-width="4" stroke-linecap="round"/>',
+market:'<path d="M8 22h48l-4-12H12z" fill="#10b981"/><path d="M8 22q4 6 8 0 4 6 8 0 4 6 8 0 4 6 8 0 4 6 8 0 4 6 8 0z" fill="#fff"/><rect x="12" y="28" width="40" height="28" fill="#fef3c7"/><circle cx="22" cy="42" r="5" fill="#ef4444"/><circle cx="32" cy="42" r="5" fill="#f59e0b"/><circle cx="42" cy="42" r="5" fill="#84cc16"/>',
+people:'<circle cx="22" cy="20" r="8" fill="#f59e0b"/><circle cx="42" cy="20" r="8" fill="#3b82f6"/><path d="M8 54a14 14 0 0 1 28 0z" fill="#f59e0b"/><path d="M28 54a14 14 0 0 1 28 0z" fill="#3b82f6"/>',
+pin:'<path d="M32 6c-11 0-20 9-20 20 0 15 20 32 20 32s20-17 20-32c0-11-9-20-20-20z" fill="#ef4444"/><circle cx="32" cy="26" r="8" fill="#fff"/>',
+paper:'<rect x="48" y="20" width="8" height="36" rx="3" fill="#e5e7eb"/><rect x="8" y="12" width="40" height="44" rx="4" fill="#fff"/><rect x="14" y="18" width="28" height="8" rx="2" fill="#1f2937"/><rect x="14" y="30" width="12" height="10" rx="1" fill="#93c5fd"/><rect x="29" y="30" width="13" height="2" fill="#9ca3af"/><rect x="29" y="35" width="13" height="2" fill="#9ca3af"/><rect x="14" y="44" width="28" height="2" fill="#9ca3af"/><rect x="14" y="49" width="22" height="2" fill="#9ca3af"/>',
+veg:'<path d="M12 52C12 24 32 10 54 10c0 24-14 42-42 42z" fill="#22c55e"/><path d="M12 52L44 20" stroke="#15803d" stroke-width="3"/>',
+latenight:'<path d="M42 6a13 13 0 1 0 14 17A10 10 0 0 1 42 6z" fill="#fde68a"/><ellipse cx="28" cy="50" rx="22" ry="6" fill="#e5e7eb"/><path d="M12 48a16 12 0 0 1 32 0z" fill="#f97316"/>',
+streetfood:'<path d="M6 22h44l-4-10H10z" fill="#facc15"/><rect x="8" y="22" width="40" height="20" rx="3" fill="#f97316"/><circle cx="16" cy="48" r="6" fill="#1f2937"/><circle cx="40" cy="48" r="6" fill="#1f2937"/><path d="M48 30h10" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>',
+star:'<path d="M32 6l7.6 16 17.4 2-13 12 3.6 17.4L32 45l-15.6 8.4L20 36 7 24l17.4-2z" fill="#facc15"/>'};
+const art=(k,cls="")=>`<svg class="${cls}" viewBox="0 0 64 64" aria-hidden="true">${ART[k]||ART.city}</svg>`;
+const NEWSART={Rain:"rain",Transport:"metro",Movies:"film",Civic:"civic",Business:"business",Sports:"sports",Events:"festival",City:"city",Music:"music"};
+const NEWSTINT={Rain:"56,189,248",Transport:"59,130,246",Movies:"244,63,94",Civic:"139,92,246",Business:"217,119,6",Sports:"220,38,38",Events:"249,115,22",City:"99,102,241",Music:"139,92,246"};
+const NEWSGRAD={Rain:"#0284c7,#38bdf8",Transport:"#1d4ed8,#3b82f6",Movies:"#be123c,#f43f5e",Civic:"#6d28d9,#a78bfa",Business:"#b45309,#f59e0b",Sports:"#b91c1c,#ef4444",Events:"#c2410c,#fb923c",City:"#4338ca,#818cf8"};
+const EVART={Music:"music",Comedy:"mic",Market:"market",Community:"people",Sports:"sports",Food:"dosa",Kids:"festival",Workshop:"business",Festival:"festival"};
+const HOTART={place:"store",event:"ticket",food:"dosa"};
+const EXART={Temples:"temple",Beaches:"beach",Heritage:"heritage",Nature:"nature",Shopping:"shopping","Day trips":"daytrip"};
+const BANNER={near:"#0ea5e9,#6366f1",news:"#6d28d9,#db2777",events:"#e11d48,#f59e0b",food:"#ea580c,#f59e0b",offers:"#e11d48,#9333ea",explore:"#0284c7,#14b8a6",travel:"#4f46e5,#0ea5e9"};
+function banner(k,title,sub,arts){return `<section class="banner" style="background:linear-gradient(135deg,${BANNER[k]})"><div class="bart3">${arts.map((a,i)=>art(a,"b"+i)).join("")}</div><h1>${title}</h1><p>${sub}</p></section>`}
+const BRAND={Swiggy:"#fc8019",Zomato:"#e23744",Amazon:"#232f3e",Flipkart:"#2874f0",BookMyShow:"#e5344a"};
+function credits(v){const t={home:'Weather: <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo.com</a> · Movies: TMDB (not endorsed by TMDB) · Gold rate is an estimate',
+ near:'Places © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · Walk and drive times are estimates',
+ news:'Headlines open on each publisher’s site · Movies: TMDB (not endorsed by TMDB)',explore:'Timings and entry fees change, so check before you go',
+ offers:'Deals open the store’s own app or site and may change',food:'Ratings open in Google Maps'}[v];return t?`<p class="credits">${t}</p>`:""}
+const newsRow=n=>{const inner=`<div class="ibadge" style="background:rgba(${NEWSTINT[n.c]||"99,102,241"},.14)">${art(NEWSART[n.c]||"city")}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.c)} · ${esc(n.m)}</div></div>`;return n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="row">${inner}</div>`};
+const newsFeat=n=>{const inner=`<span class="fcat">${esc(n.c)}</span><h3>${esc(n.t)}</h3><div class="fmeta">${esc(n.m)}</div>${art(NEWSART[n.c]||"city","fart")}`;const st=`style="background:linear-gradient(135deg,${NEWSGRAD[n.c]||NEWSGRAD.City})"`;return n.u?`<a class="feat nlink" ${st} href="${esc(n.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="feat" ${st}>${inner}</div>`};
+const evRow=e=>{const inner=`<div class="dtile"><b>${e.d}</b><span>${esc(e.mo)}</span></div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${esc(e.m)}</div></div>${art(EVART[e.c]||"festival","eart")}`;return e.u?`<a class="row erow nlink" href="${esc(e.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="row erow">${inner}</div>`};
 const mapsQ=q=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
-const foodRow=f=>`<div class="row"><div class="badge">${esc(f.a.split(" ").map(w=>w[0]).join("").slice(0,2))}</div><div class="txt"><div class="eyebrow">${esc(f.a)}</div><h3>${esc(f.n)}</h3><div class="meta">${esc(f.m)}</div></div><div class="dist"><a class="go" target="_blank" rel="noopener" href="${esc(f.u||mapsQ(f.n+", "+f.a+", Chennai"))}">Ratings &amp; map</a></div></div>`;
+const foodArt=f=>{const t=((f.tag||"")+" "+f.m+" "+f.n).toLowerCase();return /biryani/.test(t)?"biryani":/dessert|jigar|kulfi|ice/.test(t)?"dessert":/late/.test(t)?"latenight":/coffee|cafe|tea/.test(t)?"coffee":/sea|fish|prawn/.test(t)?"fish":/street|chaat/.test(t)?"streetfood":/non/.test(t)?"biryani":"dosa"};
+const foodRow=f=>`<div class="row"><div class="ibadge" style="background:rgba(249,115,22,.12)">${art(foodArt(f))}</div><div class="txt"><div class="eyebrow">${esc(f.a)}</div><h3>${esc(f.n)}</h3><div class="meta">${esc(f.m)}</div></div><div class="dist"><a class="go" target="_blank" rel="noopener" href="${esc(f.u||mapsQ(f.n+", "+f.a+", Chennai"))}">★ Ratings</a></div></div>`;
 const TOPQ=[["Top rated","best restaurants"],["Biryani","best biryani"],["Tiffin","best tiffin idli dosa"],["Veg meals","best veg meals restaurant"],["Seafood","best seafood restaurant"],["Cafes","best cafe"],["Desserts","best dessert shop"],["Late night","late night restaurants open now"]];
 const offerCard=o=>`<div class="offer"><div class="off">${o.o}<small>OFF</small></div><div style="min-width:0"><h3 style="margin:0;font-size:15px">${esc(o.n)}</h3><div class="row meta" style="padding:0;border:0;gap:8px;flex-wrap:wrap">${o.s} • ${o.v} • <span class="code">${o.code}</span></div></div></div>`;
 const more=v=>`<button class="see" data-go="${v}">See all</button>`;
@@ -527,17 +615,17 @@ async function loadContent(){try{const r=await fetch("data/content.json?ts="+Dat
 let EX=null,exF="All";
 async function loadExplore(){try{const r=await fetch("data/explore.json");if(!r.ok)return;EX=await r.json();const cur=document.querySelector('.tab[aria-selected="true"]');const v=cur?cur.dataset.v:"explore";if(v==="home"){const y=window.scrollY;go("home");window.scrollTo(0,y)}else if(!cur&&view.dataset.v==="explore"){go("explore")}}catch(e){}}
 const dirUrl=p=>`https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
-const exCard=p=>`<article class="hcard"><div class="hband k-${p.cat.replace(/\s/g,"")}"><span class="htag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3></div><div class="hbody"><div>${esc(p.area)} • ${esc(p.time)}</div><div class="why">${esc(p.why)}</div><div>${esc(p.tip)}</div><div class="ex-actions"><span></span><a class="go" target="_blank" rel="noopener" href="${dirUrl(p)}">Directions</a></div></div></article>`;
+const exCard=p=>`<article class="hcard"><div class="hband k-${p.cat.replace(/\s/g,"")}"><span class="htag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3>${art(EXART[p.cat]||"temple","bandart")}</div><div class="hbody"><div>${esc(p.area)} • ${esc(p.time)}</div><div class="why">${esc(p.why)}</div><div class="tip">${esc(p.tip)}</div><div class="ex-actions"><span></span><a class="go" target="_blank" rel="noopener" href="${dirUrl(p)}">Directions</a></div></div></article>`;
 function exploreHome(){if(!EX)return"";return `<section><div class="head"><h2>Visiting Chennai?</h2>${more("explore")}</div><div class="hot">${EX.places.slice(0,6).map(exCard).join("")}</div></section>`}
 function exploreView(){if(!EX)return `<section><button class="back" data-go="home">‹ Home</button><h2>Explore Chennai</h2><p class="note">Loading places…</p></section>`;
  const cats=["All",...new Set(EX.places.map(p=>p.cat))];
  const list=EX.places.filter(p=>exF==="All"||p.cat===exF);
- return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><div><h2 style="margin-bottom:4px">Explore Chennai</h2><div class="meta" style="color:var(--muted);font-size:13.5px">Must-visit places for first-timers and weekend explorers.</div></div>
+ return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button>${banner("explore","Explore Chennai","Must-see places &amp; a one-day plan",["temple","beach","heritage"])}
  <div class="besttime"><b>Best time to visit:</b> ${esc(EX.bestTime)}</div></section>
  <section><h2>If you have one day</h2><div class="plan">${EX.oneDay.map(s=>`<div class="pstep"><div class="when">${esc(s.time)}</div><div><b>${esc(s.stop)}</b><span>${esc(s.note)}</span></div></div>`).join("")}</div></section>
  <section><h2>Must-visit places</h2><div class="chips">${cats.map(c=>`<button class="chip" data-x="${esc(c)}" aria-pressed="${c===exF}">${esc(c)}</button>`).join("")}</div>
  <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
- <p class="note">Timings and entry fees change. Check before you go.</p></section>`}
+ </section>`}
 function quickSec(){const Q=[["near:petrol","Petrol",ICON.petrol],["near:hospital","Hospitals",ICON.hospital],["travel","Bus & Metro",ICON.bus],["food","Top food",ICON.food],["explore","Explore",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>']];
  const GR=["linear-gradient(135deg,#ff9a3d,#ff5e3a)","linear-gradient(135deg,#ff5c7a,#e8384a)","linear-gradient(135deg,#4f8bff,#6a4dff)","linear-gradient(135deg,#ffd23f,#ff9f1c)","linear-gradient(135deg,#2fd3b0,#11998e)"];
  return `<section class="qa" aria-label="Quick actions">${Q.map(([k,l,i],n)=>`<button class="qbtn" data-q="${k}"><span class="qi" style="background:${GR[n]}"><svg viewBox="0 0 24 24">${i}</svg></span>${l}</button>`).join("")}</section>`}
@@ -588,7 +676,7 @@ function travelResults(){if(!TR)return `<p class="note">Loading bus, train and M
  return opts.length?`<div style="display:grid;gap:10px">${opts.map(optHTML).join("")}</div>`:`<div class="prow" style="grid-template-columns:1fr;border:1px solid var(--line);border-radius:14px"><div><h3>No route with up to one change</h3><div class="meta">Try a bigger stop nearby (a bus terminus or station), another mode, or Google Maps below.</div></div></div>`}
 function gmapsTransit(){const q=p=>p?(p.label==="My location"?`${p.la},${p.lo}`:encodeURIComponent(p.label+", Chennai")):"";return `https://www.google.com/maps/dir/?api=1&origin=${q(TF)}&destination=${q(TT)}&travelmode=transit`}
 function travelView(){if(!TR)loadTransit().then(()=>{if(view.dataset.v==="travel")go("travel")}).catch(()=>{trMsg="Couldn't load routes. Check your internet and open this screen again.";if(view.dataset.v==="travel")go("travel")});
- return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button><h2 style="margin:0">Bus, train &amp; Metro</h2>
+ return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button>${banner("travel","Bus, train &amp; Metro","Bus numbers &amp; lines from A to B",["bus","metro","train"])}
  <div class="tripcard"><div class="tin"><span class="tdot"></span><input id="tfrom" placeholder="From: stop, station or area" autocomplete="off" value="${TF?esc(TF.label):""}" aria-label="From"></div>
  <button class="tswap" id="tswap" aria-label="Swap start and destination"><svg viewBox="0 0 24 24"><path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/></svg></button>
  <div class="tin"><span class="tdot to"></span><input id="tto" placeholder="To: where are you going?" autocomplete="off" value="${TT?esc(TT.label):""}" aria-label="To"></div>
@@ -616,7 +704,6 @@ function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around 
 
 const views={
  home:()=>`${weather()}
-  <p style="margin:-14px 2px 0;font-size:11px;color:var(--muted)">Weather data by <a href="https://open-meteo.com" style="color:var(--muted)">Open-Meteo.com</a></p>
   ${quickSec()}
   ${ratesSec()}
   <section><h2>Alerts</h2>${rainAlert()}${alerts.filter(a=>a.k!=="Rain").map(alertHTML).join("")}</section>
@@ -629,18 +716,17 @@ const views={
  near:()=>nearView(),
  explore:()=>exploreView(),
  travel:()=>travelView(),
- news:()=>`${buzzSec(true)}<section><h2>Chennai news</h2>${newsLive?`<p class="note" style="margin:-4px 0 8px">Tap a headline to read the full story on the publisher's site.</p>`:""}<div class="list">${news.map(newsRow).join("")}</div></section>`,
- events:()=>`<section><h2>Events in Chennai${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
- food:(f="All")=>`<section><h2>Top rated near me</h2>
-  <p class="note" style="margin:-4px 0 10px">Opens Google Maps with the best-rated places around you, with ratings and reviews.</p>
-  <a class="getdeal" style="display:block;text-align:center;margin-bottom:10px" target="_blank" rel="noopener" href="${mapsQ("best restaurants near me")}">Show top-rated restaurants near me</a>
-  <div class="nchips" style="grid-template-columns:repeat(4,minmax(0,1fr))">${TOPQ.slice(1).map(([l,q])=>`<a class="nchip" style="text-decoration:none;padding:10px 2px" target="_blank" rel="noopener" href="${mapsQ(q+" near me")}">${l}</a>`).join("")}<a class="nchip" style="text-decoration:none;padding:10px 2px" target="_blank" rel="noopener" href="${mapsQ("best street food near me")}">Street food</a></div></section>
-  <section><h2>Chennai's best${contentLive?"":`<span class="stag">Sample</span>`}</h2><p class="note" style="margin:-4px 0 10px">Hand-picked spots. Tap Ratings &amp; map to see Google reviews.</p><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
+ news:()=>`${banner("news","Chennai news","Fresh headlines every 30 minutes",["paper","film","rain"])}${news.length?`<section>${newsFeat(news[0])}</section>`:""}${buzzSec(true)}<section><h2>Latest</h2><div class="list">${news.slice(1).map(newsRow).join("")}</div></section>`,
+ events:()=>`${banner("events","Events","Concerts, comedy, markets &amp; more",["ticket","music","festival"])}<section><h2>Coming up${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
+ food:(f="All")=>`${banner("food","Food","Chennai’s tastiest spots",["dosa","biryani","coffee"])}<section>
+  <a class="bigcta" target="_blank" rel="noopener" href="${mapsQ("best restaurants near me")}">${art("star")}<span><b>Top rated near me</b><small>Best-rated restaurants around you</small></span><i>›</i></a>
+  <div class="ftiles">${[["Biryani","best biryani","biryani"],["Tiffin","best tiffin idli dosa","dosa"],["Veg meals","best veg meals restaurant","veg"],["Seafood","best seafood restaurant","fish"],["Cafes","best cafe","coffee"],["Desserts","best dessert shop","dessert"],["Late night","late night restaurants open now","latenight"],["Street food","best street food","streetfood"]].map(([l,q,a])=>`<a class="ftile" target="_blank" rel="noopener" href="${mapsQ(q+" near me")}">${art(a)}<span>${l}</span></a>`).join("")}</div></section>
+  <section><h2>Chennai's best${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
   <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,
- offers:()=>`<section><h2>Online deals${contentLive?"":`<span class="stag">Sample</span>`}</h2>${online.map(onlineCard).join("")}<p class="note">Online deals open the store's own app or website. Offers are set by each store and may change.</p></section>`};
+ offers:()=>`${banner("offers","Offers","Deals worth grabbing today",["gift","tag"])}<section><h2>Online deals${contentLive?"":`<span class="stag">Sample</span>`}</h2>${online.map(onlineCard).join("")}</section>`};
 
 const view=document.getElementById("view");
-function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg);if(v==="near")centerCat();if(v==="travel")initTravel();document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="travel")initTravel();document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
 view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
