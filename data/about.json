@@ -1,0 +1,172 @@
+{
+ "glance": [
+  {
+   "icon": "heritage",
+   "k": "Founded",
+   "v": "1639, as Madras",
+   "k_ta": "தோற்றம்",
+   "v_ta": "1639, மதராஸ் என"
+  },
+  {
+   "icon": "civic",
+   "k": "Capital of",
+   "v": "Tamil Nadu",
+   "k_ta": "தலைநகரம்",
+   "v_ta": "தமிழ்நாடு"
+  },
+  {
+   "icon": "beach",
+   "k": "Coast",
+   "v": "Bay of Bengal",
+   "k_ta": "கடற்கரை",
+   "v_ta": "வங்காள விரிகுடா"
+  },
+  {
+   "icon": "paper",
+   "k": "Language",
+   "v": "Tamil",
+   "k_ta": "மொழி",
+   "v_ta": "தமிழ்"
+  },
+  {
+   "icon": "nature",
+   "k": "Rivers",
+   "v": "Cooum & Adyar",
+   "k_ta": "ஆறுகள்",
+   "v_ta": "கூவம் & அடையாறு"
+  },
+  {
+   "icon": "daytrip",
+   "k": "Known as",
+   "v": "Gateway to South India",
+   "k_ta": "அழைக்கப்படுவது",
+   "v_ta": "தென்னிந்தியாவின் நுழைவாயில்"
+  }
+ ],
+ "timeline": [
+  {
+   "y": "Ancient",
+   "t": "Temple towns by the sea",
+   "d": "Long before the city existed, Mylapore and Triplicane were thriving temple towns. The Parthasarathy Temple dates back to the Pallava era.",
+   "y_ta": "பண்டைய காலம்",
+   "t_ta": "கடலோரக் கோயில் நகரங்கள்",
+   "d_ta": "நகரம் உருவாவதற்கு முன்பே மயிலாப்பூரும் திருவல்லிக்கேணியும் செழிப்பான கோயில் நகரங்களாக இருந்தன. பார்த்தசாரதி கோயில் பல்லவர் காலத்தைச் சேர்ந்தது."
+  },
+  {
+   "y": "1639",
+   "t": "Madras is born",
+   "d": "On 22 August, the East India Company got a strip of coastal land from local Nayak rulers. That date is celebrated every year as Madras Day.",
+   "y_ta": "1639",
+   "t_ta": "மதராஸ் பிறந்தது",
+   "d_ta": "ஆகஸ்ட் 22 அன்று உள்ளூர் நாயக்க ஆட்சியாளர்களிடமிருந்து கிழக்கிந்திய கம்பெனி கடலோர நிலத்தைப் பெற்றது. இந்த நாள் ஆண்டுதோறும் மெட்ராஸ் தினமாகக் கொண்டாடப்படுகிறது."
+  },
+  {
+   "y": "1644",
+   "t": "Fort St. George",
+   "d": "The first English fort in India was completed. Today it houses the Tamil Nadu Assembly and a museum.",
+   "y_ta": "1644",
+   "t_ta": "புனித ஜார்ஜ் கோட்டை",
+   "d_ta": "இந்தியாவின் முதல் ஆங்கிலேயக் கோட்டை கட்டி முடிக்கப்பட்டது. இன்று இங்கு தமிழ்நாடு சட்டமன்றமும் அருங்காட்சியகமும் உள்ளன."
+  },
+  {
+   "y": "1688",
+   "t": "India's oldest city corporation",
+   "d": "The Madras Corporation was set up, making today's Greater Chennai Corporation the oldest municipal body in India.",
+   "y_ta": "1688",
+   "t_ta": "இந்தியாவின் பழமையான மாநகராட்சி",
+   "d_ta": "மதராஸ் மாநகராட்சி தொடங்கப்பட்டது. இன்றைய பெருநகர சென்னை மாநகராட்சியே இந்தியாவின் பழமையான உள்ளாட்சி அமைப்பு."
+  },
+  {
+   "y": "1856",
+   "t": "Trains arrive",
+   "d": "Royapuram station opened, one of the oldest railway stations still standing in India.",
+   "y_ta": "1856",
+   "t_ta": "ரயில் வருகை",
+   "d_ta": "ராயபுரம் ரயில் நிலையம் திறக்கப்பட்டது; இந்தியாவில் இன்னும் நிற்கும் பழமையான ரயில் நிலையங்களில் ஒன்று."
+  },
+  {
+   "y": "1857",
+   "t": "University of Madras",
+   "d": "One of India's first modern universities was founded here.",
+   "y_ta": "1857",
+   "t_ta": "சென்னைப் பல்கலைக்கழகம்",
+   "d_ta": "இந்தியாவின் முதல் நவீன பல்கலைக்கழகங்களில் ஒன்று இங்கு நிறுவப்பட்டது."
+  },
+  {
+   "y": "1928",
+   "t": "The Music Academy",
+   "d": "Its December concerts grew into the famous Margazhi music and dance season.",
+   "y_ta": "1928",
+   "t_ta": "மியூசிக் அகாடமி",
+   "d_ta": "இதன் டிசம்பர் கச்சேரிகள் புகழ்பெற்ற மார்கழி இசை, நடனப் பருவமாக வளர்ந்தன."
+  },
+  {
+   "y": "1969",
+   "t": "Tamil Nadu",
+   "d": "Madras State was renamed Tamil Nadu, with Madras as its capital.",
+   "y_ta": "1969",
+   "t_ta": "தமிழ்நாடு",
+   "d_ta": "மதராஸ் மாநிலம் தமிழ்நாடு எனப் பெயர் மாற்றம் பெற்றது; மதராஸ் அதன் தலைநகரம்."
+  },
+  {
+   "y": "1996",
+   "t": "Madras becomes Chennai",
+   "d": "The city officially took the name Chennai.",
+   "y_ta": "1996",
+   "t_ta": "மதராஸ் சென்னை ஆனது",
+   "d_ta": "நகரம் அதிகாரப்பூர்வமாக சென்னை என்ற பெயரைப் பெற்றது."
+  },
+  {
+   "y": "2015",
+   "t": "Metro rail",
+   "d": "Chennai Metro started running, and the network keeps growing.",
+   "y_ta": "2015",
+   "t_ta": "மெட்ரோ ரயில்",
+   "d_ta": "சென்னை மெட்ரோ ஓடத் தொடங்கியது; வலையமைப்பு தொடர்ந்து வளர்கிறது."
+  }
+ ],
+ "highlights": [
+  {
+   "art": "music",
+   "t": "Margazhi music season",
+   "d": "Carnatic concerts and Bharatanatyam in hundreds of sabhas every December.",
+   "t_ta": "மார்கழி இசைப் பருவம்",
+   "d_ta": "ஒவ்வொரு டிசம்பரிலும் நூற்றுக்கணக்கான சபாக்களில் கர்நாடக இசைக் கச்சேரிகளும் பரதநாட்டியமும்."
+  },
+  {
+   "art": "film",
+   "t": "Home of Kollywood",
+   "d": "Tamil cinema grew up in Kodambakkam and Vadapalani studios.",
+   "t_ta": "கோலிவுட்டின் தாயகம்",
+   "d_ta": "தமிழ் சினிமா கோடம்பாக்கம், வடபழனி ஸ்டுடியோக்களில் வளர்ந்தது."
+  },
+  {
+   "art": "coffee",
+   "t": "Filter coffee & tiffin",
+   "d": "Idli, dosa, pongal and a strong degree coffee: the Chennai morning ritual.",
+   "t_ta": "ஃபில்டர் காபி & டிபன்",
+   "d_ta": "இட்லி, தோசை, பொங்கல், ஸ்ட்ராங் டிகிரி காபி: சென்னையின் காலைப் பழக்கம்."
+  },
+  {
+   "art": "beach",
+   "t": "Marina Beach",
+   "d": "One of the longest urban beaches in the world, and the city's living room.",
+   "t_ta": "மெரினா கடற்கரை",
+   "d_ta": "உலகின் மிக நீளமான நகர்ப்புறக் கடற்கரைகளில் ஒன்று; நகரத்தின் வரவேற்பறை."
+  },
+  {
+   "art": "daytrip",
+   "t": "Detroit of Asia",
+   "d": "A major hub for cars and bikes, alongside a booming IT corridor on OMR.",
+   "t_ta": "ஆசியாவின் டெட்ராய்ட்",
+   "d_ta": "கார், பைக் உற்பத்தியின் முக்கிய மையம்; கூடவே OMR-ல் வளரும் IT வழித்தடம்."
+  },
+  {
+   "art": "sports",
+   "t": "Chepauk cricket",
+   "d": "The M. A. Chidambaram Stadium is one of India's oldest cricket grounds.",
+   "t_ta": "சேப்பாக்கம் கிரிக்கெட்",
+   "d_ta": "எம்.ஏ. சிதம்பரம் மைதானம் இந்தியாவின் பழமையான கிரிக்கெட் மைதானங்களில் ஒன்று."
+  }
+ ]
+}
