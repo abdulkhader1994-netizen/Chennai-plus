@@ -1,8 +1,64 @@
 {
- "updated": "2026-10-26T11:10:43.380Z",
+ "updated": "2026-10-26T13:53:59.834Z",
  "items": [
   {
-   "title": "Former Tamil Nadu minister Anbil Mahesh Poyyamozhi arrested",
+   "title": "Tamil Nadu raises building height limit to 19.5m, eases norms in Chennai aquifer zone",
+   "source": "Times of India",
+   "link": "https://timesofindia.indiatimes.com/city/chennai/tamil-nadu-raises-building-height-limit-to-19-5m-eases-norms-in-chennai-aquifer-zone/articleshow/135213246.cms",
+   "published": "2026-10-26T13:39:19.000Z",
+   "category": "City"
+  },
+  {
+   "title": "Northeast monsoon: TN minister says 14 people died of rain-related deaths, the Nilgiris saw 62 landslides",
+   "source": "Times of India",
+   "link": "https://timesofindia.indiatimes.com/city/chennai/northeast-monsoon-tn-minister-says-14-people-died-of-rain-related-deaths-the-nilgiris-saw-62-landslides/articleshow/135213101.cms",
+   "published": "2026-10-26T13:29:21.000Z",
+   "category": "Rain"
+  },
+  {
+   "title": "Former DMK Minister Anbil Mahesh Poyyamozhi arrested in ₹100-crore private schools fraud case",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/news/national/tamil-nadu/former-dmk-minister-anbil-mahesh-poyyamozhi-arrested/article71626605.ece",
+   "published": "2026-10-26T13:22:40.000Z",
+   "category": "City"
+  },
+  {
+   "title": "Remembering Chef Damu: A life dedicated to Tamil Nadu’s culinary heritage",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/society/remembering-chef-damu-a-life-dedicated-to-tamil-nadus-culinary-heritage/article71626208.ece",
+   "published": "2026-10-26T13:21:37.000Z",
+   "category": "City"
+  },
+  {
+   "title": "Tamil Nadu Monsoon: Heavy Rain in Chennai, CM Vijay Reviews Chembarambakkam Lake Preparedness - India Today",
+   "source": "India Today",
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQV2puZ3RwOXBnT1pxMDM1cktmRGVYd2dFX2ZaQlRaZDlqY1hwNGl6QVhEdUVDOUM0QWNKMTJZTVhCWWFfdmF0dEpmOGRIakZ4eFh6T1UxZ1ZDdVhGVHVjT1loMENiUV9iRjdSR191U2JlYzJId0E4c1V5MWdPVXBLMWhscjRqM2JuWjYwNTdEQVZUcGhRN01KRlVVN2g4MGRLbTVmS2hrdVR3Q05CTHByLVdHbFRCcUhLZWFWeERqZkdLRVlyTV9oZ2V0VjIyUTdjQmlvUm1XdUpKT3RWbVBPMHFUeDdJTndQ0gHuAUFVX3lxTE5TVzFsRjBjNHE4MEd4blFvTnVRNkNscHF3N3dlRWlGdU5OZVRIaTVnZG4tV19MaERqRVVrWEVZWEhwMW9jcTZHaXZ3dks4UU5yT3haX2hjZUdYMzVmWlFYVnBuS0x6YzFDR0J6OFJBTlV1bG1DazVJdmY2dHQzd1dZN0dSOGpvMl9DWk51ZVJJdGp2bk9ndDNIVEVUNTZBenprdnJHbkg3Y0RkQi1YdzBWS1kwT3dGVGFmZ0JtVUgzRTUtU056SUREZTJCajNEQ0VsbVhEX0tuNDc2eEF1Si1jaVJWT1MwRjlJUG81aHc?oc=5",
+   "published": "2026-10-26T13:17:14.000Z",
+   "category": "Rain"
+  },
+  {
+   "title": "Award-winning director-cinematographer Chezhiyan no more",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/news/national/tamil-nadu/award-winning-director-cinematographer-chezhiyan-is-no-more/article71205403.ece",
+   "published": "2026-10-26T12:00:26.000Z",
+   "category": "City"
+  },
+  {
+   "title": "Madras High Court denies anticipatory bail to Anbil Mahesh Poyyamozhi in ₹100-crore private schools fraud case",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/news/national/tamil-nadu/madras-high-court-denies-anticipatory-bail-to-anbil-mahesh-poyyamozhi-in-rs-100-crore-private-schools-fraud-case/article71625866.ece",
+   "published": "2026-10-26T11:55:16.000Z",
+   "category": "City"
+  },
+  {
+   "title": "DMK Women’s Wing to stage protest across Tamil Nadu over law and order on October 31",
+   "source": "The Hindu",
+   "link": "https://www.thehindu.com/news/national/tamil-nadu/dmk-women-wing-to-stage-protest-across-tamil-nadu-over-law-and-order-on-october-31-2026/article71626524.ece",
+   "published": "2026-10-26T11:53:57.000Z",
+   "category": "City"
+  },
+  {
+   "title": "Former Tamil Nadu school education minister Anbil Mahesh Poyyamozhi arrested",
    "source": "Times of India",
    "link": "https://timesofindia.indiatimes.com/city/chennai/former-tamil-nadu-minister-anbil-mahesh-poyyamozhi-arrested/articleshow/135209781.cms",
    "published": "2026-10-26T10:54:41.000Z",
@@ -47,14 +103,7 @@
    "title": "Beyond ghost stations and unsafe infrastructure, how can we reclaim Chennai’s MRTS?",
    "source": "Citizen Matters",
    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPWTc4Mlc0N25QVERfSVpIM3dZUk41cFRhT2xLSmRZby1VVjhuVTEzMmJORmtsM3NBdWpBaXF5aXQtOE9NSjlmZ3VWSENpOFBOT1BzZXhpZWIxc1VFNURvdzJQZF94cHJCaHZYYnd2QTFoRU5JVnZ0emJETFBjdkEyUlZQYW93N3NOei1UNVBXWGkyNTJNbThVTEZ6MUxELWtpMlVDZVp4bEhvQ2c?oc=5",
-   "published": "2026-10-26T07:33:25.000Z",
-   "category": "City"
-  },
-  {
-   "title": "Madras High Court denies anticipatory bail to Anbil Mahesh Poyyamozhi in ‘party fund’ collection case",
-   "source": "The Hindu",
-   "link": "https://www.thehindu.com/news/national/tamil-nadu/madras-high-court-denies-anticipatory-bail-to-anbil-mahesh-poyyamozhi-in-rs-100-crore-private-schools-fraud-case/article71625866.ece",
-   "published": "2026-10-26T07:28:07.000Z",
+   "published": "2026-10-26T07:33:35.000Z",
    "category": "City"
   },
   {
@@ -100,6 +149,13 @@
    "category": "City"
   },
   {
+   "title": "Dhanush sparks political debut buzz after meeting 3,000 women’s wing members of fan club in Chennai",
+   "source": "Moneycontrol.com",
+   "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNZDRtWThGdi1XVnJUdEhvR25Uak9sXzdPRDZVNmpueFR4MEYzSUxORGNmVjJIT21FNldrVzRabW1XdzB1SHJjLS1aN1FMcGZUT2Z5U280Q1R1VVEzRUhDYkM4OE5fQVdEdlJ5cVhrN0dUOFZlQ0NUSkdiRXVQMDFhQ3gtclllNnFrNTU2NjY1THNoRjVLNG83RkZyeV96OGhZVnJjcWV5QXkwLUtndG9oc2xXMVIyWThTQkJRNFlzTGp0UjIwNFhiTTBZZUlhTTk4S28zanU1X2NPOGViT3dueFhlSEVVaFdVMlAxU0FEUDdxTVhabFpZ0gH8AUFVX3lxTFAycG1WSzVjeVdSWDVPVk4tY2FicmpGMnd0NkVuWXNGS3pLSW1NeUlBT21YdGdNVXdDaUlPcFRTVFB1M1N3bnZ2bDBwVmxzNlZ0RDhwZzJvMDB0T0VEbU1ObGc1X1hJSXZLVjZyYURkTW1ra0hTelBrMlFSUktSNE9OTndfQUVQVnBHWTRaUzFHQ2VDQ1FZRDVBQkkzdXZtQXBXZ2Z4amI1aU96SE9TM0tQMlRQUFlHSjAyM01URktRbEloaDdNM0pUSzd1ck5HbDZSQlV2Q3J3Wi1peUNDcTIxWXpfYm0wUjlTSG5qQW1PdkljUlZRbHp4Uldsbg?oc=5",
+   "published": "2026-10-26T02:52:06.000Z",
+   "category": "City"
+  },
+  {
    "title": "Chennai May Get Another Spell of Rain Today",
    "source": "Deccan Chronicle",
    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQjkxeHlnRUo1Mi1JYWhYeDFta2pSam1PTU5zQkhpUDNuaVktWVRZMFAzcHZzRUpoNFJLcTJ1SXFudkg2ZEFDQWVhNHZfV0NqM05ySGp2aTVEYVlsbWdoQlRyRDhjQ0FlY1QzN05QbTBJcjN0NDJGbVhMYklyS0ZmR000QmZVNDJta0FhcXplaG0wOWRSeVZJOGNoX2ZFc19Iby1KSmdqUzN4R0d4dlRv0gG0AUFVX3lxTE1VLVdwd2RBQUxRcW4wekJPaGpjSlhKblRaWWFJdjdfb3pXeVZWNmp1eUhMVUhMMjdhaUI3Y1l6blJhTDczUlZNb1U2bW8zV1pIaFVNYTRvbG4tTmYydVZOb3RhT1doeGhhRjZaSmZkSEJoQ0c2TVdTX3o1cHFaWHU4NEVHTFJvYjQxNkxndTFMbVNSd19WUnF4eTd3TXduR0MzdEQ5Tkg3NU9iYjZRZ3JaOXVoMg?oc=5",
@@ -107,16 +163,16 @@
    "category": "Rain"
   },
   {
-   "title": "TN’s wind power OEMs to gain from FTA-led export wave",
+   "title": "Democratising data for startups",
    "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/tns-wind-power-oems-to-gain-from-fta-led-export-wave/articleshow/135195839.cms",
+   "link": "https://timesofindia.indiatimes.com/city/chennai/democratising-data-for-startups/articleshow/135195758.cms",
    "published": "2026-10-25T22:30:00.000Z",
    "category": "City"
   },
   {
-   "title": "Democratising data for startups",
+   "title": "TN’s wind power OEMs to gain from FTA-led export wave",
    "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/democratising-data-for-startups/articleshow/135195758.cms",
+   "link": "https://timesofindia.indiatimes.com/city/chennai/tns-wind-power-oems-to-gain-from-fta-led-export-wave/articleshow/135195839.cms",
    "published": "2026-10-25T22:30:00.000Z",
    "category": "City"
   },
@@ -224,62 +280,6 @@
    "link": "https://www.thehindu.com/news/cities/chennai/vellore-corporation-desilts-waterbodies-in-49-areas-prone-to-waterlogging/article71623142.ece",
    "published": "2026-10-25T17:42:29.000Z",
    "category": "Civic"
-  },
-  {
-   "title": "Many places in T.N., Puducherry likely to receive moderate rain on October 26",
-   "source": "The Hindu",
-   "link": "https://www.thehindu.com/news/cities/chennai/many-places-in-tn-puducherry-likely-to-receive-moderate-rain-on-october-26/article71624263.ece",
-   "published": "2026-10-25T16:55:08.000Z",
-   "category": "Rain"
-  },
-  {
-   "title": "Residents affected by rising road levels demand action",
-   "source": "The Hindu",
-   "link": "https://www.thehindu.com/news/national/tamil-nadu/residents-affected-by-rising-road-levels-demand-action/article71622979.ece",
-   "published": "2026-10-25T16:44:00.000Z",
-   "category": "Transport"
-  },
-  {
-   "title": "Elderly man run over by car in Chengalpet",
-   "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/elderly-man-run-over-by-car-in-chengalpet/articleshow/135194672.cms",
-   "published": "2026-10-25T16:31:41.000Z",
-   "category": "City"
-  },
-  {
-   "title": "Chennai police arrest three for meth possession in Virugambakkam",
-   "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/chennai-police-arrest-three-for-meth-possession-in-virugambakkam/articleshow/135194184.cms",
-   "published": "2026-10-25T16:09:35.000Z",
-   "category": "City"
-  },
-  {
-   "title": "Chennai bus-motorcycle collision injures three teens, driver assaulted",
-   "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/chennai-bus-motorcycle-collision-injures-three-teens-driver-assaulted/articleshow/135194032.cms",
-   "published": "2026-10-25T16:02:17.000Z",
-   "category": "Transport"
-  },
-  {
-   "title": "Chennai woman dies by suicide after jumping from Oragadam flyover",
-   "source": "Times of India",
-   "link": "https://timesofindia.indiatimes.com/city/chennai/chennai-woman-dies-by-suicide-after-jumping-from-oragadam-flyover/articleshow/135193764.cms",
-   "published": "2026-10-25T15:45:03.000Z",
-   "category": "City"
-  },
-  {
-   "title": "SRMIST, The Hindu to organise Semiconductor Summit 2026 on October 27",
-   "source": "The Hindu",
-   "link": "https://www.thehindu.com/news/cities/chennai/srmist-the-hindu-to-organise-semiconductor-summit-2026-on-october-27/article71623438.ece",
-   "published": "2026-10-25T15:40:56.000Z",
-   "category": "City"
-  },
-  {
-   "title": "INDIA bloc will continue protests until Gyanesh Kumar resigns, says Praveen Chakravarty",
-   "source": "The Hindu",
-   "link": "https://www.thehindu.com/news/national/tamil-nadu/india-bloc-will-continue-protests-until-gyanesh-kumar-resigns-says-praveen-chakravarty/article71623557.ece",
-   "published": "2026-10-25T15:06:33.000Z",
-   "category": "City"
   }
  ]
 }
