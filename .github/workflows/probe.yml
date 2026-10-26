@@ -1,0 +1,18 @@
+name: Probe representatives
+on:
+  push:
+    paths: ["scripts/probe-reps.mjs"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/probe-reps.mjs
+      - run: |
+          git config user.name "chennai-plus-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/reps-probe.json; git commit -m "Reps probe"; git pull --rebase; git push
