@@ -195,6 +195,25 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 .dirbtn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .skel{height:14px;border-radius:7px;background:linear-gradient(90deg,var(--line),var(--bg),var(--line));background-size:200% 100%}
 @media (prefers-reduced-motion:no-preference){.skel{animation:sh 1.2s linear infinite}@keyframes sh{to{background-position:-200% 0}}}
+.tripcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:8px;box-shadow:0 2px 10px rgba(120,80,20,.07);position:relative}
+.tin{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:0 12px;background:var(--bg)}
+.tin input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:500 15px var(--body);padding:12px 0;outline:none}
+.tin:focus-within{border-color:var(--marigold)}
+.tdot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--ok)}.tdot.to{background:var(--alert);border-radius:2px}
+.tswap{position:absolute;right:22px;top:44px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;z-index:1}
+.tswap svg{width:16px;height:16px;stroke:var(--sea);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tsug{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+.tsug button{display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:11px 14px;font:500 14.5px var(--body);color:var(--ink);cursor:pointer}
+.tsug button:first-child{border-top:0}.tsug small{color:var(--muted);font-size:12px;white-space:nowrap}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:10px;box-shadow:0 2px 10px rgba(120,80,20,.07)}
+.ohead{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.ohead b{font-family:var(--display);font-size:20px}.ohead span{font-size:12.5px;color:var(--muted)}
+.leg{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.lchips{display:flex;flex-wrap:wrap;gap:5px;max-width:150px}
+.lchip{display:inline-block;border-radius:7px;padding:3px 8px;font:700 12.5px var(--body);color:#fff;background:var(--grad);white-space:nowrap}
+.lchip.train{background:#e08a00;color:#2b1d12}.lchip.light{color:#2b1d12}
+.ltxt2{font-size:13.5px;line-height:1.45;min-width:0}.ltxt2 b{font-weight:600}.ltxt2 span{color:var(--muted);font-size:12.5px;display:block}
+.change{font-size:12px;font-weight:600;color:var(--marigold);letter-spacing:.04em;text-transform:uppercase;padding-left:2px}
+.rchips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}.rchips .lchip{font-size:11px;padding:2px 6px}
 .head{display:flex;justify-content:space-between;align-items:baseline}
 /* tabs */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
@@ -316,6 +335,7 @@ function useGPS(){
 function nearView(){
  const key=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3),st=nearState[key];
  if(st===undefined)setTimeout(findNear,0);
+ if((nearC==="bus"||nearC==="station")&&!TR)loadTransit().then(rerenderNear).catch(()=>{});
  const fmt=d=>d<1?Math.round(d*100)*10+" m":d.toFixed(1)+" km";
  const eta=d=>d<=1.2?Math.max(1,Math.round(d*1.3/5*60))+" min walk":"~"+Math.max(3,Math.round(d*1.3/18*60))+" min drive";
  const ic=`<svg viewBox="0 0 24 24" width="22" height="22" style="stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">${ICON[nearC]}</svg>`;
@@ -323,7 +343,7 @@ function nearView(){
  const list=st==="error"?msgRow("Couldn't load places","Places for this category are still being prepared, or your internet is off. Tap the category again to retry.")
   :(!st||st==="loading")?[1,2,3].map(()=>`<div class="prow"><div class="badge">${ic}</div><div style="display:grid;gap:8px"><div class="skel" style="width:70%"></div><div class="skel" style="width:45%;height:10px"></div></div><div class="skel" style="width:52px"></div></div>`).join("")
   :st.length===0?msgRow("Nothing found within 4 km","Try another category or change the area.")
-  :st.map((r,i)=>`<div class="prow"><div class="badge">${ic}</div><div style="min-width:0">${i===0?`<span class="near1">Nearest</span>`:""}<h3>${esc(r.name)}</h3><div class="meta">${esc(cleanInfo(r.info)||NCAT[nearC])}</div></div><div class="pd"><b>${fmt(r.d)}<small>${eta(r.d)}</small></b><a class="dirbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}" aria-label="Directions to ${esc(r.name)}"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Go</a></div></div>`).join("");
+  :st.map((r,i)=>`<div class="prow"><div class="badge">${ic}</div><div style="min-width:0">${i===0?`<span class="near1">Nearest</span>`:""}<h3>${esc(r.name)}</h3><div class="meta">${esc(cleanInfo(r.info)||NCAT[nearC])}</div>${(nearC==="bus"||nearC==="station")?routeChips(r.la,r.lo,nearC==="bus"):""}</div><div class="pd"><b>${fmt(r.d)}<small>${eta(r.d)}</small></b><a class="dirbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}" aria-label="Directions to ${esc(r.name)}"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Go</a></div></div>`).join("");
  const n=Array.isArray(st)?st.length:0;
  return `<section><h2>Near me</h2>
  <div class="loccard"><div class="lrow"><span class="lpin"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
@@ -332,6 +352,7 @@ function nearView(){
   <button class="gpsbtn" id="gps"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>${nearLoc.gps?"Refresh my location":"Use my current location"}</button></div>
  ${nearMsg?`<p class="note" style="margin:8px 2px 0">${nearMsg}</p>`:""}
  <div class="ncats" id="ncats">${Object.keys(NCAT).map(k=>`<button class="ncat" data-n="${k}" aria-pressed="${k===nearC}"><svg viewBox="0 0 24 24">${ICON[k]}</svg>${NCAT[k]}</button>`).join("")}</div>
+ ${(nearC==="bus"||nearC==="station")?`<button class="opt" data-go="travel" style="display:flex;justify-content:space-between;align-items:center;width:100%;cursor:pointer;margin-bottom:10px;font:600 14.5px var(--body);color:var(--ink);text-align:left"><span>Plan a trip by bus, train or Metro<br><small style="color:var(--muted);font-weight:500">See bus numbers and lines from A to B</small></span><span style="color:var(--marigold);font-size:22px">›</span></button>`:""}
  ${nearC==="hospital"?`<div class="alert"><span class="pill">Emergency</span><p>Call <a href="tel:108" style="color:inherit;font-weight:700">108</a> for an ambulance. Call the hospital before going to check they can treat the case.</p></div>`:""}
  ${n?`<div class="rhead"><span><b>${n} ${NCAT[nearC].toLowerCase()}</b> within 4 km</span><span>Nearest first</span></div>`:""}
  <div class="list">${list}</div>
@@ -449,13 +470,79 @@ function exploreView(){if(!EX)return `<section><button class="back" data-go="hom
  <section><h2>Must-visit places</h2><div class="chips">${cats.map(c=>`<button class="chip" data-x="${esc(c)}" aria-pressed="${c===exF}">${esc(c)}</button>`).join("")}</div>
  <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
  <p class="note">Timings and entry fees change. Check before you go.</p></section>`}
-function quickSec(){const Q=[["near:petrol","Petrol",ICON.petrol],["near:hospital","Hospitals",ICON.hospital],["near:cinema","Cinemas",ICON.cinema],["food","Top food",ICON.food],["explore","Explore",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>']];
+function quickSec(){const Q=[["near:petrol","Petrol",ICON.petrol],["near:hospital","Hospitals",ICON.hospital],["travel","Bus & Metro",ICON.bus],["food","Top food",ICON.food],["explore","Explore",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>']];
  return `<section class="qa" aria-label="Quick actions">${Q.map(([k,l,i])=>`<button class="qbtn" data-q="${k}"><span class="qi"><svg viewBox="0 0 24 24">${i}</svg></span>${l}</button>`).join("")}</section>`}
 const prettyHours=x=>{const t=(h,m)=>{h=+h;const ap=h>=12&&h<24?"pm":"am";return (h%12||12)+(m!=="00"?":"+m:"")+" "+ap};const v=x.trim();
  if(/^(24\/7|Mo-Su 00:00-(24|23:59):?0?0?)$/i.test(v)||v==="Mo-Su 00:00-24:00")return"Open 24 hrs";
  const m=v.match(/^Mo-Su (\d\d):(\d\d)-(\d\d):(\d\d)$/);if(m)return`Daily ${t(m[1],m[2])} – ${t(m[3],m[4])}`;
  return /\d\d:\d\d/.test(v)?"":v};
 const cleanInfo=s=>(s||"").split(" • ").map(prettyHours).filter(Boolean).join(" • ");
+let TR=null,TRidx=null,trLoading=null,TF=null,TT=null,trMode="All",trMsg="";
+const MINS={bus:2.5,metro:2,train:3};
+function loadTransit(){if(TR)return Promise.resolve(TR);if(!trLoading)trLoading=fetch("data/transit.json").then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{TR=j;buildTR();return j}).catch(e=>{trLoading=null;throw e});return trLoading}
+function buildTR(){const S=TR.stops,byStop=S.map(()=>[]);TR.routes.forEach((r,ri)=>r.s.forEach((si,pos)=>byStop[si].push([ri,pos])));
+ const grid=new Map();S.forEach((s,i)=>{const k=Math.floor(s[1]*100)+":"+Math.floor(s[2]*100);if(!grid.has(k))grid.set(k,[]);grid.get(k).push(i)});
+ const names=new Map();S.forEach((s,i)=>{const k=s[0].toLowerCase();if(!names.has(k))names.set(k,{n:s[0],i,modes:new Set()});byStop[i].forEach(([ri])=>names.get(k).modes.add(TR.routes[ri].m))});
+ TRidx={byStop,grid,names:[...names.values()].filter(x=>x.modes.size)}}
+function stopsNear(la,lo,rad){const out=[],c0=Math.floor(la*100),c1=Math.floor(lo*100);for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++)(TRidx.grid.get((c0+a)+":"+(c1+b))||[]).forEach(i=>{const s=TR.stops[i],d=km(la,lo,s[1],s[2]);if(d<=rad)out.push([i,d])});return out.sort((x,y)=>x[1]-y[1])}
+const lineName=r=>r.m==="bus"?r.ref.split(/\s+/)[0]:r.m==="metro"?(/inter-corridor/i.test(r.name)?"Airport–Central":(r.name.split(":")[0]||"Metro")):/mrts/i.test(r.name)?"MRTS":(r.name.replace(/suburban line/i,"line").replace(/^Chennai /,"").trim()||"Suburban train");
+const lineChip=r=>{const c=r.m==="metro"?(r.col||"#3281c4"):"";const light=/^#?(ff[de]|ffff)/i.test(c);return `<span class="lchip ${r.m==="train"?"train":""} ${light?"light":""}" ${c?`style="background:${c}"`:""}>${esc(lineName(r))}</span>`};
+function plan(F,T){const R=TR.routes,S=TR.stops,BS=TRidx.byStop;
+ const fs=stopsNear(F.la,F.lo,0.6),ts=stopsNear(T.la,T.lo,0.6);if(!fs.length)return{err:"from"};if(!ts.length)return{err:"to"};
+ const toMap=new Map();ts.forEach(([si,w])=>BS[si].forEach(([ri,p])=>{if(!toMap.has(ri))toMap.set(ri,[]);toMap.get(ri).push([p,si,w])}));
+ const ok=(ri,a,b)=>b>a||(R[ri].m==="train"&&b<a);
+ const direct=new Map(),fr=new Map();
+ fs.forEach(([si,w])=>BS[si].forEach(([ri,p])=>{const c=fr.get(ri);if(!c||w<c[2])fr.set(ri,[p,si,w]);
+  (toMap.get(ri)||[]).forEach(([pb,sb,wb])=>{if(!ok(ri,p,pb))return;const n=Math.abs(pb-p),r=R[ri];const sc=n*MINS[r.m]+(w+wb)*12;
+   const k=S[si][0]+">"+S[sb][0]+"|"+r.m+(r.m==="bus"?"":r.ref+r.name);const cur=direct.get(k);
+   if(!cur)direct.set(k,{legs:[{rs:[ri],a:si,b:sb,pa:p,pb,n}],score:sc});else{if(!cur.legs[0].rs.includes(ri)&&!cur.legs[0].rs.some(x=>R[x].ref===r.ref))cur.legs[0].rs.push(ri);if(sc<cur.score)cur.score=sc}})}));
+ const xfer=new Map();
+ if(direct.size<4){let ops=0;
+  for(const [ri,[p,sa,wa]] of fr){const r1=R[ri],qs=[];for(let q=p+1;q<r1.s.length;q++)qs.push(q);if(r1.m==="train")for(let q=p-1;q>=0;q--)qs.push(q);
+   for(const q of qs){const x=r1.s[q],xs=S[x];for(const [y,wy] of stopsNear(xs[1],xs[2],0.3)){for(const [r2,py] of BS[y]){if(r2===ri||R[r2].ref===r1.ref&&R[r2].m===r1.m)continue;const tl=toMap.get(r2);if(!tl)continue;
+    for(const [pb,sb,wb] of tl){if(!ok(r2,py,pb))continue;const n1=Math.abs(q-p),n2=Math.abs(pb-py),sc=n1*MINS[r1.m]+n2*MINS[R[r2].m]+(wa+wy+wb)*12+8;
+     const k=lineName(r1)+">"+lineName(R[r2]);const cur=xfer.get(k);if(!cur||sc<cur.score)xfer.set(k,{legs:[{rs:[ri],a:sa,b:x,pa:p,pb:q,n:n1},{rs:[r2],a:y,b:sb,pa:py,pb,n:n2}],score:sc})}
+    if(++ops>300000)break}}if(ops>300000)break}if(ops>300000)break}}
+ const d=[...direct.values()].sort((a,b)=>a.score-b.score),x=[...xfer.values()].sort((a,b)=>a.score-b.score);
+ return{opts:[...d.slice(0,6),...x.slice(0,Math.max(2,6-d.length))]}}
+function optHTML(o){const R=TR.routes,S=TR.stops;const mins=Math.round(o.score/5)*5||5;
+ const legs=o.legs.map((l,i)=>{const r=R[l.rs[0]];const tw=S[l.pb>l.pa?r.s.at(-1):r.s[0]][0];
+  const uniq=[...new Map(l.rs.map(ri=>[lineName(R[ri]),ri])).values()];const chips=uniq.slice(0,8).map(ri=>lineChip(R[ri])).join("")+(uniq.length>8?`<span class="lchip">+${uniq.length-8}</span>`:"");
+  return `${i?`<div class="change">Change ${S[o.legs[i-1].b][0]===S[l.a][0]?"at "+esc(S[l.a][0]):"· walk to "+esc(S[l.a][0])}</div>`:""}<div class="leg"><div class="lchips">${chips}</div><div class="ltxt2"><b>${esc(S[l.a][0])}</b> → <b>${esc(S[l.b][0])}</b><span>${l.n} stop${l.n>1?"s":""} · towards ${esc(tw)}</span></div></div>`}).join("");
+ return `<div class="opt"><div class="ohead"><b>~${mins} min</b><span>${o.legs.length>1?"1 change":"Direct"} · estimate</span></div>${legs}</div>`}
+function travelResults(){if(!TR)return `<p class="note">Loading bus, train and Metro routes…</p>`;
+ if(trMsg)return `<p class="note">${trMsg}</p>`;
+ if(!TF||!TT)return `<p class="note">Pick a start and a destination from the suggestions. Tip: bus termini, Metro and railway stations give the best results.</p>`;
+ const res=plan(TF,TT);if(res.err)return `<div class="prow" style="grid-template-columns:1fr;border:1px solid var(--line);border-radius:14px"><div><h3>No stop within 600 m of your ${res.err==="from"?"start":"destination"}</h3><div class="meta">Pick a nearby bus stop or station instead.</div></div></div>`;
+ const R=TR.routes;const f=o=>trMode==="All"||(trMode==="Bus"?o.legs.every(l=>R[l.rs[0]].m==="bus"):o.legs.some(l=>R[l.rs[0]].m===trMode.toLowerCase()));
+ const opts=res.opts.filter(f);
+ return opts.length?`<div style="display:grid;gap:10px">${opts.map(optHTML).join("")}</div>`:`<div class="prow" style="grid-template-columns:1fr;border:1px solid var(--line);border-radius:14px"><div><h3>No route with up to one change</h3><div class="meta">Try a bigger stop nearby (a bus terminus or station), another mode, or Google Maps below.</div></div></div>`}
+function gmapsTransit(){const q=p=>p?(p.label==="My location"?`${p.la},${p.lo}`:encodeURIComponent(p.label+", Chennai")):"";return `https://www.google.com/maps/dir/?api=1&origin=${q(TF)}&destination=${q(TT)}&travelmode=transit`}
+function travelView(){if(!TR)loadTransit().then(()=>{if(view.dataset.v==="travel")go("travel")}).catch(()=>{trMsg="Couldn't load routes. Check your internet and open this screen again.";if(view.dataset.v==="travel")go("travel")});
+ return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button><h2 style="margin:0">Bus, train &amp; Metro</h2>
+ <div class="tripcard"><div class="tin"><span class="tdot"></span><input id="tfrom" placeholder="From: stop, station or area" autocomplete="off" value="${TF?esc(TF.label):""}" aria-label="From"></div>
+ <button class="tswap" id="tswap" aria-label="Swap start and destination"><svg viewBox="0 0 24 24"><path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/></svg></button>
+ <div class="tin"><span class="tdot to"></span><input id="tto" placeholder="To: where are you going?" autocomplete="off" value="${TT?esc(TT.label):""}" aria-label="To"></div>
+ <button class="gpsbtn" id="tgps"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Start from my location</button></div>
+ <div id="tsug"></div>
+ <div class="chips" style="margin:2px 0 0">${["All","Bus","Train","Metro"].map(c=>`<button class="chip" data-tm="${c}" aria-pressed="${c===trMode}">${c}</button>`).join("")}</div>
+ <div id="tres">${travelResults()}</div>
+ <a class="getdeal" style="display:block;text-align:center" target="_blank" rel="noopener" id="tgm" href="${gmapsTransit()}">Live timings in Google Maps</a>
+ <p class="note">Bus routes from the community <a href="https://mobilitydatabase.org/feeds/gtfs/mdb-3360" target="_blank" rel="noopener" style="color:var(--muted)">Chennai GTFS feed</a>; train and Metro lines from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:var(--muted)">© OpenStreetMap contributors</a>. Routes can change and times are rough estimates, so check before you travel.</p></section>`}
+function initTravel(){const sug=document.getElementById("tsug");let which=null;
+ const show=(w,q)=>{which=w;q=q.trim().toLowerCase();if(!TRidx||q.length<2){sug.innerHTML="";return}
+  const m=TRidx.names.filter(x=>x.n.toLowerCase().includes(q)).sort((a,b)=>(b.n.toLowerCase().startsWith(q)-a.n.toLowerCase().startsWith(q))||b.modes.size-a.modes.size||a.n.length-b.n.length).slice(0,7);
+  sug.innerHTML=m.length?`<div class="tsug">${m.map(x=>`<button data-sug="${x.i}"><span>${esc(x.n)}</span><small>${[...x.modes].map(v=>v[0].toUpperCase()+v.slice(1)).join(" · ")}</small></button>`).join("")}</div>`:`<p class="note">No stop matches “${esc(q)}”. Try a shorter name.</p>`};
+ const refresh=()=>{document.getElementById("tres").innerHTML=travelResults();document.getElementById("tgm").href=gmapsTransit()};
+ ["tfrom","tto"].forEach(id=>{const el=document.getElementById(id);el.addEventListener("input",()=>{if(id==="tfrom")TF=null;else TT=null;trMsg="";show(id,el.value)});el.addEventListener("focus",()=>show(id,el.value))});
+ sug.addEventListener("click",e=>{const b=e.target.closest("[data-sug]");if(!b)return;const st=TR.stops[+b.dataset.sug];const p={label:st[0],la:st[1],lo:st[2]};
+  if(which==="tfrom")TF=p;else TT=p;document.getElementById(which).value=st[0];sug.innerHTML="";if(which==="tfrom"&&!TT)document.getElementById("tto").focus();refresh()});
+ document.getElementById("tswap").addEventListener("click",()=>{[TF,TT]=[TT,TF];document.getElementById("tfrom").value=TF?TF.label:"";document.getElementById("tto").value=TT?TT.label:"";refresh()});
+ document.getElementById("tgps").addEventListener("click",()=>{if(!navigator.geolocation){trMsg="Location isn't available on this device.";refresh();return}
+  trMsg="Finding your location…";refresh();navigator.geolocation.getCurrentPosition(p=>{TF={label:"My location",la:p.coords.latitude,lo:p.coords.longitude};trMsg="";document.getElementById("tfrom").value="My location";refresh()},()=>{trMsg="Location permission was denied. Type your start stop instead.";refresh()},{enableHighAccuracy:true,timeout:15000,maximumAge:120000})});
+}
+function routeChips(la,lo,bus){if(!TR)return"";const R=TR.routes,seen=new Set(),out=[];stopsNear(la,lo,bus?0.15:0.12).forEach(([si])=>TRidx.byStop[si].forEach(([ri])=>{const r=R[ri];if((r.m==="bus")!==bus)return;const k=r.m==="bus"?r.ref.split(/\s+/)[0]:lineName(r);if(!seen.has(k)){seen.add(k);out.push(r.m==="bus"?`<span class="lchip">${esc(k)}</span>`:lineChip(r))}}));
+ return out.length?`<div class="rchips">${out.slice(0,8).join("")}${out.length>8?`<span class="lchip">+${out.length-8}</span>`:""}</div>`:""}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -472,6 +559,7 @@ const views={
   <section><div class="head"><h2>Today's offers${contentLive?"":`<span class="stag">Sample</span>`}</h2>${more("offers")}</div>${onlineCard(online[0])}</section>`,
  near:()=>nearView(),
  explore:()=>exploreView(),
+ travel:()=>travelView(),
  news:()=>`${buzzSec(true)}<section><h2>Chennai news</h2>${newsLive?`<p class="note" style="margin:-4px 0 8px">Tap a headline to read the full story on the publisher's site.</p>`:""}<div class="list">${news.map(newsRow).join("")}</div></section>`,
  events:()=>`<section><h2>Events in Chennai${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`<section><h2>Top rated near me</h2>
@@ -483,9 +571,9 @@ const views={
  offers:()=>`<section><h2>Online deals${contentLive?"":`<span class="stag">Sample</span>`}</h2>${online.map(onlineCard).join("")}<p class="note">Online deals open the store's own app or website. Offers are set by each store and may change.</p></section>`};
 
 const view=document.getElementById("view");
-function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg);if(v==="near")centerCat();document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg);if(v==="near")centerCat();if(v==="travel")initTravel();document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
-view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
+view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
