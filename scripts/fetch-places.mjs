@@ -1,8 +1,9 @@
 // Downloads Chennai places from OpenStreetMap once a week into data/places/<category>.json.
 // The app then finds the nearest ones on the phone, so it stays fast and doesn't depend on the map service being up.
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readFile } from "node:fs/promises";
 
 const BBOX = "12.80,80.05,13.25,80.33"; // Greater Chennai: south,west,north,east
+// Mechanics are split into two lighter queries; the combined one timed out.
 const CATS = {
   petrol:  ['nwr["amenity"="fuel"]'],
   station: ['node["railway"~"^(station|halt)$"]', 'node["station"="subway"]'],
@@ -13,7 +14,7 @@ const CATS = {
   mall:    ['nwr["shop"~"^(mall|department_store)$"]'],
   cinema:  ['nwr["amenity"="cinema"]'],
   hospital:['nwr["amenity"="hospital"]'],
-  mechanic:['nwr["shop"~"^(car_repair|motorcycle_repair|tyres)$"]', 'nwr["craft"="mechanic"]'],
+  mechanic:['nwr["shop"="car_repair"]', 'nwr["shop"="motorcycle_repair"]', 'nwr["shop"="tyres"]'],
 };
 const ENDPOINTS = [
   "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
@@ -45,6 +46,8 @@ const info = (t) => [
 await mkdir("data/places", { recursive: true });
 const summary = {};
 for (const [cat, parts] of Object.entries(CATS)) {
+  // Skip categories refreshed in the last 5 days, so a rerun only fills in what's missing.
+  try { const old = JSON.parse(await readFile(`data/places/${cat}.json`, "utf8")); if (Date.now() - new Date(old.updated) < 5 * 864e5) { console.log(`${cat}: fresh, skipped`); continue; } } catch {}
   try {
     const q = `[out:json][timeout:120];(${parts.map((p) => `${p}(${BBOX});`).join("")});out center tags;`;
     const els = await query(q);
