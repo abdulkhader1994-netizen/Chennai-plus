@@ -244,12 +244,21 @@ function nearView(){
  <div class="nchips">${Object.keys(NCAT).map(k=>`<button class="nchip" data-n="${k}" aria-pressed="${k===nearC}"><svg viewBox="0 0 24 24">${ICON[k]}</svg>${NCAT[k]}</button>`).join("")}</div>
  <div class="list">${list}</div>
  <p class="meta" style="font-size:12.5px;color:var(--muted)">In the real app, your phone's GPS finds your exact location automatically.</p></section>`}
-function ratesSec(){return `<section><div class="head"><h2>Today's rates</h2><span class="meta" style="font-size:12px;color:var(--muted)">Sample • 26 Oct</span></div><div class="rates">
+let R=null;
+async function loadRates(){try{const r=await fetch("data/rates.json?ts="+Date.now());if(!r.ok)return;R=await r.json();
+ const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&cur.dataset.v==="home"){const y=window.scrollY;go("home");window.scrollTo(0,y)}}catch(e){}}
+const inr=n=>"₹"+Number(n).toLocaleString("en-IN",{maximumFractionDigits:2,minimumFractionDigits:Number.isInteger(n)?0:2});
+function ratesSec(){
+ const g=R&&R.gold,f=R&&R.fuel;
+ const dstr=d=>new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"short"});
+ const ch=g&&g.change!=null?(g.change>0?`<div class="up">▲ ${inr(g.change)} since yesterday</div>`:g.change<0?`<div class="down">▼ ${inr(-g.change)} since yesterday</div>`:`<div class="down">No change today</div>`):`<div class="meta" style="font-size:12px;color:var(--muted)">Estimated rate</div>`;
+ return `<section><div class="head"><h2>Today's rates</h2><span class="meta" style="font-size:12px;color:var(--muted)">${R?"Live • "+dstr(R.updated):"Loading…"}</span></div><div class="rates">
  <div class="rate"><div class="lbl"><span class="dot" style="background:#c9952b"></span>Gold / gram</div>
-  <div class="rline"><span>22K</span><b>₹11,250</b></div><div class="rline"><span>24K</span><b>₹12,273</b></div><div class="up">▲ ₹45 since yesterday</div></div>
+  <div class="rline"><span>22K</span><b>${g?inr(g.k22):"--"}</b></div><div class="rline"><span>24K</span><b>${g?inr(g.k24):"--"}</b></div>${ch}</div>
  <div class="rate"><div class="lbl"><span class="dot" style="background:#8a1c2b"></span>Fuel / litre</div>
-  <div class="rline"><span>Petrol</span><b>₹100.80</b></div><div class="rline"><span>Diesel</span><b>₹92.39</b></div><div class="down">No change today</div></div>
- </div></section>`}
+  <div class="rline"><span>Petrol</span><b>${f?inr(f.petrol):"--"}</b></div><div class="rline"><span>Diesel</span><b>${f?inr(f.diesel):"--"}</b></div><div class="meta" style="font-size:12px;color:var(--muted)">${f?"As of "+dstr(f.asOf):""}</div></div>
+ </div>${g?`<p class="note">Gold is estimated from the international price, import duty and GST. Your jeweller's rate may differ slightly.</p>`:""}</section>`}
+
 const online=[
  {b:"Swiggy",t:"Flat ₹100 off on biryani orders above ₹399",v:"Till 31 Oct",u:"https://www.swiggy.com"},
  {b:"Zomato",t:"Free delivery on your first 3 orders from new restaurants",v:"Till 5 Nov",u:"https://www.zomato.com"},
@@ -272,7 +281,7 @@ function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${
  <div class="chips">${["Movies","City buzz"].map(k=>`<button class="chip" data-b="${k}" aria-pressed="${k===buzzF}">${k==="Movies"?"Movie releases":k}</button>`).join("")}</div>
  ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const demo=`<div class="demo">Weather, rain alerts and news are live. Other sections show sample content for now.</div>`;
+const demo=`<div class="demo">Weather, rain alerts, news and rates are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
 const newsRow=n=>n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.m)}</div></div></a>`:`<div class="row"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${n.m}</div></div></div>`;
 const evRow=e=>`<div class="row"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${e.m}</div></div></div>`;
@@ -340,7 +349,7 @@ view.addEventListener("click",e=>{const s=e.target.closest("[data-go]");if(s)go(
 function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"){nearA=e.target.value;go("near")}});
-setLang(lang);go("home");loadWeather();loadNews();setInterval(()=>{loadWeather();loadNews()},30*60e3);
+setLang(lang);go("home");loadWeather();loadNews();loadRates();setInterval(()=>{loadWeather();loadNews();loadRates()},30*60e3);
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 

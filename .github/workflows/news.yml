@@ -3,6 +3,9 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "data/fuel.json"
 permissions:
   contents: write
 concurrency:
@@ -17,9 +20,10 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/fetch-news.mjs
-      - name: Save new headlines
+      - run: node scripts/fetch-rates.mjs
+      - name: Save updates
         run: |
           git config user.name "chennai-plus-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/news.json
-          git diff --cached --quiet || (git commit -m "Update news" && git push)
+          git add data/news.json data/rates.json
+          git diff --cached --quiet || (git commit -m "Update news and rates" && git pull --rebase && git push)
