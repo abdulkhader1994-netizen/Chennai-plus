@@ -2,7 +2,7 @@
 // Output: stops [[name,lat,lng]], routes [{m:mode,ref,name,col,s:[stopIndex...]}]. The app plans trips on the phone.
 import { writeFile, mkdir } from "node:fs/promises";
 
-const BBOX = "12.65,79.90,13.40,80.40"; // wider Chennai incl. Chengalpattu side and Gummidipoondi line start
+const BBOX = "12.68,79.95,13.35,80.35"; // wider Chennai incl. Chengalpattu side and Gummidipoondi line start
 const ENDPOINTS = [
   "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
   "https://overpass-api.de/api/interpreter",
@@ -20,11 +20,17 @@ async function query(q) {
   throw new Error("all map services failed");
 }
 
-const els = await query(`[out:json][timeout:240];
+let els;
+try { els = await query(`[out:json][timeout:240];
 relation["type"="route"]["route"~"^(bus|train|subway|light_rail|monorail)$"](${BBOX})->.r;
 .r out body;
 node(r.r);
 out;`);
+} catch (e) {
+  await mkdir("data", { recursive: true });
+  await writeFile("data/transit-log.json", JSON.stringify({ at: new Date().toISOString(), error: e.message, log: LOG }, null, 1));
+  console.warn(e.message, LOG); process.exit(0);
+}
 const nodes = new Map(els.filter((e) => e.type === "node").map((e) => [e.id, e]));
 const rels = els.filter((e) => e.type === "relation");
 
