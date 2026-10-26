@@ -22,10 +22,9 @@ jobs:
           node-version: 20
       - run: node scripts/fetch-news.mjs
       - run: node scripts/fetch-rates.mjs
-      - run: node scripts/probe-near.mjs || true
       - name: Save updates
         run: |
           git config user.name "chennai-plus-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/news.json data/rates.json; git add data/probe.json || true
+          git add data/news.json data/rates.json
           git diff --cached --quiet || (git commit -m "Update news and rates" && git pull --rebase && git push)

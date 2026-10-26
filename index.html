@@ -239,23 +239,17 @@ const OSMQ={
 const UNNAMED={petrol:"Petrol bunk",station:"Station",bus:"Bus stop",hotel:"Hotel",food:"Restaurant",tea:"Tea shop"};
 let nearC="petrol",nearA="T. Nagar",nearLoc={lat:AREAS["T. Nagar"][0],lng:AREAS["T. Nagar"][1],gps:false},nearState={},nearMsg="";
 const km=(a,b,c,d)=>{const R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
-const OVERPASS=["https://overpass-api.de/api/interpreter","https://overpass.kumi.systems/api/interpreter"];
-async function overpass(q){for(const u of OVERPASS){try{const r=await fetch(u,{method:"POST",body:"data="+encodeURIComponent(q),headers:{"Content-Type":"application/x-www-form-urlencoded"}});if(r.ok)return await r.json()}catch(e){}}throw new Error("map service busy")}
+const placeCache={};
+async function placesFor(cat){if(placeCache[cat])return placeCache[cat];const r=await fetch(`data/places/${cat}.json`);if(!r.ok)throw new Error("no data");const j=await r.json();placeCache[cat]=j.rows;return j.rows}
 async function findNear(){
  const key=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);
  if(nearState[key]&&nearState[key]!=="loading")return;
  nearState[key]="loading";rerenderNear();
  try{
-  let rows=[];
-  for(const rad of [1500,4000]){
-   const q=`[out:json][timeout:20];(${OSMQ[nearC].split(";").map(x=>x+`(around:${rad},${nearLoc.lat},${nearLoc.lng})`).join(";")};);out center tags 60;`;
-   const j=await overpass(q);
-   rows=j.elements.map(e=>{const la=e.lat??e.center?.lat,lo=e.lon??e.center?.lon,t=e.tags||{};
-     const bits=[t.brand||t.operator,t.cuisine&&t.cuisine.replace(/;/g,", ").replace(/_/g," "),t.route_ref&&"Routes "+t.route_ref,t.stars&&t.stars+"-star",t.opening_hours==="24/7"?"24 hrs":t.opening_hours].filter(Boolean);
-     return{name:t["name:en"]||t.name||UNNAMED[nearC],info:bits.slice(0,2).join(" • "),d:km(nearLoc.lat,nearLoc.lng,la,lo),la,lo}}).filter(r=>r.la!=null);
-   const seen=new Set();rows=rows.sort((x,y)=>x.d-y.d).filter(r=>{const k=r.name+Math.round(r.d*20);if(seen.has(k))return false;seen.add(k);return true});
-   if(rows.length>=3)break;
-  }
+  const all=await placesFor(nearC);
+  let rows=all.map(r=>({name:r[0]||UNNAMED[nearC],info:r[3],la:r[1],lo:r[2],d:km(nearLoc.lat,nearLoc.lng,r[1],r[2])})).filter(r=>r.d<=4).sort((x,y)=>x.d-y.d);
+  // prefer named places, but keep unnamed ones if few results
+  const named=rows.filter(r=>r.name!==UNNAMED[nearC]);if(named.length>=5)rows=named;
   nearState[key]=rows.slice(0,15);
  }catch(e){nearState[key]="error"}
  rerenderNear();
@@ -271,7 +265,7 @@ function nearView(){
  const key=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3),st=nearState[key];
  if(st===undefined)setTimeout(findNear,0);
  const fmt=d=>d<1?Math.round(d*1000/10)*10+" m":d.toFixed(1)+" km";
- const list=st==="error"?`<div class="row"><div class="txt"><h3>Couldn't load places</h3><div class="meta">The map service is busy. Check your internet and tap a category to try again.</div></div></div>`
+ const list=st==="error"?`<div class="row"><div class="txt"><h3>Couldn't load places</h3><div class="meta">Places are still being prepared or your internet is off. Tap a category to try again.</div></div></div>`
   :(!st||st==="loading")?`<div class="row"><div class="txt"><h3>Finding ${NCAT[nearC].toLowerCase()} nearby…</h3><div class="meta">This takes a few seconds.</div></div></div>`
   :st.length===0?`<div class="row"><div class="txt"><h3>Nothing found within 4 km</h3><div class="meta">Try another category or area.</div></div></div>`
   :st.map(r=>`<div class="row"><div class="badge"><svg viewBox="0 0 24 24" width="22" height="22" style="stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round">${ICON[nearC]}</svg></div><div class="txt"><h3>${esc(r.name)}</h3><div class="meta">${esc(r.info||NCAT[nearC])}</div></div><div class="dist"><b>${fmt(r.d)}</b><a class="go" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}">Directions</a></div></div>`).join("");
