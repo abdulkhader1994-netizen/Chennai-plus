@@ -344,6 +344,7 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 @media (prefers-reduced-motion:no-preference){.spk{animation:spk 2.2s ease-in-out infinite}@keyframes spk{50%{opacity:1;transform:scale(1.6)}}
  .diya{animation:flick 1.6s ease-in-out infinite alternate;display:inline-block}@keyframes flick{from{transform:translateY(0) scale(1);filter:brightness(1)}to{transform:translateY(-3px) scale(1.04);filter:brightness(1.25)}}
  .fcl svg{animation:flick 1.4s ease-in-out infinite alternate}}
+.chip .cnt{font-size:11px;opacity:.7;margin-left:2px}
 </style>
 </head>
 <body>
@@ -405,7 +406,7 @@ let hotF="All";
 const hotCard=x=>x.u?`<a class="hcard nlink" href="${esc(x.u)}" target="_blank" rel="noopener"><div class="hband k-${x.k}"><span class="htag">${esc(x.tag)}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="hbody"><div>${esc(x.w)}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></a>`:`<article class="hcard"><div class="hband k-${x.k}"><span class="htag">${x.tag}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="hbody"><div>${x.w}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></article>`;
 function hotSec(){const L={All:"All",place:"New places",event:"New events",food:"Must try"};
  return `<section><h2><svg class="flame" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>What's hot in Chennai${contentLive?"":`<span class="stag">Sample</span>`}</h2>
- <div class="chips">${Object.keys(L).map(k=>`<button class="chip" data-h="${k}" aria-pressed="${k===hotF}">${L[k]}</button>`).join("")}</div>
+ ${(()=>{const ks=Object.keys(L).filter(k=>k==="All"||hot.some(x=>x.k===k));return ks.length>2?`<div class="chips">${ks.map(k=>`<button class="chip" data-h="${k}" aria-pressed="${k===hotF}">${L[k]}</button>`).join("")}</div>`:""})()}
  <div class="hot">${hot.filter(x=>hotF==="All"||x.k===hotF).map(hotCard).join("")}</div></section>`}
 const ICON={petrol:'<path d="M4 20V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v15M3 20h12M6 8h6M14 9h2l2 2v6a1.5 1.5 0 0 0 3 0V9l-3-3"/>',
  station:'<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/>',
@@ -547,7 +548,7 @@ const TA={
 "Places ©":"இடங்கள் ©","· Walk and drive times are estimates":"· நடை, பயண நேரங்கள் மதிப்பீடுகள்","Timings and entry fees change, so check before you go":"நேரமும் கட்டணமும் மாறலாம்; செல்லும் முன் சரிபார்க்கவும்","Ratings open in Google Maps":"மதிப்பீடுகள் Google Maps-ல் திறக்கும்","Dates from the Tamil Nadu holiday list · Shops © OpenStreetMap contributors":"தேதிகள்: தமிழ்நாடு அரசு விடுமுறைப் பட்டியல் · கடைகள் © OpenStreetMap contributors",
 "Chennai news":"சென்னை செய்திகள்","Fresh headlines every 30 minutes":"ஒவ்வொரு 30 நிமிடமும் புதிய செய்திகள்","Latest":"சமீபத்தியவை",
 "Concerts, comedy, markets & more":"இசை, நகைச்சுவை, சந்தைகள் மற்றும் பல","Coming up":"வரவிருப்பவை",
-"Chennai’s tastiest spots":"சென்னையின் சுவையான இடங்கள்","Top rated near me":"அருகிலுள்ள சிறந்த உணவகங்கள்","Best-rated restaurants around you":"உங்கள் அருகே அதிக மதிப்பீடு பெற்றவை","Biryani":"பிரியாணி","Tiffin":"டிபன்","Veg meals":"சைவ சாப்பாடு","Seafood":"கடல் உணவு","Cafes":"கஃபே","Desserts":"இனிப்புகள்","Late night":"நள்ளிரவு","Street food":"தெரு உணவு","Chennai's best":"சென்னையின் சிறந்தவை","Veg":"சைவம்","Dessert":"இனிப்பு","★ Ratings":"★ மதிப்பீடுகள்",
+"Chennai’s tastiest spots":"சென்னையின் சுவையான இடங்கள்","Top rated near me":"அருகிலுள்ள சிறந்த உணவகங்கள்","Best-rated restaurants around you":"உங்கள் அருகே அதிக மதிப்பீடு பெற்றவை","Biryani":"பிரியாணி","Tiffin":"டிபன்","Veg meals":"சைவ சாப்பாடு","Seafood":"கடல் உணவு","Cafes":"கஃபே","Desserts":"இனிப்புகள்","Late night":"நள்ளிரவு","Street food":"தெரு உணவு","Chennai's best":"சென்னையின் சிறந்தவை","Veg":"சைவம்","Non-veg":"அசைவம்","Dessert":"இனிப்பு","Breakfast":"காலை உணவு","Meals":"சாப்பாடு","North Indian":"வட இந்திய உணவு","South Indian":"தென்னிந்திய உணவு","Spicy bites":"காரசார உணவு","Beach food":"கடற்கரை உணவு","Chaat":"சாட்","Parotta":"பரோட்டா","Bakery":"பேக்கரி","Chettinad":"செட்டிநாடு","★ Ratings":"★ மதிப்பீடுகள்",
 "Petrol, hospitals, food & more around you":"உங்கள் அருகே பெட்ரோல், மருத்துவமனை, உணவு மற்றும் பல","Places near":"அருகிலுள்ள இடங்கள்","Change ▾":"மாற்று ▾","Change area":"பகுதியை மாற்று","Your location":"உங்கள் இருப்பிடம்","Use my current location":"என் இருப்பிடத்தைப் பயன்படுத்து","Refresh my location":"இருப்பிடத்தைப் புதுப்பி",
 "Stations":"நிலையங்கள்","Bus stops":"பஸ் நிறுத்தங்கள்","Hotels":"ஹோட்டல்கள்","Tea & cafe":"டீ & கஃபே","Malls":"மால்கள்","Cinemas":"திரையரங்குகள்","Mechanics":"மெக்கானிக்","Cracker shops":"பட்டாசுக் கடைகள்","Sweet shops":"இனிப்புக் கடைகள்","Jewellery":"நகைக் கடைகள்","Silks & sarees":"பட்டு & புடவைகள்",
 "petrol":"பெட்ரோல் நிலையங்கள்","stations":"நிலையங்கள்","bus stops":"பஸ் நிறுத்தங்கள்","hotels":"ஹோட்டல்கள்","food":"உணவகங்கள்","tea & cafe":"டீ & கஃபே","malls":"மால்கள்","cinemas":"திரையரங்குகள்","hospitals":"மருத்துவமனைகள்","mechanics":"மெக்கானிக் கடைகள்","cracker shops":"பட்டாசுக் கடைகள்","sweet shops":"இனிப்புக் கடைகள்","jewellery":"நகைக் கடைகள்","silks & sarees":"பட்டு & புடவைக் கடைகள்",
@@ -657,6 +658,12 @@ const newsRow=n=>{const inner=`<div class="ibadge" style="background:rgba(${NEWS
 const newsFeat=n=>{const inner=`<span class="fcat">${esc(n.c)}</span><h3>${esc(n.t)}</h3><div class="fmeta">${esc(n.m)}</div>${art(NEWSART[n.c]||"city","fart")}`;const st=`style="background:linear-gradient(135deg,${NEWSGRAD[n.c]||NEWSGRAD.City})"`;return n.u?`<a class="feat nlink" ${st} href="${esc(n.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="feat" ${st}>${inner}</div>`};
 const evRow=e=>{const inner=`<div class="dtile"><b>${e.d}</b><span>${esc(e.mo)}</span></div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${esc(e.m)}</div></div>${art(EVART[e.c]||"festival","eart")}`;return e.u?`<a class="row erow nlink" href="${esc(e.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="row erow">${inner}</div>`};
 const mapsQ=q=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+const vegOf=x=>(x.v||((/non-veg/i.test(x.m)?"Non-veg":/\bveg\b/i.test(x.m)?"Veg":""))).toLowerCase();
+function foodMatch(x,f){if(f==="All")return true;const v=vegOf(x);if(f==="Veg")return v==="veg"||v==="both";if(f==="Non-veg")return v==="non-veg"||v==="both";return (x.tag||"").trim().toLowerCase()===f.toLowerCase()}
+function foodChips(){const out=[["All",food.length]];const veg=food.filter(x=>foodMatch(x,"Veg")).length,non=food.filter(x=>foodMatch(x,"Non-veg")).length;
+ if(veg&&veg<food.length)out.push(["Veg",veg]);if(non&&non<food.length)out.push(["Non-veg",non]);
+ const cnt=new Map();food.forEach(x=>{const t=(x.tag||"").trim();if(!t)return;const k=t.toLowerCase();const c=cnt.get(k)||[t,0];c[1]++;cnt.set(k,c)});
+ const tags=[...cnt.values()].sort((a,b)=>b[1]-a[1]);const big=tags.filter(t=>t[1]>=2);(big.length>=3?big:tags).slice(0,12).forEach(t=>out.push(t));return out}
 const foodArt=f=>{const t=((f.tag||"")+" "+f.m+" "+f.n).toLowerCase();return /biryani/.test(t)?"biryani":/dessert|jigar|kulfi|ice/.test(t)?"dessert":/late/.test(t)?"latenight":/coffee|cafe|tea/.test(t)?"coffee":/sea|fish|prawn/.test(t)?"fish":/street|chaat/.test(t)?"streetfood":/non/.test(t)?"biryani":"dosa"};
 const foodRow=f=>`<div class="row"><div class="ibadge" style="background:rgba(249,115,22,.12)">${art(foodArt(f))}</div><div class="txt"><div class="eyebrow">${esc(f.a)}</div><h3>${esc(f.n)}</h3><div class="meta">${esc(f.m)}</div></div><div class="dist"><a class="go" target="_blank" rel="noopener" href="${esc(f.u||mapsQ(f.n+", "+f.a+", Chennai"))}">★ Ratings</a></div></div>`;
 const TOPQ=[["Top rated","best restaurants"],["Biryani","best biryani"],["Tiffin","best tiffin idli dosa"],["Veg meals","best veg meals restaurant"],["Seafood","best seafood restaurant"],["Cafes","best cafe"],["Desserts","best dessert shop"],["Late night","late night restaurants open now"]];
@@ -732,7 +739,7 @@ async function loadContent(){try{const r=await fetch("data/content.json?ts="+Dat
  const fill=(arr,src,map)=>{if(src&&src.length){arr.length=0;src.forEach(x=>arr.push(map(x)));any=true}};
  fill(hot,j.hot,x=>({k:x.type,tag:x.label,t:x.title,w:x.where,why:x.why,h:x.buzz,u:x.link}));
  fill(events,j.events,x=>({d:dy(x.date),mo:mo(x.date),t:x.title,m:[x.area,x.time,x.price].filter(Boolean).join(" • "),c:x.category,u:x.link}));
- fill(food,j.food,x=>({a:x.area,n:x.name,m:[x.meal,x.price,x.veg].filter(Boolean).join(" • "),tag:x.tag,u:x.link}));
+ fill(food,j.food,x=>({a:x.area,n:x.name,m:[x.meal,x.price,x.veg].filter(Boolean).join(" • "),tag:x.tag,v:x.veg,u:x.link}));
  fill(online,j.deals,x=>({b:x.store,t:x.offer,v:x.valid?"Till "+new Date(x.valid+"T00:00").toLocaleDateString(LOC(),{day:"numeric",month:"short"}):"Limited time",u:x.link||"#"}));
  if(any){contentLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}}catch(e){}}
 let EX=null,exF="All";
@@ -874,8 +881,8 @@ const views={
  food:(f="All")=>`${banner("food","Food","Chennai’s tastiest spots",["dosa","biryani","coffee"])}<section>
   <a class="bigcta" target="_blank" rel="noopener" href="${mapsQ("best restaurants near me")}">${art("star")}<span><b>Top rated near me</b><small>Best-rated restaurants around you</small></span><i>›</i></a>
   <div class="ftiles">${[["Biryani","best biryani","biryani"],["Tiffin","best tiffin idli dosa","dosa"],["Veg meals","best veg meals restaurant","veg"],["Seafood","best seafood restaurant","fish"],["Cafes","best cafe","coffee"],["Desserts","best dessert shop","dessert"],["Late night","late night restaurants open now","latenight"],["Street food","best street food","streetfood"]].map(([l,q,a])=>`<a class="ftile" target="_blank" rel="noopener" href="${mapsQ(q+" near me")}">${art(a)}<span>${l}</span></a>`).join("")}</div></section>
-  <section><h2>Chennai's best${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
-  <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,};
+  <section><h2>Chennai's best${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="chips">${foodChips().map(([c,n])=>`<button class="chip" data-f="${esc(c)}" aria-pressed="${c===f}">${esc(c)}${n?` <small class="cnt">${n}</small>`:""}</button>`).join("")}</div>
+  <div class="list">${food.filter(x=>foodMatch(x,f)).map(foodRow).join("")}</div></section>`,};
 
 const view=document.getElementById("view");
 new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
