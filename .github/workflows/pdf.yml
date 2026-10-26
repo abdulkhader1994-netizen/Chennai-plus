@@ -1,0 +1,17 @@
+name: Make notice PDF
+on:
+  push:
+    paths: ["print/notice.html"]
+permissions:
+  contents: write
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cd print
+          google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=notice.pdf "file://$PWD/notice.html"
+          ls -la
+          git config user.name "chennai-plus-bot"; git config user.email "actions@users.noreply.github.com"
+          git add notice.pdf; git commit -m "Notice PDF"; git pull --rebase; git push
