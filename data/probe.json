@@ -1,0 +1,20 @@
+{
+ "petrol": {
+  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ },
+ "station": {
+  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ },
+ "bus": {
+  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ },
+ "hotel": {
+  "error": "fetch failed"
+ },
+ "food": {
+  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ },
+ "tea": {
+  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ }
+}
