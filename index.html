@@ -216,7 +216,7 @@ const hot=[
  {k:"food",tag:"Trending",t:"Atho and burma kaosuey",w:"Parry's Corner",why:"The Burma Bazaar street classic, now on every reel.",h:73},
  {k:"event",tag:"This weekend",t:"Mylapore kolam & craft fair",w:"Kapaleeshwarar tank • Sat",why:"Kolam contest, handloom stalls, kids' corner.",h:69}];
 let hotF="All";
-const hotCard=x=>`<article class="hcard"><div class="hband k-${x.k}"><span class="htag">${x.tag}</span><h3>${esc(x.t)}</h3></div><div class="hbody"><div>${x.w}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></article>`;
+const hotCard=x=>x.u?`<a class="hcard nlink" href="${esc(x.u)}" target="_blank" rel="noopener"><div class="hband k-${x.k}"><span class="htag">${esc(x.tag)}</span><h3>${esc(x.t)}</h3></div><div class="hbody"><div>${esc(x.w)}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></a>`:`<article class="hcard"><div class="hband k-${x.k}"><span class="htag">${x.tag}</span><h3>${esc(x.t)}</h3></div><div class="hbody"><div>${x.w}</div><div class="why">${esc(x.why)}</div><div class="heat"><i style="width:${Math.round(x.h*.6)}px"></i>${x.h}% buzz</div></div></article>`;
 function hotSec(){const L={All:"All",place:"New places",event:"New events",food:"Must try"};
  return `<section><h2><svg class="flame" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg>What's hot in Chennai</h2>
  <div class="chips">${Object.keys(L).map(k=>`<button class="chip" data-h="${k}" aria-pressed="${k===hotF}">${L[k]}</button>`).join("")}</div>
@@ -325,8 +325,8 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const demo=`<div class="demo">Weather, rain alerts, news and rates are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
 const newsRow=n=>n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.m)}</div></div></a>`:`<div class="row"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${n.m}</div></div></div>`;
-const evRow=e=>`<div class="row"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${e.m}</div></div></div>`;
-const foodRow=f=>`<div class="row"><div class="badge">${f.a.split(" ").map(w=>w[0]).join("").slice(0,2)}</div><div class="txt"><div class="eyebrow">${f.a}</div><h3>${esc(f.n)}</h3><div class="meta">${f.m}</div></div></div>`;
+const evRow=e=>e.u?`<a class="row nlink" href="${esc(e.u)}" target="_blank" rel="noopener"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${esc(e.m)}</div></div></a>`:`<div class="row"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${e.m}</div></div></div>`;
+const foodRow=f=>f.u?`<a class="row nlink" href="${esc(f.u)}" target="_blank" rel="noopener"><div class="badge">${esc(f.a.split(" ").map(w=>w[0]).join("").slice(0,2))}</div><div class="txt"><div class="eyebrow">${esc(f.a)}</div><h3>${esc(f.n)}</h3><div class="meta">${esc(f.m)}</div></div></a>`:`<div class="row"><div class="badge">${f.a.split(" ").map(w=>w[0]).join("").slice(0,2)}</div><div class="txt"><div class="eyebrow">${f.a}</div><h3>${esc(f.n)}</h3><div class="meta">${f.m}</div></div></div>`;
 const offerCard=o=>`<div class="offer"><div class="off">${o.o}<small>OFF</small></div><div style="min-width:0"><h3 style="margin:0;font-size:15px">${esc(o.n)}</h3><div class="row meta" style="padding:0;border:0;gap:8px;flex-wrap:wrap">${o.s} • ${o.v} • <span class="code">${o.code}</span></div></div></div>`;
 const more=v=>`<button class="see" data-go="${v}">See all</button>`;
 
@@ -364,6 +364,15 @@ async function loadNews(){
    const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&["home","news"].includes(cur.dataset.v)){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}
  }catch(e){}
 }
+let contentLive=false;
+async function loadContent(){try{const r=await fetch("data/content.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();let any=false;
+ const mo=d=>new Date(d+"T00:00").toLocaleDateString("en-IN",{month:"short"}),dy=d=>d.slice(8,10);
+ const fill=(arr,src,map)=>{if(src&&src.length){arr.length=0;src.forEach(x=>arr.push(map(x)));any=true}};
+ fill(hot,j.hot,x=>({k:x.type,tag:x.label,t:x.title,w:x.where,why:x.why,h:x.buzz,u:x.link}));
+ fill(events,j.events,x=>({d:dy(x.date),mo:mo(x.date),t:x.title,m:[x.area,x.time,x.price].filter(Boolean).join(" • "),c:x.category,u:x.link}));
+ fill(food,j.food,x=>({a:x.area,n:x.name,m:[x.meal,x.price,x.veg].filter(Boolean).join(" • "),tag:x.tag,u:x.link}));
+ fill(online,j.deals,x=>({b:x.store,t:x.offer,v:x.valid?"Till "+new Date(x.valid+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short"}):"Limited time",u:x.link||"#"}));
+ if(any){contentLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}}catch(e){}}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -380,7 +389,7 @@ const views={
  news:()=>`${demo}${buzzSec(true)}<section><h2>Chennai news</h2>${newsLive?`<p class="note" style="margin:-4px 0 8px">Tap a headline to read the full story on the publisher's site.</p>`:""}<div class="list">${news.map(newsRow).join("")}</div></section>`,
  events:()=>`${demo}<section><h2>Events in Chennai</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${demo}<section><h2>Where to eat</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
-  <div class="list">${food.filter(x=>f==="All"||x.tag===f||(f==="Veg"&&x.m.includes("Veg")&&!x.m.includes("Non"))).map(foodRow).join("")}</div></section>`,
+  <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,
  offers:()=>`${demo}<section><h2>Online deals</h2>${online.map(onlineCard).join("")}<p class="note">Online deals open the store's own app or website. Offers are set by each store and may change.</p></section>`};
 
 const view=document.getElementById("view");
@@ -391,7 +400,7 @@ function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.te
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
-setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies()},30*60e3);
+setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 
