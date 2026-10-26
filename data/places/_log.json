@@ -1,14 +1,5 @@
 {
- "at": "2026-10-26T17:18:50.930Z",
- "summary": {
-  "pharmacy": 317,
-  "fireworks": 0,
-  "sweets": 85,
-  "jewellery": 181
- },
- "log": [
-  "maps.mail.ru: HTTP 504",
-  "maps.mail.ru: HTTP 504",
-  "overpass-api.de: HTTP 502"
- ]
+ "at": "2026-10-26T19:07:31.732Z",
+ "summary": {},
+ "log": []
 }
