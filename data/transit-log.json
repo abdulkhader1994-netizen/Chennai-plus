@@ -1,15 +1,15 @@
 {
- "at": "2026-10-26T10:56:54.141Z",
+ "at": "2026-10-26T10:58:55.579Z",
  "summary": {
-  "stops": 3988,
-  "bus": 3934,
+  "stops": 3902,
+  "bus": 3925,
   "busNumbers": 2099,
-  "train": 13,
-  "metro": 787
+  "train": 6,
+  "metro": 9
  },
  "log": [
-  "gtfs: 5402 routes, 6542 stops, 1389081 stop_times rows, 4725 patterns, metro patterns 791",
-  "osm: 17 train/metro routes"
+  "gtfs: 5402 routes, 6542 stops, 1389081 stop_times rows, 4725 patterns, metro patterns skipped 791",
+  "osm: 21 train/metro routes"
  ],
  "sample": [
   [
