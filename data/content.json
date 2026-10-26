@@ -1,0 +1,563 @@
+{
+ "updated": "2026-10-26T15:28:05.075Z",
+ "hot": [
+  {
+   "type": "place",
+   "label": "New opening",
+   "title": "LuLu Hypermarket lands in Chennai",
+   "where": "Shenoy Nagar Metro Station",
+   "why": "A major retail brand has arrived with a large shopping destination featuring groceries, fashion, footwear and electronics.",
+   "buzz": 92,
+   "link": ""
+  },
+  {
+   "type": "place",
+   "label": "New opening",
+   "title": "LuLu Daily opens at Chennai Central",
+   "where": "Chennai Central Metro Station",
+   "why": "A new option for fresh produce, groceries and daily essentials, conveniently located for commuters.",
+   "buzz": 88,
+   "link": ""
+  },
+  {
+   "type": "event",
+   "label": "Trending",
+   "title": "India Game Developer Conference 2026",
+   "where": "Chennai Trade Centre, Nandambakkam • Oct 28–31",
+   "why": "Gaming industry talks and the public IGDC Playground make this one to watch for gaming enthusiasts.",
+   "buzz": 81,
+   "link": ""
+  },
+  {
+   "type": "event",
+   "label": "This weekend",
+   "title": "Vir Das: Sounds of India",
+   "where": "Mutha Venkatasubba Rao Hall, Chetpet • Oct 31",
+   "why": "A live stand-up comedy show for anyone looking for a fun Saturday night. Check ticket availability.",
+   "buzz": 70,
+   "link": ""
+  },
+  {
+   "type": "event",
+   "label": "Just announced",
+   "title": "Chennai Open 2026",
+   "where": "SDAT Tennis Stadium, Nungambakkam • Nov 2–8",
+   "why": "Watch professional women’s tennis as the WTA 250 tournament returns to Chennai.",
+   "buzz": 70,
+   "link": ""
+  },
+  {
+   "type": "event",
+   "label": "This weekend",
+   "title": "Halloween by the Beach",
+   "where": "Char, ECR • Oct 30–31",
+   "why": "A themed outing for people looking for something different this Halloween weekend. Confirm tickets and timings.",
+   "buzz": 70,
+   "link": ""
+  }
+ ],
+ "events": [
+  {
+   "date": "2026-10-31",
+   "title": "The Halloween Party - Grave Rave",
+   "area": "Secret Story - Nungambakkam",
+   "time": "20:00",
+   "price": "₹499nonwards",
+   "category": "Community",
+   "link": "https://link.district.in/DSTRKT/ows23vlu"
+  },
+  {
+   "date": "2026-11-15",
+   "title": "Chennai Fitness Run 2026",
+   "area": "Secret Story - Nungambakkam",
+   "time": "05:00",
+   "price": "399",
+   "category": "Sports",
+   "link": "https://link.district.in/DSTRKT/a6cknv7j"
+  },
+  {
+   "date": "2026-12-12",
+   "title": "Big Bash | Opening Match | Melbourne Renegades vs Perth Scorchers",
+   "area": "M.A. Chidambaram Stadium, Chennai",
+   "time": "14:40",
+   "price": "₹1500 onwards",
+   "category": "Sports",
+   "link": "https://link.district.in/DSTRKT/5uu9pk90"
+  }
+ ],
+ "food": [
+  {
+   "area": "Mylapore",
+   "name": "Filter coffee & ghee podi dosa",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Breakfast",
+   "link": ""
+  },
+  {
+   "area": "Mylapore",
+   "name": "Traditional Tamil vegetarian meals",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "Meals",
+   "link": ""
+  },
+  {
+   "area": "Triplicane",
+   "name": "Ghee pongal & crispy vadai",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Tiffin",
+   "link": ""
+  },
+  {
+   "area": "Triplicane",
+   "name": "Chicken biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Sowcarpet",
+   "name": "Rajasthani kachori & samosa",
+   "meal": "Evening",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Street food",
+   "link": ""
+  },
+  {
+   "area": "Sowcarpet",
+   "name": "Jain chaat & pani puri",
+   "meal": "Evening snack",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Chaat",
+   "link": ""
+  },
+  {
+   "area": "George Town",
+   "name": "North Indian thali",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "Thali",
+   "link": ""
+  },
+  {
+   "area": "George Town",
+   "name": "Kachori with spicy aloo curry",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Street food",
+   "link": ""
+  },
+  {
+   "area": "Royapettah",
+   "name": "Mutton biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Royapettah",
+   "name": "Chicken 65 & parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Spicy bites",
+   "link": ""
+  },
+  {
+   "area": "T. Nagar",
+   "name": "Ghee roast dosa",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "South Indian",
+   "link": ""
+  },
+  {
+   "area": "T. Nagar",
+   "name": "Andhra meals",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "Meals",
+   "link": ""
+  },
+  {
+   "area": "Nungambakkam",
+   "name": "Gourmet burgers",
+   "meal": "Lunch",
+   "price": "₹₹₹",
+   "veg": "Non-veg",
+   "tag": "Burgers",
+   "link": ""
+  },
+  {
+   "area": "Nungambakkam",
+   "name": "Wood-fired vegetarian pizza",
+   "meal": "Dinner",
+   "price": "₹₹₹",
+   "veg": "Veg",
+   "tag": "Pizza",
+   "link": ""
+  },
+  {
+   "area": "Anna Nagar",
+   "name": "Bun parotta & salna",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Parotta",
+   "link": ""
+  },
+  {
+   "area": "Anna Nagar",
+   "name": "Mushroom biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Velachery",
+   "name": "Chicken shawarma",
+   "meal": "Evening",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Shawarma",
+   "link": ""
+  },
+  {
+   "area": "Velachery",
+   "name": "Paneer tikka & naan",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "North Indian",
+   "link": ""
+  },
+  {
+   "area": "Adyar",
+   "name": "Masala dosa & filter coffee",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Breakfast",
+   "link": ""
+  },
+  {
+   "area": "Adyar",
+   "name": "Kerala-style beef fry & parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Kerala food",
+   "link": ""
+  },
+  {
+   "area": "Besant Nagar",
+   "name": "Sundal & raw mango",
+   "meal": "Evening",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Beach food",
+   "link": ""
+  },
+  {
+   "area": "Besant Nagar",
+   "name": "Fish fingers & seafood platter",
+   "meal": "Dinner",
+   "price": "₹₹₹",
+   "veg": "Non-veg",
+   "tag": "Seafood",
+   "link": ""
+  },
+  {
+   "area": "Thiruvanmiyur",
+   "name": "Idli, vadai & sambar",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Tiffin",
+   "link": ""
+  },
+  {
+   "area": "Thiruvanmiyur",
+   "name": "Fish curry rice",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Seafood",
+   "link": ""
+  },
+  {
+   "area": "Guindy",
+   "name": "Chicken biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Guindy",
+   "name": "South Indian mini meals",
+   "meal": "Lunch",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Meals",
+   "link": ""
+  },
+  {
+   "area": "OMR, Sholinganallur",
+   "name": "Chettinad chicken curry & parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Chettinad",
+   "link": ""
+  },
+  {
+   "area": "OMR, Navalur",
+   "name": "Grilled chicken & peri-peri fries",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Grills",
+   "link": ""
+  },
+  {
+   "area": "Perambur",
+   "name": "Mutton kothu parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Kothu parotta",
+   "link": ""
+  },
+  {
+   "area": "Vepery",
+   "name": "Bun butter jam & tea",
+   "meal": "Evening",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Bakery",
+   "link": ""
+  },
+  {
+   "area": "Tambaram",
+   "name": "Kothu parotta with salna",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Street food",
+   "link": ""
+  },
+  {
+   "area": "Chromepet",
+   "name": "Ghee podi idli",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Tiffin",
+   "link": ""
+  },
+  {
+   "area": "Pallavaram",
+   "name": "Chicken biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Purasawalkam",
+   "name": "Chole bhature",
+   "meal": "Breakfast",
+   "price": "₹₹",
+   "veg": "Veg",
+   "tag": "North Indian",
+   "link": ""
+  },
+  {
+   "area": "Kilpauk",
+   "name": "Malai kofta & butter naan",
+   "meal": "Dinner",
+   "price": "₹₹₹",
+   "veg": "Veg",
+   "tag": "North Indian",
+   "link": ""
+  },
+  {
+   "area": "ECR, Injambakkam",
+   "name": "Grilled seafood platter",
+   "meal": "Dinner",
+   "price": "₹₹₹",
+   "veg": "Non-veg",
+   "tag": "Seafood",
+   "link": ""
+  },
+  {
+   "area": "ECR, Akkarai",
+   "name": "Fish fry & seafood meals",
+   "meal": "Lunch",
+   "price": "₹₹₹",
+   "veg": "Non-veg",
+   "tag": "Coastal food",
+   "link": ""
+  },
+  {
+   "area": "Kodambakkam",
+   "name": "Chicken 65 biryani",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Biryani",
+   "link": ""
+  },
+  {
+   "area": "Ashok Nagar",
+   "name": "Mini tiffin with pongal, idli & dosa",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Tiffin",
+   "link": ""
+  },
+  {
+   "area": "Vadapalani",
+   "name": "Andhra spicy chicken meals",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Andhra food",
+   "link": ""
+  },
+  {
+   "area": "K.K. Nagar",
+   "name": "Poori masala & kesari",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Breakfast",
+   "link": ""
+  },
+  {
+   "area": "West Mambalam",
+   "name": "Traditional curd rice & potato fry",
+   "meal": "Lunch",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Comfort food",
+   "link": ""
+  },
+  {
+   "area": "Saidapet",
+   "name": "Kari dosa",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Local favourite",
+   "link": ""
+  },
+  {
+   "area": "Alwarpet",
+   "name": "Mushroom galouti kebab & biryani",
+   "meal": "Dinner",
+   "price": "₹₹₹",
+   "veg": "Veg",
+   "tag": "Fine dining",
+   "link": ""
+  },
+  {
+   "area": "Egmore",
+   "name": "Chicken kothu parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Street food",
+   "link": ""
+  },
+  {
+   "area": "Mogappair",
+   "name": "Paneer dosa & filter coffee",
+   "meal": "Breakfast",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "South Indian",
+   "link": ""
+  },
+  {
+   "area": "Porur",
+   "name": "Chicken pepper fry & parotta",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Spicy bites",
+   "link": ""
+  },
+  {
+   "area": "Medavakkam",
+   "name": "Fish curry meals",
+   "meal": "Lunch",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Seafood",
+   "link": ""
+  },
+  {
+   "area": "Thoraipakkam",
+   "name": "Shawarma roll",
+   "meal": "Late night",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Late night",
+   "link": ""
+  },
+  {
+   "area": "Sholinganallur",
+   "name": "Tandoori chicken & rumali roti",
+   "meal": "Dinner",
+   "price": "₹₹",
+   "veg": "Non-veg",
+   "tag": "Tandoori",
+   "link": ""
+  },
+  {
+   "area": "Marina Beach",
+   "name": "Sundal, bajji & molaga bajji",
+   "meal": "Evening",
+   "price": "₹",
+   "veg": "Veg",
+   "tag": "Beach food",
+   "link": ""
+  }
+ ],
+ "deals": [
+  {
+   "store": "Swiggy",
+   "offer": "Flat ₹100 off on biryani orders above ₹399",
+   "valid": "2026-10-31",
+   "link": "https://www.swiggy.com"
+  },
+  {
+   "store": "Zomato",
+   "offer": "Free delivery on your first 3 orders from new restaurants",
+   "valid": "2026-11-05",
+   "link": "https://www.zomato.com"
+  }
+ ]
+}
