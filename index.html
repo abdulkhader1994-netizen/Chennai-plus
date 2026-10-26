@@ -15,27 +15,27 @@
 <style>
 /* Layout: phone-first app shell, sticky header, scrolling sections, fixed bottom tab bar */
 :root{
-  --bg:#ffffff; --surface:#ffffff; --ink:#1c1c1e; --muted:#6b6b73; --line:#ebebef;
-  --sea:#d92d3a; --seaDeep:#b21f2c; --marigold:#d92d3a; --jasmine:#fff4f4;
+  --bg:#ffffff; --surface:#ffffff; --ink:#1d1430; --muted:#6b6b73; --line:#ebebef;
+  --sea:#e8175d; --seaDeep:#b0124a; --marigold:#ff7a18; --jasmine:#fff1f5;
   --alert:#c62828; --alertBg:#fff1f1; --ok:#1e8e4f;
-  --grad:linear-gradient(120deg,#e8384a 0%,#cc1f30 100%);
-  --t1b:#fdeced; --t1f:#c81e2c; --t2b:#fdeced; --t2f:#c81e2c; --t3b:#fff4e5; --t3f:#b45309; --t4b:#e8f6ee; --t4f:#1e8e4f; --t5b:#eef2ff; --t5f:#3b5bdb;
-  --navbg:rgba(255,255,255,.82); --goldbg:linear-gradient(135deg,#fff7dc,#ffe7a3); --fuelbg:linear-gradient(135deg,#eef3ff,#dde6ff); --page:#f7f6fb;
+  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
+  --t1b:#ffe4ee; --t1f:#d6114f; --t2b:#ffe4ee; --t2f:#d6114f; --t3b:#fff4e5; --t3f:#b45309; --t4b:#e8f6ee; --t4f:#1e8e4f; --t5b:#eef2ff; --t5f:#3b5bdb;
+  --navbg:rgba(255,255,255,.82); --goldbg:linear-gradient(135deg,#fff7dc,#ffe7a3); --fuelbg:linear-gradient(135deg,#eef3ff,#dde6ff); --page:#fff8fb; --surface2:rgba(255,255,255,.9); --glow1:rgba(255,45,111,.16); --glow2:rgba(124,58,237,.14); --glow3:rgba(255,154,31,.16);
   --display:"Baloo Thambi 2","Hind Madurai",system-ui,sans-serif;
   --body:"Hind Madurai",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121214; --surface:#1c1c20; --ink:#f2f2f4; --muted:#a1a1aa; --line:#2c2c32;
-  --sea:#ff6b74; --seaDeep:#2a1517; --marigold:#ff6b74; --jasmine:#2a1a1c;
+  --bg:#110d1c; --surface:#1d1830; --ink:#f4f0ff; --muted:#a9a1c4; --line:#2e2747;
+  --sea:#ff5c8f; --seaDeep:#2a1324; --marigold:#ffa24d; --jasmine:#2a1626;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
-  --grad:linear-gradient(120deg,#e03131 0%,#c2182b 100%);
-  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#121214; color-scheme:dark}}
+  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
+  --t1b:#3a1830; --t1f:#ff8fb3; --t2b:#3a1830; --t2f:#ff8fb3; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#110d1c; --surface2:rgba(29,24,48,.9); --glow1:rgba(255,45,111,.18); --glow2:rgba(124,58,237,.22); --glow3:rgba(255,154,31,.12); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#121214; --surface:#1c1c20; --ink:#f2f2f4; --muted:#a1a1aa; --line:#2c2c32;
-  --sea:#ff6b74; --seaDeep:#2a1517; --marigold:#ff6b74; --jasmine:#2a1a1c;
+  --bg:#110d1c; --surface:#1d1830; --ink:#f4f0ff; --muted:#a9a1c4; --line:#2e2747;
+  --sea:#ff5c8f; --seaDeep:#2a1324; --marigold:#ffa24d; --jasmine:#2a1626;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
-  --grad:linear-gradient(120deg,#e03131 0%,#c2182b 100%);
-  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#121214; color-scheme:dark}
+  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
+  --t1b:#3a1830; --t1f:#ff8fb3; --t2b:#3a1830; --t2f:#ff8fb3; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#110d1c; --surface2:rgba(29,24,48,.9); --glow1:rgba(255,45,111,.18); --glow2:rgba(124,58,237,.22); --glow3:rgba(255,154,31,.12); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -298,6 +298,35 @@ nav{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-in
 nav{left:0;right:0;bottom:0;margin:0;max-width:none;border:0;border-top:1px solid var(--line);border-radius:22px 22px 0 0;background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 -8px 24px rgba(40,20,90,.08);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
 .app{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
 .hot .tip{display:none}.hcard .tip{font-size:12.5px;color:var(--muted)}
+
+/* ---- vibrant layer ---- */
+body{background:radial-gradient(60% 40% at 0% 0%,var(--glow1),transparent 70%),radial-gradient(50% 35% at 100% 10%,var(--glow2),transparent 70%),radial-gradient(60% 40% at 50% 100%,var(--glow3),transparent 70%),var(--page);background-attachment:fixed}
+header{background:var(--surface2)}
+.brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2::before{content:"";display:inline-block;width:6px;height:20px;border-radius:3px;background:var(--grad);margin-right:9px;vertical-align:-2px}
+.banner h1::before,.hero h2::before{display:none}
+.rate:first-child{background:linear-gradient(135deg,#ffe066,#ffb703);color:#3d2a00;box-shadow:0 10px 24px rgba(255,183,3,.35)}
+.rate:first-child .lbl,.rate:first-child .rline span,.rate:first-child .meta{color:rgba(61,42,0,.75)!important}
+.rate:last-child{background:linear-gradient(135deg,#5b8cff,#8b5cf6);color:#fff;box-shadow:0 10px 24px rgba(91,140,255,.35)}
+.rate:last-child .lbl,.rate:last-child .rline span,.rate:last-child .meta,.rate:last-child .down,.rate:last-child .up{color:rgba(255,255,255,.85)!important}
+.rate .dot{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+.alert{border-left:0;border-radius:18px;background:linear-gradient(135deg,#ffe1ea,#ffe3d3);box-shadow:0 6px 18px rgba(255,45,111,.12)}
+.alert.info{background:linear-gradient(135deg,#e6efff,#f0e6ff);box-shadow:0 6px 18px rgba(91,140,255,.12)}
+.alert .pill{background:var(--grad);color:#fff!important;border-radius:999px;padding:3px 9px;font-size:10px;align-self:flex-start}
+.alert.info .pill{background:linear-gradient(120deg,#5b8cff,#8b5cf6)}
+.alert p{color:#2a1b3d}.alert time{color:#6b5a85}
+.chip,.ncat{background:var(--surface);border:1px solid transparent;box-shadow:0 3px 10px rgba(60,20,90,.07)}
+.hours2 div:nth-child(5n+1){background:linear-gradient(160deg,#ffe4ee,#fff)}.hours2 div:nth-child(5n+2){background:linear-gradient(160deg,#ffedd5,#fff)}.hours2 div:nth-child(5n+3){background:linear-gradient(160deg,#fef9c3,#fff)}.hours2 div:nth-child(5n+4){background:linear-gradient(160deg,#dcfce7,#fff)}.hours2 div:nth-child(5n+5){background:linear-gradient(160deg,#e0e7ff,#fff)}
+.hours2 div{border:0}.hours2 span{color:#2563eb}
+.qbtn .qi{box-shadow:0 10px 22px rgba(255,45,111,.22)}
+.list,.ocard,.loccard,.tripcard,.opt,.plan,.bigcta,.ftile{background:var(--surface2)}
+.dtile{background:var(--grad)}
+.go{border:0;background:var(--t1b);color:var(--t1f);font-weight:700}
+.stag{border-color:transparent;background:rgba(124,58,237,.12);color:#7c3aed}
+.tab{color:var(--muted)}.tab[aria-selected="true"]{color:var(--sea)}
+.ftile:nth-child(8n+1){background:linear-gradient(160deg,#fff1e6,#fff)}.ftile:nth-child(8n+2){background:linear-gradient(160deg,#fef9c3,#fff)}.ftile:nth-child(8n+3){background:linear-gradient(160deg,#dcfce7,#fff)}.ftile:nth-child(8n+4){background:linear-gradient(160deg,#e0f2fe,#fff)}.ftile:nth-child(8n+5){background:linear-gradient(160deg,#f3e8ff,#fff)}.ftile:nth-child(8n+6){background:linear-gradient(160deg,#ffe4ee,#fff)}.ftile:nth-child(8n+7){background:linear-gradient(160deg,#e0e7ff,#fff)}.ftile:nth-child(8n+8){background:linear-gradient(160deg,#ffedd5,#fff)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hours2 div,:root:not([data-theme="light"]) .ftile{background:var(--surface)!important}:root:not([data-theme="light"]) .alert{background:linear-gradient(135deg,#3a1630,#3a2016)}:root:not([data-theme="light"]) .alert.info{background:linear-gradient(135deg,#1c2548,#2a1c48)}:root:not([data-theme="light"]) .alert p{color:var(--ink)}:root:not([data-theme="light"]) .alert time{color:var(--muted)}:root:not([data-theme="light"]) .hours2 span{color:#7aa7ff}}
+:root[data-theme="dark"] .hours2 div,:root[data-theme="dark"] .ftile{background:var(--surface)!important}:root[data-theme="dark"] .alert{background:linear-gradient(135deg,#3a1630,#3a2016)}:root[data-theme="dark"] .alert.info{background:linear-gradient(135deg,#1c2548,#2a1c48)}:root[data-theme="dark"] .alert p{color:var(--ink)}:root[data-theme="dark"] .alert time{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -472,7 +501,7 @@ async function loadMovies(){try{const r=await fetch("data/movies.json?ts="+Date.
  movies.length=0;items.forEach((m,i)=>movies.push({t:m.title,img:m.poster,g:gs[i%4],l:[m.lang,m.genre].filter(Boolean).join(" • "),
   d:m.date<=today?"Now showing":dd(m.date),r:m.date<=today?(m.rating>=7?"Hit":"Now showing"):m.date<=soon?"Releasing":"Coming soon",n:m.rating?`Rated ${m.rating}/10`:(m.date<=today?"In theatres":"Release "+dd(m.date))}));
  moviesLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&["home","news"].includes(cur.dataset.v)){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}catch(e){}}
-const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.img?`linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.75)),url('${x.img}') center/cover,`:""}${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3>${art(HOTART[x.k]||"store","bandart")}</div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span><a class="go" style="justify-self:start;margin-top:4px" href="https://in.bookmyshow.com/explore/movies-chennai" target="_blank" rel="noopener">Book tickets</a></div></article>`;
+const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.img?`linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.75)),url('${x.img}') center/cover,`:""}${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3></div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span><a class="go" style="justify-self:start;margin-top:4px" href="https://in.bookmyshow.com/explore/movies-chennai" target="_blank" rel="noopener">Book tickets</a></div></article>`;
 function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${all?"":more("news")}</div>
  <div class="chips">${["Movies","City buzz"].map(k=>`<button class="chip" data-b="${k}" aria-pressed="${k===buzzF}">${k==="Movies"?"Movie releases":k}</button>`).join("")}</div>
  ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
