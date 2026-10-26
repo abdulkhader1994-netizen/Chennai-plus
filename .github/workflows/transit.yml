@@ -1,0 +1,28 @@
+name: Update Chennai transit routes
+on:
+  schedule:
+    - cron: "41 3 * * 0"   # every Sunday morning
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/fetch-transit.mjs"
+permissions:
+  contents: write
+concurrency:
+  group: transit
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/fetch-transit.mjs
+      - name: Save routes
+        run: |
+          git config user.name "chennai-plus-bot"
+          git config user.email "actions@users.noreply.github.com"
+          for f in data/transit.json data/transit-log.json; do if [ -f $f ]; then git add $f; fi; done
+          git diff --cached --quiet || (git commit -m "Update transit routes" && git pull --rebase && git push)
