@@ -308,11 +308,19 @@ const buzz=[
  {c:"Sports",t:"Chepauk to host a practice match, tickets on sale Thursday",m:"Chepauk • 4h"},
  {c:"Music",t:"December season line-up announced across 30 sabhas",m:"Mylapore • 5h"},
  {c:"City",t:"Pondy Bazaar to go vehicle-free on Sunday evenings",m:"T. Nagar • 7h"}];
-let buzzF="Movies";
-const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3></div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span></div></article>`;
+let buzzF="Movies",moviesLive=false;
+async function loadMovies(){try{const r=await fetch("data/movies.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();if(!j.items||!j.items.length)return;
+ const today=new Date().toISOString().slice(0,10),soon=new Date(Date.now()+7*864e5).toISOString().slice(0,10);
+ const dd=d=>new Date(d).toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"});
+ const gs=["linear-gradient(160deg,#5e1520,#b3261e 60%,#e2b85a)","linear-gradient(160deg,#1d3a5f,#6e1423 70%,#c9952b)","linear-gradient(160deg,#20160c,#5a3d12 60%,#c9952b)","linear-gradient(160deg,#2c3b2a,#3d6b2a 60%,#d9a441)"];
+ const items=j.items.slice().sort((a,b)=>{const ra=a.date<=today?0:1,rb=b.date<=today?0:1;return ra-rb||(ra?a.date.localeCompare(b.date):b.date.localeCompare(a.date))});
+ movies.length=0;items.forEach((m,i)=>movies.push({t:m.title,img:m.poster,g:gs[i%4],l:[m.lang,m.genre].filter(Boolean).join(" • "),
+  d:m.date<=today?"Now showing":dd(m.date),r:m.date<=today?(m.rating>=7?"Hit":"Now showing"):m.date<=soon?"Releasing":"Coming soon",n:m.rating?`Rated ${m.rating}/10`:(m.date<=today?"In theatres":"Release "+dd(m.date))}));
+ moviesLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&["home","news"].includes(cur.dataset.v)){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}catch(e){}}
+const posterCard=x=>`<article class="poster"><div class="pimg" style="background:${x.img?`linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.75)),url('${x.img}') center/cover,`:""}${x.g}"><span class="rel">${x.r}</span><h3>${esc(x.t)}</h3></div><div class="pinfo"><b>${x.d}</b><span>${x.l}</span><span>${x.n}</span><a class="go" style="justify-self:start;margin-top:4px" href="https://in.bookmyshow.com/explore/movies-chennai" target="_blank" rel="noopener">Book tickets</a></div></article>`;
 function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${all?"":more("news")}</div>
  <div class="chips">${["Movies","City buzz"].map(k=>`<button class="chip" data-b="${k}" aria-pressed="${k===buzzF}">${k==="Movies"?"Movie releases":k}</button>`).join("")}</div>
- ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
+ ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>${moviesLive?`<p class="note">Movie data from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>`:""}`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const demo=`<div class="demo">Weather, rain alerts, news and rates are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
@@ -383,7 +391,7 @@ function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.te
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
-setLang(lang);go("home");loadWeather();loadNews();loadRates();setInterval(()=>{loadWeather();loadNews();loadRates()},30*60e3);
+setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies()},30*60e3);
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 
