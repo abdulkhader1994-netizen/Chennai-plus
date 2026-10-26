@@ -1,35 +1,163 @@
 {
  "festivals": [
-  {"id": "deepavali", "name": "Deepavali", "ta": "தீபாவளி", "date": "2026-11-08", "theme": "diwali", "art": "diya",
-   "greet": "Happy Deepavali!", "blurb": "Crackers, sweets, sarees & malls near you",
-   "find": ["fireworks", "textiles", "sweets", "jewellery", "mall"],
+  {
+   "id": "deepavali",
+   "name": "Deepavali",
+   "ta": "தீபாவளி",
+   "date": "2026-11-08",
+   "theme": "diwali",
+   "art": "diya",
+   "greet": "Happy Deepavali!",
+   "blurb": "Crackers, sweets, sarees & malls near you",
+   "find": [
+    "fireworks",
+    "textiles",
+    "sweets",
+    "jewellery",
+    "mall"
+   ],
    "tips": [
-    {"icon": "cracker", "t": "Buy green crackers", "d": "Shop at licensed dealers and look for the green cracker mark."},
-    {"icon": "pin", "t": "Follow the bursting hours", "d": "Tamil Nadu announces cracker timings before Deepavali. Watch the News tab."},
-    {"icon": "rain", "t": "Keep water and sand ready", "d": "Wear cotton clothes and keep children supervised."},
-    {"icon": "people", "t": "Beat the shopping crowds", "d": "T. Nagar and Purasawalkam are packed in the last week. Try weekday mornings or take the Metro."},
-    {"icon": "civic", "t": "Emergency numbers", "d": "Fire 101 · Ambulance 108 · Police 100"}
-   ]},
-  {"id": "karthigai", "name": "Karthigai Deepam", "ta": "கார்த்திகை தீபம்", "date": "2026-11-24", "theme": "deepam", "art": "diya",
-   "greet": "Happy Karthigai Deepam!", "blurb": "Lamps, sweets and the Maha Deepam",
-   "find": ["sweets", "mall", "textiles"],
+    {
+     "icon": "cracker",
+     "t": "Buy green crackers",
+     "d": "Shop at licensed dealers and look for the green cracker mark.",
+     "t_ta": "பசுமைப் பட்டாசுகளை வாங்குங்கள்",
+     "d_ta": "உரிமம் பெற்ற கடைகளில் வாங்கி, பசுமைப் பட்டாசு முத்திரையைப் பாருங்கள்."
+    },
+    {
+     "icon": "pin",
+     "t": "Follow the bursting hours",
+     "d": "Tamil Nadu announces cracker timings before Deepavali. Watch the News tab.",
+     "t_ta": "வெடிக்கும் நேரத்தைப் பின்பற்றுங்கள்",
+     "d_ta": "தீபாவளிக்கு முன் தமிழ்நாடு அரசு பட்டாசு நேரத்தை அறிவிக்கும். செய்திகள் பகுதியைப் பாருங்கள்."
+    },
+    {
+     "icon": "rain",
+     "t": "Keep water and sand ready",
+     "d": "Wear cotton clothes and keep children supervised.",
+     "t_ta": "தண்ணீரும் மணலும் தயாராக வைத்திருங்கள்",
+     "d_ta": "பருத்தி ஆடைகளை அணியுங்கள்; குழந்தைகளைக் கவனித்துக்கொள்ளுங்கள்."
+    },
+    {
+     "icon": "people",
+     "t": "Beat the shopping crowds",
+     "d": "T. Nagar and Purasawalkam are packed in the last week. Try weekday mornings or take the Metro.",
+     "t_ta": "ஷாப்பிங் கூட்டத்தைத் தவிர்க்க",
+     "d_ta": "கடைசி வாரத்தில் தி. நகர், புரசைவாக்கம் நிரம்பி வழியும். வார நாள் காலையில் செல்லுங்கள் அல்லது மெட்ரோவில் செல்லுங்கள்."
+    },
+    {
+     "icon": "civic",
+     "t": "Emergency numbers",
+     "d": "Fire 101 · Ambulance 108 · Police 100",
+     "t_ta": "அவசர எண்கள்",
+     "d_ta": "தீயணைப்பு 101 · ஆம்புலன்ஸ் 108 · காவல் 100"
+    }
+   ],
+   "name_ta": "தீபாவளி",
+   "greet_ta": "இனிய தீபாவளி நல்வாழ்த்துகள்!",
+   "blurb_ta": "பட்டாசு, இனிப்பு, புடவை, மால்கள் உங்கள் அருகில்"
+  },
+  {
+   "id": "karthigai",
+   "name": "Karthigai Deepam",
+   "ta": "கார்த்திகை தீபம்",
+   "date": "2026-11-24",
+   "theme": "deepam",
+   "art": "diya",
+   "greet": "Happy Karthigai Deepam!",
+   "blurb": "Lamps, sweets and the Maha Deepam",
+   "find": [
+    "sweets",
+    "mall",
+    "textiles"
+   ],
    "tips": [
-    {"icon": "diya", "t": "Light lamps safely", "d": "Keep diyas away from curtains and dry leaves, and never leave them unattended."},
-    {"icon": "temple", "t": "Tiruvannamalai Maha Deepam", "d": "Lakhs travel for the evening lighting. Book buses and trains early."}
-   ]},
-  {"id": "christmas", "name": "Christmas", "ta": "கிறிஸ்துமஸ்", "date": "2026-12-25", "theme": "xmas", "art": "xmas",
-   "greet": "Merry Christmas!", "blurb": "Cakes, malls and midnight mass",
-   "find": ["sweets", "mall", "textiles"],
+    {
+     "icon": "diya",
+     "t": "Light lamps safely",
+     "d": "Keep diyas away from curtains and dry leaves, and never leave them unattended.",
+     "t_ta": "விளக்குகளைப் பாதுகாப்பாக ஏற்றுங்கள்",
+     "d_ta": "அகல் விளக்குகளைத் திரைச்சீலைகள், காய்ந்த இலைகளிலிருந்து தள்ளி வையுங்கள்; கவனிக்காமல் விடாதீர்கள்."
+    },
+    {
+     "icon": "temple",
+     "t": "Tiruvannamalai Maha Deepam",
+     "d": "Lakhs travel for the evening lighting. Book buses and trains early.",
+     "t_ta": "திருவண்ணாமலை மகா தீபம்",
+     "d_ta": "மாலை தீபத்துக்கு லட்சக்கணக்கானோர் செல்வர். பஸ், ரயில் டிக்கெட்டுகளை முன்பே பதிவு செய்யுங்கள்."
+    }
+   ],
+   "name_ta": "கார்த்திகை தீபம்",
+   "greet_ta": "இனிய கார்த்திகை தீப நல்வாழ்த்துகள்!",
+   "blurb_ta": "விளக்குகள், இனிப்புகள் மற்றும் மகா தீபம்"
+  },
+  {
+   "id": "christmas",
+   "name": "Christmas",
+   "ta": "கிறிஸ்துமஸ்",
+   "date": "2026-12-25",
+   "theme": "xmas",
+   "art": "xmas",
+   "greet": "Merry Christmas!",
+   "blurb": "Cakes, malls and midnight mass",
+   "find": [
+    "sweets",
+    "mall",
+    "textiles"
+   ],
    "tips": [
-    {"icon": "heritage", "t": "Midnight mass", "d": "San Thome Basilica fills up early on Christmas Eve. Arrive well ahead."},
-    {"icon": "dessert", "t": "Order cakes early", "d": "Bakeries get busy in the last week of December."}
-   ]},
-  {"id": "pongal", "name": "Pongal", "ta": "பொங்கல்", "date": "2027-01-15", "theme": "pongal", "art": "pongalpot",
-   "greet": "Happy Pongal!", "blurb": "New clothes, sweets and Kaanum Pongal outings",
-   "find": ["textiles", "sweets", "mall"],
+    {
+     "icon": "heritage",
+     "t": "Midnight mass",
+     "d": "San Thome Basilica fills up early on Christmas Eve. Arrive well ahead.",
+     "t_ta": "நள்ளிரவுத் திருப்பலி",
+     "d_ta": "கிறிஸ்துமஸ் இரவில் சாந்தோம் பசிலிக்கா சீக்கிரம் நிரம்பும். முன்கூட்டியே செல்லுங்கள்."
+    },
+    {
+     "icon": "dessert",
+     "t": "Order cakes early",
+     "d": "Bakeries get busy in the last week of December.",
+     "t_ta": "கேக்கை முன்பே ஆர்டர் செய்யுங்கள்",
+     "d_ta": "டிசம்பர் கடைசி வாரத்தில் பேக்கரிகள் பரபரப்பாக இருக்கும்."
+    }
+   ],
+   "name_ta": "கிறிஸ்துமஸ்",
+   "greet_ta": "இனிய கிறிஸ்துமஸ் நல்வாழ்த்துகள்!",
+   "blurb_ta": "கேக்குகள், மால்கள் மற்றும் நள்ளிரவுத் திருப்பலி"
+  },
+  {
+   "id": "pongal",
+   "name": "Pongal",
+   "ta": "பொங்கல்",
+   "date": "2027-01-15",
+   "theme": "pongal",
+   "art": "pongalpot",
+   "greet": "Happy Pongal!",
+   "blurb": "New clothes, sweets and Kaanum Pongal outings",
+   "find": [
+    "textiles",
+    "sweets",
+    "mall"
+   ],
    "tips": [
-    {"icon": "beach", "t": "Kaanum Pongal crowds", "d": "Marina and Elliot's Beach get very crowded. Go early and keep children close."},
-    {"icon": "bus", "t": "Travelling home?", "d": "Special buses run from Kilambakkam and Koyambedu. Book early."}
-   ]}
+    {
+     "icon": "beach",
+     "t": "Kaanum Pongal crowds",
+     "d": "Marina and Elliot's Beach get very crowded. Go early and keep children close.",
+     "t_ta": "காணும் பொங்கல் கூட்டம்",
+     "d_ta": "மெரினா, எலியட்ஸ் கடற்கரைகளில் கூட்டம் அதிகம். சீக்கிரம் செல்லுங்கள்; குழந்தைகளை அருகில் வைத்திருங்கள்."
+    },
+    {
+     "icon": "bus",
+     "t": "Travelling home?",
+     "d": "Special buses run from Kilambakkam and Koyambedu. Book early.",
+     "t_ta": "ஊருக்குச் செல்கிறீர்களா?",
+     "d_ta": "கிளாம்பாக்கம், கோயம்பேட்டிலிருந்து சிறப்புப் பேருந்துகள் இயங்கும். முன்பே பதிவு செய்யுங்கள்."
+    }
+   ],
+   "name_ta": "பொங்கல்",
+   "greet_ta": "இனிய பொங்கல் நல்வாழ்த்துகள்!",
+   "blurb_ta": "புத்தாடைகள், இனிப்புகள் மற்றும் காணும் பொங்கல் சுற்றுலா"
+  }
  ]
 }

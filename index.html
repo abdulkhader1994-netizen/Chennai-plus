@@ -488,7 +488,7 @@ async function loadRates(){try{const r=await fetch("data/rates.json?ts="+Date.no
 const inr=n=>"₹"+Number(n).toLocaleString("en-IN",{maximumFractionDigits:2,minimumFractionDigits:Number.isInteger(n)?0:2});
 function ratesSec(){
  const g=R&&R.gold,f=R&&R.fuel;
- const dstr=d=>new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"short"});
+ const dstr=d=>new Date(d).toLocaleDateString(LOC(),{day:"numeric",month:"short"});
  const ch=g&&g.change!=null?(g.change>0?`<div class="up">▲ ${inr(g.change)} since yesterday</div>`:g.change<0?`<div class="down">▼ ${inr(-g.change)} since yesterday</div>`:`<div class="down">No change today</div>`):`<div class="meta" style="font-size:12px;color:var(--muted)">Estimated rate</div>`;
  return `<section><div class="head"><h2>Today's rates</h2><span class="meta" style="font-size:12px;color:var(--muted)">${R?"Live • "+dstr(R.updated):"Loading…"}</span></div><div class="rates">
  <div class="rate"><div class="lbl"><span class="dot" style="background:#e0a800"></span>Gold / gram</div>
@@ -516,7 +516,7 @@ const buzz=[
 let buzzF="Movies",moviesLive=false;
 async function loadMovies(){try{const r=await fetch("data/movies.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();if(!j.items||!j.items.length)return;
  const today=new Date().toISOString().slice(0,10),soon=new Date(Date.now()+7*864e5).toISOString().slice(0,10);
- const dd=d=>new Date(d).toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"});
+ const dd=d=>new Date(d).toLocaleDateString(LOC(),{weekday:"short",day:"numeric",month:"short"});
  const gs=["linear-gradient(160deg,#1f1f24,#e03131 60%,#ff8787)","linear-gradient(160deg,#1d3a5f,#c92a2a 70%,#d92d3a)","linear-gradient(160deg,#212529,#495057 60%,#d92d3a)","linear-gradient(160deg,#2c3b2a,#3d6b2a 60%,#fab005)"];
  const items=j.items.slice().sort((a,b)=>{const ra=a.date<=today?0:1,rb=b.date<=today?0:1;return ra-rb||(ra?a.date.localeCompare(b.date):b.date.localeCompare(a.date))});
  movies.length=0;items.forEach((m,i)=>movies.push({t:m.title,img:m.poster,g:gs[i%4],l:[m.lang,m.genre].filter(Boolean).join(" • "),
@@ -529,6 +529,71 @@ function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const demo=`<div class="demo">Weather, rain alerts, news and rates are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
+const LOC=()=>lang==="ta"?"ta-IN":"en-IN";
+const L=(o,k)=>lang==="ta"&&o&&o[k+"_ta"]?o[k+"_ta"]:o?o[k]:"";
+const TA={
+"Good morning, Chennai":"காலை வணக்கம், சென்னை","Good day, Chennai":"இனிய நாள், சென்னை","Good evening, Chennai":"மாலை வணக்கம், சென்னை","Good night, Chennai":"இனிய இரவு, சென்னை",
+"Clear sky":"தெளிவான வானம்","Mostly clear":"பெரும்பாலும் தெளிவு","Partly cloudy":"ஓரளவு மேகமூட்டம்","Cloudy":"மேகமூட்டம்","Foggy":"பனிமூட்டம்","Light drizzle":"லேசான தூறல்","Drizzle":"தூறல்","Heavy drizzle":"கனத்த தூறல்","Light rain":"லேசான மழை","Heavy rain":"கனமழை","Rain showers":"மழைச் சாரல்","Heavy showers":"கனத்த மழைச் சாரல்","Thunderstorm":"இடியுடன் மழை","Thunderstorm with hail":"ஆலங்கட்டி மழை","No rain soon":"விரைவில் மழை இல்லை","Loading live weather…":"நேரலை வானிலை ஏற்றப்படுகிறது…","last saved":"கடைசியாகச் சேமித்தது",
+"Petrol":"பெட்ரோல்","Hospitals":"மருத்துவமனைகள்","Bus & Metro":"பஸ் & மெட்ரோ","Top food":"சிறந்த உணவு","Explore":"சுற்றிப் பார்",
+"Today's rates":"இன்றைய விலைகள்","Loading…":"ஏற்றப்படுகிறது…","Gold / gram":"தங்கம் / கிராம்","Estimated rate":"மதிப்பீட்டு விலை","Fuel / litre":"எரிபொருள் / லிட்டர்","Diesel":"டீசல்",
+"Alerts":"எச்சரிக்கைகள்","Rain":"மழை","OK":"சரி","No alerts right now":"தற்போது எச்சரிக்கைகள் இல்லை","Rain and city alerts will show up here.":"மழை மற்றும் நகர எச்சரிக்கைகள் இங்கே தோன்றும்.","Live forecast • Open-Meteo":"நேரலை முன்னறிவிப்பு • Open-Meteo",
+"What's hot in Chennai":"சென்னையில் இப்போது ஹாட்","All":"அனைத்தும்","New places":"புதிய இடங்கள்","New events":"புதிய நிகழ்வுகள்","Must try":"கட்டாயம் சுவையுங்கள்","New opening":"புதிய திறப்பு","Trending":"டிரெண்டிங்","This weekend":"இந்த வார இறுதி","Just announced":"புதிய அறிவிப்பு",
+"Chennai buzz":"சென்னை பரபரப்பு","See all":"அனைத்தையும் பார்","Movie releases":"திரைப்பட வெளியீடுகள்","City buzz":"நகரச் செய்திகள்","Hit":"ஹிட்","Now showing":"திரையில்","In theatres":"திரையரங்குகளில்","Releasing":"வெளியாகிறது","Coming soon":"விரைவில்","Book tickets":"டிக்கெட் பதிவு",
+"Visiting Chennai?":"சென்னைக்கு வருகிறீர்களா?","Beaches":"கடற்கரைகள்","Temples":"கோயில்கள்","Heritage":"பாரம்பரியம்","Nature":"இயற்கை","Shopping":"ஷாப்பிங்","Day trips":"ஒருநாள் பயணங்கள்","Directions":"வழிகாட்டு",
+"Top news":"முக்கியச் செய்திகள்","This week":"இந்த வாரம்","Sample":"மாதிரி",
+"Home":"முகப்பு","Near me":"அருகில்","News":"செய்திகள்","Events":"நிகழ்வுகள்","Food":"உணவு","‹ Home":"‹ முகப்பு",
+"Weather:":"வானிலை:","· Movies: TMDB (not endorsed by TMDB) · Gold rate is an estimate":"· திரைப்படங்கள்: TMDB (TMDB ஒப்புதல் அல்ல) · தங்க விலை ஒரு மதிப்பீடு",
+"Headlines open on each publisher’s site · Movies: TMDB (not endorsed by TMDB)":"தலைப்புச் செய்திகள் அந்தந்த செய்தித் தளத்தில் திறக்கும் · திரைப்படங்கள்: TMDB (TMDB ஒப்புதல் அல்ல)",
+"Places ©":"இடங்கள் ©","· Walk and drive times are estimates":"· நடை, பயண நேரங்கள் மதிப்பீடுகள்","Timings and entry fees change, so check before you go":"நேரமும் கட்டணமும் மாறலாம்; செல்லும் முன் சரிபார்க்கவும்","Ratings open in Google Maps":"மதிப்பீடுகள் Google Maps-ல் திறக்கும்","Dates from the Tamil Nadu holiday list · Shops © OpenStreetMap contributors":"தேதிகள்: தமிழ்நாடு அரசு விடுமுறைப் பட்டியல் · கடைகள் © OpenStreetMap contributors",
+"Chennai news":"சென்னை செய்திகள்","Fresh headlines every 30 minutes":"ஒவ்வொரு 30 நிமிடமும் புதிய செய்திகள்","Latest":"சமீபத்தியவை",
+"Concerts, comedy, markets & more":"இசை, நகைச்சுவை, சந்தைகள் மற்றும் பல","Coming up":"வரவிருப்பவை",
+"Chennai’s tastiest spots":"சென்னையின் சுவையான இடங்கள்","Top rated near me":"அருகிலுள்ள சிறந்த உணவகங்கள்","Best-rated restaurants around you":"உங்கள் அருகே அதிக மதிப்பீடு பெற்றவை","Biryani":"பிரியாணி","Tiffin":"டிபன்","Veg meals":"சைவ சாப்பாடு","Seafood":"கடல் உணவு","Cafes":"கஃபே","Desserts":"இனிப்புகள்","Late night":"நள்ளிரவு","Street food":"தெரு உணவு","Chennai's best":"சென்னையின் சிறந்தவை","Veg":"சைவம்","Dessert":"இனிப்பு","★ Ratings":"★ மதிப்பீடுகள்",
+"Petrol, hospitals, food & more around you":"உங்கள் அருகே பெட்ரோல், மருத்துவமனை, உணவு மற்றும் பல","Places near":"அருகிலுள்ள இடங்கள்","Change ▾":"மாற்று ▾","Change area":"பகுதியை மாற்று","Your location":"உங்கள் இருப்பிடம்","Use my current location":"என் இருப்பிடத்தைப் பயன்படுத்து","Refresh my location":"இருப்பிடத்தைப் புதுப்பி",
+"Stations":"நிலையங்கள்","Bus stops":"பஸ் நிறுத்தங்கள்","Hotels":"ஹோட்டல்கள்","Tea & cafe":"டீ & கஃபே","Malls":"மால்கள்","Cinemas":"திரையரங்குகள்","Mechanics":"மெக்கானிக்","Cracker shops":"பட்டாசுக் கடைகள்","Sweet shops":"இனிப்புக் கடைகள்","Jewellery":"நகைக் கடைகள்","Silks & sarees":"பட்டு & புடவைகள்",
+"petrol":"பெட்ரோல் நிலையங்கள்","stations":"நிலையங்கள்","bus stops":"பஸ் நிறுத்தங்கள்","hotels":"ஹோட்டல்கள்","food":"உணவகங்கள்","tea & cafe":"டீ & கஃபே","malls":"மால்கள்","cinemas":"திரையரங்குகள்","hospitals":"மருத்துவமனைகள்","mechanics":"மெக்கானிக் கடைகள்","cracker shops":"பட்டாசுக் கடைகள்","sweet shops":"இனிப்புக் கடைகள்","jewellery":"நகைக் கடைகள்","silks & sarees":"பட்டு & புடவைக் கடைகள்",
+"within 4 km":"4 கி.மீ.க்குள்","Nearest first":"அருகிலுள்ளவை முதலில்","Nearest":"மிக அருகில்","Go":"செல்","Open 24 hrs":"24 மணி நேரமும் திறந்திருக்கும்",
+"Plan a trip by bus, train or Metro":"பஸ், ரயில் அல்லது மெட்ரோவில் பயணம் திட்டமிடுங்கள்","See bus numbers and lines from A to B":"A-யிலிருந்து B-க்கு பஸ் எண்கள், வழித்தடங்கள்",
+"Blue Line":"நீல வழித்தடம்","Green Line":"பச்சை வழித்தடம்","Yellow Line":"மஞ்சள் வழித்தடம்","Airport–Central":"விமான நிலையம்–சென்ட்ரல்","Beach - Tambaram line":"பீச் - தாம்பரம் வழித்தடம்","Central - Thiruvallur line":"சென்ட்ரல் - திருவள்ளூர் வழித்தடம்","Tambaram - Chengelpet line":"தாம்பரம் - செங்கல்பட்டு வழித்தடம்",
+"Emergency":"அவசரம்","Call":"ஆம்புலன்ஸ்:","for an ambulance. Call the hospital before going to check they can treat the case.":"என்ற எண்ணை அழைக்கவும். செல்லும் முன் மருத்துவமனையை அழைத்து சிகிச்சை கிடைக்குமா என உறுதி செய்யுங்கள்.",
+"Still adding these places":"இந்த இடங்கள் இன்னும் சேர்க்கப்படுகின்றன","Nothing found within 4 km":"4 கி.மீ.க்குள் எதுவும் இல்லை","Try another category or change the area.":"வேறு வகையைத் தேர்ந்தெடுக்கவும் அல்லது பகுதியை மாற்றவும்.",
+"Finding your location…":"உங்கள் இருப்பிடம் கண்டறியப்படுகிறது…","Location permission was denied. Allow location for Chennai+ in your phone settings, or pick an area.":"இருப்பிட அனுமதி மறுக்கப்பட்டது. போன் அமைப்புகளில் Chennai+-க்கு அனுமதி கொடுங்கள், அல்லது பகுதியைத் தேர்ந்தெடுங்கள்.","Location isn't available on this device. Pick an area instead.":"இந்தச் சாதனத்தில் இருப்பிட வசதி இல்லை. பகுதியைத் தேர்ந்தெடுங்கள்.",
+"Explore Chennai":"சென்னையைச் சுற்றிப் பாருங்கள்","Must-see places & a one-day plan":"கட்டாயம் பார்க்க வேண்டிய இடங்கள் & ஒருநாள் திட்டம்","Best time to visit:":"செல்ல சிறந்த காலம்:","If you have one day":"ஒரு நாள் இருந்தால்","Must-visit places":"கட்டாயம் பார்க்க வேண்டியவை","Loading places…":"இடங்கள் ஏற்றப்படுகின்றன…",
+"Shop near you":"உங்கள் அருகே வாங்க","Festival tips":"பண்டிகைக் குறிப்புகள்","days to go":"நாட்கள் உள்ளன","day to go":"நாள் உள்ளது","Loading festivals…":"பண்டிகைகள் ஏற்றப்படுகின்றன…",
+"Bus, train & Metro":"பஸ், ரயில் & மெட்ரோ","Bus numbers & lines from A to B":"A-யிலிருந்து B-க்கு பஸ் எண்கள் & வழித்தடங்கள்","Start from my location":"என் இருப்பிடத்திலிருந்து தொடங்கு","Bus":"பஸ்","Train":"ரயில்","Metro":"மெட்ரோ",
+"Pick a start and a destination from the suggestions. Tip: bus termini, Metro and railway stations give the best results.":"பரிந்துரைகளிலிருந்து புறப்படும் இடத்தையும் சேருமிடத்தையும் தேர்ந்தெடுங்கள். குறிப்பு: பஸ் நிலையங்கள், மெட்ரோ, ரயில் நிலையங்கள் சிறந்த முடிவுகளைத் தரும்.",
+"Live timings in Google Maps":"Google Maps-ல் நேரலை நேரங்கள்","From: stop, station or area":"புறப்படும் இடம்: நிறுத்தம், நிலையம் அல்லது பகுதி","To: where are you going?":"சேருமிடம்: எங்கே செல்கிறீர்கள்?","From":"புறப்படும் இடம்","To":"சேருமிடம்","Swap start and destination":"இடங்களை மாற்று",
+"Direct · estimate":"நேரடி · மதிப்பீடு","1 change · estimate":"1 மாற்றம் · மதிப்பீடு","No route with up to one change":"ஒரு மாற்றத்துக்குள் வழி இல்லை","Try a bigger stop nearby (a bus terminus or station), another mode, or Google Maps below.":"அருகிலுள்ள பெரிய நிறுத்தம் (பஸ் நிலையம் அல்லது ரயில் நிலையம்), வேறு வகை அல்லது கீழே உள்ள Google Maps-ஐ முயற்சிக்கவும்.",
+"Loading bus, train and Metro routes…":"பஸ், ரயில், மெட்ரோ வழித்தடங்கள் ஏற்றப்படுகின்றன…","My location":"என் இருப்பிடம்","Pick a nearby bus stop or station instead.":"அருகிலுள்ள பஸ் நிறுத்தம் அல்லது நிலையத்தைத் தேர்ந்தெடுங்கள்.",
+"Bus routes from the community":"பஸ் வழித்தடங்கள்: சமூக","; train and Metro lines from":"; ரயில், மெட்ரோ வழித்தடங்கள்:",". Routes can change and times are rough estimates, so check before you travel.":". வழித்தடங்கள் மாறலாம், நேரங்கள் தோராயமானவை; பயணத்துக்கு முன் சரிபார்க்கவும்.",
+"Location permission was denied. Type your start stop instead.":"இருப்பிட அனுமதி மறுக்கப்பட்டது. புறப்படும் நிறுத்தத்தைத் தட்டச்சு செய்யுங்கள்.","Location isn't available on this device.":"இந்தச் சாதனத்தில் இருப்பிட வசதி இல்லை.",
+"Switch language":"மொழியை மாற்று","Weather":"வானிலை","Quick actions":"விரைவு இணைப்புகள்"};
+const TOK={Breakfast:"காலை உணவு","Evening snack":"மாலை சிற்றுண்டி",Snacks:"சிற்றுண்டி",Lunch:"மதிய உணவு",Dinner:"இரவு உணவு",Evening:"மாலை","Late night":"நள்ளிரவு",Veg:"சைவம்","Non-veg":"அசைவம்",Both:"இரண்டும்",Free:"இலவசம்",Petrol:"பெட்ரோல்","Open 24 hrs":"24 மணி நேரமும்","24 hrs":"24 மணி நேரம்",Emergency:"அவசர சிகிச்சை",
+ Tamil:"தமிழ்",English:"ஆங்கிலம்",Hindi:"இந்தி",Telugu:"தெலுங்கு",Malayalam:"மலையாளம்",Kannada:"கன்னடம்",Action:"ஆக்‌ஷன்",Comedy:"நகைச்சுவை",Drama:"நாடகம்",Romance:"காதல்",Thriller:"திரில்லர்",Horror:"திகில்",Crime:"குற்றம்",Fantasy:"கற்பனை","Science Fiction":"அறிவியல் புனைவு",Family:"குடும்பம்",Animation:"அனிமேஷன்",Adventure:"சாகசம்",Mystery:"மர்மம்",History:"வரலாறு",War:"போர்",Music:"இசை",Documentary:"ஆவணப்படம்",
+ Bus:"பஸ்",Train:"ரயில்",Metro:"மெட்ரோ",City:"நகரம்",Transport:"போக்குவரத்து",Rain:"மழை",Civic:"மாநகராட்சி",Business:"வணிகம்",Sports:"விளையாட்டு",Events:"நிகழ்வுகள்",Movies:"சினிமா","Full day":"முழு நாள்","Half day":"அரை நாள்"};
+const taTime=(h,m,ap)=>{h=+h;const mm=m?":"+m:"";if(ap==="am")return h===12?`நள்ளிரவு 12${mm}`:h<5?`அதிகாலை ${h}${mm}`:`காலை ${h}${mm}`;return h===12?`மதியம் 12${mm}`:h<4?`மதியம் ${h}${mm}`:h<7?`மாலை ${h}${mm}`:`இரவு ${h}${mm}`};
+const times=x=>x.replace(/\b(\d{1,2})(?::(\d\d))? (am|pm)\b/g,(_,h,m,a)=>taTime(h,m,a));
+const tk=x=>TOK[x]||TA[x]||x;
+const unit=x=>x.replace(/(\d[\d–]*) hrs?\b/g,"$1 மணி நேரம்").replace(/(\d+) min\b/g,"$1 நிமி");
+const TARX=[
+ [/^(\d{1,2})(?::(\d\d))? (am|pm)$/,(m,h,mi,a)=>taTime(h,mi,a)],
+ [/^Rain (.+) · (\d+)%$/,(m,t,p)=>`மழை ${times(t)} · ${p}%`],[/^Feels (.+)$/,(m,v)=>`உணர்வு ${v}`],[/^Humidity (.+)$/,(m,v)=>`ஈரப்பதம் ${v}`],[/^(\d+)% rain$/,(m,v)=>`${v}% மழை`],
+ [/^Live • (.+)$/,(m,v)=>`நேரலை • ${v}`],[/^As of (.+)$/,(m,v)=>`${v} நிலவரம்`],
+ [/^Rain likely around (.+) \((\d+)% chance\)\. Carry an umbrella and avoid low-lying subways\.$/,(m,t,p)=>`சுமார் ${times(t)} மணிக்கு மழை வாய்ப்பு (${p}%). குடை எடுத்துச் செல்லுங்கள்; தாழ்வான சுரங்கப்பாதைகளைத் தவிர்க்கவும்.`],
+ [/^(\d+)% buzz$/,(m,v)=>`${v}% பரபரப்பு`],[/^Rated (.+)\/10$/,(m,v)=>`மதிப்பீடு ${v}/10`],[/^Release (.+)$/,(m,v)=>`வெளியீடு ${v}`],
+ [/^(\d+) (.+)$/,(m,n,c)=>TA[c]?`${n} ${TA[c]}`:null],
+ [/^(\d+) min walk$/,(m,v)=>`${v} நிமிட நடை`],[/^~(\d+) min drive$/,(m,v)=>`~${v} நிமிட பயணம்`],[/^~(\d+) min$/,(m,v)=>`~${v} நிமி`],
+ [/^(\d+) stops? · towards (.+)$/,(m,n,t)=>`${n} நிறுத்தங்கள் · ${t} நோக்கி`],[/^Change at (.+)$/,(m,v)=>`${v}-ல் மாறுங்கள்`],[/^Change · walk to (.+)$/,(m,v)=>`மாற்றம் · ${v} வரை நடக்கவும்`],
+ [/^Directions to (.+)$/,(m,v)=>`${v}-க்கு வழி`],[/^Find (.+) on Google Maps$/,(m,v)=>`Google Maps-ல் ${TA[v]||v} தேடு`],
+ [/^We’re collecting (.+) from the map\. Check back in a few hours, or search Google Maps now\.$/,(m,v)=>`வரைபடத்திலிருந்து ${TA[v]||v} சேகரிக்கப்படுகின்றன. சில மணி நேரத்தில் மீண்டும் பாருங்கள், அல்லது இப்போதே Google Maps-ல் தேடுங்கள்.`],
+ [/^No stop within 600 m of your (start|destination)$/,(m,v)=>`உங்கள் ${v==="start"?"புறப்படும் இடத்தின்":"சேருமிடத்தின்"} 600 மீ. சுற்றளவில் நிறுத்தம் இல்லை`],
+ [/^No stop matches “(.+)”\. Try a shorter name\.$/,(m,v)=>`“${v}” என்ற நிறுத்தம் இல்லை. சுருக்கமான பெயரை முயற்சிக்கவும்.`],
+ [/^(.+) • (\d+)(m|h|d)$/,(m,a,n,u)=>`${a.split(" · ").map(tk).join(" · ")} • ${n} ${{m:"நிமி",h:"மணி",d:"நாள்"}[u]}`],
+ [/ • | · |, /,(m)=>{let hit=false;const out=unit(m).split(/( • | · |, )/).map(x=>{const t=TOK[x]||TA[x];if(t){hit=true;return t}return x}).join("");return hit||out!==m?out:null}]
+];
+function trText(v){const k=v.trim();if(!k||!/[A-Za-z]/.test(k))return null;let t=TA[k]||TOK[k];if(!t)for(const [rx,fn] of TARX){const m=k.match(rx);if(m){const r=rx.source===" • | · |, "?fn(k):fn(...m);if(r){t=r;break}}}return t?v.replace(k,t):null}
+function trTree(root){if(lang!=="ta"||!root)return;if(root.nodeType===3){const t=trText(root.nodeValue);if(t!==null)root.nodeValue=t;return}if(root.nodeType!==1)return;
+ const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;const ns=[];while(n=w.nextNode())ns.push(n);ns.forEach(n=>{if(n.parentElement&&n.parentElement.closest(".list .row h3,.feat h3,.feat .fmeta + *"))return;const t=trText(n.nodeValue);if(t!==null)n.nodeValue=t});
+ [root,...root.querySelectorAll("[placeholder],[aria-label]")].forEach(e=>{if(!e.getAttribute)return;["placeholder","aria-label"].forEach(a=>{const v=e.getAttribute(a);if(v){const t=trText(v);if(t!==null)e.setAttribute(a,t)}})})}
 const ART={
 rain:'<path d="M18 38a10 10 0 0 1 2-19.8A14 14 0 0 1 46 22a9 9 0 0 1 0 16z" fill="#e0ecff"/><ellipse cx="22" cy="49" rx="2.6" ry="4.2" fill="#3b82f6"/><ellipse cx="33" cy="52" rx="2.6" ry="4.2" fill="#3b82f6"/><ellipse cx="44" cy="49" rx="2.6" ry="4.2" fill="#3b82f6"/>',
 metro:'<rect x="14" y="8" width="36" height="40" rx="10" fill="#3b82f6"/><rect x="19" y="14" width="26" height="14" rx="4" fill="#dbeafe"/><circle cx="22" cy="38" r="3" fill="#fde68a"/><circle cx="42" cy="38" r="3" fill="#fde68a"/><path d="M20 48l-6 8M44 48l6 8" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round"/>',
@@ -644,7 +709,7 @@ function skylineSVG(ph){const night=ph==="night"||ph==="dusk";
  <g fill="${sil}"><path d="M60 168h34l-5 6H66z"/><path d="M76 168v-16l12 14z" opacity=".9"/></g>
  </svg>`}}
 function weather(){const ph=skyPhase(),dark=ph==="night"||ph==="dusk";
- const today=new Date().toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"});
+ const today=new Date().toLocaleDateString(LOC(),{weekday:"long",day:"numeric",month:"short"});
  const chips=W?[W.c,W.rain?`Rain ${W.rain.at} · ${W.rain.p}%`:"No rain soon",`Feels ${W.f}°`,`Humidity ${W.h}%`]:["Loading live weather…"];
  const sk=skylineSVG(ph);
  return `<section class="hero ${dark?"hero-dark":"hero-light"}" style="background:${sk.skyCss}" aria-label="Weather">${sk.svg}
@@ -663,24 +728,24 @@ async function loadNews(){
 }
 let contentLive=false;
 async function loadContent(){try{const r=await fetch("data/content.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();let any=false;
- const mo=d=>new Date(d+"T00:00").toLocaleDateString("en-IN",{month:"short"}),dy=d=>d.slice(8,10);
+ const mo=d=>new Date(d+"T00:00").toLocaleDateString(LOC(),{month:"short"}),dy=d=>d.slice(8,10);
  const fill=(arr,src,map)=>{if(src&&src.length){arr.length=0;src.forEach(x=>arr.push(map(x)));any=true}};
  fill(hot,j.hot,x=>({k:x.type,tag:x.label,t:x.title,w:x.where,why:x.why,h:x.buzz,u:x.link}));
  fill(events,j.events,x=>({d:dy(x.date),mo:mo(x.date),t:x.title,m:[x.area,x.time,x.price].filter(Boolean).join(" • "),c:x.category,u:x.link}));
  fill(food,j.food,x=>({a:x.area,n:x.name,m:[x.meal,x.price,x.veg].filter(Boolean).join(" • "),tag:x.tag,u:x.link}));
- fill(online,j.deals,x=>({b:x.store,t:x.offer,v:x.valid?"Till "+new Date(x.valid+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short"}):"Limited time",u:x.link||"#"}));
+ fill(online,j.deals,x=>({b:x.store,t:x.offer,v:x.valid?"Till "+new Date(x.valid+"T00:00").toLocaleDateString(LOC(),{day:"numeric",month:"short"}):"Limited time",u:x.link||"#"}));
  if(any){contentLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}}catch(e){}}
 let EX=null,exF="All";
 async function loadExplore(){try{const r=await fetch("data/explore.json");if(!r.ok)return;EX=await r.json();const cur=document.querySelector('.tab[aria-selected="true"]');const v=cur?cur.dataset.v:"explore";if(v==="home"){const y=window.scrollY;go("home");window.scrollTo(0,y)}else if(!cur&&view.dataset.v==="explore"){go("explore")}}catch(e){}}
 const dirUrl=p=>`https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
-const exCard=p=>`<article class="hcard"><div class="hband k-${p.cat.replace(/\s/g,"")}"><span class="htag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3>${art(EXART[p.cat]||"temple","bandart")}</div><div class="hbody"><div>${esc(p.area)} • ${esc(p.time)}</div><div class="why">${esc(p.why)}</div><div class="tip">${esc(p.tip)}</div><div class="ex-actions"><span></span><a class="go" target="_blank" rel="noopener" href="${dirUrl(p)}">Directions</a></div></div></article>`;
+const exCard=p=>`<article class="hcard"><div class="hband k-${p.cat.replace(/\s/g,"")}"><span class="htag">${esc(p.cat)}</span><h3>${esc(L(p,"name"))}</h3>${art(EXART[p.cat]||"temple","bandart")}</div><div class="hbody"><div>${esc(L(p,"area"))} • ${esc(L(p,"time"))}</div><div class="why">${esc(L(p,"why"))}</div><div class="tip">${esc(L(p,"tip"))}</div><div class="ex-actions"><span></span><a class="go" target="_blank" rel="noopener" href="${dirUrl(p)}">Directions</a></div></div></article>`;
 function exploreHome(){if(!EX)return"";return `<section><div class="head"><h2>Visiting Chennai?</h2>${more("explore")}</div><div class="hot">${EX.places.slice(0,6).map(exCard).join("")}</div></section>`}
 function exploreView(){if(!EX)return `<section><button class="back" data-go="home">‹ Home</button><h2>Explore Chennai</h2><p class="note">Loading places…</p></section>`;
  const cats=["All",...new Set(EX.places.map(p=>p.cat))];
  const list=EX.places.filter(p=>exF==="All"||p.cat===exF);
  return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button>${banner("explore","Explore Chennai","Must-see places &amp; a one-day plan",["temple","beach","heritage"])}
- <div class="besttime"><b>Best time to visit:</b> ${esc(EX.bestTime)}</div></section>
- <section><h2>If you have one day</h2><div class="plan">${EX.oneDay.map(s=>`<div class="pstep"><div class="when">${esc(s.time)}</div><div><b>${esc(s.stop)}</b><span>${esc(s.note)}</span></div></div>`).join("")}</div></section>
+ <div class="besttime"><b>Best time to visit:</b> ${esc(L(EX,"bestTime"))}</div></section>
+ <section><h2>If you have one day</h2><div class="plan">${EX.oneDay.map(s=>`<div class="pstep"><div class="when">${esc(L(s,"time"))}</div><div><b>${esc(L(s,"stop"))}</b><span>${esc(L(s,"note"))}</span></div></div>`).join("")}</div></section>
  <section><h2>Must-visit places</h2><div class="chips">${cats.map(c=>`<button class="chip" data-x="${esc(c)}" aria-pressed="${c===exF}">${esc(c)}</button>`).join("")}</div>
  <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
  </section>`}
@@ -765,21 +830,21 @@ const daysTo=d=>Math.round((new Date(d+"T00:00:00Z")-new Date(istToday()+"T00:00
 async function loadFestivals(){try{const r=await fetch("data/festivals.json");if(!r.ok)return;FESTS=(await r.json()).festivals;
  FEST=FESTS.filter(f=>{const d=daysTo(f.date);return d<=21&&d>=-1}).sort((a,b)=>daysTo(a.date)-daysTo(b.date))[0]||null;
  const v=view.dataset.v;if(v==="home"&&FEST){const y=window.scrollY;go("home");window.scrollTo(0,y)}else if(v==="festival")go("festival")}catch(e){}}
-const festWhen=f=>{const d=daysTo(f.date);return d>1?`${f.name} in ${d} days`:d===1?`${f.name} is tomorrow!`:d===0?f.greet:`Hope you had a lovely ${f.name}`};
+const festWhen=f=>{const d=daysTo(f.date),n=L(f,"name");if(lang==="ta")return d>1?`${n}க்கு இன்னும் ${d} நாட்கள்`:d===1?`நாளை ${n}!`:d===0?L(f,"greet"):`${n} இனிதே நிறைவுற்றது`;return d>1?`${n} in ${d} days`:d===1?`${n} is tomorrow!`:d===0?f.greet:`Hope you had a lovely ${n}`};
 function festCard(){if(!FEST)return"";const f=FEST;return `<button class="fcard fh-${f.theme}" data-go="festival"><span class="spk" style="left:12%;top:20%"></span><span class="spk" style="left:58%;top:14%;animation-delay:.6s"></span><span class="spk" style="left:80%;top:62%;animation-delay:1.1s"></span><span class="spk" style="left:36%;top:72%;animation-delay:1.6s"></span>
- <span class="fcl">${art(f.art)}<i class="flame"></i></span><span class="fct"><small>${esc(f.ta)}</small><b>${esc(festWhen(f))}</b><span>${esc(f.blurb)}</span></span><i class="fgo">›</i></button>`}
+ <span class="fcl">${art(f.art)}<i class="flame"></i></span><span class="fct"><small>${esc(lang==="ta"?f.name:f.ta)}</small><b>${esc(festWhen(f))}</b><span>${esc(L(f,"blurb"))}</span></span><i class="fgo">›</i></button>`}
 function festView(){if(!FESTS)return `<section><button class="back" data-go="home">‹ Home</button><p class="note">Loading festivals…</p></section>`;
  const f=FEST||FESTS.filter(x=>daysTo(x.date)>=0).sort((a,b)=>daysTo(a.date)-daysTo(b.date))[0];if(!f)return `<section><button class="back" data-go="home">‹ Home</button><p class="note">No festivals coming up.</p></section>`;
- const d=daysTo(f.date);const dd=new Date(f.date+"T00:00").toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"long"});
+ const d=daysTo(f.date);const dd=new Date(f.date+"T00:00").toLocaleDateString(LOC(),{weekday:"long",day:"numeric",month:"long"});
  const others=FESTS.filter(x=>x.id!==f.id&&daysTo(x.date)>=0).sort((a,b)=>daysTo(a.date)-daysTo(b.date));
  return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button>
  <div class="fhero fh-${f.theme}"><canvas id="fw" aria-hidden="true"></canvas>
-  <div class="fht"><div class="fta">${esc(f.ta)}</div><h1>${esc(f.name)}</h1><div class="fdate">${dd}</div>
-   ${d>0?`<div class="cd"><b>${d}</b><span>${d===1?"day":"days"} to go</span></div>`:`<div class="cd"><b style="font-size:26px">${esc(d===0?f.greet:"Hope it was lovely!")}</b></div>`}</div>
+  <div class="fht"><div class="fta">${esc(lang==="ta"?f.name:f.ta)}</div><h1>${esc(L(f,"name"))}</h1><div class="fdate">${dd}</div>
+   ${d>0?`<div class="cd"><b>${d}</b><span>${d===1?"day":"days"} to go</span></div>`:`<div class="cd"><b style="font-size:26px">${esc(d===0?L(f,"greet"):(lang==="ta"?"இனிதே நிறைவுற்றது!":"Hope it was lovely!"))}</b></div>`}</div>
   <div class="diyas">${[0,1,2,3,4].map(i=>`<span class="diya" style="animation-delay:${i*.35}s">${art(f.art)}</span>`).join("")}</div></div></section>
  <section><h2>Shop near you</h2><div class="ftiles" style="grid-template-columns:repeat(${Math.min(5,f.find.length)},minmax(0,1fr));gap:8px">${f.find.map(k=>`<button class="ftile" data-q="near:${k}">${art(FESTART[k]||"shopping")}<span>${NCAT[k]}</span></button>`).join("")}</div></section>
- <section><h2>Festival tips</h2><div class="list">${f.tips.map(t=>`<div class="row"><div class="ibadge" style="background:var(--t1b)">${art(t.icon)}</div><div class="txt"><h3>${esc(t.t)}</h3><div class="meta">${esc(t.d)}</div></div></div>`).join("")}</div></section>
- ${others.length?`<section><h2>Coming up</h2><div class="list">${others.map(o=>{const od=new Date(o.date+"T00:00");return `<div class="row erow"><div class="dtile"><b>${od.getDate()}</b><span>${od.toLocaleDateString("en-IN",{month:"short"})}</span></div><div class="txt"><h3>${esc(o.name)}</h3><div class="meta">${esc(o.ta)} · in ${daysTo(o.date)} days</div></div>${art(o.art,"eart")}</div>`}).join("")}</div></section>`:""}`}
+ <section><h2>Festival tips</h2><div class="list">${f.tips.map(t=>`<div class="row"><div class="ibadge" style="background:var(--t1b)">${art(t.icon)}</div><div class="txt"><h3>${esc(L(t,"t"))}</h3><div class="meta">${esc(L(t,"d"))}</div></div></div>`).join("")}</div></section>
+ ${others.length?`<section><h2>Coming up</h2><div class="list">${others.map(o=>{const od=new Date(o.date+"T00:00");return `<div class="row erow"><div class="dtile"><b>${od.getDate()}</b><span>${od.toLocaleDateString(LOC(),{month:"short"})}</span></div><div class="txt"><h3>${esc(L(o,"name"))}</h3><div class="meta">${lang==="ta"?`${esc(o.name)} · இன்னும் ${daysTo(o.date)} நாட்கள்`:`${esc(o.ta)} · in ${daysTo(o.date)} days`}</div></div>${art(o.art,"eart")}</div>`}).join("")}</div></section>`:""}`}
 function startFW(){const c=document.getElementById("fw");if(!c)return;const ctx=c.getContext("2d"),dpr=Math.min(2,window.devicePixelRatio||1);c.width=c.offsetWidth*dpr;c.height=c.offsetHeight*dpr;
  const P=[],cols=["#ffd166","#ff8c00","#ff4d6d","#c77dff","#4cc9f0","#ffffff","#7bf1a8"];
  const burst=()=>{const x=(.12+Math.random()*.76)*c.width,y=(.1+Math.random()*.35)*c.height,col=cols[Math.random()*cols.length|0],n=50;for(let i=0;i<n;i++){const a=i/n*Math.PI*2,sp=(1+Math.random()*2.4)*dpr;P.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,l:1,col})}};
@@ -794,7 +859,7 @@ const views={
   ${festCard()}
   ${quickSec()}
   ${ratesSec()}
-  <section><h2>Alerts</h2>${rainAlert()}${alerts.filter(a=>a.k!=="Rain").map(alertHTML).join("")}</section>
+  <section><h2>Alerts</h2>${rainAlert()||`<div class="alert info"><span class="pill">OK</span><p>No alerts right now<time>Rain and city alerts will show up here.</time></p></div>`}</section>
   ${hotSec()}
   ${buzzSec()}
   ${exploreHome()}
@@ -813,10 +878,11 @@ const views={
   <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,};
 
 const view=document.getElementById("view");
+new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
 function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
 view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
-function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
+function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
