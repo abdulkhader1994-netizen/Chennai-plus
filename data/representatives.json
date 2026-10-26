@@ -1,0 +1,191 @@
+{
+ "asOf": "2026-10-26",
+ "parties": {
+  "DMK": "Dravida Munnetra Kazhagam",
+  "TVK": "Tamilaga Vettri Kazhagam"
+ },
+ "mps": [
+  {
+   "ls": "Chennai North",
+   "ls_ta": "வட சென்னை",
+   "name": "Dr. Kalanidhi Veeraswamy",
+   "party": "DMK",
+   "phone": "044 2621 6628",
+   "email": "drkalanidhi.v@mpls.sansad.in",
+   "acs": [
+    "Thiruvottiyur",
+    "Dr. Radhakrishnan Nagar",
+    "Perambur",
+    "Kolathur",
+    "Thiru-Vi-Ka-Nagar",
+    "Royapuram"
+   ]
+  },
+  {
+   "ls": "Chennai Central",
+   "ls_ta": "மத்திய சென்னை",
+   "name": "Dayanidhi Maran",
+   "party": "DMK",
+   "phone": "044 2437 1515",
+   "email": "dmaran.office@mpls.sansad.in",
+   "acs": [
+    "Villivakkam",
+    "Egmore",
+    "Harbour",
+    "Chepauk-Thiruvallikeni",
+    "Thousand Lights",
+    "Anna Nagar"
+   ]
+  },
+  {
+   "ls": "Chennai South",
+   "ls_ta": "தென் சென்னை",
+   "name": "Dr. Thamizhachi Thangapandian",
+   "party": "DMK",
+   "phone": "044 2449 1858",
+   "email": "i.thamizhachi@mpls.sansad.in",
+   "acs": [
+    "Virugampakkam",
+    "Saidapet",
+    "Thiyagaraya Nagar",
+    "Mylapore",
+    "Velachery",
+    "Sholinganallur"
+   ]
+  }
+ ],
+ "acs": [
+  {
+   "ac": "Thiruvottiyur",
+   "ac_ta": "திருவொற்றியூர்",
+   "mla": "N. Senthil Kumar",
+   "party": "TVK",
+   "ls": "Chennai North"
+  },
+  {
+   "ac": "Dr. Radhakrishnan Nagar",
+   "ac_ta": "டாக்டர் ராதாகிருஷ்ணன் நகர்",
+   "mla": "N. Marie Wilson",
+   "party": "TVK",
+   "ls": "Chennai North"
+  },
+  {
+   "ac": "Perambur",
+   "ac_ta": "பெரம்பூர்",
+   "mla": "C. Joseph Vijay",
+   "party": "TVK",
+   "ls": "Chennai North",
+   "role": "Chief Minister of Tamil Nadu",
+   "role_ta": "தமிழ்நாடு முதலமைச்சர்"
+  },
+  {
+   "ac": "Kolathur",
+   "ac_ta": "கொளத்தூர்",
+   "mla": "V. S. Babu",
+   "party": "TVK",
+   "ls": "Chennai North"
+  },
+  {
+   "ac": "Thiru-Vi-Ka-Nagar",
+   "ac_ta": "திரு.வி.க. நகர்",
+   "mla": "M. R. Pallavi",
+   "party": "TVK",
+   "ls": "Chennai North"
+  },
+  {
+   "ac": "Royapuram",
+   "ac_ta": "ராயபுரம்",
+   "mla": "K. V. Vijay Damu",
+   "party": "TVK",
+   "ls": "Chennai North"
+  },
+  {
+   "ac": "Villivakkam",
+   "ac_ta": "வில்லிவாக்கம்",
+   "mla": "Aadhav Arjuna",
+   "party": "TVK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Egmore",
+   "ac_ta": "எழும்பூர்",
+   "mla": "A. Rajmohan",
+   "party": "TVK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Harbour",
+   "ac_ta": "துறைமுகம்",
+   "mla": "P. K. Sekar Babu",
+   "party": "DMK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Chepauk-Thiruvallikeni",
+   "ac_ta": "சேப்பாக்கம்-திருவல்லிக்கேணி",
+   "mla": "Udhayanidhi Stalin",
+   "party": "DMK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Thousand Lights",
+   "ac_ta": "ஆயிரம் விளக்கு",
+   "mla": "J. C. D. Prabhakar",
+   "party": "TVK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Anna Nagar",
+   "ac_ta": "அண்ணா நகர்",
+   "mla": "V. K. Ramkumar",
+   "party": "TVK",
+   "ls": "Chennai Central"
+  },
+  {
+   "ac": "Virugampakkam",
+   "ac_ta": "விருகம்பாக்கம்",
+   "mla": "R. Sabarinathan",
+   "party": "TVK",
+   "ls": "Chennai South"
+  },
+  {
+   "ac": "Saidapet",
+   "ac_ta": "சைதாப்பேட்டை",
+   "mla": "M. Arul Prakasam",
+   "party": "TVK",
+   "ls": "Chennai South"
+  },
+  {
+   "ac": "Thiyagaraya Nagar",
+   "ac_ta": "தியாகராய நகர்",
+   "mla": "N. Anand",
+   "party": "TVK",
+   "ls": "Chennai South"
+  },
+  {
+   "ac": "Mylapore",
+   "ac_ta": "மயிலாப்பூர்",
+   "mla": "P. Venkataramanan",
+   "party": "TVK",
+   "ls": "Chennai South"
+  },
+  {
+   "ac": "Velachery",
+   "ac_ta": "வேளச்சேரி",
+   "mla": "R. Kumar",
+   "party": "TVK",
+   "ls": "Chennai South"
+  },
+  {
+   "ac": "Sholinganallur",
+   "ac_ta": "சோழிங்கநல்லூர்",
+   "mla": "P. Saravanan",
+   "party": "TVK",
+   "ls": "Chennai South"
+  }
+ ],
+ "sources": [
+  "MPs: Lok Sabha member profiles (sansad.in), 18th Lok Sabha, elected June 2024",
+  "MLAs: 2026 Tamil Nadu Assembly election results (declared 4 May 2026)"
+ ]
+}
