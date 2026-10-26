@@ -1,0 +1,147 @@
+{
+ "at": "2026-10-26T10:54:35.855Z",
+ "summary": {
+  "stops": 531,
+  "bus": 42,
+  "train": 13,
+  "metro": 10,
+  "busRefs": 27
+ },
+ "log": [
+  "maps.mail.ru: HTTP 504"
+ ],
+ "sample": [
+  [
+   "train",
+   "",
+   "Tambaram - Chengelpet suburban line",
+   "",
+   6
+  ],
+  [
+   "train",
+   "South Line",
+   "Chennai Beach - Tambaram suburban line",
+   "",
+   18
+  ],
+  [
+   "train",
+   "",
+   "Chennai Central - Thiruvallur suburban line",
+   "",
+   19
+  ],
+  [
+   "metro",
+   "1",
+   "Blue Line (Chennai International Airport → Wimco Nagar Depot)",
+   "#3281c4",
+   26
+  ],
+  [
+   "metro",
+   "2",
+   "Green Line (St. Thomas Mount → Chennai Central)",
+   "#53b848",
+   17
+  ],
+  [
+   "train",
+   "1",
+   "Chennai MRTS: Chennai Beach → Saint Thomas Mount",
+   "#FF9900",
+   20
+  ],
+  [
+   "metro",
+   "1",
+   "Blue Line (Wimco Nagar Depot → Chennai International Airport)",
+   "#3281c4",
+   26
+  ],
+  [
+   "metro",
+   "2",
+   "Green Line: Chennai Central → St. Thomas Mount",
+   "#53b848",
+   17
+  ],
+  [
+   "train",
+   "1",
+   "Chennai MRTS: Saint Thomas Mount → Chennai Beach",
+   "#FF9900",
+   20
+  ],
+  [
+   "train",
+   "12759",
+   "Charminar Express: Chennai => Hyderabad",
+   "",
+   5
+  ],
+  [
+   "train",
+   "12760",
+   "Charminar Express: Hyderabad => Chennai",
+   "",
+   5
+  ],
+  [
+   "train",
+   "",
+   "Coromandel Express: Chennai => Howrah",
+   "",
+   3
+  ],
+  [
+   "bus",
+   "29C",
+   "Route 29C: Perambur --> Besant nagar",
+   43
+  ],
+  [
+   "bus",
+   "15B",
+   "Route 15B: CMBT → Broadway",
+   3
+  ],
+  [
+   "bus",
+   "15B",
+   "Route 15B: Broadway → CMBT",
+   7
+  ],
+  [
+   "bus",
+   "588C",
+   "Route 588C: CMBT → Mamallapuram",
+   18
+  ],
+  [
+   "bus",
+   "27D",
+   "Route 27D: Foreshore Estate → Villivakkam",
+   15
+  ],
+  [
+   "bus",
+   "19B",
+   "Route 19B: Saidapet → Kelambakkam",
+   7
+  ],
+  [
+   "bus",
+   "5C",
+   "Route 5C: Broadway → Taramani",
+   21
+  ],
+  [
+   "bus",
+   "147C",
+   "Route 147C: Ambathur O.T. → T.Nagar",
+   20
+  ]
+ ]
+}
