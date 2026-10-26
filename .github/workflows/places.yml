@@ -1,7 +1,7 @@
 name: Update Chennai places
 on:
   schedule:
-    - cron: "17 2,14 * * *"   # twice a day; categories under 5 days old are skipped
+    - cron: "17 */3 * * *"   # every 3 hours; categories under 5 days old are skipped, so most runs do nothing
   workflow_dispatch:
   push:
     paths:
