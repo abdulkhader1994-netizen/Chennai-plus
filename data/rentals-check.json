@@ -1,0 +1,59 @@
+{
+ "Rentals": {
+  "columns": [
+   "Timestamp",
+   "I am the",
+   "Area",
+   "Property type ",
+   "BHK",
+   "Monthly rent\n",
+   "Advance / Deposit ",
+   "Furnishing",
+   "Preferred tenants",
+   "Available from",
+   "Description",
+   "Your name",
+   " WhatsApp number",
+   "Consent "
+  ],
+  "rows": 0
+ },
+ "Form Responses 1": {
+  "columns": [
+   "Timestamp",
+   "I am the",
+   "Area",
+   "Property type ",
+   "BHK",
+   "Monthly rent\n",
+   "Advance / Deposit ",
+   "Furnishing",
+   "Preferred tenants",
+   "Available from",
+   "Description",
+   "Your name",
+   " WhatsApp number",
+   "Consent "
+  ],
+  "rows": 0
+ },
+ "Form responses 1": {
+  "columns": [
+   "Timestamp",
+   "I am the",
+   "Area",
+   "Property type ",
+   "BHK",
+   "Monthly rent\n",
+   "Advance / Deposit ",
+   "Furnishing",
+   "Preferred tenants",
+   "Available from",
+   "Description",
+   "Your name",
+   " WhatsApp number",
+   "Consent "
+  ],
+  "rows": 0
+ }
+}
