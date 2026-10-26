@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Chennai Plus: weather, alerts, news, events, food, offers and places near you.">
+<meta name="description" content="Chennai Plus: weather, alerts, news, events, food and places near you.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -219,7 +219,7 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 /* tabs */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
   padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
-nav .in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+nav .in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
 .tab{background:none;border:0;padding:9px 0 10px;display:grid;justify-items:center;gap:2px;font:600 10.5px var(--body);color:var(--muted);cursor:pointer}
 .tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .tab[aria-selected="true"]{color:var(--sea)}
@@ -361,7 +361,6 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
   <button class="tab" role="tab" data-v="news" aria-selected="false"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span><span data-t="news">News</span></button>
   <button class="tab" role="tab" data-v="events" aria-selected="false"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span data-t="events">Events</span></button>
   <button class="tab" role="tab" data-v="food" aria-selected="false"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h16a8 8 0 0 1-16 0zM8 8c0-2 2-2 2-4M13 8c0-2 2-2 2-4"/></svg></span><span data-t="food">Food</span></button>
-  <button class="tab" role="tab" data-v="offers" aria-selected="false"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span data-t="offers">Offers</span></button>
 </div></nav>
 
 <script>
@@ -588,7 +587,7 @@ function credits(v){const t={home:'Weather: <a href="https://open-meteo.com" tar
  near:'Places © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · Walk and drive times are estimates',
  news:'Headlines open on each publisher’s site · Movies: TMDB (not endorsed by TMDB)',explore:'Timings and entry fees change, so check before you go',
  festival:'Dates from the Tamil Nadu holiday list · Shops © OpenStreetMap contributors',
- offers:'Deals open the store’s own app or site and may change',food:'Ratings open in Google Maps'}[v];return t?`<p class="credits">${t}</p>`:""}
+food:'Ratings open in Google Maps'}[v];return t?`<p class="credits">${t}</p>`:""}
 const newsRow=n=>{const inner=`<div class="ibadge" style="background:rgba(${NEWSTINT[n.c]||"99,102,241"},.14)">${art(NEWSART[n.c]||"city")}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.c)} · ${esc(n.m)}</div></div>`;return n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="row">${inner}</div>`};
 const newsFeat=n=>{const inner=`<span class="fcat">${esc(n.c)}</span><h3>${esc(n.t)}</h3><div class="fmeta">${esc(n.m)}</div>${art(NEWSART[n.c]||"city","fart")}`;const st=`style="background:linear-gradient(135deg,${NEWSGRAD[n.c]||NEWSGRAD.City})"`;return n.u?`<a class="feat nlink" ${st} href="${esc(n.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="feat" ${st}>${inner}</div>`};
 const evRow=e=>{const inner=`<div class="dtile"><b>${e.d}</b><span>${esc(e.mo)}</span></div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${esc(e.m)}</div></div>${art(EVART[e.c]||"festival","eart")}`;return e.u?`<a class="row erow nlink" href="${esc(e.u)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="row erow">${inner}</div>`};
@@ -800,8 +799,7 @@ const views={
   ${buzzSec()}
   ${exploreHome()}
   <section><div class="head"><h2>Top news</h2>${more("news")}</div><div class="list">${news.slice(0,3).map(newsRow).join("")}</div></section>
-  <section><div class="head"><h2>This week${contentLive?"":`<span class="stag">Sample</span>`}</h2>${more("events")}</div><div class="list">${events.slice(0,2).map(evRow).join("")}</div></section>
-  <section><div class="head"><h2>Today's offers${contentLive?"":`<span class="stag">Sample</span>`}</h2>${more("offers")}</div>${onlineCard(online[0])}</section>`,
+  <section><div class="head"><h2>This week${contentLive?"":`<span class="stag">Sample</span>`}</h2>${more("events")}</div><div class="list">${events.slice(0,2).map(evRow).join("")}</div></section>`,
  near:()=>nearView(),
  explore:()=>exploreView(),
  travel:()=>travelView(),
@@ -812,8 +810,7 @@ const views={
   <a class="bigcta" target="_blank" rel="noopener" href="${mapsQ("best restaurants near me")}">${art("star")}<span><b>Top rated near me</b><small>Best-rated restaurants around you</small></span><i>›</i></a>
   <div class="ftiles">${[["Biryani","best biryani","biryani"],["Tiffin","best tiffin idli dosa","dosa"],["Veg meals","best veg meals restaurant","veg"],["Seafood","best seafood restaurant","fish"],["Cafes","best cafe","coffee"],["Desserts","best dessert shop","dessert"],["Late night","late night restaurants open now","latenight"],["Street food","best street food","streetfood"]].map(([l,q,a])=>`<a class="ftile" target="_blank" rel="noopener" href="${mapsQ(q+" near me")}">${art(a)}<span>${l}</span></a>`).join("")}</div></section>
   <section><h2>Chennai's best${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
-  <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,
- offers:()=>`${banner("offers","Offers","Deals worth grabbing today",["gift","tag"])}<section><h2>Online deals${contentLive?"":`<span class="stag">Sample</span>`}</h2>${online.map(onlineCard).join("")}</section>`};
+  <div class="list">${food.filter(x=>f==="All"||(x.tag||"").toLowerCase().includes(f.toLowerCase())||(f==="Veg"&&/\bveg\b/i.test(x.m)&&!/non/i.test(x.m))).map(foodRow).join("")}</div></section>`,};
 
 const view=document.getElementById("view");
 function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
