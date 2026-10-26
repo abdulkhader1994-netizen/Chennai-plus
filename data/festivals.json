@@ -1,0 +1,35 @@
+{
+ "festivals": [
+  {"id": "deepavali", "name": "Deepavali", "ta": "தீபாவளி", "date": "2026-11-08", "theme": "diwali", "art": "diya",
+   "greet": "Happy Deepavali!", "blurb": "Crackers, sweets, sarees & malls near you",
+   "find": ["fireworks", "textiles", "sweets", "jewellery", "mall"],
+   "tips": [
+    {"icon": "cracker", "t": "Buy green crackers", "d": "Shop at licensed dealers and look for the green cracker mark."},
+    {"icon": "pin", "t": "Follow the bursting hours", "d": "Tamil Nadu announces cracker timings before Deepavali. Watch the News tab."},
+    {"icon": "rain", "t": "Keep water and sand ready", "d": "Wear cotton clothes and keep children supervised."},
+    {"icon": "people", "t": "Beat the shopping crowds", "d": "T. Nagar and Purasawalkam are packed in the last week. Try weekday mornings or take the Metro."},
+    {"icon": "civic", "t": "Emergency numbers", "d": "Fire 101 · Ambulance 108 · Police 100"}
+   ]},
+  {"id": "karthigai", "name": "Karthigai Deepam", "ta": "கார்த்திகை தீபம்", "date": "2026-11-24", "theme": "deepam", "art": "diya",
+   "greet": "Happy Karthigai Deepam!", "blurb": "Lamps, sweets and the Maha Deepam",
+   "find": ["sweets", "mall", "textiles"],
+   "tips": [
+    {"icon": "diya", "t": "Light lamps safely", "d": "Keep diyas away from curtains and dry leaves, and never leave them unattended."},
+    {"icon": "temple", "t": "Tiruvannamalai Maha Deepam", "d": "Lakhs travel for the evening lighting. Book buses and trains early."}
+   ]},
+  {"id": "christmas", "name": "Christmas", "ta": "கிறிஸ்துமஸ்", "date": "2026-12-25", "theme": "xmas", "art": "xmas",
+   "greet": "Merry Christmas!", "blurb": "Cakes, malls and midnight mass",
+   "find": ["sweets", "mall", "textiles"],
+   "tips": [
+    {"icon": "heritage", "t": "Midnight mass", "d": "San Thome Basilica fills up early on Christmas Eve. Arrive well ahead."},
+    {"icon": "dessert", "t": "Order cakes early", "d": "Bakeries get busy in the last week of December."}
+   ]},
+  {"id": "pongal", "name": "Pongal", "ta": "பொங்கல்", "date": "2027-01-15", "theme": "pongal", "art": "pongalpot",
+   "greet": "Happy Pongal!", "blurb": "New clothes, sweets and Kaanum Pongal outings",
+   "find": ["textiles", "sweets", "mall"],
+   "tips": [
+    {"icon": "beach", "t": "Kaanum Pongal crowds", "d": "Marina and Elliot's Beach get very crowded. Go early and keep children close."},
+    {"icon": "bus", "t": "Travelling home?", "d": "Special buses run from Kilambakkam and Koyambedu. Book early."}
+   ]}
+ ]
+}

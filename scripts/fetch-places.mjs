@@ -15,6 +15,10 @@ const CATS = {
   cinema:  ['nwr["amenity"="cinema"]'],
   hospital:['nwr["amenity"="hospital"]'],
   mechanic:['nwr["shop"="car_repair"]', 'nwr["shop"="motorcycle_repair"]', 'nwr["shop"="tyres"]'],
+  fireworks:['nwr["shop"="fireworks"]'],
+  sweets:  ['nwr["shop"~"^(confectionery|pastry|chocolate)$"]'],
+  jewellery:['nwr["shop"="jewelry"]'],
+  textiles:['nwr["shop"~"^(fabric|clothes)$"]["clothes"~"sari|saree|women|traditional",i]', 'nwr["shop"="fabric"]', 'nwr["shop"="clothes"]["name"~"silk|saree|sari|textile|tex",i]'],
 };
 const ENDPOINTS = [
   "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
