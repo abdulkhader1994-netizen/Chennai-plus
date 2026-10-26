@@ -49,6 +49,8 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var
 .lang:focus-visible,.tab:focus-visible,.chip:focus-visible{outline:2px solid var(--marigold);outline-offset:2px}
 main>*,section,.list,.row .txt{min-width:0}
 html,body{overflow-x:hidden;max-width:100%}
+main{grid-template-columns:minmax(0,1fr);width:100%}
+.app{width:100%}
 main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;display:grid;gap:22px}
 .demo{font-size:12px;color:var(--muted);background:var(--jasmine);border:1px dashed var(--marigold);border-radius:10px;padding:8px 12px}
 h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text-wrap:balance}
@@ -285,7 +287,7 @@ async function loadWeather(){
   const u="https://api.open-meteo.com/v1/forecast?latitude=13.0827&longitude=80.2707&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code&hourly=temperature_2m,precipitation_probability&timezone=Asia%2FKolkata&forecast_days=2";
   const r=await fetch(u);if(!r.ok)throw 0;const j=await r.json();
   const now=Date.now();const hrs=[];
-  j.hourly.time.forEach((t,i)=>{const d=new Date(t);if(d.getTime()>=now-3600e3)hrs.push({d,t:Math.round(j.hourly.temperature_2m[i]),p:j.hourly.precipitation_probability[i]})});
+  j.hourly.time.forEach((t,i)=>{const d=new Date(t);if(d.getTime()>=now-1800e3)hrs.push({d,t:Math.round(j.hourly.temperature_2m[i]),p:j.hourly.precipitation_probability[i]})});
   const next12=hrs.slice(0,12);const wet=next12.find(h=>h.p>=60);
   W={t:Math.round(j.current.temperature_2m),f:Math.round(j.current.apparent_temperature),h:j.current.relative_humidity_2m,
      c:WMO[j.current.weather_code]||"Weather",hours:hrs.filter((_,i)=>i%2==0).slice(0,5),rain:wet?{at:fmtH(wet.d),p:wet.p}:null};
