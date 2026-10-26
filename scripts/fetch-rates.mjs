@@ -2,8 +2,9 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 const OZ = 31.1035;               // grams per troy ounce
-const IMPORT_DUTY = 0.06;         // India customs duty on gold/silver
-const GST = 0.03;                 // GST on gold/silver
+// International price -> Chennai retail rate. Covers import duty, GST and the local market premium.
+// Calibrated on 26 Oct 2026 against published Chennai retail rates (24K about ₹14,729/g). Recheck monthly.
+const LOCAL_FACTOR = 1.107;
 const get = async (url) => {
   const r = await fetch(url, { headers: { "User-Agent": "ChennaiPlusBot/1.0" }, signal: AbortSignal.timeout(20000) });
   if (!r.ok) throw new Error(url + " HTTP " + r.status);
@@ -24,7 +25,7 @@ try {
   const inr = fx.rates?.INR;
   const pXau = xau.price ?? xau.value, pXag = xag.price ?? xag.value;
   if (!inr || !pXau) throw new Error("missing price data");
-  const perGram = (usdOz) => (usdOz * inr / OZ) * (1 + IMPORT_DUTY) * (1 + GST);
+  const perGram = (usdOz) => (usdOz * inr / OZ) * LOCAL_FACTOR;
   const k24 = Math.round(perGram(pXau));
   const today = new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10); // IST date
   const hist = out.history.filter((h) => h.date !== today);

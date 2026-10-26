@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - "data/fuel.json"
+      - "scripts/**"
 permissions:
   contents: write
 concurrency:
