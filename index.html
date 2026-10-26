@@ -393,6 +393,11 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
  .sp-logo{animation:spPop .7s cubic-bezier(.2,1.4,.4,1) both}.sp-name{animation:spUp .6s ease .25s both}.sp-tag{animation:spUp .6s ease .4s both}
  .sp-glow{animation:spGlow 2s ease-in-out infinite alternate}.sp-dots i{animation:spDot 1s ease-in-out infinite}.sp-dots i:nth-child(2){animation-delay:.15s}.sp-dots i:nth-child(3){animation-delay:.3s}
  @keyframes spPop{from{transform:scale(.5) rotate(-8deg);opacity:0}}@keyframes spUp{from{transform:translateY(12px);opacity:0}}@keyframes spGlow{to{transform:translate(-50%,-62%) scale(1.15);opacity:.7}}@keyframes spDot{50%{opacity:1;transform:translateY(-4px)}}}
+
+.oh{display:inline-flex;align-items:center;gap:6px;height:24px;line-height:1;padding:0 10px;margin-top:6px;font-size:12px;vertical-align:middle;white-space:nowrap}
+.oh.on::before,.oh.off::before{margin:0;vertical-align:0;flex:none}
+.prow .badge{background:var(--t1b);color:var(--t1f)}
+.prow .pd{align-self:center}
 </style>
 </head>
 <body>
