@@ -1,0 +1,29 @@
+{
+ "bestTime": "November to February is the most pleasant time to visit. Summer (April to June) is very hot, and heavy rain is common in October and November.",
+ "oneDay": [
+  {"time": "Morning", "stop": "Kapaleeshwarar Temple", "note": "Then a tiffin of idli, pongal and filter coffee in Mylapore"},
+  {"time": "Late morning", "stop": "San Thome Basilica", "note": "A short drive from Mylapore"},
+  {"time": "Afternoon", "stop": "Government Museum, Egmore", "note": "Stay indoors during the hottest hours"},
+  {"time": "Evening", "stop": "Marina Beach", "note": "Sunset walk with sundal and bajji"},
+  {"time": "Night", "stop": "T. Nagar & Pondy Bazaar", "note": "Shopping and street food"}
+ ],
+ "places": [
+  {"name": "Marina Beach", "cat": "Beaches", "area": "Triplicane", "why": "One of the longest urban beaches in the world. The city's favourite evening hangout.", "tip": "Go at sunrise or after 4 pm. Swimming is unsafe here.", "time": "1–2 hrs", "lat": 13.0500, "lng": 80.2824},
+  {"name": "Kapaleeshwarar Temple", "cat": "Temples", "area": "Mylapore", "why": "A Shiva temple with a towering, colourful gopuram, at the heart of old Mylapore.", "tip": "Remove footwear. Visit the temple tank and nearby streets too.", "time": "1 hr", "lat": 13.0337, "lng": 80.2697},
+  {"name": "San Thome Basilica", "cat": "Heritage", "area": "Santhome", "why": "A white neo-Gothic church built over the tomb of St. Thomas the Apostle.", "tip": "Dress modestly. Quiet in the mornings.", "time": "45 min", "lat": 13.0334, "lng": 80.2777},
+  {"name": "Fort St. George", "cat": "Heritage", "area": "Parry's Corner", "why": "The first British fort in India, with a museum of colonial-era weapons, coins and uniforms.", "tip": "Carry ID. Check museum timings before you go.", "time": "1–2 hrs", "lat": 13.0796, "lng": 80.2873},
+  {"name": "Government Museum", "cat": "Heritage", "area": "Egmore", "why": "One of India's oldest museums, famous for its Chola bronze collection.", "tip": "Plan this for the hot afternoon hours.", "time": "2 hrs", "lat": 13.0698, "lng": 80.2565},
+  {"name": "Parthasarathy Temple", "cat": "Temples", "area": "Triplicane", "why": "One of the oldest temples in the city, dedicated to Lord Vishnu as Krishna.", "tip": "Combine with Marina Beach, which is close by.", "time": "45 min", "lat": 13.0538, "lng": 80.2770},
+  {"name": "Elliot's Beach", "cat": "Beaches", "area": "Besant Nagar", "why": "A calmer, cleaner beach with cafes and the Karl Schmidt memorial.", "tip": "Great for an evening walk and food at Besant Nagar.", "time": "1–2 hrs", "lat": 12.9989, "lng": 80.2726},
+  {"name": "Valluvar Kottam", "cat": "Heritage", "area": "Nungambakkam", "why": "A memorial to the poet Thiruvalluvar, with a large stone temple chariot.", "tip": "A quick stop if you're near T. Nagar.", "time": "30 min", "lat": 13.0500, "lng": 80.2410},
+  {"name": "Theosophical Society", "cat": "Nature", "area": "Adyar", "why": "Quiet green campus by the river, home to a huge old banyan tree.", "tip": "Check visiting hours before you go.", "time": "1 hr", "lat": 13.0103, "lng": 80.2667},
+  {"name": "Guindy National Park", "cat": "Nature", "area": "Guindy", "why": "A national park inside the city, with blackbuck and spotted deer.", "tip": "Good with kids. Go in the morning.", "time": "1–2 hrs", "lat": 13.0040, "lng": 80.2350},
+  {"name": "Vandalur Zoo", "cat": "Nature", "area": "Vandalur", "why": "Arignar Anna Zoological Park, one of the largest zoos in India.", "tip": "Plan half a day. Check the weekly closed day before you go.", "time": "3–4 hrs", "lat": 12.8790, "lng": 80.0817},
+  {"name": "DakshinaChitra", "cat": "Heritage", "area": "Muttukadu, ECR", "why": "A living museum of South Indian homes, crafts and performances.", "tip": "Pair with an ECR drive to Mahabalipuram.", "time": "2–3 hrs", "lat": 12.8236, "lng": 80.2414},
+  {"name": "Cholamandal Artists' Village", "cat": "Heritage", "area": "Injambakkam, ECR", "why": "An artists' commune with galleries of contemporary Indian art.", "tip": "Good stop on the way down ECR.", "time": "1 hr", "lat": 12.9183, "lng": 80.2516},
+  {"name": "T. Nagar & Pondy Bazaar", "cat": "Shopping", "area": "T. Nagar", "why": "Chennai's busiest shopping streets for silk sarees, gold and street food.", "tip": "Weekdays are less crowded. Keep valuables safe.", "time": "2–3 hrs", "lat": 13.0405, "lng": 80.2330},
+  {"name": "Mahabalipuram", "cat": "Day trips", "area": "About 55 km south", "why": "UNESCO World Heritage site with the Shore Temple, Five Rathas and Arjuna's Penance.", "tip": "Leave early and drive down ECR along the sea.", "time": "Full day", "lat": 12.6165, "lng": 80.1993},
+  {"name": "Kanchipuram", "cat": "Day trips", "area": "About 75 km west", "why": "The city of a thousand temples, and home of Kanchipuram silk sarees.", "tip": "Visit 2–3 temples and a weaver's shop.", "time": "Full day", "lat": 12.8342, "lng": 79.7036},
+  {"name": "Covelong Beach", "cat": "Day trips", "area": "Kovalam, ECR", "why": "A fishing-village beach known for surfing lessons.", "tip": "Combine with DakshinaChitra or Mahabalipuram.", "time": "Half day", "lat": 12.7880, "lng": 80.2510}
+ ]
+}

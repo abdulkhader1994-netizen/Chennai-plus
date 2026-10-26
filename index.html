@@ -147,6 +147,20 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 .pinfo{padding:8px 10px 10px;font-size:12px;color:var(--muted);display:grid;gap:2px}
 .pinfo b{color:var(--ink);font-size:13px}
 .nlink{color:inherit;text-decoration:none}.nlink:active{background:var(--bg)}
+.hband.k-Temples{background:linear-gradient(135deg,#6e1423,#b4500f)}
+.hband.k-Beaches{background:linear-gradient(135deg,#1d4f6e,#c9952b)}
+.hband.k-Heritage{background:linear-gradient(135deg,#5e1520,#8a5f0e)}
+.hband.k-Nature{background:linear-gradient(135deg,#2c4a24,#8a8a1e)}
+.hband.k-Shopping{background:linear-gradient(135deg,#8a1c2b,#d9540b)}
+.hband.k-Day.trips,.hband.k-Daytrips{background:linear-gradient(135deg,#3a0f16,#a77418)}
+.plan{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 14px;box-shadow:0 2px 10px rgba(120,80,20,.07)}
+.pstep{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:10px 0;border-top:1px dashed var(--line)}
+.pstep:first-child{border-top:0}
+.pstep .when{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--marigold);padding-top:2px}
+.pstep b{display:block;font-size:15px}.pstep span{font-size:13px;color:var(--muted)}
+.besttime{background:var(--jasmine);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px}
+.back{background:none;border:0;color:var(--sea);font:600 14px var(--body);padding:0;cursor:pointer;justify-self:start}
+.ex-actions{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:4px}
 .head{display:flex;justify-content:space-between;align-items:baseline}
 /* tabs */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
@@ -373,6 +387,20 @@ async function loadContent(){try{const r=await fetch("data/content.json?ts="+Dat
  fill(food,j.food,x=>({a:x.area,n:x.name,m:[x.meal,x.price,x.veg].filter(Boolean).join(" • "),tag:x.tag,u:x.link}));
  fill(online,j.deals,x=>({b:x.store,t:x.offer,v:x.valid?"Till "+new Date(x.valid+"T00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short"}):"Limited time",u:x.link||"#"}));
  if(any){contentLive=true;const cur=document.querySelector('.tab[aria-selected="true"]');if(cur){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}}catch(e){}}
+let EX=null,exF="All";
+async function loadExplore(){try{const r=await fetch("data/explore.json");if(!r.ok)return;EX=await r.json();const cur=document.querySelector('.tab[aria-selected="true"]');const v=cur?cur.dataset.v:"explore";if(v==="home"){const y=window.scrollY;go("home");window.scrollTo(0,y)}else if(!cur&&view.dataset.v==="explore"){go("explore")}}catch(e){}}
+const dirUrl=p=>`https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}`;
+const exCard=p=>`<article class="hcard"><div class="hband k-${p.cat.replace(/\s/g,"")}"><span class="htag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3></div><div class="hbody"><div>${esc(p.area)} • ${esc(p.time)}</div><div class="why">${esc(p.why)}</div><div>${esc(p.tip)}</div><div class="ex-actions"><span></span><a class="go" target="_blank" rel="noopener" href="${dirUrl(p)}">Directions</a></div></div></article>`;
+function exploreHome(){if(!EX)return"";return `<section><div class="head"><h2>Visiting Chennai?</h2>${more("explore")}</div><div class="hot">${EX.places.slice(0,6).map(exCard).join("")}</div></section>`}
+function exploreView(){if(!EX)return `<section><button class="back" data-go="home">‹ Home</button><h2>Explore Chennai</h2><p class="note">Loading places…</p></section>`;
+ const cats=["All",...new Set(EX.places.map(p=>p.cat))];
+ const list=EX.places.filter(p=>exF==="All"||p.cat===exF);
+ return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><div><h2 style="margin-bottom:4px">Explore Chennai</h2><div class="meta" style="color:var(--muted);font-size:13.5px">Must-visit places for first-timers and weekend explorers.</div></div>
+ <div class="besttime"><b>Best time to visit:</b> ${esc(EX.bestTime)}</div></section>
+ <section><h2>If you have one day</h2><div class="plan">${EX.oneDay.map(s=>`<div class="pstep"><div class="when">${esc(s.time)}</div><div><b>${esc(s.stop)}</b><span>${esc(s.note)}</span></div></div>`).join("")}</div></section>
+ <section><h2>Must-visit places</h2><div class="chips">${cats.map(c=>`<button class="chip" data-x="${esc(c)}" aria-pressed="${c===exF}">${esc(c)}</button>`).join("")}</div>
+ <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
+ <p class="note">Timings and entry fees change. Check before you go.</p></section>`}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -382,10 +410,12 @@ const views={
   <section><h2>Alerts</h2>${rainAlert()}${alerts.filter(a=>a.k!=="Rain").map(alertHTML).join("")}</section>
   ${hotSec()}
   ${buzzSec()}
+  ${exploreHome()}
   <section><div class="head"><h2>Top news</h2>${more("news")}</div><div class="list">${news.slice(0,3).map(newsRow).join("")}</div></section>
   <section><div class="head"><h2>This week</h2>${more("events")}</div><div class="list">${events.slice(0,2).map(evRow).join("")}</div></section>
   <section><div class="head"><h2>Today's offers</h2>${more("offers")}</div>${onlineCard(online[0])}</section>`,
  near:()=>nearView(),
+ explore:()=>exploreView(),
  news:()=>`${demo}${buzzSec(true)}<section><h2>Chennai news</h2>${newsLive?`<p class="note" style="margin:-4px 0 8px">Tap a headline to read the full story on the publisher's site.</p>`:""}<div class="list">${news.map(newsRow).join("")}</div></section>`,
  events:()=>`${demo}<section><h2>Events in Chennai</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${demo}<section><h2>Where to eat</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
@@ -393,14 +423,14 @@ const views={
  offers:()=>`${demo}<section><h2>Online deals</h2>${online.map(onlineCard).join("")}<p class="note">Online deals open the store's own app or website. Offers are set by each store and may change.</p></section>`};
 
 const view=document.getElementById("view");
-function go(v,arg){view.innerHTML=views[v](arg);document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg);document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
-view.addEventListener("click",e=>{const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
+view.addEventListener("click",e=>{const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
-setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
+setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 
