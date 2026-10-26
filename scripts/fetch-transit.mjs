@@ -72,6 +72,7 @@ try {
   for (const r of els.filter((e) => e.type === "relation")) {
     const t = r.tags || {}; const m = t.route === "train" ? "train" : "metro";
     if (m === "train" && (/express|shatabdi|mail|superfast|rajdhani|vande/i.test(t.name || "") || /^\d{5}$/.test(t.ref || ""))) continue; // long-distance trains
+    if (m === "metro" && /red line/i.test(t.name || "")) continue; // Phase 2 Red Line not open to passengers yet (checked Oct 2026)
     if (m === "metro") { t.name = (t.name || "").replace(/\s*\(.*\)\s*/, ""); }
     const s = []; for (const mem of r.members || []) { if (mem.type !== "node" || !/^(stop|platform)/.test(mem.role || "")) continue; const n = nodes.get(mem.ref); if (n) s.push(addStop(n.tags?.["name:en"] || n.tags?.name, n.lat, n.lon)); }
     pushRoute({ m, ref: t.ref || "", name: t.name || "", col: t.colour || "", src: "o", s }); nOsm++;
