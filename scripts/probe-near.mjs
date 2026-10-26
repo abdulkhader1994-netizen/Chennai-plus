@@ -10,3 +10,4 @@ for(const [k,v] of Object.entries(Q)){
   await new Promise(r=>setTimeout(r,1500));
 }
 await writeFile("data/probe.json",JSON.stringify(out,null,1));console.log(out);
+// rerun
