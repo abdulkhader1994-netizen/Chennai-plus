@@ -9,15 +9,18 @@ import { execSync } from "node:child_process";
 
 const LOG = [];
 const stops = [], stopKey = new Map(), routes = [];
+const title = (x) => (x === x.toUpperCase() ? x.toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase()).replace(/\bMgr\b/g, "MGR").replace(/\bLic\b/g, "LIC").replace(/\bAg-Dms\b/g, "AG-DMS") : x);
 const addStop = (name, lat, lng) => {
-  name = (name || "").replace(/\s+/g, " ").trim(); if (!name || !isFinite(lat) || !isFinite(lng)) return -1;
+  name = title((name || "").replace(/\s+/g, " ").trim()); if (!name || !isFinite(lat) || !isFinite(lng)) return -1;
   const k = name.toLowerCase() + "|" + (+lat).toFixed(3) + "," + (+lng).toFixed(3);
   if (!stopKey.has(k)) { stopKey.set(k, stops.length); stops.push([name, +(+lat).toFixed(5), +(+lng).toFixed(5)]); }
   return stopKey.get(k);
 };
+const seen = new Set();
 const pushRoute = (r) => {
   const s = []; for (const i of r.s) { if (i < 0) continue; const p = s.at(-1); if (p !== undefined && (p === i || stops[p][0].toLowerCase() === stops[i][0].toLowerCase())) continue; s.push(i); }
-  if (s.length >= 2) routes.push({ ...r, s });
+  const k = r.m + "|" + r.ref + "|" + s.join(",");
+  if (s.length >= 2 && !seen.has(k)) { seen.add(k); routes.push({ ...r, s }); }
 };
 
 // ---------- GTFS ----------
@@ -48,11 +51,11 @@ try {
     if (!best) continue; best.sort((x, y) => x[0] - y[0]);
     const r = gRoutes.get(k.split("|")[0]) || {}; const type = +r.route_type;
     const m = type === 3 || (type >= 700 && type < 800) ? "bus" : type === 1 || type === 0 || (type >= 400 && type < 500) ? "metro" : type === 2 || (type >= 100 && type < 200) ? "train" : "bus";
-    if (m === "metro") gtfsMetro++;
+    if (m === "metro") { gtfsMetro++; continue; }
     pushRoute({ m, ref: r.route_short_name || "", name: r.route_long_name || "", col: r.route_color ? "#" + r.route_color : "", src: "g",
       s: best.map(([, id]) => { const st = gStops.get(id); return st ? addStop(st.stop_name, st.stop_lat, st.stop_lon) : -1; }) });
   }
-  LOG.push(`gtfs: ${gRoutes.size} routes, ${gStops.size} stops, ${nST} stop_times rows, ${cand.size} patterns, metro patterns ${gtfsMetro}`);
+  LOG.push(`gtfs: ${gRoutes.size} routes, ${gStops.size} stops, ${nST} stop_times rows, ${cand.size} patterns, metro patterns skipped ${gtfsMetro}`);
 } catch (e) { LOG.push("gtfs failed: " + e.message); }
 
 // ---------- OpenStreetMap trains (+ metro fallback) ----------
@@ -68,7 +71,8 @@ try {
   let nOsm = 0;
   for (const r of els.filter((e) => e.type === "relation")) {
     const t = r.tags || {}; const m = t.route === "train" ? "train" : "metro";
-    if (m === "metro" && gtfsMetro > 0) continue;
+    if (m === "train" && (/express|shatabdi|mail|superfast|rajdhani|vande/i.test(t.name || "") || /^\d{5}$/.test(t.ref || ""))) continue; // long-distance trains
+    if (m === "metro") { t.name = (t.name || "").replace(/\s*\(.*\)\s*/, ""); }
     const s = []; for (const mem of r.members || []) { if (mem.type !== "node" || !/^(stop|platform)/.test(mem.role || "")) continue; const n = nodes.get(mem.ref); if (n) s.push(addStop(n.tags?.["name:en"] || n.tags?.name, n.lat, n.lon)); }
     pushRoute({ m, ref: t.ref || "", name: t.name || "", col: t.colour || "", src: "o", s }); nOsm++;
   }
