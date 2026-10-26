@@ -15,6 +15,7 @@ const CATS = {
   cinema:  ['nwr["amenity"="cinema"]'],
   hospital:['nwr["amenity"="hospital"]'],
   mechanic:['nwr["shop"="car_repair"]', 'nwr["shop"="motorcycle_repair"]', 'nwr["shop"="tyres"]'],
+  pharmacy:['nwr["amenity"="pharmacy"]', 'nwr["shop"="chemist"]'],
   fireworks:['nwr["shop"="fireworks"]'],
   sweets:  ['nwr["shop"~"^(confectionery|pastry|chocolate)$"]'],
   jewellery:['nwr["shop"="jewelry"]'],

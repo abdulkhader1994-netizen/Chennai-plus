@@ -376,6 +376,10 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .mpbtn{display:grid;grid-template-columns:auto 1fr;column-gap:8px;align-items:center;text-decoration:none;color:var(--ink);background:var(--t1b);border-radius:14px;padding:9px 10px;font:700 13.5px var(--body);min-width:0}
 .mpbtn .mi{width:24px;height:24px;grid-row:span 2}.mpbtn small{font-weight:500;font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mpacs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.mpacs small{width:100%;font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em}.mpacs span{font-size:12px;padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+
+.oh{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-decoration:none}
+.oh.on{background:#dcfce7;color:#166534}.oh.off{background:#fee2e2;color:#991b1b}.oh.unk{background:var(--bg);color:var(--muted);font-weight:600;border:1px solid var(--line)}
+.oh.on::before,.oh.off::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:5px;vertical-align:1px}
 </style>
 </head>
 <body>
@@ -448,13 +452,14 @@ const ICON={petrol:'<path d="M4 20V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v15M3 20h12M6 
  cinema:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 6l3-3M9 6l3-3M15 6l3-3M10 10l5 2.5-5 2.5z"/>',
  hospital:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/>',
  mechanic:'<path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-.5-.5-2.5z"/>',
+ pharmacy:'<rect x="3" y="8" width="18" height="8" rx="4" transform="rotate(-45 12 12)"/><path d="M9 9l6 6"/>',
  fireworks:'<path d="M12 3v5M12 16v5M3 12h5M16 12h5M5.6 5.6l3.5 3.5M14.9 14.9l3.5 3.5M5.6 18.4l3.5-3.5M14.9 9.1l3.5-3.5"/>',
  sweets:'<circle cx="8" cy="15" r="4"/><circle cx="16" cy="15" r="4"/><circle cx="12" cy="8" r="4"/>',
  jewellery:'<circle cx="12" cy="14" r="6"/><path d="M9 5l3 3 3-3-3-2z"/>',
  textiles:'<path d="M8 3L3 7l3 4 2-1v11h8V10l2 1 3-4-5-4c0 2-2 3-4 3S8 5 8 3z"/>',
  tea:'<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/>'};
-const NCAT={petrol:"Petrol",station:"Stations",bus:"Bus stops",hotel:"Hotels",food:"Food",tea:"Tea & cafe",mall:"Malls",cinema:"Cinemas",hospital:"Hospitals",mechanic:"Mechanics",fireworks:"Cracker shops",sweets:"Sweet shops",jewellery:"Jewellery",textiles:"Silks & sarees"};
-const BASECATS=["petrol","station","bus","hotel","food","tea","mall","cinema","hospital","mechanic"];
+const NCAT={petrol:"Petrol",station:"Stations",bus:"Bus stops",hotel:"Hotels",food:"Food",tea:"Tea & cafe",mall:"Malls",cinema:"Cinemas",hospital:"Hospitals",mechanic:"Mechanics",pharmacy:"Medical shops",fireworks:"Cracker shops",sweets:"Sweet shops",jewellery:"Jewellery",textiles:"Silks & sarees"};
+const BASECATS=["petrol","pharmacy","hospital","station","bus","food","tea","hotel","mall","cinema","mechanic"];
 const AREAS={"T. Nagar":[13.0418,80.2341],"Adyar":[13.0012,80.2565],"Anna Nagar":[13.0850,80.2101],"Mylapore":[13.0339,80.2619],"Velachery":[12.9815,80.2180],"Tambaram":[12.9249,80.1000],"OMR":[12.9416,80.2362],"Guindy":[13.0067,80.2206],"Porur":[13.0382,80.1565]};
 const OSMQ={
  petrol:'nwr["amenity"="fuel"]',
@@ -463,8 +468,8 @@ const OSMQ={
  hotel:'nwr["tourism"~"^(hotel|guest_house|motel|hostel)$"]',
  food:'nwr["amenity"~"^(restaurant|fast_food)$"]',
  tea:'nwr["amenity"="cafe"];nwr["shop"="tea"]'};
-const UNNAMED={petrol:"Petrol bunk",station:"Station",bus:"Bus stop",hotel:"Hotel",food:"Restaurant",tea:"Tea shop",mall:"Shopping mall",cinema:"Cinema",hospital:"Hospital",mechanic:"Mechanic shop",fireworks:"Cracker shop",sweets:"Sweet shop",jewellery:"Jewellery shop",textiles:"Textile shop"};
-let nearC="petrol",nearA="T. Nagar",nearLoc={lat:AREAS["T. Nagar"][0],lng:AREAS["T. Nagar"][1],gps:false},nearState={},nearMsg="";
+const UNNAMED={petrol:"Petrol bunk",station:"Station",bus:"Bus stop",hotel:"Hotel",food:"Restaurant",tea:"Tea shop",mall:"Shopping mall",cinema:"Cinema",hospital:"Hospital",mechanic:"Mechanic shop",pharmacy:"Medical shop",fireworks:"Cracker shop",sweets:"Sweet shop",jewellery:"Jewellery shop",textiles:"Textile shop"};
+let hideClosed=false,nearC="petrol",nearA="T. Nagar",nearLoc={lat:AREAS["T. Nagar"][0],lng:AREAS["T. Nagar"][1],gps:false},nearState={},nearMsg="";
 const km=(a,b,c,d)=>{const R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
 const placeCache={};
 async function placesFor(cat){if(placeCache[cat])return placeCache[cat];const r=await fetch(`data/places/${cat}.json`);if(!r.ok)throw new Error("no data");const j=await r.json();placeCache[cat]=j.rows;return j.rows}
@@ -488,6 +493,25 @@ function useGPS(){
  navigator.geolocation.getCurrentPosition(p=>{nearLoc={lat:p.coords.latitude,lng:p.coords.longitude,gps:true};nearMsg="";findNear()},
   ()=>{nearMsg="Location permission was denied. Allow location for Chennai+ in your phone settings, or pick an area.";rerenderNear()},{enableHighAccuracy:true,timeout:15000,maximumAge:120000});
 }
+const DAYS=["Mo","Tu","We","Th","Fr","Sa","Su"];
+function ohParse(str){if(!str)return null;const t=str.trim();if(/^(24 hrs|24\/7|Open 24 hrs)$/i.test(t))return DAYS.map(()=>[[0,1440]]);
+ const sched=DAYS.map(()=>null);let any=false;
+ for(let rule of t.split(";")){rule=rule.trim();if(!rule)continue;const m=rule.match(/^((?:(?:Mo|Tu|We|Th|Fr|Sa|Su|PH|SH)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?\s*,?\s*)+)?\s*(.*)$/);if(!m)return null;
+  let days=[];if(m[1]){for(const part of m[1].split(",").map(x=>x.trim()).filter(Boolean)){if(/^(PH|SH)$/.test(part))continue;const [a,b]=part.split("-");const i=DAYS.indexOf(a),j=b?DAYS.indexOf(b):i;if(i<0||j<0)return null;for(let k=i;;k=(k+1)%7){days.push(k);if(k===j)break}}if(!days.length)continue}else days=[0,1,2,3,4,5,6];
+  const tp=m[2].trim();let ranges=[];
+  if(/^(off|closed)$/i.test(tp))ranges=[];else{for(const r of tp.split(",").map(x=>x.trim()).filter(Boolean)){const q=r.match(/^(\d{1,2}):(\d\d)\s*(?:-\s*(\d{1,2}):(\d\d)|\+)$/);if(!q)return null;const s=+q[1]*60+ +q[2];let e=q[3]!==undefined?+q[3]*60+ +q[4]:-1;if(e<0){ranges.push([s,1440,1]);continue}if(e<=s)e+=1440;ranges.push([s,e])}}
+  days.forEach(d=>sched[d]=ranges);any=true}
+ return any?sched.map(x=>x||[]):null}
+const fmtMin=x=>{x=((x%1440)+1440)%1440;const h=Math.floor(x/60),mi=x%60,ap=h>=12?"pm":"am";return `${h%12||12}${mi?":"+String(mi).padStart(2,"0"):""} ${ap}`};
+function ohStatus(str){const S=ohParse(str);if(!S)return null;if(S.every(r=>r.some(([a,b])=>a<=0&&b>=1440)))return{open:true,txt:"Open 24 hrs"};
+ const now=new Date(Date.now()+5.5*3600e3),d=(now.getUTCDay()+6)%7,m=now.getUTCHours()*60+now.getUTCMinutes(),y=(d+6)%7;
+ for(const [a,b,oe] of S[d])if(m>=a&&m<b)return{open:true,txt:oe?"Open now":`Open now · closes ${fmtMin(b)}`};
+ for(const [a,b] of S[y])if(b>1440&&m<b-1440)return{open:true,txt:`Open now · closes ${fmtMin(b)}`};
+ const later=S[d].filter(([a])=>a>m).sort((p,q)=>p[0]-q[0]);if(later.length)return{open:false,txt:`Closed now · opens ${fmtMin(later[0][0])}`};
+ for(let k=1;k<=7;k++){const dd=(d+k)%7;if(S[dd].length){const a=Math.min(...S[dd].map(r=>r[0]));return{open:false,txt:k===1?`Closed now · opens tomorrow ${fmtMin(a)}`:`Closed now · opens ${["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][dd]} ${fmtMin(a)}`}}}
+ return{open:false,txt:"Closed"}}
+const isHours=x=>/^(24 hrs|24\/7)$/i.test(x.trim())||/\d{1,2}:\d\d/.test(x);
+function placeHours(info){const seg=(info||"").split(" • ").find(isHours);return seg?ohStatus(seg.replace(/^Open /,"")):null}
 function nearView(){
  const key=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3),st=nearState[key];
  if(st===undefined)setTimeout(findNear,0);
@@ -499,7 +523,7 @@ function nearView(){
  const list=st==="error"?`${msgRow("Still adding these places","We’re collecting "+NCAT[nearC].toLowerCase()+" from the map. Check back in a few hours, or search Google Maps now.")}<div class="prow" style="grid-template-columns:1fr"><a class="getdeal" style="display:block;text-align:center" target="_blank" rel="noopener" href="${mapsQ(NCAT[nearC]+" near me")}">Find ${esc(NCAT[nearC].toLowerCase())} on Google Maps</a></div>`
   :(!st||st==="loading")?[1,2,3].map(()=>`<div class="prow"><div class="badge">${ic}</div><div style="display:grid;gap:8px"><div class="skel" style="width:70%"></div><div class="skel" style="width:45%;height:10px"></div></div><div class="skel" style="width:52px"></div></div>`).join("")
   :st.length===0?msgRow("Nothing found within 4 km","Try another category or change the area.")
-  :st.map((r,i)=>`<div class="prow"><div class="badge">${ic}</div><div style="min-width:0">${i===0?`<span class="near1">Nearest</span>`:""}<h3>${esc(r.name)}</h3><div class="meta">${esc(cleanInfo(r.info)||NCAT[nearC])}</div>${(nearC==="bus"||nearC==="station")?routeChips(r.la,r.lo,nearC==="bus"):""}</div><div class="pd"><b>${fmt(r.d)}<small>${eta(r.d)}</small></b><a class="dirbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}" aria-label="Directions to ${esc(r.name)}"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Go</a></div></div>`).join("");
+  :st.filter(r=>{if(!hideClosed)return true;const h=placeHours(r.info);return !h||h.open}).map((r,i)=>`<div class="prow"><div class="badge">${ic}</div><div style="min-width:0">${i===0?`<span class="near1">Nearest</span>`:""}<h3>${esc(r.name)}</h3><div class="meta">${esc((r.info||"").split(" • ").filter(x=>!isHours(x)).join(" • ")||UNNAMED[nearC])}</div>${(()=>{const h=placeHours(r.info);return h?`<div class="oh ${h.open?"on":"off"}">${h.txt}</div>`:`<a class="oh unk" target="_blank" rel="noopener" href="${mapsQ(r.name+" near "+r.la.toFixed(4)+","+r.lo.toFixed(4))}">Check timings ›</a>`})()}${(nearC==="bus"||nearC==="station")?routeChips(r.la,r.lo,nearC==="bus"):""}</div><div class="pd"><b>${fmt(r.d)}<small>${eta(r.d)}</small></b><a class="dirbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${r.la},${r.lo}" aria-label="Directions to ${esc(r.name)}"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Go</a></div></div>`).join("");
  const n=Array.isArray(st)?st.length:0;
  return `${banner("near","Near me","Petrol, hospitals, food &amp; more around you",["pin","bus","coffee"])}<section>
  <div class="loccard"><div class="lrow"><span class="lpin"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
@@ -510,7 +534,7 @@ function nearView(){
  <div class="ncats" id="ncats">${Object.keys(NCAT).filter(k=>BASECATS.includes(k)||k===nearC).map(k=>`<button class="ncat" data-n="${k}" aria-pressed="${k===nearC}"><svg viewBox="0 0 24 24">${ICON[k]}</svg>${NCAT[k]}</button>`).join("")}</div>
  ${(nearC==="bus"||nearC==="station")?`<button class="opt" data-go="travel" style="display:flex;justify-content:space-between;align-items:center;width:100%;cursor:pointer;margin-bottom:10px;font:600 14.5px var(--body);color:var(--ink);text-align:left"><span>Plan a trip by bus, train or Metro<br><small style="color:var(--muted);font-weight:500">See bus numbers and lines from A to B</small></span><span style="color:var(--marigold);font-size:22px">›</span></button>`:""}
  ${nearC==="hospital"?`<div class="alert"><span class="pill">Emergency</span><p>Call <a href="tel:108" style="color:inherit;font-weight:700">108</a> for an ambulance. Call the hospital before going to check they can treat the case.</p></div>`:""}
- ${n?`<div class="rhead"><span><b>${n} ${NCAT[nearC].toLowerCase()}</b> within 4 km</span><span>Nearest first</span></div>`:""}
+ ${n?`<div class="rhead"><span><b>${n} ${NCAT[nearC].toLowerCase()}</b> within 4 km</span>${st.some(r=>{const h=placeHours(r.info);return h&&!h.open})?`<button class="chip" id="hideclosed" aria-pressed="${hideClosed}">Hide closed</button>`:"<span>Nearest first</span>"}</div>`:""}
  <div class="list">${list}</div>
  </section>`}
 function centerCat(){const c=document.getElementById("ncats");const el=c&&c.querySelector('[aria-pressed="true"]');if(el)c.scrollLeft=el.offsetLeft-c.offsetLeft-16}
@@ -581,7 +605,7 @@ const TA={
 "Concerts, comedy, markets & more":"இசை, நகைச்சுவை, சந்தைகள் மற்றும் பல","Coming up":"வரவிருப்பவை",
 "Chennai’s tastiest spots":"சென்னையின் சுவையான இடங்கள்","Top rated near me":"அருகிலுள்ள சிறந்த உணவகங்கள்","Best-rated restaurants around you":"உங்கள் அருகே அதிக மதிப்பீடு பெற்றவை","Biryani":"பிரியாணி","Tiffin":"டிபன்","Veg meals":"சைவ சாப்பாடு","Seafood":"கடல் உணவு","Cafes":"கஃபே","Desserts":"இனிப்புகள்","Late night":"நள்ளிரவு","Street food":"தெரு உணவு","Chennai's best":"சென்னையின் சிறந்தவை","Veg":"சைவம்","Non-veg":"அசைவம்","Dessert":"இனிப்பு","Breakfast":"காலை உணவு","Meals":"சாப்பாடு","North Indian":"வட இந்திய உணவு","South Indian":"தென்னிந்திய உணவு","Spicy bites":"காரசார உணவு","Beach food":"கடற்கரை உணவு","Chaat":"சாட்","Parotta":"பரோட்டா","Bakery":"பேக்கரி","Chettinad":"செட்டிநாடு","★ Ratings":"★ மதிப்பீடுகள்",
 "Petrol, hospitals, food & more around you":"உங்கள் அருகே பெட்ரோல், மருத்துவமனை, உணவு மற்றும் பல","Places near":"அருகிலுள்ள இடங்கள்","Change ▾":"மாற்று ▾","Change area":"பகுதியை மாற்று","Your location":"உங்கள் இருப்பிடம்","Use my current location":"என் இருப்பிடத்தைப் பயன்படுத்து","Refresh my location":"இருப்பிடத்தைப் புதுப்பி",
-"Stations":"நிலையங்கள்","Bus stops":"பஸ் நிறுத்தங்கள்","Hotels":"ஹோட்டல்கள்","Tea & cafe":"டீ & கஃபே","Malls":"மால்கள்","Cinemas":"திரையரங்குகள்","Mechanics":"மெக்கானிக்","Cracker shops":"பட்டாசுக் கடைகள்","Sweet shops":"இனிப்புக் கடைகள்","Jewellery":"நகைக் கடைகள்","Silks & sarees":"பட்டு & புடவைகள்",
+"Stations":"நிலையங்கள்","Bus stops":"பஸ் நிறுத்தங்கள்","Hotels":"ஹோட்டல்கள்","Tea & cafe":"டீ & கஃபே","Malls":"மால்கள்","Cinemas":"திரையரங்குகள்","Mechanics":"மெக்கானிக்","Medical shops":"மருந்தகங்கள்","medical shops":"மருந்தகங்கள்","Hide closed":"மூடியவற்றை மறை","Open now":"இப்போது திறந்துள்ளது","Check timings ›":"நேரத்தைப் பார் ›","Cracker shops":"பட்டாசுக் கடைகள்","Sweet shops":"இனிப்புக் கடைகள்","Jewellery":"நகைக் கடைகள்","Silks & sarees":"பட்டு & புடவைகள்",
 "petrol":"பெட்ரோல் நிலையங்கள்","stations":"நிலையங்கள்","bus stops":"பஸ் நிறுத்தங்கள்","hotels":"ஹோட்டல்கள்","food":"உணவகங்கள்","tea & cafe":"டீ & கஃபே","malls":"மால்கள்","cinemas":"திரையரங்குகள்","hospitals":"மருத்துவமனைகள்","mechanics":"மெக்கானிக் கடைகள்","cracker shops":"பட்டாசுக் கடைகள்","sweet shops":"இனிப்புக் கடைகள்","jewellery":"நகைக் கடைகள்","silks & sarees":"பட்டு & புடவைக் கடைகள்",
 "within 4 km":"4 கி.மீ.க்குள்","Nearest first":"அருகிலுள்ளவை முதலில்","Nearest":"மிக அருகில்","Go":"செல்","Open 24 hrs":"24 மணி நேரமும் திறந்திருக்கும்",
 "Plan a trip by bus, train or Metro":"பஸ், ரயில் அல்லது மெட்ரோவில் பயணம் திட்டமிடுங்கள்","See bus numbers and lines from A to B":"A-யிலிருந்து B-க்கு பஸ் எண்கள், வழித்தடங்கள்",
@@ -615,6 +639,7 @@ const TARX=[
  [/^(\d+)% buzz$/,(m,v)=>`${v}% பரபரப்பு`],[/^Rated (.+)\/10$/,(m,v)=>`மதிப்பீடு ${v}/10`],[/^Release (.+)$/,(m,v)=>`வெளியீடு ${v}`],
  [/^(\d+) (.+)$/,(m,n,c)=>TA[c]?`${n} ${TA[c]}`:null],
  [/^Updated (.+)\. MP contacts are from the official Lok Sabha website\.$/,(m,v)=>`${v} அன்று புதுப்பிக்கப்பட்டது. MP தொடர்புகள் அதிகாரப்பூர்வ மக்களவை இணையதளத்திலிருந்து.`],[/^(.+) · Lok Sabha$/,(m,v)=>`${v} · மக்களவை`],[/^MLA · (.+)$/,(m,v)=>`MLA · ${v}`],
+ [/^Open now · closes (.+)$/,(m,v)=>`இப்போது திறந்துள்ளது · ${times(v)} மணிக்கு மூடும்`],[/^Closed now · opens tomorrow (.+)$/,(m,v)=>`இப்போது மூடியுள்ளது · நாளை ${times(v)} மணிக்கு திறக்கும்`],[/^Closed now · opens (Mon|Tue|Wed|Thu|Fri|Sat|Sun) (.+)$/,(m,d,v)=>`இப்போது மூடியுள்ளது · ${({Mon:"திங்கள்",Tue:"செவ்வாய்",Wed:"புதன்",Thu:"வியாழன்",Fri:"வெள்ளி",Sat:"சனி",Sun:"ஞாயிறு"})[d]} ${times(v)} மணிக்கு திறக்கும்`],[/^Closed now · opens (.+)$/,(m,v)=>`இப்போது மூடியுள்ளது · ${times(v)} மணிக்கு திறக்கும்`],
  [/^(\d+) homes?$/,(m,n)=>`${n} வீடுகள்`],[/^WhatsApp (.+)$/,(m,v)=>`WhatsApp ${v==="owner"?"உரிமையாளர்":v}`],[/^Deposit (.+)$/,(m,v)=>`முன்பணம் ${v}`],[/^For (.+)$/,(m,v)=>`${TOK[v]||TA[v]||v}-க்கு`],[/^From (.+)$/,(m,v)=>`${v} முதல்`],[/^(\d+) days ago$/,(m,n)=>`${n} நாட்களுக்கு முன்`],
  [/^(\d+) min walk$/,(m,v)=>`${v} நிமிட நடை`],[/^~(\d+) min drive$/,(m,v)=>`~${v} நிமிட பயணம்`],[/^~(\d+) min$/,(m,v)=>`~${v} நிமி`],
  [/^(\d+) stops? · towards (.+)$/,(m,n,t)=>`${n} நிறுத்தங்கள் · ${t} நோக்கி`],[/^Change at (.+)$/,(m,v)=>`${v}-ல் மாறுங்கள்`],[/^Change · walk to (.+)$/,(m,v)=>`மாற்றம் · ${v} வரை நடக்கவும்`],
@@ -672,6 +697,7 @@ saree:'<rect x="8" y="38" width="48" height="12" rx="3" fill="#be123c"/><rect x=
 jewel:'<path d="M12 12c0 22 10 34 20 34s20-12 20-34" fill="none" stroke="#facc15" stroke-width="4"/><circle cx="16" cy="28" r="3" fill="#facc15"/><circle cx="22" cy="37" r="3" fill="#facc15"/><circle cx="42" cy="37" r="3" fill="#facc15"/><circle cx="48" cy="28" r="3" fill="#facc15"/><path d="M32 42l8 8-8 10-8-10z" fill="#ef4444"/><path d="M32 46l4 4-4 5-4-5z" fill="#fecaca"/>',
 xmas:'<path d="M32 6l16 22h-8l12 16H12l12-16h-8z" fill="#16a34a"/><rect x="28" y="44" width="8" height="12" fill="#92400e"/><circle cx="26" cy="30" r="2.5" fill="#ef4444"/><circle cx="38" cy="36" r="2.5" fill="#facc15"/><circle cx="34" cy="22" r="2.5" fill="#3b82f6"/><path d="M32 1l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z" fill="#facc15"/>',
 pongalpot:'<path d="M46 8c-4 10-4 30 0 48" stroke="#65a30d" stroke-width="4" fill="none"/><path d="M14 30c0-4 8-6 18-6s18 2 18 6c0 14-8 26-18 26S14 44 14 30z" fill="#b45309"/><path d="M19 28c4-8 22-8 26 0z" fill="#fff"/><circle cx="26" cy="21" r="4" fill="#fff"/><circle cx="34" cy="19" r="5" fill="#fff"/><path d="M14 36h36" stroke="#facc15" stroke-width="3"/>',
+pills:'<rect x="6" y="22" width="40" height="18" rx="9" transform="rotate(-35 26 31)" fill="#f43f5e"/><path d="M26 31l9-6.3a9 9 0 0 1 10.3 14.7L36 45.8z" fill="#fff" transform="rotate(0)"/><rect x="40" y="30" width="20" height="26" rx="4" fill="#22c55e"/><path d="M50 36v14M43 43h14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>',
 house:'<path d="M8 30L32 10l24 20" fill="none" stroke="#c2410c" stroke-width="4" stroke-linejoin="round"/><rect x="14" y="28" width="36" height="28" fill="#fff7ed"/><path d="M12 30L32 13l20 17z" fill="#f97316"/><rect x="27" y="40" width="10" height="16" rx="1" fill="#92400e"/><rect x="17" y="34" width="8" height="8" rx="1" fill="#93c5fd"/><rect x="39" y="34" width="8" height="8" rx="1" fill="#93c5fd"/><rect x="42" y="14" width="5" height="10" fill="#9a3412"/>',
 key:'<circle cx="20" cy="32" r="12" fill="none" stroke="#f59e0b" stroke-width="6"/><path d="M31 32h26M48 32v9M55 32v7" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>',
 star:'<path d="M32 6l7.6 16 17.4 2-13 12 3.6 17.4L32 45l-15.6 8.4L20 36 7 24l17.4-2z" fill="#facc15"/>'};
@@ -869,7 +895,7 @@ function initTravel(){const sug=document.getElementById("tsug");let which=null;
 function routeChips(la,lo,bus){if(!TR)return"";const R=TR.routes,seen=new Set(),out=[];stopsNear(la,lo,bus?0.15:0.12).forEach(([si])=>TRidx.byStop[si].forEach(([ri])=>{const r=R[ri];if((r.m==="bus")!==bus)return;const k=r.m==="bus"?r.ref.split(/\s+/)[0]:lineName(r);if(!seen.has(k)){seen.add(k);out.push(r.m==="bus"?`<span class="lchip">${esc(k)}</span>`:lineChip(r))}}));
  return out.length?`<div class="rchips">${out.slice(0,8).join("")}${out.length>8?`<span class="lchip">+${out.length-8}</span>`:""}</div>`:""}
 let FESTS=null,FEST=null;
-const FESTART={fireworks:"cracker",sweets:"laddu",jewellery:"jewel",textiles:"saree",mall:"shopping"};
+const PHARM=1;const FESTART={fireworks:"cracker",sweets:"laddu",jewellery:"jewel",textiles:"saree",mall:"shopping"};
 const istToday=()=>new Date(Date.now()+5.5*3600e3).toISOString().slice(0,10);
 const daysTo=d=>Math.round((new Date(d+"T00:00:00Z")-new Date(istToday()+"T00:00:00Z"))/864e5);
 async function loadFestivals(){try{const r=await fetch("data/festivals.json");if(!r.ok)return;FESTS=(await r.json()).festivals;
@@ -995,7 +1021,7 @@ view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){con
 function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
-view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
+view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS();if(e.target.closest("#hideclosed")){hideClosed=!hideClosed;rerenderNear()}});
 setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!reloaded){reloaded=true;location.reload()}})}
 </script>
