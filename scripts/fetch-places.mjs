@@ -22,13 +22,14 @@ const ENDPOINTS = [
   "https://overpass.kumi.systems/api/interpreter",
 ];
 
+const LOG = [];
 async function query(q) {
   for (const ep of ENDPOINTS) {
     try {
       const r = await fetch(ep + "?data=" + encodeURIComponent(q), { headers: { "User-Agent": "ChennaiPlusBot/1.0 (github.com/abdulkhader1994-netizen/Chennai-plus)" }, signal: AbortSignal.timeout(150000) });
       if (!r.ok) throw new Error("HTTP " + r.status);
       return (await r.json()).elements;
-    } catch (e) { console.warn(`${ep}: ${e.message}`); }
+    } catch (e) { console.warn(`${ep}: ${e.message}`); LOG.push(`${ep.split("/")[2]}: ${e.message}`); }
   }
   throw new Error("all map services failed");
 }
@@ -49,8 +50,8 @@ for (const [cat, parts] of Object.entries(CATS)) {
   // Skip categories refreshed in the last 5 days, so a rerun only fills in what's missing.
   try { const old = JSON.parse(await readFile(`data/places/${cat}.json`, "utf8")); if (Date.now() - new Date(old.updated) < 5 * 864e5) { console.log(`${cat}: fresh, skipped`); continue; } } catch {}
   try {
-    const q = `[out:json][timeout:120];(${parts.map((p) => `${p}(${BBOX});`).join("")});out center tags;`;
-    const els = await query(q);
+    const els = [];
+    for (const p of parts) els.push(...await query(`[out:json][timeout:120];(${p}(${BBOX}););out center tags;`));
     const seen = new Set();
     const rows = els.map((e) => {
       const lat = e.lat ?? e.center?.lat, lng = e.lon ?? e.center?.lon, t = e.tags || {};
@@ -61,8 +62,9 @@ for (const [cat, parts] of Object.entries(CATS)) {
     summary[cat] = rows.length;
     console.log(`${cat}: ${rows.length} places`);
   } catch (e) {
-    console.warn(`${cat} skipped: ${e.message}`);
+    console.warn(`${cat} skipped: ${e.message}`); LOG.push(`${cat} skipped: ${e.message}`);
   }
   await new Promise((r) => setTimeout(r, 5000));
 }
 console.log(summary);
+await writeFile("data/places/_log.json", JSON.stringify({ at: new Date().toISOString(), summary, log: LOG }, null, 1));
