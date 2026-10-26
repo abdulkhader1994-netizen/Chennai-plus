@@ -1,22 +1,14 @@
 {
- "at": "2026-10-26T16:24:46.918Z",
+ "at": "2026-10-26T17:18:50.930Z",
  "summary": {
-  "textiles": 113
+  "pharmacy": 317,
+  "fireworks": 0,
+  "sweets": 85,
+  "jewellery": 181
  },
  "log": [
   "maps.mail.ru: HTTP 504",
-  "overpass-api.de: HTTP 502",
-  "overpass.kumi.systems: The operation was aborted due to timeout",
-  "fireworks skipped: all map services failed",
   "maps.mail.ru: HTTP 504",
-  "overpass-api.de: HTTP 502",
-  "overpass.kumi.systems: The operation was aborted due to timeout",
-  "sweets skipped: all map services failed",
-  "maps.mail.ru: HTTP 504",
-  "overpass-api.de: HTTP 502",
-  "overpass.kumi.systems: HTTP 504",
-  "jewellery skipped: all map services failed",
-  "maps.mail.ru: HTTP 504",
-  "maps.mail.ru: HTTP 504"
+  "overpass-api.de: HTTP 502"
  ]
 }
