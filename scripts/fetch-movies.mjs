@@ -1,6 +1,6 @@
 // Builds data/movies.json: Tamil releases plus popular English films in India, from TMDB.
 // Needs a TMDB "API Read Access Token" saved as the GitHub secret TMDB_TOKEN.
-// This product uses the TMDB API but is not endorsed or certified by TMDB.
+// This product uses the TMDB API but is not endorsed or certified by TMDB. (Attribution shown in the app.)
 import { readFile, writeFile } from "node:fs/promises";
 
 const token = process.env.TMDB_TOKEN;
