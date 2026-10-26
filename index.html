@@ -15,27 +15,27 @@
 <style>
 /* Layout: phone-first app shell, sticky header, scrolling sections, fixed bottom tab bar */
 :root{
-  --bg:#ffffff; --surface:#ffffff; --ink:#1d1430; --muted:#6b6b73; --line:#ebebef;
-  --sea:#e8175d; --seaDeep:#b0124a; --marigold:#ff7a18; --jasmine:#fff1f5;
+  --bg:#ffffff; --surface:#ffffff; --ink:#2a1a0e; --muted:#6b6b73; --line:#ebebef;
+  --sea:#d9480f; --seaDeep:#9a3412; --marigold:#f76707; --jasmine:#fff4e6;
   --alert:#c62828; --alertBg:#fff1f1; --ok:#1e8e4f;
-  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
-  --t1b:#ffe4ee; --t1f:#d6114f; --t2b:#ffe4ee; --t2f:#d6114f; --t3b:#fff4e5; --t3f:#b45309; --t4b:#e8f6ee; --t4f:#1e8e4f; --t5b:#eef2ff; --t5f:#3b5bdb;
-  --navbg:rgba(255,255,255,.82); --goldbg:linear-gradient(135deg,#fff7dc,#ffe7a3); --fuelbg:linear-gradient(135deg,#eef3ff,#dde6ff); --page:#fff8fb; --surface2:rgba(255,255,255,.9); --glow1:rgba(255,45,111,.16); --glow2:rgba(124,58,237,.14); --glow3:rgba(255,154,31,.16);
+  --grad:linear-gradient(120deg,#ff5f00 0%,#ff8c00 55%,#ffb700 100%);
+  --t1b:#ffedd5; --t1f:#c2410c; --t2b:#ffedd5; --t2f:#c2410c; --t3b:#fff4e5; --t3f:#b45309; --t4b:#e8f6ee; --t4f:#1e8e4f; --t5b:#eef2ff; --t5f:#3b5bdb;
+  --navbg:rgba(255,255,255,.82); --goldbg:linear-gradient(135deg,#fff7dc,#ffe7a3); --fuelbg:linear-gradient(135deg,#eef3ff,#dde6ff); --page:#fffaf3; --surface2:rgba(255,255,255,.9); --glow1:rgba(255,140,0,.20); --glow2:rgba(255,183,0,.16); --glow3:rgba(255,95,0,.14);
   --display:"Baloo Thambi 2","Hind Madurai",system-ui,sans-serif;
   --body:"Hind Madurai",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#110d1c; --surface:#1d1830; --ink:#f4f0ff; --muted:#a9a1c4; --line:#2e2747;
-  --sea:#ff5c8f; --seaDeep:#2a1324; --marigold:#ffa24d; --jasmine:#2a1626;
+  --bg:#15100b; --surface:#231a12; --ink:#fff4e8; --muted:#bba78f; --line:#3a2c1f;
+  --sea:#ff9a3d; --seaDeep:#2a1a0c; --marigold:#ffb347; --jasmine:#2a1c10;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
-  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
-  --t1b:#3a1830; --t1f:#ff8fb3; --t2b:#3a1830; --t2f:#ff8fb3; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#110d1c; --surface2:rgba(29,24,48,.9); --glow1:rgba(255,45,111,.18); --glow2:rgba(124,58,237,.22); --glow3:rgba(255,154,31,.12); color-scheme:dark}}
+  --grad:linear-gradient(120deg,#ff5f00 0%,#ff8c00 55%,#ffb700 100%);
+  --t1b:#3a2410; --t1f:#ffb36b; --t2b:#3a2410; --t2f:#ffb36b; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#15100b; --surface2:rgba(35,26,18,.92); --glow1:rgba(255,120,0,.18); --glow2:rgba(255,183,0,.10); --glow3:rgba(255,80,0,.12); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#110d1c; --surface:#1d1830; --ink:#f4f0ff; --muted:#a9a1c4; --line:#2e2747;
-  --sea:#ff5c8f; --seaDeep:#2a1324; --marigold:#ffa24d; --jasmine:#2a1626;
+  --bg:#15100b; --surface:#231a12; --ink:#fff4e8; --muted:#bba78f; --line:#3a2c1f;
+  --sea:#ff9a3d; --seaDeep:#2a1a0c; --marigold:#ffb347; --jasmine:#2a1c10;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
-  --grad:linear-gradient(120deg,#ff2d6f 0%,#ff5a3c 55%,#ff9a1f 100%);
-  --t1b:#3a1830; --t1f:#ff8fb3; --t2b:#3a1830; --t2f:#ff8fb3; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#110d1c; --surface2:rgba(29,24,48,.9); --glow1:rgba(255,45,111,.18); --glow2:rgba(124,58,237,.22); --glow3:rgba(255,154,31,.12); color-scheme:dark}
+  --grad:linear-gradient(120deg,#ff5f00 0%,#ff8c00 55%,#ffb700 100%);
+  --t1b:#3a2410; --t1f:#ffb36b; --t2b:#3a2410; --t2f:#ffb36b; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#15100b; --surface2:rgba(35,26,18,.92); --glow1:rgba(255,120,0,.18); --glow2:rgba(255,183,0,.10); --glow3:rgba(255,80,0,.12); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -307,26 +307,26 @@ h2::before{content:"";display:inline-block;width:6px;height:20px;border-radius:3
 .banner h1::before,.hero h2::before{display:none}
 .rate:first-child{background:linear-gradient(135deg,#ffe066,#ffb703);color:#3d2a00;box-shadow:0 10px 24px rgba(255,183,3,.35)}
 .rate:first-child .lbl,.rate:first-child .rline span,.rate:first-child .meta{color:rgba(61,42,0,.75)!important}
-.rate:last-child{background:linear-gradient(135deg,#5b8cff,#8b5cf6);color:#fff;box-shadow:0 10px 24px rgba(91,140,255,.35)}
+.rate:last-child{background:linear-gradient(135deg,#ff6a00,#e8410c);color:#fff;box-shadow:0 10px 24px rgba(255,106,0,.35)}
 .rate:last-child .lbl,.rate:last-child .rline span,.rate:last-child .meta,.rate:last-child .down,.rate:last-child .up{color:rgba(255,255,255,.85)!important}
 .rate .dot{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
-.alert{border-left:0;border-radius:18px;background:linear-gradient(135deg,#ffe1ea,#ffe3d3);box-shadow:0 6px 18px rgba(255,45,111,.12)}
-.alert.info{background:linear-gradient(135deg,#e6efff,#f0e6ff);box-shadow:0 6px 18px rgba(91,140,255,.12)}
+.alert{border-left:0;border-radius:18px;background:linear-gradient(135deg,#ffe2c7,#fff0d1);box-shadow:0 6px 18px rgba(255,120,0,.14)}
+.alert.info{background:linear-gradient(135deg,#fff3e2,#fff8ec);box-shadow:0 6px 18px rgba(255,140,0,.10)}
 .alert .pill{background:var(--grad);color:#fff!important;border-radius:999px;padding:3px 9px;font-size:10px;align-self:flex-start}
-.alert.info .pill{background:linear-gradient(120deg,#5b8cff,#8b5cf6)}
-.alert p{color:#2a1b3d}.alert time{color:#6b5a85}
+.alert.info .pill{background:linear-gradient(120deg,#c2410c,#f59e0b)}
+.alert p{color:#3a2210}.alert time{color:#8a6a4a}
 .chip,.ncat{background:var(--surface);border:1px solid transparent;box-shadow:0 3px 10px rgba(60,20,90,.07)}
 .hours2 div:nth-child(5n+1){background:linear-gradient(160deg,#ffe4ee,#fff)}.hours2 div:nth-child(5n+2){background:linear-gradient(160deg,#ffedd5,#fff)}.hours2 div:nth-child(5n+3){background:linear-gradient(160deg,#fef9c3,#fff)}.hours2 div:nth-child(5n+4){background:linear-gradient(160deg,#dcfce7,#fff)}.hours2 div:nth-child(5n+5){background:linear-gradient(160deg,#e0e7ff,#fff)}
 .hours2 div{border:0}.hours2 span{color:#2563eb}
-.qbtn .qi{box-shadow:0 10px 22px rgba(255,45,111,.22)}
+.qbtn .qi{box-shadow:0 10px 22px rgba(255,120,0,.22)}
 .list,.ocard,.loccard,.tripcard,.opt,.plan,.bigcta,.ftile{background:var(--surface2)}
 .dtile{background:var(--grad)}
 .go{border:0;background:var(--t1b);color:var(--t1f);font-weight:700}
-.stag{border-color:transparent;background:rgba(124,58,237,.12);color:#7c3aed}
+.stag{border-color:transparent;background:rgba(255,140,0,.14);color:#c2410c}
 .tab{color:var(--muted)}.tab[aria-selected="true"]{color:var(--sea)}
 .ftile:nth-child(8n+1){background:linear-gradient(160deg,#fff1e6,#fff)}.ftile:nth-child(8n+2){background:linear-gradient(160deg,#fef9c3,#fff)}.ftile:nth-child(8n+3){background:linear-gradient(160deg,#dcfce7,#fff)}.ftile:nth-child(8n+4){background:linear-gradient(160deg,#e0f2fe,#fff)}.ftile:nth-child(8n+5){background:linear-gradient(160deg,#f3e8ff,#fff)}.ftile:nth-child(8n+6){background:linear-gradient(160deg,#ffe4ee,#fff)}.ftile:nth-child(8n+7){background:linear-gradient(160deg,#e0e7ff,#fff)}.ftile:nth-child(8n+8){background:linear-gradient(160deg,#ffedd5,#fff)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hours2 div,:root:not([data-theme="light"]) .ftile{background:var(--surface)!important}:root:not([data-theme="light"]) .alert{background:linear-gradient(135deg,#3a1630,#3a2016)}:root:not([data-theme="light"]) .alert.info{background:linear-gradient(135deg,#1c2548,#2a1c48)}:root:not([data-theme="light"]) .alert p{color:var(--ink)}:root:not([data-theme="light"]) .alert time{color:var(--muted)}:root:not([data-theme="light"]) .hours2 span{color:#7aa7ff}}
-:root[data-theme="dark"] .hours2 div,:root[data-theme="dark"] .ftile{background:var(--surface)!important}:root[data-theme="dark"] .alert{background:linear-gradient(135deg,#3a1630,#3a2016)}:root[data-theme="dark"] .alert.info{background:linear-gradient(135deg,#1c2548,#2a1c48)}:root[data-theme="dark"] .alert p{color:var(--ink)}:root[data-theme="dark"] .alert time{color:var(--muted)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hours2 div,:root:not([data-theme="light"]) .ftile{background:var(--surface)!important}:root:not([data-theme="light"]) .alert{background:linear-gradient(135deg,#3a2210,#3a1a0c)}:root:not([data-theme="light"]) .alert.info{background:linear-gradient(135deg,#2c2014,#2a1e10)}:root:not([data-theme="light"]) .alert p{color:var(--ink)}:root:not([data-theme="light"]) .alert time{color:var(--muted)}:root:not([data-theme="light"]) .hours2 span{color:#7aa7ff}}
+:root[data-theme="dark"] .hours2 div,:root[data-theme="dark"] .ftile{background:var(--surface)!important}:root[data-theme="dark"] .alert{background:linear-gradient(135deg,#3a2210,#3a1a0c)}:root[data-theme="dark"] .alert.info{background:linear-gradient(135deg,#2c2014,#2a1e10)}:root[data-theme="dark"] .alert p{color:var(--ink)}:root[data-theme="dark"] .alert time{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -472,7 +472,7 @@ function ratesSec(){
  return `<section><div class="head"><h2>Today's rates</h2><span class="meta" style="font-size:12px;color:var(--muted)">${R?"Live • "+dstr(R.updated):"Loading…"}</span></div><div class="rates">
  <div class="rate"><div class="lbl"><span class="dot" style="background:#e0a800"></span>Gold / gram</div>
   <div class="rline"><span>22K</span><b>${g?inr(g.k22):"--"}</b></div><div class="rline"><span>24K</span><b>${g?inr(g.k24):"--"}</b></div>${ch}</div>
- <div class="rate"><div class="lbl"><span class="dot" style="background:#d92d3a"></span>Fuel / litre</div>
+ <div class="rate"><div class="lbl"><span class="dot" style="background:#fff"></span>Fuel / litre</div>
   <div class="rline"><span>Petrol</span><b>${f?inr(f.petrol):"--"}</b></div><div class="rline"><span>Diesel</span><b>${f?inr(f.diesel):"--"}</b></div><div class="meta" style="font-size:12px;color:var(--muted)">${f?"As of "+dstr(f.asOf):""}</div></div>
  </div></section>`}
 
@@ -552,7 +552,7 @@ const NEWSGRAD={Rain:"#0284c7,#38bdf8",Transport:"#1d4ed8,#3b82f6",Movies:"#be12
 const EVART={Music:"music",Comedy:"mic",Market:"market",Community:"people",Sports:"sports",Food:"dosa",Kids:"festival",Workshop:"business",Festival:"festival"};
 const HOTART={place:"store",event:"ticket",food:"dosa"};
 const EXART={Temples:"temple",Beaches:"beach",Heritage:"heritage",Nature:"nature",Shopping:"shopping","Day trips":"daytrip"};
-const BANNER={near:"#0ea5e9,#6366f1",news:"#6d28d9,#db2777",events:"#e11d48,#f59e0b",food:"#ea580c,#f59e0b",offers:"#e11d48,#9333ea",explore:"#0284c7,#14b8a6",travel:"#4f46e5,#0ea5e9"};
+const BANNER={near:"#ff7a00,#ff4d00",news:"#f97316,#e11d48",events:"#ff5f00,#ffb700",food:"#f59e0b,#ea580c",offers:"#ea580c,#be123c",explore:"#ff8c00,#f43f5e",travel:"#c2410c,#ff9500"};
 function banner(k,title,sub,arts){return `<section class="banner" style="background:linear-gradient(135deg,${BANNER[k]})"><div class="bart3">${arts.map((a,i)=>art(a,"b"+i)).join("")}</div><h1>${title}</h1><p>${sub}</p></section>`}
 const BRAND={Swiggy:"#fc8019",Zomato:"#e23744",Amazon:"#232f3e",Flipkart:"#2874f0",BookMyShow:"#e5344a"};
 function credits(v){const t={home:'Weather: <a href="https://open-meteo.com" target="_blank" rel="noopener">Open-Meteo.com</a> · Movies: TMDB (not endorsed by TMDB) · Gold rate is an estimate',
@@ -656,7 +656,7 @@ function exploreView(){if(!EX)return `<section><button class="back" data-go="hom
  <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
  </section>`}
 function quickSec(){const Q=[["near:petrol","Petrol",ICON.petrol],["near:hospital","Hospitals",ICON.hospital],["travel","Bus & Metro",ICON.bus],["food","Top food",ICON.food],["explore","Explore",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>']];
- const GR=["linear-gradient(135deg,#ff9a3d,#ff5e3a)","linear-gradient(135deg,#ff5c7a,#e8384a)","linear-gradient(135deg,#4f8bff,#6a4dff)","linear-gradient(135deg,#ffd23f,#ff9f1c)","linear-gradient(135deg,#2fd3b0,#11998e)"];
+ const GR=["linear-gradient(135deg,#ff9a3d,#ff5e00)","linear-gradient(135deg,#ff6b4a,#e8410c)","linear-gradient(135deg,#ffb700,#ff7a00)","linear-gradient(135deg,#ffd23f,#ff9f1c)","linear-gradient(135deg,#ff8c42,#f43f5e)"];
  return `<section class="qa" aria-label="Quick actions">${Q.map(([k,l,i],n)=>`<button class="qbtn" data-q="${k}"><span class="qi" style="background:${GR[n]}"><svg viewBox="0 0 24 24">${i}</svg></span>${l}</button>`).join("")}</section>`}
 const prettyHours=x=>{const t=(h,m)=>{h=+h;const ap=h>=12&&h<24?"pm":"am";return (h%12||12)+(m!=="00"?":"+m:"")+" "+ap};const v=x.trim();
  if(/^(24\/7|Mo-Su 00:00-(24|23:59):?0?0?)$/i.test(v)||v==="Mo-Su 00:00-24:00")return"Open 24 hrs";
