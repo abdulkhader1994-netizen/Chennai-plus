@@ -20,6 +20,7 @@
   --alert:#c62828; --alertBg:#fff1f1; --ok:#1e8e4f;
   --grad:linear-gradient(120deg,#e8384a 0%,#cc1f30 100%);
   --t1b:#fdeced; --t1f:#c81e2c; --t2b:#fdeced; --t2f:#c81e2c; --t3b:#fff4e5; --t3f:#b45309; --t4b:#e8f6ee; --t4f:#1e8e4f; --t5b:#eef2ff; --t5f:#3b5bdb;
+  --navbg:rgba(255,255,255,.82); --goldbg:linear-gradient(135deg,#fff7dc,#ffe7a3); --fuelbg:linear-gradient(135deg,#eef3ff,#dde6ff); --page:#f7f6fb;
   --display:"Baloo Thambi 2","Hind Madurai",system-ui,sans-serif;
   --body:"Hind Madurai",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
@@ -28,13 +29,13 @@
   --sea:#ff6b74; --seaDeep:#2a1517; --marigold:#ff6b74; --jasmine:#2a1a1c;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
   --grad:linear-gradient(120deg,#e03131 0%,#c2182b 100%);
-  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; color-scheme:dark}}
+  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#121214; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121214; --surface:#1c1c20; --ink:#f2f2f4; --muted:#a1a1aa; --line:#2c2c32;
   --sea:#ff6b74; --seaDeep:#2a1517; --marigold:#ff6b74; --jasmine:#2a1a1c;
   --alert:#ff7676; --alertBg:#351a1c; --ok:#4ade80;
   --grad:linear-gradient(120deg,#e03131 0%,#c2182b 100%);
-  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; color-scheme:dark}
+  --t1b:#3a1d20; --t1f:#ff8a92; --t2b:#3a1d20; --t2f:#ff8a92; --t3b:#3a2a14; --t3f:#ffb454; --t4b:#16301f; --t4f:#6ee7a0; --t5b:#1b2540; --t5f:#93b4ff; --navbg:rgba(28,28,32,.82); --goldbg:linear-gradient(135deg,#3a2f12,#2a2210); --fuelbg:linear-gradient(135deg,#1b2540,#151c30); --page:#121214; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -89,7 +90,7 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 .chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font:500 13px var(--body);white-space:nowrap;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--grad);border-color:transparent;color:#fff}
 .offer{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
-.off{font-family:var(--display);font-weight:800;font-size:22px;color:#ffffff;background:linear-gradient(135deg,#ffc9c9,#d92d3a);border-radius:12px;padding:6px 10px;line-height:1;text-align:center;min-width:64px}
+.off{font-family:var(--display);font-weight:800;font-size:22px;color:#ffffff;background:var(--grad);border-radius:12px;padding:6px 10px;line-height:1;text-align:center;min-width:64px}
 .off small{display:block;font-size:11px;font-weight:700}
 .code{font:600 12px ui-monospace,monospace;border:1px dashed var(--muted);border-radius:6px;padding:1px 6px;color:var(--ink)}
 .see{background:none;border:0;color:var(--sea);font:600 13px var(--body);cursor:pointer;padding:0}
@@ -134,7 +135,7 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 .ocard .txt{min-width:0}
 .brandtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;border-radius:6px;padding:1px 8px;margin-bottom:3px;background:var(--t1b);color:var(--t1f)}
 .ocard h3{margin:0;font-size:15px;line-height:1.35}
-.getdeal{background:linear-gradient(135deg,#ffc9c9,#d92d3a);color:#ffffff;text-decoration:none;font:700 13px var(--body);border-radius:999px;padding:8px 14px;white-space:nowrap}
+.getdeal{background:var(--grad);color:#ffffff;text-decoration:none;font:700 13px var(--body);border-radius:999px;padding:8px 14px;white-space:nowrap}
 .getdeal:focus-visible{outline:2px solid var(--alert);outline-offset:2px}
 .note{font-size:12px;color:var(--muted);margin:2px 0 0}
 .mv{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,42%);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
@@ -224,6 +225,44 @@ nav .in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(
 .tab[aria-selected="true"]{color:var(--sea)}
 .tab[aria-selected="true"] svg{stroke:var(--marigold)}
 @media (prefers-reduced-motion:no-preference){section{animation:in .25s ease-out}@keyframes in{from{opacity:.4;transform:translateY(4px)}}}
+.hero{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 18px 40px rgba(40,20,90,.25);isolation:isolate}
+.hero .skytop{position:absolute;inset:0 0 auto;width:100%;height:120px;z-index:-1}.hero .sky{position:absolute;left:0;right:0;bottom:0;width:100%;height:160px;z-index:-1}
+.hero-txt{padding:20px 20px 150px;display:grid;gap:2px}
+.hero-dark .hero-txt{color:#fff}.hero-light .hero-txt{color:#10213d}
+.hello{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.1;text-wrap:balance}
+.hdate{font-size:13px;opacity:.85}
+.htemp{font-family:var(--display);font-weight:800;font-size:64px;line-height:1;margin-top:6px;letter-spacing:-1px}.htemp span{font-size:24px;vertical-align:top;margin-left:2px;opacity:.85}
+.hchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.hchips span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-dark .hchips span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22)}.hero-light .hchips span{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7)}
+.hours2{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-top:-6px;padding:2px 0 4px}
+.hours2::-webkit-scrollbar{display:none}
+.hours2 div{flex:1 0 64px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 6px;text-align:center;display:grid;gap:1px;font-variant-numeric:tabular-nums;box-shadow:0 4px 14px rgba(40,20,90,.06)}
+.hours2 small{font-size:11px;color:var(--muted)}.hours2 b{font-family:var(--display);font-size:18px}.hours2 span{font-size:10.5px;color:#3b82f6;font-weight:600}
+@media (prefers-reduced-motion:no-preference){
+ .waves{animation:wave 7s linear infinite}@keyframes wave{to{transform:translateX(-120px)}}
+ .beam{transform-origin:337px 79px;animation:beam 5s ease-in-out infinite alternate}@keyframes beam{from{transform:rotate(-8deg)}to{transform:rotate(14deg)}}
+ .star{animation:tw 2.6s ease-in-out infinite alternate}@keyframes tw{from{opacity:.25}to{opacity:1}}
+ button,.go,.getdeal,.dirbtn,.hcard,.nlink{transition:transform .15s ease}
+ button:active,.go:active,.getdeal:active,.dirbtn:active,.hcard:active,.nlink:active{transform:scale(.96)}
+ main>section{animation:rise .45s ease-out both}main>section:nth-child(2){animation-delay:.05s}main>section:nth-child(3){animation-delay:.1s}main>section:nth-child(4){animation-delay:.15s}
+ @keyframes rise{from{opacity:.6;transform:translateY(10px)}}
+}
+.qa{gap:4px}
+.qbtn .qi{width:58px;height:58px;border-radius:20px;border:0;box-shadow:0 8px 18px rgba(40,20,90,.18)}
+.qbtn svg{width:26px;height:26px;stroke:#fff;stroke-width:2}
+.qbtn{font-size:12px}
+h2{font-weight:800;font-size:22px;letter-spacing:-.2px}
+body{background:var(--page)}
+header{background:var(--navbg);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px)}
+.list,.rate,.offer,.ocard,.loccard,.tripcard,.opt,.plan,.hcard,.poster{border-radius:22px;border-color:transparent;box-shadow:0 6px 22px rgba(40,20,90,.07)}
+.rate{border:0}.rate:first-child{background:var(--goldbg)}.rate:last-child{background:var(--fuelbg)}
+.hband{padding:16px 16px 14px}.hband h3{font-size:19px}
+.chip,.ncat{padding:7px 15px}
+.getdeal{border-radius:16px;padding:12px 16px;box-shadow:0 8px 20px rgba(217,45,58,.25)}
+nav{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:4px 6px;border:1px solid var(--line);border-radius:26px;background:var(--navbg);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);box-shadow:0 12px 30px rgba(40,20,90,.18);max-width:520px;margin:0 auto}
+.app{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+.tab[aria-selected="true"] .ic{background:var(--grad)}.tab[aria-selected="true"] svg{stroke:#fff}
 </style>
 </head>
 <body>
@@ -431,13 +470,42 @@ async function loadWeather(){
  }
  const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&cur.dataset.v==="home")go("home");
 }
-function weather(){
- const today=new Date().toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"});
- if(!W)return `<section class="weather" aria-label="Weather"><div class="eyebrow" style="color:rgba(255,255,255,.85)">Chennai • ${today}</div><div class="wtop"><div class="temp">--<small>°C</small></div><div class="wmeta">Loading live weather…</div></div></section>`;
- return `<section class="weather" aria-label="Weather">
- <div class="eyebrow" style="color:rgba(255,255,255,.85)">Chennai • ${today} • ${W.stale?"Last saved":"Live"}</div>
- <div class="wtop"><div class="temp">${W.t}<small>°C</small></div><div class="wmeta">${W.c}${W.rain?`, rain likely ${W.rain.at}`:""}<br>Humidity ${W.h}% • Feels ${W.f}°</div></div>
- <div class="hours">${W.hours.map(h=>`<div>${fmtH(h.d)}<b>${h.t}°</b>${h.p}%</div>`).join("")}</div></section>`}
+function skyPhase(){const h=new Date().getHours();return h>=5&&h<8?"dawn":h>=8&&h<16?"day":h>=16&&h<19?"dusk":"night"}
+const GREET={dawn:"Good morning",day:"Good day",dusk:"Good evening",night:"Good night"};
+function skylineSVG(ph){const night=ph==="night"||ph==="dusk";
+ const sil={dawn:"#7a4a6e",day:"#2f5d8a",dusk:"#3b1f5e",night:"#1a1440"}[ph],sil2={dawn:"#a56a7e",day:"#5f8fbf",dusk:"#6b3a7a",night:"#2b2266"}[ph];
+ const stars=ph==="night"?[[30,18],[70,40],[120,14],[160,34],[205,20],[250,44],[290,12],[350,30],[372,58],[95,62],[230,66]].map(([x,y],i)=>`<circle class="star" style="animation-delay:${i*0.37}s" cx="${x}" cy="${y}" r="${i%3?1.1:1.6}" fill="#fff"/>`).join(""):"";
+ const orb=ph==="night"?`<circle cx="318" cy="38" r="14" fill="#fff4c9"/><circle cx="324" cy="33" r="13" fill="#141040"/>`:ph==="dusk"?`<circle cx="250" cy="118" r="26" fill="#ffb45c" opacity=".95"/>`:ph==="dawn"?`<circle cx="90" cy="112" r="22" fill="#fff0c2"/>`:`<circle cx="322" cy="40" r="18" fill="#fff6c8"/><circle cx="322" cy="40" r="28" fill="#fff6c8" opacity=".25"/>`;
+ const sky={dawn:["#ff9a8b","#ffd3a5"],day:["#4fa8ff","#bfe3ff"],dusk:["#4b2a9c","#ff7a59 70%","#ffc46b"],night:["#0d0b2e","#2f2470"]}[ph];
+ const skyCss=`linear-gradient(180deg,${sky.map((c,i)=>c.includes(" ")?c:c+" "+Math.round(i/(sky.length-1)*100)+"%").join(",")})`;
+ const top=`<svg class="skytop" viewBox="0 0 390 120" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">${stars}${ph==="dusk"?"":orb}</svg>`;
+ return {skyCss,svg:top+`<svg class="sky" viewBox="0 50 390 160" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs>
+ <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${night?"#2a3a8f":"#2b8fd6"}"/><stop offset="1" stop-color="${night?"#141a4a":"#1462a8"}"/></linearGradient>
+ <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3b0" stop-opacity=".75"/><stop offset="1" stop-color="#fff3b0" stop-opacity="0"/></linearGradient></defs>
+ ${ph==="dusk"?orb:""}
+ <g fill="${sil2}"><path d="M0 150v-22h14v-10h10v10h8v-18h12v18h10v22z"/><path d="M196 150v-40h10v-6h12v6h10v40z"/><path d="M232 150v-26h22v26z"/><path d="M258 150v-34h8v-8h10v8h8v34z"/></g>
+ <g fill="${sil}">
+  <path d="M30 150l4-18h36l4 18zM36 132l3-12h26l3 12zM40 120l3-11h18l3 11zM44 109l3-10h10l3 10zM48 99l2-8h4l2 8z"/><rect x="51" y="85" width="2" height="6"/><circle cx="52" cy="84" r="2.2"/>
+  <path d="M96 150v-30h22v30z"/><path d="M118 150v-50h16v50z"/><path d="M116 100l10-18 10 18z"/><path d="M134 150v-24h30v24z"/><circle cx="126" cy="110" r="4.5" fill="${night?"#ffe28a":"#fff"}" opacity=".9"/>
+  <path d="M168 150v-58h22v58z"/>${[0,1,2,3,4,5].map(i=>`<rect x="171" y="${97+i*8}" width="16" height="3" fill="${night?"#ffd76a":"#ffffff"}" opacity="${night?".7":".35"}"/>`).join("")}
+  <path d="M290 150c0-6 4-10 10-10s10 4 10 10z"/><path d="M370 150v-14c0-4 3-6 6-6s6 2 6 6v14z"/>
+  <path d="M286 150l3-4 2-12 2 12 3 4z"/><path d="M291 134c-4-2-9-1-12 2 4-1 8 0 12-2zM291 134c4-2 9-1 12 2-4-1-8 0-12-2zM291 134c-2-4-6-6-10-6 4 1 7 3 10 6zM291 134c2-4 6-6 10-6-4 1-7 3-10 6z"/>
+ </g>
+ ${night?`<g class="beam"><path d="M336 79L200 62v32z" fill="url(#beam)"/></g>`:""}
+ <path d="M330 150l3-66h8l3 66z" fill="#fff"/><path d="M331.4 118h11.2l.6 10h-12.4zM332.6 96h8.8l.5 9h-9.8z" fill="#e03131"/><rect x="330" y="74" width="14" height="10" rx="2" fill="${night?"#ffe066":"#ffd43b"}"/><path d="M328 75h18l-9-9z" fill="#e03131"/>
+ <rect y="150" width="390" height="60" fill="url(#sea)"/>
+ <g class="waves"><path d="M0 160c20-6 40 6 60 0s40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0v50H0z" fill="#fff" opacity=".12"/><path d="M0 176c20-6 40 6 60 0s40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0 40 6 60 0v50H0z" fill="#fff" opacity=".1"/></g>
+ <g fill="${sil}"><path d="M60 168h34l-5 6H66z"/><path d="M76 168v-16l12 14z" opacity=".9"/></g>
+ </svg>`}}
+function weather(){const ph=skyPhase(),dark=ph==="night"||ph==="dusk";
+ const today=new Date().toLocaleDateString("en-IN",{weekday:"long",day:"numeric",month:"short"});
+ const chips=W?[W.c,W.rain?`Rain ${W.rain.at} · ${W.rain.p}%`:"No rain soon",`Feels ${W.f}°`,`Humidity ${W.h}%`]:["Loading live weather…"];
+ const sk=skylineSVG(ph);
+ return `<section class="hero ${dark?"hero-dark":"hero-light"}" style="background:${sk.skyCss}" aria-label="Weather">${sk.svg}
+ <div class="hero-txt"><div class="hello">${GREET[ph]}, Chennai</div><div class="hdate">${today}${W&&W.stale?" · last saved":""}</div>
+ <div class="htemp">${W?W.t:"--"}<span>°C</span></div>
+ <div class="hchips">${chips.map(c=>`<span>${esc(c)}</span>`).join("")}</div></div></section>
+ ${W?`<div class="hours2">${W.hours.map(h=>`<div><small>${fmtH(h.d)}</small><b>${h.t}°</b><span>${h.p}% rain</span></div>`).join("")}</div>`:""}`}
 let newsLive=false;
 const ago=t=>{const m=Math.max(1,Math.round((Date.now()-new Date(t))/60000));return m<60?m+"m":m<1440?Math.round(m/60)+"h":Math.round(m/1440)+"d"};
 async function loadNews(){
@@ -471,7 +539,8 @@ function exploreView(){if(!EX)return `<section><button class="back" data-go="hom
  <div style="display:grid;gap:12px">${list.map(exCard).join("")}</div>
  <p class="note">Timings and entry fees change. Check before you go.</p></section>`}
 function quickSec(){const Q=[["near:petrol","Petrol",ICON.petrol],["near:hospital","Hospitals",ICON.hospital],["travel","Bus & Metro",ICON.bus],["food","Top food",ICON.food],["explore","Explore",'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>']];
- return `<section class="qa" aria-label="Quick actions">${Q.map(([k,l,i])=>`<button class="qbtn" data-q="${k}"><span class="qi"><svg viewBox="0 0 24 24">${i}</svg></span>${l}</button>`).join("")}</section>`}
+ const GR=["linear-gradient(135deg,#ff9a3d,#ff5e3a)","linear-gradient(135deg,#ff5c7a,#e8384a)","linear-gradient(135deg,#4f8bff,#6a4dff)","linear-gradient(135deg,#ffd23f,#ff9f1c)","linear-gradient(135deg,#2fd3b0,#11998e)"];
+ return `<section class="qa" aria-label="Quick actions">${Q.map(([k,l,i],n)=>`<button class="qbtn" data-q="${k}"><span class="qi" style="background:${GR[n]}"><svg viewBox="0 0 24 24">${i}</svg></span>${l}</button>`).join("")}</section>`}
 const prettyHours=x=>{const t=(h,m)=>{h=+h;const ap=h>=12&&h<24?"pm":"am";return (h%12||12)+(m!=="00"?":"+m:"")+" "+ap};const v=x.trim();
  if(/^(24\/7|Mo-Su 00:00-(24|23:59):?0?0?)$/i.test(v)||v==="Mo-Su 00:00-24:00")return"Open 24 hrs";
  const m=v.match(/^Mo-Su (\d\d):(\d\d)-(\d\d):(\d\d)$/);if(m)return`Daily ${t(m[1],m[2])} – ${t(m[3],m[4])}`;
@@ -547,7 +616,7 @@ function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around 
 
 const views={
  home:()=>`${weather()}
-  <p style="margin:-14px 0 0;font-size:11px;color:var(--muted)">Weather data by <a href="https://open-meteo.com" style="color:var(--muted)">Open-Meteo.com</a></p>
+  <p style="margin:-14px 2px 0;font-size:11px;color:var(--muted)">Weather data by <a href="https://open-meteo.com" style="color:var(--muted)">Open-Meteo.com</a></p>
   ${quickSec()}
   ${ratesSec()}
   <section><h2>Alerts</h2>${rainAlert()}${alerts.filter(a=>a.k!=="Rain").map(alertHTML).join("")}</section>
