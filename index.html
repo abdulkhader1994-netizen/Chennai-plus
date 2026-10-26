@@ -579,7 +579,7 @@ document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS()});
 setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
-if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!reloaded){reloaded=true;location.reload()}})}
 </script>
 
 <footer style="display:none"></footer>
