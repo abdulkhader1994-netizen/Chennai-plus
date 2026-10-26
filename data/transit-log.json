@@ -1,14 +1,16 @@
 {
- "at": "2026-10-26T10:58:55.579Z",
+ "at": "2026-10-26T11:01:19.317Z",
  "summary": {
-  "stops": 3902,
+  "stops": 3878,
   "bus": 3925,
   "busNumbers": 2099,
   "train": 6,
-  "metro": 9
+  "metro": 8
  },
  "log": [
   "gtfs: 5402 routes, 6542 stops, 1389081 stop_times rows, 4725 patterns, metro patterns skipped 791",
+  "overpass-api.de: HTTP 502",
+  "maps.mail.ru: HTTP 504",
   "osm: 21 train/metro routes"
  ],
  "sample": [
