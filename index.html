@@ -146,6 +146,7 @@ h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 8px;text
 .pimg h3{margin:0;font-family:var(--display);font-weight:800;font-size:20px;line-height:1.05;text-wrap:balance;text-shadow:0 1px 6px rgba(0,0,0,.35)}
 .pinfo{padding:8px 10px 10px;font-size:12px;color:var(--muted);display:grid;gap:2px}
 .pinfo b{color:var(--ink);font-size:13px}
+.nlink{color:inherit;text-decoration:none}.nlink:active{background:var(--bg)}
 .head{display:flex;justify-content:space-between;align-items:baseline}
 /* tabs */
 nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
@@ -271,9 +272,9 @@ function buzzSec(all){return `<section><div class="head"><h2>Chennai buzz</h2>${
  <div class="chips">${["Movies","City buzz"].map(k=>`<button class="chip" data-b="${k}" aria-pressed="${k===buzzF}">${k==="Movies"?"Movie releases":k}</button>`).join("")}</div>
  ${buzzF==="Movies"?`<div class="mv">${movies.map(posterCard).join("")}</div>`:`<div class="list">${(all?buzz:buzz.slice(0,3)).map(newsRow).join("")}</div>`}</section>`}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const demo=`<div class="demo">Weather and rain alerts are live. Other sections show sample content for now.</div>`;
+const demo=`<div class="demo">Weather, rain alerts and news are live. Other sections show sample content for now.</div>`;
 const alertHTML=a=>`<div class="alert ${a.lvl==="info"?"info":""}"><span class="pill">${a.k}</span><p>${esc(a.t)}<time>${a.w}</time></p></div>`;
-const newsRow=n=>`<div class="row"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${n.m}</div></div></div>`;
+const newsRow=n=>n.u?`<a class="row nlink" href="${esc(n.u)}" target="_blank" rel="noopener"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${esc(n.m)}</div></div></a>`:`<div class="row"><div class="badge">${n.c.slice(0,4)}</div><div class="txt"><h3>${esc(n.t)}</h3><div class="meta">${n.m}</div></div></div>`;
 const evRow=e=>`<div class="row"><div class="badge date"><b>${e.d}</b>${e.mo}</div><div class="txt"><h3>${esc(e.t)}</h3><div class="meta">${e.m}</div></div></div>`;
 const foodRow=f=>`<div class="row"><div class="badge">${f.a.split(" ").map(w=>w[0]).join("").slice(0,2)}</div><div class="txt"><div class="eyebrow">${f.a}</div><h3>${esc(f.n)}</h3><div class="meta">${f.m}</div></div></div>`;
 const offerCard=o=>`<div class="offer"><div class="off">${o.o}<small>OFF</small></div><div style="min-width:0"><h3 style="margin:0;font-size:15px">${esc(o.n)}</h3><div class="row meta" style="padding:0;border:0;gap:8px;flex-wrap:wrap">${o.s} • ${o.v} • <span class="code">${o.code}</span></div></div></div>`;
@@ -304,6 +305,15 @@ function weather(){
  <div class="eyebrow" style="color:#f8e3b0">Chennai • ${today} • ${W.stale?"Last saved":"Live"}</div>
  <div class="wtop"><div class="temp">${W.t}<small>°C</small></div><div class="wmeta">${W.c}${W.rain?`, rain likely ${W.rain.at}`:""}<br>Humidity ${W.h}% • Feels ${W.f}°</div></div>
  <div class="hours">${W.hours.map(h=>`<div>${fmtH(h.d)}<b>${h.t}°</b>${h.p}%</div>`).join("")}</div></section>`}
+let newsLive=false;
+const ago=t=>{const m=Math.max(1,Math.round((Date.now()-new Date(t))/60000));return m<60?m+"m":m<1440?Math.round(m/60)+"h":Math.round(m/1440)+"d"};
+async function loadNews(){
+ try{const r=await fetch("data/news.json?ts="+Date.now());const j=await r.json();
+  if(j.items&&j.items.length){news.length=0;j.items.forEach(x=>news.push({c:x.category,t:x.title,m:`${x.source} • ${ago(x.published)}`,u:x.link}));
+   buzz.length=0;j.items.filter(x=>x.category!=="Rain").slice(0,8).forEach(x=>buzz.push({c:x.category,t:x.title,m:`${x.source} • ${ago(x.published)}`,u:x.link}));newsLive=true;
+   const cur=document.querySelector('.tab[aria-selected="true"]');if(cur&&["home","news"].includes(cur.dataset.v)){const y=window.scrollY;go(cur.dataset.v);window.scrollTo(0,y)}}
+ }catch(e){}
+}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -317,7 +327,7 @@ const views={
   <section><div class="head"><h2>This week</h2>${more("events")}</div><div class="list">${events.slice(0,2).map(evRow).join("")}</div></section>
   <section><div class="head"><h2>Today's offers</h2>${more("offers")}</div>${onlineCard(online[0])}</section>`,
  near:()=>nearView(),
- news:()=>`${demo}${buzzSec(true)}<section><h2>Chennai news</h2><div class="list">${news.map(newsRow).join("")}</div></section>`,
+ news:()=>`${demo}${buzzSec(true)}<section><h2>Chennai news</h2>${newsLive?`<p class="note" style="margin:-4px 0 8px">Tap a headline to read the full story on the publisher's site.</p>`:""}<div class="list">${news.map(newsRow).join("")}</div></section>`,
  events:()=>`${demo}<section><h2>Events in Chennai</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${demo}<section><h2>Where to eat</h2><div class="chips">${["All","Veg","Biryani","Dessert","Late night"].map(c=>`<button class="chip" data-f="${c}" aria-pressed="${c===f}">${c}</button>`).join("")}</div>
   <div class="list">${food.filter(x=>f==="All"||x.tag===f||(f==="Veg"&&x.m.includes("Veg")&&!x.m.includes("Non"))).map(foodRow).join("")}</div></section>`,
@@ -330,7 +340,7 @@ view.addEventListener("click",e=>{const s=e.target.closest("[data-go]");if(s)go(
 function setLang(l){lang=l;document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"){nearA=e.target.value;go("near")}});
-setLang(lang);go("home");loadWeather();setInterval(loadWeather,30*60e3);
+setLang(lang);go("home");loadWeather();loadNews();setInterval(()=>{loadWeather();loadNews()},30*60e3);
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 
