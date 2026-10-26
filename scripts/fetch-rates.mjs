@@ -4,7 +4,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const OZ = 31.1035;               // grams per troy ounce
 // International price -> Chennai retail rate. Covers import duty, GST and the local market premium.
 // Calibrated on 26 Oct 2026 against published Chennai retail rates (24K about ₹14,729/g). Recheck monthly.
-const LOCAL_FACTOR = 1.107;
+const LOCAL_FACTOR = 1.209;
 const get = async (url) => {
   const r = await fetch(url, { headers: { "User-Agent": "ChennaiPlusBot/1.0" }, signal: AbortSignal.timeout(20000) });
   if (!r.ok) throw new Error(url + " HTTP " + r.status);
