@@ -1,20 +1,28 @@
 {
- "petrol": {
-  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ "https://overpass-api.de/api/interpreter post": {
+  "error": "The operation was aborted due to timeout"
  },
- "station": {
-  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ "https://overpass-api.de/api/interpreter get": {
+  "error": "The operation was aborted due to timeout"
  },
- "bus": {
-  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ "https://overpass.kumi.systems/api/interpreter post": {
+  "error": "The operation was aborted due to timeout"
  },
- "hotel": {
-  "error": "fetch failed"
+ "https://overpass.kumi.systems/api/interpreter get": {
+  "error": "The operation was aborted due to timeout"
  },
- "food": {
-  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ "https://maps.mail.ru/osm/tools/overpass/api/interpreter post": {
+  "error": "The operation was aborted due to timeout"
  },
- "tea": {
-  "error": "Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON"
+ "https://maps.mail.ru/osm/tools/overpass/api/interpreter get": {
+  "status": 200,
+  "cors": "*",
+  "count": 12
+ },
+ "https://overpass.private.coffee/api/interpreter post": {
+  "error": "The operation was aborted due to timeout"
+ },
+ "https://overpass.private.coffee/api/interpreter get": {
+  "error": "The operation was aborted due to timeout"
  }
 }
