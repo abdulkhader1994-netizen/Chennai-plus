@@ -1,0 +1,131 @@
+{
+ "updated": "2026-10-26T00:53:25.472Z",
+ "items": [
+  {
+   "id": 1234139,
+   "title": "Jailer 2",
+   "lang": "Tamil",
+   "genre": "Action, Comedy",
+   "date": "2026-10-15",
+   "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
+   "rating": null
+  },
+  {
+   "id": 1515692,
+   "title": "Baththa",
+   "lang": "Tamil",
+   "genre": "Drama, Comedy",
+   "date": "2026-10-01",
+   "poster": "https://image.tmdb.org/t/p/w342/Ag59cmNNXCcKIBYdlmZ9HqPH9zG.jpg",
+   "rating": null
+  },
+  {
+   "id": 1578079,
+   "title": "Dorothy",
+   "lang": "Tamil",
+   "genre": "Crime, Drama",
+   "date": "2026-09-25",
+   "poster": "https://image.tmdb.org/t/p/w342/o3r5DmWhOKdFmeIUoRJj4CvCqOP.jpg",
+   "rating": null
+  },
+  {
+   "id": 1538457,
+   "title": "Meesaya Murukku 2",
+   "lang": "Tamil",
+   "genre": "Comedy, Romance",
+   "date": "2026-09-25",
+   "poster": "https://image.tmdb.org/t/p/w342/qD1QwmInB9ezd2peVb5EbhaM4Mo.jpg",
+   "rating": null
+  },
+  {
+   "id": 1402181,
+   "title": "Scene",
+   "lang": "Tamil",
+   "genre": "Action, Comedy",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/xKcplv5qe3Vj0ycXbZKHok9gEuG.jpg",
+   "rating": null
+  },
+  {
+   "id": 1563192,
+   "title": "Lenin Pandiyan",
+   "lang": "Tamil",
+   "genre": "Drama, Crime",
+   "date": "2026-09-25",
+   "poster": "https://image.tmdb.org/t/p/w342/qhvvef3ayMfnuA4wQcPscC8em0A.jpg",
+   "rating": null
+  },
+  {
+   "id": 1596658,
+   "title": "Hello Kadhal",
+   "lang": "Tamil",
+   "genre": "Romance, Comedy",
+   "date": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
+   "rating": null
+  },
+  {
+   "id": 1431738,
+   "title": "Anbil Avan",
+   "lang": "Tamil",
+   "genre": "Romance, Thriller",
+   "date": "2026-10-02",
+   "poster": "https://image.tmdb.org/t/p/w342/2cN2WjL4xQvbJIhxSjGmhXL41rX.jpg",
+   "rating": null
+  },
+  {
+   "id": 1327835,
+   "title": "Mookuthi Amman 2",
+   "lang": "Tamil",
+   "genre": "Fantasy, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
+   "rating": null
+  },
+  {
+   "id": 1384528,
+   "title": "OM Chapter 1",
+   "lang": "Tamil",
+   "genre": "Crime, Action",
+   "date": "2026-11-20",
+   "poster": "https://image.tmdb.org/t/p/w342/gWWedXJXLrEaKCTrC4nMPPumDSb.jpg",
+   "rating": null
+  },
+  {
+   "id": 1101412,
+   "title": "Fall 2: Deadpoint",
+   "lang": "English",
+   "genre": "Thriller",
+   "date": "2026-09-17",
+   "poster": "https://image.tmdb.org/t/p/w342/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
+   "rating": 7.3
+  },
+  {
+   "id": 1400940,
+   "title": "Clayface",
+   "lang": "English",
+   "genre": "Horror, Thriller",
+   "date": "2026-10-23",
+   "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
+   "rating": 7.6
+  },
+  {
+   "id": 1153576,
+   "title": "Street Fighter",
+   "lang": "English",
+   "genre": "Action, Fantasy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
+   "rating": 6.4
+  },
+  {
+   "id": 1423191,
+   "title": "Resident Evil",
+   "lang": "English",
+   "genre": "Horror, Science Fiction",
+   "date": "2026-09-17",
+   "poster": "https://image.tmdb.org/t/p/w342/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
+   "rating": 7.3
+  }
+ ]
+}
