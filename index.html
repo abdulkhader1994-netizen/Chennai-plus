@@ -380,9 +380,23 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .oh{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-decoration:none}
 .oh.on{background:#dcfce7;color:#166534}.oh.off{background:#fee2e2;color:#991b1b}.oh.unk{background:var(--bg);color:var(--muted);font-weight:600;border:1px solid var(--line)}
 .oh.on::before,.oh.off::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:5px;vertical-align:1px}
+
+#splash{position:fixed;inset:0;z-index:100;display:grid;place-content:center;justify-items:center;gap:10px;background:linear-gradient(160deg,#ff5f00 0%,#ff8c00 55%,#ffb700 100%);color:#fff;text-align:center;padding:env(safe-area-inset-top,0px) 24px env(safe-area-inset-bottom,0px);animation:spOut .5s ease 3.2s forwards}
+#splash.hide{opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s .45s}
+.sp-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.35),transparent 65%);top:50%;left:50%;transform:translate(-50%,-62%)}
+.sp-logo{width:116px;height:116px;border-radius:30px;box-shadow:0 18px 40px rgba(120,40,0,.35),0 0 0 4px rgba(255,255,255,.35);position:relative}
+.sp-name{font-family:var(--display);font-weight:800;font-size:42px;line-height:1;margin-top:8px;position:relative;letter-spacing:-.5px}.sp-name span{color:#fff3c4}
+.sp-tag{font-size:15px;opacity:.92;position:relative}
+.sp-dots{display:flex;gap:6px;margin-top:18px}.sp-dots i{width:7px;height:7px;border-radius:50%;background:#fff;opacity:.5}
+@keyframes spOut{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:no-preference){
+ .sp-logo{animation:spPop .7s cubic-bezier(.2,1.4,.4,1) both}.sp-name{animation:spUp .6s ease .25s both}.sp-tag{animation:spUp .6s ease .4s both}
+ .sp-glow{animation:spGlow 2s ease-in-out infinite alternate}.sp-dots i{animation:spDot 1s ease-in-out infinite}.sp-dots i:nth-child(2){animation-delay:.15s}.sp-dots i:nth-child(3){animation-delay:.3s}
+ @keyframes spPop{from{transform:scale(.5) rotate(-8deg);opacity:0}}@keyframes spUp{from{transform:translateY(12px);opacity:0}}@keyframes spGlow{to{transform:translate(-50%,-62%) scale(1.15);opacity:.7}}@keyframes spDot{50%{opacity:1;transform:translateY(-4px)}}}
 </style>
 </head>
 <body>
+<div id="splash" aria-hidden="true"><div class="sp-glow"></div><img src="icon-512.png" alt="" class="sp-logo"><div class="sp-name">Chennai<span>+</span></div><div class="sp-tag" id="sptag">Namma ooru, all in one place</div><div class="sp-dots"><i></i><i></i><i></i></div></div>
 <div class="app">
 <header>
   <div class="logo"><img src="icon-192.png" alt=""><div><div class="brand">Chennai<span>+</span></div><div class="sub" data-t="tag">Namma ooru, all in one place</div></div></div>
@@ -1022,6 +1036,9 @@ function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
 view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS();if(e.target.closest("#hideclosed")){hideClosed=!hideClosed;rerenderNear()}});
+(function(){const sp=document.getElementById("splash");if(!sp)return;if(lang==="ta"){const t=document.getElementById("sptag");if(t)t.textContent="நம்ம ஊரு, எல்லாம் ஒரே இடத்தில்"}
+ const t0=performance.now();const hide=()=>{const wait=Math.max(0,1300-(performance.now()-t0));setTimeout(()=>{sp.classList.add("hide");setTimeout(()=>sp.remove(),600)},wait)};
+ if(document.readyState==="complete")hide();else window.addEventListener("load",hide);setTimeout(hide,2600)})();
 setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!reloaded){reloaded=true;location.reload()}})}
 </script>
