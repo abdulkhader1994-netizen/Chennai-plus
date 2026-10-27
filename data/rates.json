@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T14:19:08.201Z",
+ "updated": "2026-10-27T15:17:15.329Z",
  "fuel": {
   "asOf": "2026-10-25",
   "petrol": 107.76,
@@ -7,16 +7,16 @@
   "note": "Chennai retail price per litre. Update when oil companies revise prices."
  },
  "gold": {
-  "k24": 14952,
-  "k22": 13696,
-  "k18": 11214,
-  "change": 65,
-  "usdOz": 4037.699951,
+  "k24": 15035,
+  "k22": 13772,
+  "k18": 11276,
+  "change": 148,
+  "usdOz": 4060.100098,
   "usdInr": 95.269051
  },
  "silver": {
-  "gram": 200.8,
-  "kg": 200824
+  "gram": 202.2,
+  "kg": 202169
  },
  "history": [
   {
@@ -25,7 +25,7 @@
   },
   {
    "date": "2026-10-27",
-   "k24": 14952
+   "k24": 15035
   }
  ]
 }
