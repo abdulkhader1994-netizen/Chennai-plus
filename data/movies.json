@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T03:07:25.069Z",
+ "updated": "2026-10-27T09:12:53.801Z",
  "items": [
   {
    "id": 1234139,
@@ -110,15 +110,6 @@
    "rating": 7.5
   },
   {
-   "id": 1153576,
-   "title": "Street Fighter",
-   "lang": "English",
-   "genre": "Action, Fantasy",
-   "date": "2026-10-16",
-   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
-   "rating": 6.4
-  },
-  {
    "id": 1423191,
    "title": "Resident Evil",
    "lang": "English",
@@ -126,6 +117,15 @@
    "date": "2026-09-17",
    "poster": "https://image.tmdb.org/t/p/w342/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
    "rating": 7.3
+  },
+  {
+   "id": 1153576,
+   "title": "Street Fighter",
+   "lang": "English",
+   "genre": "Action, Fantasy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
+   "rating": 6.4
   }
  ]
 }
