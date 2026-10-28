@@ -1046,7 +1046,7 @@ const SND_ON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke
 const gget=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:+v}catch(e){return d}},gset=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 function gameView(){const T=x=>lang==="ta"?x[1]:x[0];
  return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button>
- <div class="ghead"><div><h1 class="ntitle">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${T(["Marina beach stall · tap to pop, breathe, relax","மெரினா கடை · தொட்டு உடையுங்கள், ரிலாக்ஸ் ஆகுங்கள்"])}</div></div>
+ <div class="ghead"><div><h1 class="ntitle">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${T(["Marina beach stall · tap a balloon to burst it","மெரினா கடை · பலூனைத் தொட்டு உடையுங்கள்"])}</div></div>
  <button class="gsnd" id="gsnd" aria-label="Sound">${GM.sound?SND_ON:SND_OFF}</button></div>
  <div class="chips" style="margin:0"><button class="chip" data-gm="relax" aria-pressed="${GM.mode==="relax"}">${T(["Relax","ரிலாக்ஸ்"])}</button><button class="chip" data-gm="timed" aria-pressed="${GM.mode==="timed"}">${T(["60-second challenge","60 வினாடி சவால்"])}</button></div>
  <div class="gwrap" id="gwrap"><canvas id="gcv" aria-label="Balloon shooting game: tap balloons to pop them"></canvas>
@@ -1055,41 +1055,37 @@ function gameView(){const T=x=>lang==="ta"?x[1]:x[0];
  <p class="note" style="text-align:center">${T(["Total balloons popped","மொத்தம் உடைத்த பலூன்கள்"])}: <b id="gtot">${gget("cp-pops",0).toLocaleString("en-IN")}</b></p></section>`}
 function startGame(){const cv=document.getElementById("gcv");if(!cv)return;const wrap=document.getElementById("gwrap"),ctx=cv.getContext("2d"),dpr=Math.min(2,devicePixelRatio||1);
  const W=wrap.clientWidth,H=Math.min(600,Math.max(440,innerHeight-300));cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
- const COLS=["#f48fb1","#ffcc80","#90caf9","#b39ddb","#80cbc4","#ffab91","#ce93d8","#a5d6a7"];
+ const COLS=["#ff4d6d","#ffb703","#3a86ff","#8338ec","#06d6a0","#ff7a00","#f72585","#4cc9f0"];
  const reduce=matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
  const bx=Math.max(16,W*0.06),bw=W-bx*2,by=H*0.12,bh=H*0.58;const cols=Math.max(4,Math.min(6,Math.floor(bw/66))),rows=5,cw=bw/cols,rh=bh/rows,R=Math.min(cw,rh)*0.36;
  const slots=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)slots.push({x:bx+cw*(c+.5)+(r%2?cw*.12:-cw*.12),y:by+rh*(r+.55),col:COLS[(r*cols+c*3)%COLS.length],s:1,pop:0,ph:Math.random()*6.28});
- let score=0,parts=[],texts=[],rings=[],gold=null,nextGold=performance.now()+12000,tEnd=GM.mode==="timed"?performance.now()+60000:0,over=false,last=performance.now(),note=0,calm=null;
- // Soft sound: notes from a pentatonic scale, played in a gentle melody, over quiet ocean waves.
- const SCALE=[392,440,523.25,587.33,659.25,784,880],MEL=[0,2,4,3,5,4,2,1,3,2,0,4];
- let AC=null,waves=null;const ac=()=>{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC};
- const startWaves=()=>{if(waves||!GM.sound)return;try{const A=ac(),len=A.sampleRate*4,buf=A.createBuffer(1,len,A.sampleRate),d=buf.getChannelData(0);let l=0;for(let i=0;i<len;i++){l=(l+.02*(Math.random()*2-1))/1.02;d[i]=l*3}
-  const src=A.createBufferSource();src.buffer=buf;src.loop=true;const f=A.createBiquadFilter();f.type="lowpass";f.frequency.value=500;const g=A.createGain();g.gain.value=.05;const lfo=A.createOscillator(),lg=A.createGain();lfo.frequency.value=.09;lg.gain.value=.035;lfo.connect(lg).connect(g.gain);
-  src.connect(f).connect(g).connect(A.destination);src.start();lfo.start();waves={src,lfo,g}}catch(e){}};
- const stopWaves=()=>{if(!waves)return;try{const t=AC.currentTime;waves.g.gain.cancelScheduledValues(t);waves.g.gain.setTargetAtTime(0,t,.3);const w=waves;setTimeout(()=>{try{w.src.stop();w.lfo.stop()}catch(e){}},1200)}catch(e){}waves=null};
- const chime=(big)=>{if(!GM.sound)return;try{const A=ac(),t=A.currentTime;startWaves();const freqs=big?[SCALE[0],SCALE[2],SCALE[4]]:[SCALE[MEL[note++%MEL.length]]];
-  freqs.forEach((fq,i)=>{const o=A.createOscillator(),o2=A.createOscillator(),g=A.createGain();o.type="sine";o2.type="triangle";o.frequency.value=fq;o2.frequency.value=fq*2;const g2=A.createGain();g2.gain.value=.12;
-   g.gain.setValueAtTime(0,t+i*.06);g.gain.linearRampToValueAtTime(big?.12:.14,t+i*.06+.015);g.gain.exponentialRampToValueAtTime(.0008,t+i*.06+(big?1.6:1.1));
-   o.connect(g);o2.connect(g2).connect(g);g.connect(A.destination);o.start(t+i*.06);o2.start(t+i*.06);o.stop(t+i*.06+1.7);o2.stop(t+i*.06+1.7)});
-  const n=A.createBufferSource(),nb=A.createBuffer(1,A.sampleRate*.05,A.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=(Math.random()*2-1)*(1-i/nd.length);n.buffer=nb;const nf=A.createBiquadFilter();nf.type="lowpass";nf.frequency.value=700;const ng=A.createGain();ng.gain.value=.08;n.connect(nf).connect(ng).connect(A.destination);n.start(t)}catch(e){}};
+ let score=0,parts=[],rings=[],gold=null,nextGold=performance.now()+12000,tEnd=GM.mode==="timed"?performance.now()+60000:0,over=false,last=performance.now();
+ // Realistic balloon burst: sharp rubber snap + rush of air + low thump, with a short room echo. Varies a little every time.
+ let AC=null,VERB=null;const ac=()=>{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC};
+ const noise=(A,sec,shape)=>{const n=Math.max(1,Math.floor(A.sampleRate*sec)),b=A.createBuffer(1,n,A.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*shape(i/n);return b};
+ const verb=A=>{if(VERB)return VERB;const c=A.createConvolver();const n=Math.floor(A.sampleRate*.35),b=A.createBuffer(2,n,A.sampleRate);for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,4)}c.buffer=b;const g=A.createGain();g.gain.value=.16;c.connect(g).connect(A.destination);VERB=c;return c};
+ const burstSound=(big)=>{if(!GM.sound)return;try{const A=ac(),t=A.currentTime+.002,v=.85+Math.random()*.3;
+  const comp=A.createDynamicsCompressor();comp.threshold.value=-10;comp.ratio.value=6;comp.connect(A.destination);comp.connect(verb(A));
+  const snap=A.createBufferSource();snap.buffer=noise(A,.012,x=>Math.pow(1-x,1.5));const hp=A.createBiquadFilter();hp.type="highpass";hp.frequency.value=1800+Math.random()*1200;const sg=A.createGain();sg.gain.value=1.1*v;snap.connect(hp).connect(sg).connect(comp);snap.start(t);
+  const air=A.createBufferSource();const dur=(big?.22:.13)+Math.random()*.05;air.buffer=noise(A,dur,x=>Math.exp(-x*7));const bp=A.createBiquadFilter();bp.type="bandpass";bp.frequency.setValueAtTime(2600*v,t);bp.frequency.exponentialRampToValueAtTime(700,t+dur);bp.Q.value=.6;const ag=A.createGain();ag.gain.value=.9*v;air.connect(bp).connect(ag).connect(comp);air.start(t);
+  const o=A.createOscillator(),og=A.createGain();o.type="sine";o.frequency.setValueAtTime((big?150:110)*v,t);o.frequency.exponentialRampToValueAtTime(42,t+.09);og.gain.setValueAtTime(0,t);og.gain.linearRampToValueAtTime(.7,t+.003);og.gain.exponentialRampToValueAtTime(.001,t+.12);o.connect(og).connect(comp);o.start(t);o.stop(t+.14);
+ }catch(e){}};
  const sc=document.getElementById("gsc"),gx=document.getElementById("gx");const hud=()=>{sc.textContent=score;gx.textContent=GM.mode==="timed"?Math.max(0,Math.ceil((tEnd-performance.now())/1000))+"s":(lang==="ta"?"சிறந்தது ":"Best ")+gget("cp-best-relax",0)};
- const float=(x,y,col,n)=>{for(let i=0;i<n;i++){const a=-Math.PI/2+(Math.random()-.5)*2.4,sp=12+Math.random()*28;parts.push({x:x+(Math.random()-.5)*R,y:y+(Math.random()-.5)*R,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-10,l:1,c:Math.random()<.3?"#ffffff":col,r:2.5+Math.random()*4.5})}rings.push({x,y,r:R*.7,l:.7,c:col})};
- const CALM=lang==="ta"?["மூச்சை மெதுவாக இழுங்கள்…","சற்று நிறுத்துங்கள்…","மெதுவாக விடுங்கள்…","கடல் காற்றை உணருங்கள்","நீங்கள் நன்றாகச் செய்கிறீர்கள்","தோள்களைத் தளர்த்துங்கள்"]:["Breathe in slowly…","Hold…","Breathe out gently…","Feel the sea breeze","You're doing well","Relax your shoulders"];
+ const float=(x,y,col,n)=>{for(let i=0;i<n;i++){const a=Math.random()*6.28,sp=140+Math.random()*220;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-80,l:1,c:col,w:4+Math.random()*7,h:2+Math.random()*4,rot:Math.random()*6.28,vr:(Math.random()-.5)*14})}rings.push({x,y,r:R*.9,l:.55,c:"#ffffff",flash:1})};
  const vib=ms=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
  const tally=n=>{gset("cp-pops",gget("cp-pops",0)+n);const el=document.getElementById("gtot");if(el)el.textContent=gget("cp-pops",0).toLocaleString("en-IN")};
- const hit=(x,y)=>{if(over)return;rings.push({x,y,r:4,l:.45,c:"#ffffff",soft:1});
-  if(gold&&Math.hypot(x-gold.x,y-gold.y)<R*1.3){float(gold.x,gold.y,"#ffe8a3",22);texts.push({x:gold.x,y:gold.y,t:"+5",l:1});score+=5;gold=null;chime(true);vib(10);tally(5);return}
+ const hit=(x,y)=>{if(over)return;
+  if(gold&&Math.hypot(x-gold.x,y-gold.y)<R*1.3){float(gold.x,gold.y,"#f6c14b",18);score+=5;gold=null;burstSound(true);vib(28);tally(5);return}
   let best=null,bd=1e9;for(const b of slots){if(b.s<.6)continue;const yy=b.y+Math.sin(b.ph)*3;const d=Math.hypot(x-b.x,y-yy);if(d<bd){bd=d;best=b}}
-  if(best&&bd<R*1.35){float(best.x,best.y+Math.sin(best.ph)*3,best.col,10);best.s=0;best.pop=performance.now();best.col=COLS[(Math.random()*COLS.length)|0];score++;texts.push({x:best.x,y:best.y,t:"+1",l:.9});chime(false);vib(6);tally(1);
-   if(score%10===0)calm={t:CALM[(score/10-1)%CALM.length],l:0,age:0}}};
+  if(best&&bd<R*1.35){const col=best.col;float(best.x,best.y+Math.sin(best.ph)*3,col,12);best.s=0;best.pop=performance.now();best.col=COLS[(Math.random()*COLS.length)|0];score++;burstSound(false);vib(20);tally(1)}};
  cv.onpointerdown=e=>{const r=cv.getBoundingClientRect();hit(e.clientX-r.left,e.clientY-r.top)};
- const endGame=()=>{over=true;stopWaves();const k="cp-best-"+GM.mode,b=gget(k,0),nb=score>b;if(nb)gset(k,score);const ov=document.getElementById("gover");if(!ov)return;
+ const endGame=()=>{over=true;const k="cp-best-"+GM.mode,b=gget(k,0),nb=score>b;if(nb)gset(k,score);const ov=document.getElementById("gover");if(!ov)return;
   const share=encodeURIComponent(`I popped ${score} balloons at the Marina in 60 seconds on Chennai+ 🎈 Can you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/`);
   ov.innerHTML=`<div class="gcard"><b>${score}</b><span>${lang==="ta"?"பலூன்கள் உடைத்தீர்கள்":"balloons popped"}</span><small>${nb?(lang==="ta"?"புதிய சாதனை!":"New best score!"):(lang==="ta"?"சிறந்தது: ":"Best: ")+b}</small><button class="getdeal" id="gagain" style="border:0;cursor:pointer;width:100%">${lang==="ta"?"மீண்டும் விளையாடு":"Play again"}</button><a class="go" target="_blank" rel="noopener" href="https://wa.me/?text=${share}" style="justify-self:center">${lang==="ta"?"WhatsApp-ல் பகிர்":"Share on WhatsApp"}</a></div>`;ov.hidden=false;
   document.getElementById("gagain").onclick=()=>{ov.hidden=true;startGame()}};
  const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,"#6b4a9e");sky.addColorStop(.45,"#f4a08a");sky.addColorStop(.72,"#ffd6a0");
- GM.stop=stopWaves;const onHide=()=>{if(document.hidden)stopWaves()};document.addEventListener("visibilitychange",onHide);
- const frame=t=>{if(!cv.isConnected){stopWaves();document.removeEventListener("visibilitychange",onHide);return}const dt=Math.min(.05,(t-last)/1000);last=t;
+ GM.stop=()=>{};
+ const frame=t=>{if(!cv.isConnected)return;const dt=Math.min(.05,(t-last)/1000);last=t;
   ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);ctx.fillStyle="rgba(255,240,200,.85)";ctx.beginPath();ctx.arc(W*.78,H*.74,34,0,7);ctx.fill();
   ctx.fillStyle="#4a7fb8";ctx.fillRect(0,H*.74,W,H*.12);ctx.strokeStyle="rgba(255,255,255,.3)";ctx.lineWidth=2;for(let k=0;k<3;k++){ctx.beginPath();for(let x=0;x<=W;x+=8)ctx.lineTo(x,H*.77+k*9+Math.sin(x/26+t/1400+k)*2.5);ctx.stroke()}
   ctx.fillStyle="#f3dcae";ctx.fillRect(0,H*.86,W,H*.14);
@@ -1098,17 +1094,14 @@ function startGame(){const cv=document.getElementById("gcv");if(!cv)return;const
   ctx.strokeStyle="rgba(138,90,53,.18)";ctx.lineWidth=1;for(let c=1;c<cols;c++){ctx.beginPath();ctx.moveTo(bx+cw*c,by-4);ctx.lineTo(bx+cw*c,by+bh-4);ctx.stroke()}for(let r=1;r<rows;r++){ctx.beginPath();ctx.moveTo(bx,by-4+rh*r);ctx.lineTo(bx+bw,by-4+rh*r);ctx.stroke()}
   ctx.fillStyle="#d9773a";ctx.fillRect(bx-14,by-40,bw+28,30);ctx.fillStyle="#fff";ctx.font=`800 ${Math.min(18,W/22)}px "Baloo Thambi 2",sans-serif`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lang==="ta"?"மெரினா பலூன் சுடுதல்":"MARINA BALLOON SHOOT",W/2,by-25);
   const now=performance.now();
-  for(const b of slots){if(b.s<1&&now-b.pop>1500)b.s=Math.min(1,b.s+dt*1.1);if(b.s<=.02)continue;if(!reduce)b.ph+=dt*.9;const e=1-Math.pow(1-b.s,3),y=b.y+Math.sin(b.ph)*3,s=e;
+  for(const b of slots){if(b.s<1&&now-b.pop>900)b.s=Math.min(1,b.s+dt*1.8);if(b.s<=.02)continue;if(!reduce)b.ph+=dt*.9;const e=1-Math.pow(1-b.s,3),y=b.y+Math.sin(b.ph)*3,s=e;
    ctx.globalAlpha=Math.min(1,b.s*1.4);ctx.strokeStyle="rgba(90,60,30,.4)";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(b.x,y+R*s);ctx.quadraticCurveTo(b.x+3,y+R*s+8,b.x,y+R*s+14);ctx.stroke();
    const g=ctx.createRadialGradient(b.x-R*.35*s,y-R*.4*s,R*.1*s,b.x,y,R*1.1*s);g.addColorStop(0,"#ffffffdd");g.addColorStop(.3,b.col);g.addColorStop(1,b.col);ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(b.x,y,R*.86*s,R*s,0,0,7);ctx.fill();
    ctx.fillStyle=b.col;ctx.beginPath();ctx.moveTo(b.x,y+R*s-1);ctx.lineTo(b.x-4*s,y+R*s+5);ctx.lineTo(b.x+4*s,y+R*s+5);ctx.fill();ctx.globalAlpha=1}
   if(!gold&&now>nextGold&&!over){gold={x:-R,y:by+bh*.3,vx:W/11,ph:0};nextGold=now+18000+Math.random()*10000}
   if(gold){gold.x+=gold.vx*dt;gold.ph+=dt*1.2;gold.y+=Math.sin(gold.ph)*.4;const gg=ctx.createRadialGradient(gold.x-R*.3,gold.y-R*.4,2,gold.x,gold.y,R*1.2);gg.addColorStop(0,"#fffbe6");gg.addColorStop(.35,"#ffe08a");gg.addColorStop(1,"#f6c14b");ctx.shadowColor="#ffe08a";ctx.shadowBlur=20;ctx.fillStyle=gg;ctx.beginPath();ctx.ellipse(gold.x,gold.y,R*.95,R*1.1,0,0,7);ctx.fill();ctx.shadowBlur=0;if(gold.x>W+R)gold=null}
-  for(let i=rings.length-1;i>=0;i--){const q=rings[i];q.r+=dt*(q.soft?36:48);q.l-=dt*(q.soft?.9:.75);if(q.l<=0){rings.splice(i,1);continue}ctx.strokeStyle=q.c;ctx.globalAlpha=q.l*.8;ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,7);ctx.stroke();ctx.globalAlpha=1}
-  for(let i=parts.length-1;i>=0;i--){const q=parts[i];q.vy-=dt*6;q.x+=q.vx*dt;q.y+=q.vy*dt;q.vx*=.99;q.l-=dt*.6;if(q.l<=0){parts.splice(i,1);continue}ctx.globalAlpha=q.l*.85;ctx.fillStyle=q.c;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,7);ctx.fill();ctx.globalAlpha=q.l*.5;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(q.x-q.r*.3,q.y-q.r*.3,q.r*.35,0,7);ctx.fill();ctx.globalAlpha=1}
-  for(let i=texts.length-1;i>=0;i--){const q=texts[i];q.y-=dt*22;q.l-=dt*.7;if(q.l<=0){texts.splice(i,1);continue}ctx.globalAlpha=q.l*.9;ctx.fillStyle="#fff";ctx.font=`700 17px "Baloo Thambi 2",sans-serif`;ctx.fillText(q.t,q.x,q.y);ctx.globalAlpha=1}
-  if(calm){calm.age+=dt;const a=calm.age<1?calm.age:calm.age<3.2?1:Math.max(0,1-(calm.age-3.2));ctx.globalAlpha=a*.95;ctx.font=`700 20px "Baloo Thambi 2",sans-serif`;ctx.fillStyle="rgba(255,255,255,.9)";const tw=Math.min(W-30,ctx.measureText(calm.t).width+56);
-   const yy=by+bh*.5;ctx.beginPath();ctx.roundRect?ctx.roundRect(W/2-tw/2,yy-24,tw,48,24):ctx.rect(W/2-tw/2,yy-24,tw,48);ctx.fill();ctx.fillStyle="#6b4a9e";ctx.fillText(calm.t,W/2,yy+1);ctx.globalAlpha=1;if(calm.age>4.3)calm=null}
+  for(let i=rings.length-1;i>=0;i--){const q=rings[i];q.r+=dt*(q.flash?260:48);q.l-=dt*(q.flash?3.5:.75);if(q.l<=0){rings.splice(i,1);continue}ctx.strokeStyle=q.c;ctx.globalAlpha=q.l*.8;ctx.lineWidth=2;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,7);ctx.stroke();ctx.globalAlpha=1}
+  for(let i=parts.length-1;i>=0;i--){const q=parts[i];q.vy+=dt*900;q.vx*=.96;q.x+=q.vx*dt;q.y+=q.vy*dt;q.rot+=q.vr*dt;q.l-=dt*1.4;if(q.l<=0||q.y>H){parts.splice(i,1);continue}ctx.globalAlpha=Math.min(1,q.l*1.5);ctx.fillStyle=q.c;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot);ctx.beginPath();ctx.moveTo(-q.w/2,-q.h/2);ctx.quadraticCurveTo(0,-q.h,q.w/2,-q.h/3);ctx.lineTo(q.w/3,q.h/2);ctx.quadraticCurveTo(0,q.h,-q.w/2,q.h/3);ctx.fill();ctx.restore();ctx.globalAlpha=1}
   if(GM.mode==="relax"&&score>gget("cp-best-relax",0))gset("cp-best-relax",score);
   if(GM.mode==="timed"&&!over&&now>=tEnd)endGame();hud();requestAnimationFrame(frame)};
  requestAnimationFrame(frame)}
