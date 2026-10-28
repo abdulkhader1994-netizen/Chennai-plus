@@ -469,6 +469,16 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .gico.lt{align-items:center;flex-wrap:wrap;align-content:center;gap:4px}.gico.lt i{width:20px;height:20px;border-radius:6px;background:#fff;color:#9f1239;font:800 13px/20px var(--display);text-align:center;font-style:normal}
 .gico.mm{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;align-content:center}.gico.mm i{aspect-ratio:1;border-radius:5px;background:rgba(255,255,255,.35)}.gico.mm i:nth-child(2),.gico.mm i:nth-child(6){background:#fde047}
 .kcard>.gball{flex:none;display:block}
+.pztubes{position:relative}
+.wt{position:relative;width:46px;height:172px;flex:none;border:0;padding:0 4px 5px;box-sizing:border-box;background:var(--page);border-radius:7px 7px 23px 23px;box-shadow:inset 0 0 0 2.5px rgba(120,90,60,.32);cursor:pointer;display:flex;align-items:flex-end;transition:transform .28s cubic-bezier(.3,.8,.4,1);-webkit-tap-highlight-color:transparent}
+.wt::before{content:"";position:absolute;left:9px;top:12px;bottom:20px;width:5px;border-radius:3px;background:rgba(255,255,255,.55);z-index:1;pointer-events:none}
+.wt::after{content:"";position:absolute;left:-3px;right:-3px;top:0;height:6px;border-radius:4px;background:rgba(120,90,60,.22)}
+.wt .liq{width:100%;height:calc(100% - 26px);display:flex;flex-direction:column-reverse;border-radius:0 0 19px 19px;overflow:hidden}
+.wt .liq i{display:block;width:100%;flex:none;position:relative;transition:height .3s}
+.wt .liq i:last-child::after{content:"";position:absolute;left:0;right:0;top:-2px;height:5px;border-radius:50%;background:rgba(255,255,255,.3)}
+.wt .liq i.rise{animation:wrise .4s ease-out}@keyframes wrise{from{height:0}}
+.wt.sel{transform:translateY(-16px)}.wt.shk{animation:pzshake .3s}
+.wstream{position:absolute;width:6px;border-radius:3px;transform-origin:top;animation:wstream .25s ease-out;pointer-events:none;z-index:4}@keyframes wstream{from{transform:scaleY(0)}}
 </style>
 </head>
 <body>
@@ -1178,16 +1188,29 @@ function pzMatch(r){const all=[];for(const k in PZSH)for(const c of PZCOL)all.pu
   if(a[0]===c[0]&&a[1]===c[1]){b.classList.add("ok");el.querySelector(`[data-i="${sel}"]`).classList.add("ok");lock=true;win()}else{b.classList.add("no");lock=true;miss();setTimeout(()=>{el.querySelectorAll(".sel,.no").forEach(x=>x.classList.remove("sel","no"));sel=null;lock=false},450)}})}}}
 function pzSolve(t0,cap){const key=t=>t.map(x=>x.join("")).sort().join("|"),done=t=>t.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])));const seen=new Set([key(t0)]);let q=[t0],d=0;
  while(q.length){if(seen.size>300000)return 99;const n=[];for(const t of q){if(done(t))return d;for(let i=0;i<t.length;i++){if(!t[i].length)continue;const c=t[i][t[i].length-1];for(let j=0;j<t.length;j++){if(i===j||t[j].length>=cap||(t[j].length&&t[j][t[j].length-1]!==c)||(!t[j].length&&t[i].every(y=>y===c)))continue;const u=t.map(x=>x.slice());u[j].push(u[i].pop());const k=key(u);if(!seen.has(k)){seen.add(k);n.push(u)}}}}q=n;d++}return 99}
+// Liquid "water sort" tubes: tap a tube, tap another, it tilts and pours the top colour (as much as fits).
+function waterTubes(box,start,cols,h){const cap=4,red=matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;let st=start.map(x=>x.slice()),hist=[],sel=-1,mv=0,busy=false,over=false;
+ const inner=(i,rise)=>{const x=st[i];let out="",k=0;while(k<x.length){let e=k;while(e<x.length&&x[e]===x[k])e++;let n=e-k;const last=e===x.length;if(last&&rise){const keep=n-rise;if(keep>0)out+=`<i style="height:${keep*25}%;background:${cols[x[k]]}"></i>`;out+=`<i class="rise" style="height:${rise*25}%;background:${cols[x[k]]}"></i>`}else out+=`<i style="height:${n*25}%;background:${cols[x[k]]}"></i>`;k=e}return out};
+ const draw=()=>{box.innerHTML=st.map((x,i)=>`<button class="wt${i===sel?" sel":""}" data-t="${i}" aria-label="Tube ${i+1}"><span class="liq">${inner(i)}</span></button>`).join("");h.move(mv)};
+ const solved=()=>st.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])));
+ const tube=i=>box.querySelector(`[data-t="${i}"]`);
+ const pour=async(i,j)=>{const a=st[i],c=a[a.length-1];let k=1;while(k<a.length&&a[a.length-1-k]===c)k++;const m=Math.min(k,cap-st[j].length);hist.push(st.map(x=>x.slice()));busy=true;sel=-1;mv++;
+  const s=tube(i),t=tube(j);s.classList.remove("sel");const sl=ms=>new Promise(f=>setTimeout(f,ms));
+  if(!red){const B=box.getBoundingClientRect(),sr=s.getBoundingClientRect(),tr=t.getBoundingClientRect(),dir=tr.left>=sr.left?1:-1;
+   const dx=(tr.left+tr.width/2)-(sr.left+sr.width/2)-dir*14,dy=tr.top-sr.top-34;s.style.zIndex=5;s.style.transformOrigin="50% 0";s.style.transform=`translate(${dx}px,${dy}px) rotate(${dir*72}deg)`;await sl(300);
+   const unit=(tr.height-31)/cap,top=tr.top-B.top-22,bottom=tr.bottom-B.top-5-(st[j].length+m)*unit;const sm=document.createElement("div");sm.className="wstream";sm.style.cssText=`left:${tr.left-B.left+tr.width/2-3}px;top:${top}px;height:${Math.max(10,bottom-top)}px;background:${cols[c]}`;box.appendChild(sm);
+   for(let q=0;q<m;q++)st[j].push(st[i].pop());s.querySelector(".liq").innerHTML=inner(i);t.querySelector(".liq").innerHTML=inner(j,m);pzVib(10);await sl(420);sm.remove();s.style.transform="";await sl(260);s.style.zIndex=""}
+  else for(let q=0;q<m;q++)st[j].push(st[i].pop());
+  busy=false;draw();if(solved()){over=true;h.win(mv)}};
+ box.onclick=e=>{const b=e.target.closest("[data-t]");if(!b||busy||over)return;const i=+b.dataset.t;if(sel<0){if(st[i].length&&!(st[i].length===cap&&st[i].every(y=>y===st[i][0]))){sel=i;b.classList.add("sel")}return}
+  if(i===sel){sel=-1;b.classList.remove("sel");return}const a=st[sel],c=a[a.length-1],to=st[i];let k=1;while(k<a.length&&a[a.length-1-k]===c)k++;
+  if(to.length<cap&&(!to.length||to[to.length-1]===c)&&!(!to.length&&k===a.length))pour(sel,i);else{tube(sel).classList.remove("sel");sel=-1;if(st[i].length){sel=i;b.classList.add("sel")}else{b.classList.remove("shk");void b.offsetWidth;b.classList.add("shk")}}};
+ draw();return{undo:()=>{if(busy||over||!hist.length)return;st=hist.pop();mv--;sel=-1;draw()},reset:()=>{if(busy||over)return;st=start.map(x=>x.slice());hist=[];mv=0;sel=-1;draw()}}}
 function pzSort(r){const cap=4,cols=["#ff4d6d","#ffb703","#3a86ff","#06d6a0"];let t,min=99;for(let k=0;k<20;k++){const b=pzShuf([...Array(16)].map((_,i)=>i%4),r);t=[0,1,2,3].map(c=>b.slice(c*4,c*4+4));t.push([],[]);min=pzSolve(t,cap);if(min>=8&&min<99)break}
  const start=t.map(x=>x.slice());
  return{t:["Sort the colours: one colour per tube","ஒவ்வொரு குழாயிலும் ஒரே நிறம்"],h:`<div class="pztubes"></div><div class="pzbar"><span class="pzmv"></span><button class="chip" data-a="undo">↶ ${PT(["Undo","பின்"])}</button><button class="chip" data-a="reset">↻ ${PT(["Restart","மீண்டும்"])}</button></div>`,
- init(el,win,miss){let st=start.map(x=>x.slice()),hist=[],sel=-1,mv=0,over=false;const box=el.querySelector(".pztubes"),mvEl=el.querySelector(".pzmv");
-  const draw=()=>{box.innerHTML=st.map((x,i)=>`<button class="pztube${i===sel?" sel":""}" data-t="${i}" aria-label="Tube ${i+1}">${x.map(c=>`<i style="background:${cols[c]}"></i>`).join("")}</button>`).join("");mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${mv}`};
-  box.onclick=e=>{const b=e.target.closest("[data-t]");if(!b||over)return;const i=+b.dataset.t;if(sel<0){if(st[i].length)sel=i;draw();return}if(i===sel){sel=-1;draw();return}
-   const from=st[sel],to=st[i],c=from[from.length-1];if(to.length<cap&&(!to.length||to[to.length-1]===c)){hist.push(st.map(x=>x.slice()));to.push(from.pop());mv++;sel=-1;pzVib(8);draw();
-    if(st.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])))){over=true;if(mv>min*2)miss(true);win()}}else{sel=st[i].length?i:-1;draw()}};
-  el.querySelector('[data-a="undo"]').onclick=()=>{if(over||!hist.length)return;st=hist.pop();mv--;sel=-1;draw()};
-  el.querySelector('[data-a="reset"]').onclick=()=>{if(over)return;st=start.map(x=>x.slice());hist=[];mv=0;sel=-1;draw()};draw()}}}
+ init(el,win,miss){const mvEl=el.querySelector(".pzmv");const WT=waterTubes(el.querySelector(".pztubes"),start,cols,{move:m=>mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${m}`,win:m=>{if(m>min*2)miss(true);win()}});
+  el.querySelector('[data-a="undo"]').onclick=WT.undo;el.querySelector('[data-a="reset"]').onclick=WT.reset}}}
 function pzWord(r){const w=PZW[Math.floor(r()*PZW.length)];let tiles,k=0;do{tiles=pzShuf(w.t,r)}while(tiles.join("")===w.t.join("")&&++k<10);
  return{t:["Make the Tamil word","தமிழ் சொல்லை உருவாக்கு"],h:`<div class="pzclue"><span>${w.e}</span><b>${w.m}</b></div><div class="pzslots">${w.t.map((_,i)=>`<button data-s="${i}" aria-label="Box ${i+1}"></button>`).join("")}</div><div class="pztiles">${tiles.map((x,j)=>`<button data-j="${j}" lang="ta">${x}</button>`).join("")}</div>`,
  init(el,win,miss){const fill=[],slots=[...el.querySelectorAll("[data-s]")],tb=[...el.querySelectorAll("[data-j]")];let done=false;
@@ -1241,16 +1264,10 @@ function startSort(){const card=document.getElementById("sortc");if(!card)return
  card.innerHTML=`<div class="lvbar"><button class="lvnav" data-d="-1" ${L<=1?"disabled":""} aria-label="Previous level">‹</button><b>${PT(["Level","நிலை"])} ${L}<small> / 100</small></b><button class="lvnav" data-d="1" ${L>=best?"disabled":""} aria-label="Next level">›</button></div>
  <div class="pztubes" style="${n>6?`flex-wrap:wrap;row-gap:26px;max-width:${Math.ceil(n/2)*54-8}px;margin:0 auto`:""}"></div>
  <div class="pzbar"><span class="pzmv"></span><button class="chip" data-a="undo">↶ ${PT(["Undo","பின்"])}</button><button class="chip" data-a="reset">↻ ${PT(["Restart","மீண்டும்"])}</button></div><div class="gnext" hidden></div><div class="pzok" hidden>✓</div>`;
- let st=start.map(x=>x.slice()),hist=[],sel=-1,mv=0,over=false;const box=card.querySelector(".pztubes"),mvEl=card.querySelector(".pzmv");
- const draw=()=>{box.innerHTML=st.map((x,i)=>`<button class="pztube${i===sel?" sel":""}" data-t="${i}" aria-label="Tube ${i+1}">${x.map(c=>`<i style="background:${SORTC[c]}"></i>`).join("")}</button>`).join("");mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${mv}`};
- box.onclick=e=>{const b=e.target.closest("[data-t]");if(!b||over)return;const i=+b.dataset.t;if(sel<0){if(st[i].length)sel=i;draw();return}if(i===sel){sel=-1;draw();return}
-  const from=st[sel],to=st[i],c=from[from.length-1];if(to.length<cap&&(!to.length||to[to.length-1]===c)){hist.push(st.map(x=>x.slice()));to.push(from.pop());mv++;sel=-1;pzVib(8);draw();
-   if(st.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])))){over=true;if(L===gget("cp-sort",1)&&L<100)gset("cp-sort",L+1);gWin(card);const nx=card.querySelector(".gnext");nx.hidden=false;
-    nx.innerHTML=L<100?`<button class="gbtn" id="gnx">${PT(["Next level","அடுத்த நிலை"])} ${L+1} ›</button>`:`<b>🏆 ${PT(["You finished all 100 levels!","100 நிலைகளையும் முடித்துவிட்டீர்கள்!"])}</b>`;
-    const g=document.getElementById("gnx");if(g)g.onclick=()=>{sortLv=L+1;startSort()}}}else{sel=st[i].length?i:-1;draw()}};
- card.querySelector('[data-a="undo"]').onclick=()=>{if(over||!hist.length)return;st=hist.pop();mv--;sel=-1;draw()};
- card.querySelector('[data-a="reset"]').onclick=()=>{if(over)return;st=start.map(x=>x.slice());hist=[];mv=0;sel=-1;draw()};
- card.querySelectorAll(".lvnav").forEach(b=>b.onclick=()=>{sortLv=Math.max(1,Math.min(gget("cp-sort",1),L+ +b.dataset.d));startSort()});draw()}
+  const mvEl=card.querySelector(".pzmv");const WT=waterTubes(card.querySelector(".pztubes"),start,SORTC,{move:m=>mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${m}`,win:()=>{if(L===gget("cp-sort",1)&&L<100)gset("cp-sort",L+1);gWin(card);const nx=card.querySelector(".gnext");nx.hidden=false;
+  nx.innerHTML=L<100?`<button class="gbtn" id="gnx">${PT(["Next level","அடுத்த நிலை"])} ${L+1} ›</button>`:`<b>🏆 ${PT(["You finished all 100 levels!","100 நிலைகளையும் முடித்துவிட்டீர்கள்!"])}</b>`;const g=document.getElementById("gnx");if(g)g.onclick=()=>{sortLv=L+1;startSort()}}});
+ card.querySelector('[data-a="undo"]').onclick=WT.undo;card.querySelector('[data-a="reset"]').onclick=WT.reset;
+ card.querySelectorAll(".lvnav").forEach(b=>b.onclick=()=>{sortLv=Math.max(1,Math.min(gget("cp-sort",1),L+ +b.dataset.d));startSort()})}
 const tsplit=w=>w.match(/[^ா-்ௗ][ா-்ௗ]*/gu)||[];
 const jlist=(s,ta)=>s.trim().split("\n").map(x=>{const p=x.split("|");return{w:p[0],m:p[1],e:p[2],t:ta?tsplit(p[0]):[...p[0]]}}).map((o,i)=>({...o,i})).sort((a,b)=>a.t.length-b.t.length||a.i-b.i);
 const JTA=jlist(`மழை|rain|🌧️
