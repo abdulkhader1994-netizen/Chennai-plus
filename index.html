@@ -424,6 +424,32 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .gball{position:relative;width:60px;height:60px;flex:none}.gball i{position:absolute;width:26px;height:32px;border-radius:50% 50% 48% 48%;box-shadow:inset -4px -5px 0 rgba(0,0,0,.12),inset 4px 4px 0 rgba(255,255,255,.35)}
 .gball i:nth-child(1){left:2px;top:12px}.gball i:nth-child(2){left:18px;top:2px}.gball i:nth-child(3){left:32px;top:16px}
 @media (prefers-reduced-motion:no-preference){.gball i{animation:bob 3s ease-in-out infinite}.gball i:nth-child(2){animation-delay:.5s}.gball i:nth-child(3){animation-delay:1s}}
+.pzcardh{background:linear-gradient(135deg,#0f766e,#14b8a6 60%,#84cc16)!important;box-shadow:0 14px 30px rgba(15,118,110,.3)!important}
+.kcard>.pzicon,.pzicon{width:60px;height:60px;flex:none;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:7px;box-sizing:border-box;background:rgba(255,255,255,.2);border-radius:18px}.pzicon i{border-radius:7px;background:#fff}.pzicon i:nth-child(2){background:#ffb703}.pzicon i:nth-child(3){background:#ff4d6d}.pzicon i:nth-child(4){background:#3a86ff}
+.pzdots{display:flex;gap:6px;justify-content:center}.pzdots i{width:38px;height:8px;border-radius:99px;background:var(--line)}.pzdots i.on{background:#ff8c00}.pzdots i.rg{background:#22c55e}.pzdots i.ry{background:#facc15}.pzdots i.rs{background:#a1a1aa}
+.pzcard{position:relative;background:var(--surface);border-radius:24px;padding:18px 14px 10px;box-shadow:0 10px 28px rgba(120,60,0,.12);display:grid;gap:16px;min-width:0}
+.pzin{display:grid;gap:16px;min-width:0}
+.pzhead{display:grid;gap:2px;text-align:center}.pzhead span{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.5px}.pzhead b{font-family:var(--display);font-size:20px;line-height:1.25}
+.pzfoot{display:flex;justify-content:center}.pzskip{border:0;background:none;color:var(--muted);font:600 13px var(--body);cursor:pointer;padding:8px 12px}
+.pzok{position:absolute;inset:0;border-radius:24px;display:grid;place-items:center;font-size:80px;font-weight:800;color:#fff;background:rgba(34,197,94,.88);animation:pzpop .3s ease}.pzok.y{background:rgba(234,179,8,.88)}
+@keyframes pzpop{from{opacity:0;transform:scale(.92)}}
+.pzcard.shake{animation:pzshake .35s}@keyframes pzshake{25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-3px)}}
+.pzcard button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.pzseq{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.pzseq span{min-width:44px;padding:10px 6px;border-radius:14px;background:var(--page);text-align:center;font:800 21px var(--display);box-shadow:inset 0 0 0 1.5px rgba(255,140,0,.3)}.pzseq .q{color:#ff5f00;box-shadow:inset 0 0 0 2.5px #ff8c00}
+.pzopts,.pzkeys{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pzkeys{grid-template-columns:repeat(3,1fr)}
+.pzopts button,.pztiles button,.pzkeys button,.pzgrid button{border:0;cursor:pointer;border-radius:16px;background:var(--page);box-shadow:0 3px 0 rgba(150,80,0,.18),inset 0 0 0 1.5px rgba(255,140,0,.25);color:var(--ink);font:800 22px var(--display);padding:12px}
+.pzcard .ok{background:#22c55e!important;color:#fff!important}.pzcard .no{background:#fecaca!important;opacity:.65}
+.pzgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.pzgrid button{padding:8px;aspect-ratio:1;display:grid}.pzgrid svg{width:100%;height:100%}.pzgrid .sel{box-shadow:inset 0 0 0 3px #ff8c00;transform:translateY(-2px)}
+.pztubes{display:flex;justify-content:center;gap:8px;padding-top:12px}.pztube{width:46px;height:180px;border:0;border-radius:8px 8px 24px 24px;background:var(--page);box-shadow:inset 0 0 0 2px rgba(120,80,40,.28);display:flex;flex-direction:column-reverse;align-items:center;gap:3px;padding:6px 0;cursor:pointer;transition:transform .15s}.pztube.sel{transform:translateY(-12px);box-shadow:inset 0 0 0 2.5px #ff8c00}.pztube i{width:36px;height:36px;flex:none;border-radius:50%;box-shadow:inset -4px -5px 0 rgba(0,0,0,.15),inset 4px 4px 0 rgba(255,255,255,.35)}
+.pzbar{display:flex;gap:8px;align-items:center}.pzmv{font-weight:700;color:var(--muted);font-size:13px;margin-right:auto}
+.pzclue{display:flex;align-items:center;justify-content:center;gap:10px}.pzclue span{font-size:46px;line-height:1}.pzclue b{font:800 22px var(--display)}
+.pzslots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}.pzslots button{width:50px;height:58px;border:0;border-radius:14px;background:transparent;box-shadow:inset 0 0 0 2px rgba(255,140,0,.5);font:700 24px "Hind Madurai",sans-serif;color:var(--ink);cursor:pointer;padding:0}.pzslots .f{background:#fff3e0;color:#2a1a0e}
+.pztiles{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.pztiles button{min-width:56px;font-family:"Hind Madurai",sans-serif;font-weight:700;font-size:24px}.pztiles .used{visibility:hidden}
+.pzshow{height:110px;display:grid;place-items:center;font-size:72px;border-radius:20px;background:var(--page)}.pzshow.on{animation:pzpop .25s}
+.pzprog{display:flex;gap:8px;justify-content:center}.pzprog i{width:12px;height:12px;border-radius:50%;background:var(--line)}.pzprog i.ok{background:#22c55e}
+.pzkeys button{font-size:34px;padding:10px;line-height:1.2}.pzkeys button:disabled{opacity:.45}.pzkeys .hit{animation:pzpop .2s}.pzplay{justify-self:center;font-size:15px;padding:10px 22px}
+.pzend{text-align:center;justify-items:center;padding:24px 16px}.pzem{font-size:32px;letter-spacing:4px}.pzpts{font:800 64px/1 var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.pzpts small{font-size:22px}.pzst{font-weight:700}
+.pzwa{display:inline-flex;align-items:center;background:#25d366;color:#fff!important;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px}
 </style>
 </head>
 <body>
@@ -1045,7 +1071,7 @@ function repsHome(){return `<section><button class="kcard" data-go="reps" style=
 const SND_ON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>',SND_OFF='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 10l4 4M21 10l-4 4"/></svg>';let GM={mode:"relax",sound:true};try{GM.sound=localStorage.getItem("cp-snd")!=="0"}catch(e){}
 const gget=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:+v}catch(e){return d}},gset=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 function gameView(){const T=x=>lang==="ta"?x[1]:x[0];
- return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button>
+ return `<section style="display:grid;gap:10px"><button class="back" data-go="games">‹ ${T(["Games","விளையாட்டுகள்"])}</button>
  <div class="ghead"><div><h1 class="ntitle">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${T(["Marina beach stall · tap a balloon to burst it","மெரினா கடை · பலூனைத் தொட்டு உடையுங்கள்"])}</div></div>
  <button class="gsnd" id="gsnd" aria-label="Sound">${GM.sound?SND_ON:SND_OFF}</button></div>
  <div class="chips" style="margin:0"><button class="chip" data-gm="relax" aria-pressed="${GM.mode==="relax"}">${T(["Relax","ரிலாக்ஸ்"])}</button><button class="chip" data-gm="timed" aria-pressed="${GM.mode==="timed"}">${T(["60-second challenge","60 வினாடி சவால்"])}</button></div>
@@ -1105,7 +1131,84 @@ function startGame(){const cv=document.getElementById("gcv");if(!cv)return;const
   if(GM.mode==="relax"&&score>gget("cp-best-relax",0))gset("cp-best-relax",score);
   if(GM.mode==="timed"&&!over&&now>=tEnd)endGame();hud();requestAnimationFrame(frame)};
  requestAnimationFrame(frame)}
-function gameHome(){return `<section><button class="kcard gcardh" data-go="game"><span class="gball"><i style="background:#ff4d6d"></i><i style="background:#ffb703"></i><i style="background:#3a86ff"></i></span><span><small>${lang==="ta"?"ஒரு சிறு இடைவேளை":"Take a short break"}</small><b>${lang==="ta"?"பலூன் சுடுதல்":"Balloon Shoot"}</b><span>${lang==="ta"?"மெரினா ஸ்டைலில் பலூன்களை உடைத்து ரிலாக்ஸ் ஆகுங்கள்":"Pop balloons Marina-style and relax"}</span></span><i>›</i></button></section>`}
+// ---------- Games hub + Chennai Daily Puzzle (same 5 puzzles for everyone each day, IST) ----------
+const jget=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},jset=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const PT=x=>lang==="ta"?x[1]:x[0];
+const PZ0=Math.floor(Date.UTC(2026,9,28)/864e5),pzDay=()=>Math.floor((Date.now()+19800000)/864e5),pzNo=()=>pzDay()-PZ0+1;
+const pzRng=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const pzShuf=(a,r)=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pzState=()=>{const d=pzDay();let s=jget("cp-pz",null);if(!s||s.d!==d)s={d,i:0,res:[]};return s};
+const pzStreak=()=>{const s=jget("cp-pzs",{last:0,n:0});return s.last>=pzDay()-1?s.n:0};
+const pzVib=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
+const PZW="க|ட|ல்|sea|🌊,செ|ன்|னை|Chennai|🏙️,மெ|ரி|னா|Marina|🏖️,கோ|வி|ல்|temple|🛕,கா|ப்|பி|coffee|☕,இ|ட்|லி|idli|🍚,சா|ம்|பா|ர்|sambar|🍲,பொ|ங்|க|ல்|Pongal|🍯,தீ|பா|வ|ளி|Deepavali|🪔,ந|ண்|ப|ன்|friend|🤝,பு|த்|த|க|ம்|book|📖,ம|ல்|லி|கை|jasmine|🌼,ஆ|ட்|டோ|auto|🛺,பே|ரு|ந்|து|bus|🚌,ர|யி|ல்|train|🚆,சூ|ரி|ய|ன்|sun|☀️,வா|ன|ம்|sky|🌤️,மா|ம்|ப|ழ|ம்|mango|🥭,வா|ழை|ப்|ப|ழ|ம்|banana|🍌,ப|ட்|ட|ம்|kite|🪁,மி|தி|வ|ண்|டி|bicycle|🚲,க|டி|கா|ர|ம்|clock|⏰,த|ங்|க|ம்|gold|🪙,சி|னி|மா|cinema|🎬,அ|ம்|மா|mother|👩,வ|ண|க்|க|ம்|hello|🙏,ந|ன்|றி|thank you|💛,க|ப்|ப|ல்|ship|🚢,தே|ங்|கா|ய்|coconut|🥥,ச|ர்|க்|க|ரை|sugar|🍬,ம|ண|ல்|sand|🏝️,ப|ற|வை|bird|🐦,கு|தி|ரை|horse|🐎,ம|யி|ல்|peacock|🦚,ப|ட்|டா|சு|crackers|🎆,கோ|ல|ம்|kolam|✨,வி|ள|க்|கு|lamp|💡,மி|ட்|டா|ய்|sweets|🍭,ர|ச|ம்|rasam|🥣,பி|ரி|யா|ணி|biryani|🍛,ப|ரோ|ட்|டா|parotta|🫓,க|ட|ற்|க|ரை|beach|⛱️,ம|ழை|க்|கா|ல|ம்|rainy season|🌧️".split(",").map(x=>{const p=x.split("|");return{e:p.pop(),m:p.pop(),t:p}});
+function pzNum(r){const R=(a,b)=>a+Math.floor(r()*(b-a+1)),I=[0,1,2,3,4,5];let seq;const k=R(0,5);
+ if(k===0){const a=R(2,20),d=R(3,13);seq=I.map(i=>a+d*i)}
+ else if(k===1){const m=R(2,3),a=R(1,m===2?6:3);seq=I.map(i=>a*m**i)}
+ else if(k===2){const o=R(1,7);seq=I.map(i=>(i+o)**2)}
+ else if(k===3){const q=R(-4,-1),p=R(-q+2,9);seq=[R(1,15)];for(let i=1;i<6;i++)seq.push(seq[i-1]+(i%2?p:q))}
+ else if(k===4){seq=[R(1,5),R(2,6)];while(seq.length<6)seq.push(seq[seq.length-1]+seq[seq.length-2])}
+ else{const d=R(1,4);seq=[R(1,12)];for(let i=1;i<6;i++)seq.push(seq[i-1]+d+i-1)}
+ const h=R(2,5),ans=seq[h],opts=new Set([ans]);for(const d of pzShuf([-3,-2,-1,1,2,3,4,-4,6,-6,10],r)){if(opts.size>=4)break;const v=ans+d;if(v>0&&!seq.includes(v))opts.add(v)}
+ return{t:["Find the missing number","விடுபட்ட எண் எது?"],h:`<div class="pzseq">${seq.map((v,i)=>i===h?`<span class="q">?</span>`:`<span>${v}</span>`).join("")}</div><div class="pzopts">${pzShuf([...opts],r).map(v=>`<button data-v="${v}">${v}</button>`).join("")}</div>`,
+ init(el,win,miss){el.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{if(+b.dataset.v===ans){b.classList.add("ok");el.querySelector(".q").textContent=ans;win()}else{b.classList.add("no");b.disabled=true;miss()}})}}}
+const PZSH={c:'<circle cx="20" cy="20" r="14"/>',s:'<rect x="7" y="7" width="26" height="26" rx="4"/>',t:'<path d="M20 5 35 33H5z"/>',d:'<path d="M20 4 36 20 20 36 4 20z"/>',st:'<path d="m20 4 4.7 10 10.8 1.2-8 7.4 2.2 10.7L20 27.8l-9.7 5.5 2.2-10.7-8-7.4 10.8-1.2z"/>',h:'<path d="M20 34S5 25 5 14.5A7.5 7.5 0 0 1 20 11a7.5 7.5 0 0 1 15 3.5C35 25 20 34 20 34z"/>'};
+const PZCOL=["#ff4d6d","#ffb703","#3a86ff","#06d6a0","#8338ec"];
+function pzMatch(r){const all=[];for(const k in PZSH)for(const c of PZCOL)all.push([k,c]);const pick=pzShuf(all,r).slice(0,15);pick.push(pick[Math.floor(r()*15)]);const g=pzShuf(pick,r);
+ return{t:["Find the two identical shapes","ஒரே மாதிரியான இரண்டைக் கண்டுபிடி"],h:`<div class="pzgrid">${g.map((x,i)=>`<button data-i="${i}" aria-label="Shape ${i+1}"><svg viewBox="0 0 40 40" fill="${x[1]}">${PZSH[x[0]]}</svg></button>`).join("")}</div>`,
+ init(el,win,miss){let sel=null,lock=false;el.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{if(lock)return;const i=+b.dataset.i;if(sel===null){sel=i;b.classList.add("sel");return}if(sel===i){sel=null;b.classList.remove("sel");return}const a=g[sel],c=g[i];
+  if(a[0]===c[0]&&a[1]===c[1]){b.classList.add("ok");el.querySelector(`[data-i="${sel}"]`).classList.add("ok");lock=true;win()}else{b.classList.add("no");lock=true;miss();setTimeout(()=>{el.querySelectorAll(".sel,.no").forEach(x=>x.classList.remove("sel","no"));sel=null;lock=false},450)}})}}}
+function pzSolve(t0,cap){const key=t=>t.map(x=>x.join("")).sort().join("|"),done=t=>t.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])));const seen=new Set([key(t0)]);let q=[t0],d=0;
+ while(q.length){if(seen.size>300000)return 99;const n=[];for(const t of q){if(done(t))return d;for(let i=0;i<t.length;i++){if(!t[i].length)continue;const c=t[i][t[i].length-1];for(let j=0;j<t.length;j++){if(i===j||t[j].length>=cap||(t[j].length&&t[j][t[j].length-1]!==c)||(!t[j].length&&t[i].every(y=>y===c)))continue;const u=t.map(x=>x.slice());u[j].push(u[i].pop());const k=key(u);if(!seen.has(k)){seen.add(k);n.push(u)}}}}q=n;d++}return 99}
+function pzSort(r){const cap=4,cols=["#ff4d6d","#ffb703","#3a86ff","#06d6a0"];let t,min=99;for(let k=0;k<20;k++){const b=pzShuf([...Array(16)].map((_,i)=>i%4),r);t=[0,1,2,3].map(c=>b.slice(c*4,c*4+4));t.push([],[]);min=pzSolve(t,cap);if(min>=8&&min<99)break}
+ const start=t.map(x=>x.slice());
+ return{t:["Sort the colours: one colour per tube","ஒவ்வொரு குழாயிலும் ஒரே நிறம்"],h:`<div class="pztubes"></div><div class="pzbar"><span class="pzmv"></span><button class="chip" data-a="undo">↶ ${PT(["Undo","பின்"])}</button><button class="chip" data-a="reset">↻ ${PT(["Restart","மீண்டும்"])}</button></div>`,
+ init(el,win,miss){let st=start.map(x=>x.slice()),hist=[],sel=-1,mv=0,over=false;const box=el.querySelector(".pztubes"),mvEl=el.querySelector(".pzmv");
+  const draw=()=>{box.innerHTML=st.map((x,i)=>`<button class="pztube${i===sel?" sel":""}" data-t="${i}" aria-label="Tube ${i+1}">${x.map(c=>`<i style="background:${cols[c]}"></i>`).join("")}</button>`).join("");mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${mv}`};
+  box.onclick=e=>{const b=e.target.closest("[data-t]");if(!b||over)return;const i=+b.dataset.t;if(sel<0){if(st[i].length)sel=i;draw();return}if(i===sel){sel=-1;draw();return}
+   const from=st[sel],to=st[i],c=from[from.length-1];if(to.length<cap&&(!to.length||to[to.length-1]===c)){hist.push(st.map(x=>x.slice()));to.push(from.pop());mv++;sel=-1;pzVib(8);draw();
+    if(st.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])))){over=true;if(mv>min*2)miss(true);win()}}else{sel=st[i].length?i:-1;draw()}};
+  el.querySelector('[data-a="undo"]').onclick=()=>{if(over||!hist.length)return;st=hist.pop();mv--;sel=-1;draw()};
+  el.querySelector('[data-a="reset"]').onclick=()=>{if(over)return;st=start.map(x=>x.slice());hist=[];mv=0;sel=-1;draw()};draw()}}}
+function pzWord(r){const w=PZW[Math.floor(r()*PZW.length)];let tiles,k=0;do{tiles=pzShuf(w.t,r)}while(tiles.join("")===w.t.join("")&&++k<10);
+ return{t:["Make the Tamil word","தமிழ் சொல்லை உருவாக்கு"],h:`<div class="pzclue"><span>${w.e}</span><b>${w.m}</b></div><div class="pzslots">${w.t.map((_,i)=>`<button data-s="${i}" aria-label="Box ${i+1}"></button>`).join("")}</div><div class="pztiles">${tiles.map((x,j)=>`<button data-j="${j}" lang="ta">${x}</button>`).join("")}</div>`,
+ init(el,win,miss){const fill=[],slots=[...el.querySelectorAll("[data-s]")],tb=[...el.querySelectorAll("[data-j]")];let done=false;
+  const draw=()=>{slots.forEach((s,i)=>{s.textContent=fill[i]!=null?tiles[fill[i]]:"";s.classList.toggle("f",fill[i]!=null)});tb.forEach((b,j)=>b.classList.toggle("used",fill.includes(j)))};
+  tb.forEach((b,j)=>b.onclick=()=>{if(done||fill.includes(j))return;let p=0;while(fill[p]!=null)p++;if(p>=slots.length)return;fill[p]=j;draw();
+   if(slots.every((_,i)=>fill[i]!=null)){if(fill.map(f=>tiles[f]).join("")===w.t.join("")){done=true;slots.forEach(s=>s.classList.add("ok"));win()}else{done=true;miss();setTimeout(()=>{fill.length=0;done=false;draw()},550)}}});
+  slots.forEach((s,i)=>s.onclick=()=>{if(done)return;fill[i]=null;draw()})}}}
+function pzMem(r){const pool=pzShuf(["🛺","☕","🌊","🛕","🎬","🚇","🥥","🪁","🌼","🐦"],r).slice(0,6),seq=[];while(seq.length<5){const v=Math.floor(r()*6);if(v!==seq[seq.length-1])seq.push(v)}
+ return{t:["Watch, then tap in the same order","பார்த்து, அதே வரிசையில் தொடு"],h:`<div class="pzshow" aria-live="polite"></div><div class="pzprog">${seq.map(()=>"<i></i>").join("")}</div><div class="pzkeys">${pool.map((e,i)=>`<button data-k="${i}" disabled>${e}</button>`).join("")}</div><button class="chip pzplay">▶ ${PT(["Start","தொடங்கு"])}</button>`,
+ init(el,win,miss){const show=el.querySelector(".pzshow"),keys=[...el.querySelectorAll("[data-k]")],dots=[...el.querySelectorAll(".pzprog i")],play=el.querySelector(".pzplay");let pos=0,busy=false,done=false;const sl=ms=>new Promise(f=>setTimeout(f,ms));
+  play.onclick=async()=>{busy=true;play.hidden=true;keys.forEach(k=>k.disabled=true);pos=0;dots.forEach(d=>d.className="");await sl(400);
+   for(const v of seq){if(!el.isConnected)return;show.textContent=pool[v];show.classList.add("on");await sl(750);show.classList.remove("on");show.textContent="";await sl(250)}show.textContent="👆";keys.forEach(k=>k.disabled=false);busy=false};
+  keys.forEach(k=>k.onclick=()=>{if(busy||done)return;const v=+k.dataset.k;k.classList.remove("hit");void k.offsetWidth;k.classList.add("hit");
+   if(v===seq[pos]){dots[pos].className="ok";pos++;if(pos===seq.length){done=true;show.textContent="✓";win()}}else{miss();show.textContent="";play.hidden=false;play.textContent="↻ "+PT(["Watch again","மீண்டும் பார்"]);keys.forEach(x=>x.disabled=true);dots.forEach(d=>d.className="")}})}}}
+const pzComplete=()=>{const st=jget("cp-pzs",{last:0,n:0}),d=pzDay();if(st.last===d)return;st.n=st.last===d-1?st.n+1:1;st.last=d;jset("cp-pzs",st)};
+function puzzleView(){return `<section style="display:grid;gap:12px"><button class="back" data-go="games">‹ ${PT(["Games","விளையாட்டுகள்"])}</button>
+ <div><h1 class="ntitle">${PT(["Chennai Daily Puzzle","சென்னை தினசரி புதிர்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">#${pzNo()} · ${new Date(pzDay()*864e5).toLocaleDateString(LOC(),{day:"numeric",month:"short",timeZone:"UTC"})} ${pzStreak()?` · 🔥 ${pzStreak()} ${PT(["day streak","நாள் தொடர்"])}`:""}</div></div>
+ <div id="pzbody"></div></section>`}
+function startPuzzle(){const el=document.getElementById("pzbody");if(!el)return;const s=pzState();jset("cp-pz",s);if(s.i>=5)return pzEnd(el,s);
+ const P=[pzNum,pzMatch,pzSort,pzWord,pzMem][s.i](pzRng(pzDay()*7919+s.i*101));let misses=0,fin=false;
+ el.innerHTML=`<div class="pzdots">${[0,1,2,3,4].map(k=>`<i class="${k<s.i?"r"+s.res[k]:k===s.i?"on":""}"></i>`).join("")}</div>
+ <div class="pzcard"><div class="pzhead"><span>${s.i+1} / 5</span><b>${PT(P.t)}</b></div><div class="pzin">${P.h}</div><div class="pzfoot"><button class="pzskip" id="pzskip">${PT(["Skip this one","இதைத் தவிர்"])} ›</button></div><div class="pzok" hidden>✓</div></div>`;
+ const card=el.querySelector(".pzcard");
+ const finish=res=>{if(fin)return;fin=true;s.res.push(res);s.i++;jset("cp-pz",s);if(s.i>=5)pzComplete();
+  if(res!=="s"){const ok=card.querySelector(".pzok");ok.className="pzok "+res;ok.hidden=false;pzVib(30)}
+  setTimeout(()=>{if(!el.isConnected)return;s.i>=5?go("puzzle"):startPuzzle()},res==="s"?0:900)};
+ P.init(card.querySelector(".pzin"),()=>finish(misses?"y":"g"),quiet=>{misses++;if(quiet)return;card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30])});
+ document.getElementById("pzskip").onclick=()=>finish("s")}
+function pzEnd(el,s){const pts=s.res.reduce((a,x)=>a+(x==="g"?20:x==="y"?10:0),0),em=s.res.map(x=>x==="g"?"🟩":x==="y"?"🟨":"⬜").join(""),stk=pzStreak();
+ const share=encodeURIComponent(`Chennai+ Daily Puzzle #${pzNo()}\n${em} ${pts}/100\n🔥 ${stk}-day streak\nCan you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/#puzzle`);
+ el.innerHTML=`<div class="pzcard pzend"><div class="pzem">${em}</div><b class="pzpts">${pts}<small>/100</small></b><div class="pzst">🔥 ${stk} ${PT(["day streak","நாள் தொடர்"])}</div>
+ <a class="pzwa" href="https://wa.me/?text=${share}" target="_blank" rel="noopener">${PT(["Share on WhatsApp","வாட்ஸ்அப்பில் பகிர்"])}</a>
+ <p class="note" style="margin:0">${PT(["New puzzles in","புதிய புதிர்கள்"])} <b id="pzcd"></b></p><button class="chip" data-go="game">🎈 ${PT(["Play Balloon Shoot","பலூன் சுடுதல் விளையாடு"])}</button></div>`;
+ let tm;const cd=()=>{const e=document.getElementById("pzcd");if(!e)return clearInterval(tm);const ms=(pzDay()+1)*864e5-(Date.now()+19800000);if(ms<=1000){clearInterval(tm);return go("puzzle")}e.textContent=`${Math.floor(ms/36e5)}h ${Math.floor(ms%36e5/6e4)}m`};tm=setInterval(cd,30000);cd()}
+const PZICON=`<span class="pzicon"><i></i><i></i><i></i><i></i></span>`;
+function pzStatus(){const s=pzState(),st=pzStreak();return s.i>=5?`${PT(["Done for today","இன்று முடிந்தது"])} · 🔥 ${st}`:s.i?`${5-s.i} ${PT(["puzzles left today","புதிர்கள் மீதம்"])}`:PT(["5 new puzzles today","இன்று 5 புதிய புதிர்கள்"])}
+function gamesView(){return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><h1 class="ntitle">${PT(["Games","விளையாட்டுகள்"])}</h1>
+ <button class="kcard pzcardh" data-go="puzzle">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Chennai Daily Puzzle","சென்னை தினசரி புதிர்"])}</b><span>${PT(["Numbers, shapes, colours, a Tamil word and memory","எண்கள், வடிவங்கள், நிறங்கள், தமிழ் சொல், நினைவாற்றல்"])}</span></span><i>›</i></button>
+ <button class="kcard gcardh" data-go="game"><span class="gball"><i style="background:#ff4d6d"></i><i style="background:#ffb703"></i><i style="background:#3a86ff"></i></span><span><small>${PT(["Take a short break","ஒரு சிறு இடைவேளை"])}</small><b>${PT(["Balloon Shoot","பலூன் சுடுதல்"])}</b><span>${PT(["Pop balloons Marina-style and relax","மெரினா ஸ்டைலில் பலூன்களை உடைத்து ரிலாக்ஸ் ஆகுங்கள்"])}</span></span><i>›</i></button></section>`}
+function gameHome(){return `<section><button class="kcard pzcardh" data-go="games">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Games","விளையாட்டுகள்"])}</b><span>${PT(["Chennai Daily Puzzle · Balloon Shoot","சென்னை தினசரி புதிர் · பலூன் சுடுதல்"])}</span></span><i>›</i></button></section>`}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -1131,6 +1234,8 @@ const views={
  about:()=>aboutView(),
  reps:()=>repsView(),
  game:()=>gameView(),
+ games:()=>gamesView(),
+ puzzle:()=>puzzleView(),
  news:()=>newsView(),
  events:()=>`${banner("events","Events","Concerts, comedy, markets &amp; more",["ticket","music","festival"])}<section><h2>Coming up${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${banner("food","Food","Chennai’s tastiest spots",["dosa","biryani","coffee"])}<section>
@@ -1141,7 +1246,7 @@ const views={
 
 const view=document.getElementById("view");
 new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
-function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="puzzle")startPuzzle();if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
 view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const rf=e.target.closest("[data-rf]");if(rf){rentF[rf.dataset.rf]=rf.dataset.rv;const y=scrollY;go("rent");scrollTo(0,y);return}const gm=e.target.closest("[data-gm]");if(gm){GM.mode=gm.dataset.gm;go("game");return}if(e.target.closest("#gsnd")){GM.sound=!GM.sound;if(!GM.sound&&GM.stop)GM.stop();gset("cp-snd",GM.sound?"1":"0");e.target.closest("#gsnd").innerHTML=GM.sound?SND_ON:SND_OFF;return}const nt=e.target.closest("[data-nt]");if(nt){newsT=nt.dataset.nt;go("news");return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
@@ -1151,7 +1256,7 @@ view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS();if(e.targ
 (function(){const sp=document.getElementById("splash");if(!sp)return;if(lang==="ta"){const t=document.getElementById("sptag");if(t)t.textContent="நம்ம ஊரு, எல்லாம் ஒரே இடத்தில்"}
  const t0=performance.now();const hide=()=>{const wait=Math.max(0,1300-(performance.now()-t0));setTimeout(()=>{sp.classList.add("hide");setTimeout(()=>sp.remove(),600)},wait)};
  if(document.readyState==="complete")hide();else window.addEventListener("load",hide);setTimeout(hide,2600)})();
-setLang(lang);go("home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
+setLang(lang);go(location.hash==="#puzzle"?"puzzle":location.hash==="#games"?"games":"home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!reloaded){reloaded=true;location.reload()}})}
 </script>
 
