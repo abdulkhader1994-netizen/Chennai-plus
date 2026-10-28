@@ -410,6 +410,20 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .ncard h3{margin:0 4px;font-size:15px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .nrow{display:block;padding:12px 14px;border-top:1px solid var(--line);text-decoration:none;color:inherit}.nrow:first-child{border-top:0}.nrow h3{margin:0;font-size:15px;line-height:1.4}
 .nmeta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:4px 4px 0}.favi{width:16px;height:16px;border-radius:4px;flex:none}
+
+.ghead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.gsnd{border:0;color:var(--ink);display:grid;place-items:center;background:var(--surface2);border-radius:14px;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(40,20,90,.08)}
+.gwrap{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 14px 30px rgba(90,30,100,.25);touch-action:manipulation;user-select:none;-webkit-user-select:none}
+#gcv{display:block;width:100%;cursor:crosshair;touch-action:manipulation}
+.ghud{position:absolute;left:12px;right:12px;bottom:10px;display:flex;justify-content:space-between;pointer-events:none;font-family:var(--display);font-weight:800;color:#5c2d0a}
+.ghud span{background:rgba(255,255,255,.85);border-radius:999px;padding:4px 14px;font-size:18px}
+.gover{position:absolute;inset:0;display:grid;place-items:center;background:rgba(30,10,40,.45);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.gcard{background:var(--surface);color:var(--ink);border-radius:24px;padding:22px;width:min(280px,80%);display:grid;gap:8px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.gcard b{font-family:var(--display);font-size:56px;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.gcard small{color:var(--muted)}
+.gcardh{background:linear-gradient(135deg,#5b2a86,#ff7a59 70%,#ffc46b)!important}
+.gball{position:relative;width:60px;height:60px;flex:none}.gball i{position:absolute;width:26px;height:32px;border-radius:50% 50% 48% 48%;box-shadow:inset -4px -5px 0 rgba(0,0,0,.12),inset 4px 4px 0 rgba(255,255,255,.35)}
+.gball i:nth-child(1){left:2px;top:12px}.gball i:nth-child(2){left:18px;top:2px}.gball i:nth-child(3){left:32px;top:16px}
+@media (prefers-reduced-motion:no-preference){.gball i{animation:bob 3s ease-in-out infinite}.gball i:nth-child(2){animation-delay:.5s}.gball i:nth-child(3){animation-delay:1s}}
 </style>
 </head>
 <body>
@@ -1028,6 +1042,64 @@ function repsView(){loadReps();if(!REPS)return `<section><button class="back" da
  <a class="bigcta" target="_blank" rel="noopener" href="https://www.assembly.tn.gov.in/">${art("civic")}<span><b>MLA contact details</b><small>Tamil Nadu Legislative Assembly website</small></span><i>›</i></a>
  <p class="note">Updated ${asOf}. MP contacts are from the official Lok Sabha website.</p></section>`}
 function repsHome(){return `<section><button class="kcard" data-go="reps" style="background:linear-gradient(135deg,#431407,#9a3412 55%,#ea580c)">${art("civic","kart")}<span><small>Lok Sabha &amp; Assembly</small><b>Your MLA &amp; MP</b><span>Find who represents your area and contact them</span></span><i>›</i></button></section>`}
+const SND_ON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>',SND_OFF='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 10l4 4M21 10l-4 4"/></svg>';let GM={mode:"relax",sound:true};try{GM.sound=localStorage.getItem("cp-snd")!=="0"}catch(e){}
+const gget=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:+v}catch(e){return d}},gset=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+function gameView(){const T=x=>lang==="ta"?x[1]:x[0];
+ return `<section style="display:grid;gap:10px"><button class="back" data-go="home">‹ Home</button>
+ <div class="ghead"><div><h1 class="ntitle">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${T(["Marina beach stall · tap to pop, breathe, relax","மெரினா கடை · தொட்டு உடையுங்கள், ரிலாக்ஸ் ஆகுங்கள்"])}</div></div>
+ <button class="gsnd" id="gsnd" aria-label="Sound">${GM.sound?SND_ON:SND_OFF}</button></div>
+ <div class="chips" style="margin:0"><button class="chip" data-gm="relax" aria-pressed="${GM.mode==="relax"}">${T(["Relax","ரிலாக்ஸ்"])}</button><button class="chip" data-gm="timed" aria-pressed="${GM.mode==="timed"}">${T(["60-second challenge","60 வினாடி சவால்"])}</button></div>
+ <div class="gwrap" id="gwrap"><canvas id="gcv" aria-label="Balloon shooting game: tap balloons to pop them"></canvas>
+  <div class="ghud"><span id="gsc">0</span><span id="gx"></span></div>
+  <div class="gover" id="gover" hidden></div></div>
+ <p class="note" style="text-align:center">${T(["Total balloons popped","மொத்தம் உடைத்த பலூன்கள்"])}: <b id="gtot">${gget("cp-pops",0).toLocaleString("en-IN")}</b></p></section>`}
+function startGame(){const cv=document.getElementById("gcv");if(!cv)return;const wrap=document.getElementById("gwrap"),ctx=cv.getContext("2d"),dpr=Math.min(2,devicePixelRatio||1);
+ const W=wrap.clientWidth,H=Math.min(600,Math.max(440,innerHeight-300));cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+ const COLS=["#ff4d6d","#ffb703","#3a86ff","#8338ec","#06d6a0","#ff7a00","#f72585","#4cc9f0"];
+ const reduce=matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const bx=Math.max(16,W*0.06),bw=W-bx*2,by=H*0.12,bh=H*0.58;const cols=Math.max(4,Math.min(6,Math.floor(bw/66))),rows=5,cw=bw/cols,rh=bh/rows,R=Math.min(cw,rh)*0.36;
+ const slots=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)slots.push({x:bx+cw*(c+.5)+(r%2?cw*.12:-cw*.12),y:by+rh*(r+.55),col:COLS[(r*cols+c*3)%COLS.length],s:1,pop:0,ph:Math.random()*6.28});
+ let score=0,parts=[],texts=[],rings=[],gold=null,nextGold=performance.now()+9000,tEnd=GM.mode==="timed"?performance.now()+60000:0,over=false,combo=0,lastPop=0,last=performance.now();
+ let AC=null;const pop=(big)=>{if(!GM.sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t=AC.currentTime;const len=.12;const buf=AC.createBuffer(1,AC.sampleRate*len,AC.sampleRate),d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,3);
+  const n=AC.createBufferSource();n.buffer=buf;const f=AC.createBiquadFilter();f.type="bandpass";f.frequency.value=big?900:1400+Math.random()*600;f.Q.value=.9;const g=AC.createGain();g.gain.value=.55;n.connect(f).connect(g).connect(AC.destination);n.start(t);
+  const o=AC.createOscillator(),og=AC.createGain();o.frequency.setValueAtTime(big?520:340+Math.random()*160,t);o.frequency.exponentialRampToValueAtTime(90,t+.09);og.gain.setValueAtTime(.18,t);og.gain.exponentialRampToValueAtTime(.001,t+.1);o.connect(og).connect(AC.destination);o.start(t);o.stop(t+.11)}catch(e){}};
+ const sc=document.getElementById("gsc"),gx=document.getElementById("gx");const hud=()=>{sc.textContent=score;gx.textContent=GM.mode==="timed"?Math.max(0,Math.ceil((tEnd-performance.now())/1000))+"s":(lang==="ta"?"சிறந்தது ":"Best ")+gget("cp-best-relax",0)};
+ const burst=(x,y,col,n,big)=>{for(let i=0;i<n;i++){const a=Math.random()*6.28,sp=(big?3:2)+Math.random()*3.5;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-1,l:1,c:Math.random()<.25?"#fff":col,r:2+Math.random()*3.5,rot:Math.random()*6,sq:Math.random()<.5})}rings.push({x,y,r:R*.6,l:1,c:col})};
+ const msgs=lang==="ta"?["அருமை!","சூப்பர்!","மூச்சை இழுங்கள்…","மெதுவாக விடுங்கள்…","நல்லது!"]:["Nice!","Super!","Breathe in…","…and out","Lovely!"];
+ const hit=(x,y)=>{if(over)return;if(gold&&Math.hypot(x-gold.x,y-gold.y)<R*1.3){burst(gold.x,gold.y,"#ffd166",40,true);texts.push({x:gold.x,y:gold.y,t:"+5",l:1,big:true});score+=5;gold=null;pop(true);vib(30);tally(5);return}
+  let best=null,bd=1e9;for(const b of slots){if(b.s<.6)continue;const yy=b.y+Math.sin(b.ph)*3;const d=Math.hypot(x-b.x,y-yy);if(d<bd){bd=d;best=b}}
+  rings.push({x,y,r:6,l:.7,c:"#ffffff",aim:1});
+  if(best&&bd<R*1.35){const now=performance.now();combo=now-lastPop<700?combo+1:0;lastPop=now;burst(best.x,best.y+Math.sin(best.ph)*3,best.col,22,false);best.s=0;best.pop=now;best.col=COLS[(Math.random()*COLS.length)|0];score++;texts.push({x:best.x,y:best.y,t:combo>=3?msgs[(score/3|0)%msgs.length]:"+1",l:1});pop(false);vib(12);tally(1)}};
+ const vib=ms=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
+ const tally=n=>{gset("cp-pops",gget("cp-pops",0)+n);const el=document.getElementById("gtot");if(el)el.textContent=gget("cp-pops",0).toLocaleString("en-IN")};
+ cv.onpointerdown=e=>{const r=cv.getBoundingClientRect();hit(e.clientX-r.left,e.clientY-r.top)};
+ const endGame=()=>{over=true;const k="cp-best-"+GM.mode,b=gget(k,0),nb=score>b;if(nb)gset(k,score);const ov=document.getElementById("gover");if(!ov)return;
+  const share=encodeURIComponent(`I popped ${score} balloons at the Marina in 60 seconds on Chennai+ 🎈 Can you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/`);
+  ov.innerHTML=`<div class="gcard"><b>${score}</b><span>${lang==="ta"?"பலூன்கள் உடைத்தீர்கள்":"balloons popped"}</span><small>${nb?(lang==="ta"?"புதிய சாதனை!":"New best score!"):(lang==="ta"?"சிறந்தது: ":"Best: ")+(nb?score:b)}</small><button class="getdeal" id="gagain" style="border:0;cursor:pointer;width:100%">${lang==="ta"?"மீண்டும் விளையாடு":"Play again"}</button><a class="go" target="_blank" rel="noopener" href="https://wa.me/?text=${share}" style="justify-self:center">${lang==="ta"?"WhatsApp-ல் பகிர்":"Share on WhatsApp"}</a></div>`;ov.hidden=false;
+  document.getElementById("gagain").onclick=()=>{ov.hidden=true;startGame()}};
+ const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,"#5b2a86");sky.addColorStop(.45,"#ff7a59");sky.addColorStop(.7,"#ffc46b");
+ const frame=t=>{if(!cv.isConnected)return;const dt=Math.min(.05,(t-last)/1000);last=t;
+  ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);ctx.fillStyle="rgba(255,236,170,.9)";ctx.beginPath();ctx.arc(W*.78,H*.74,34,0,7);ctx.fill();
+  ctx.fillStyle="#2b6cb0";ctx.fillRect(0,H*.74,W,H*.12);ctx.strokeStyle="rgba(255,255,255,.35)";ctx.lineWidth=2;for(let k=0;k<3;k++){ctx.beginPath();for(let x=0;x<=W;x+=8)ctx.lineTo(x,H*.77+k*9+Math.sin(x/22+t/700+k)*2.5);ctx.stroke()}
+  ctx.fillStyle="#f2d39b";ctx.fillRect(0,H*.86,W,H*.14);
+  ctx.fillStyle="#7c3f12";ctx.fillRect(bx-10,by-14,bw+20,bh+20);ctx.fillStyle="#fff4dc";ctx.fillRect(bx,by-4,bw,bh);ctx.fillRect(bx+bw*.15,H*.86-4,0,0);
+  ctx.fillStyle="#7c3f12";ctx.fillRect(bx+6,by+bh,10,H*.9-by-bh);ctx.fillRect(bx+bw-16,by+bh,10,H*.9-by-bh);
+  ctx.strokeStyle="rgba(124,63,18,.25)";ctx.lineWidth=1;for(let c=1;c<cols;c++){ctx.beginPath();ctx.moveTo(bx+cw*c,by-4);ctx.lineTo(bx+cw*c,by+bh-4);ctx.stroke()}for(let r=1;r<rows;r++){ctx.beginPath();ctx.moveTo(bx,by-4+rh*r);ctx.lineTo(bx+bw,by-4+rh*r);ctx.stroke()}
+  ctx.fillStyle="#c2410c";ctx.fillRect(bx-14,by-40,bw+28,30);ctx.fillStyle="#fff";ctx.font=`800 ${Math.min(18,W/22)}px "Baloo Thambi 2",sans-serif`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(lang==="ta"?"மெரினா பலூன் சுடுதல்":"MARINA BALLOON SHOOT",W/2,by-25);
+  const now=performance.now();
+  for(const b of slots){if(b.s<1&&now-b.pop>900)b.s=Math.min(1,b.s+dt*2.4);if(b.s<=.02)continue;if(!reduce)b.ph+=dt*1.6;const y=b.y+Math.sin(b.ph)*3,s=b.s<1?b.s*(1+.25*Math.sin(b.s*3.14)):1;
+   ctx.strokeStyle="rgba(80,40,10,.5)";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(b.x,y+R*s);ctx.quadraticCurveTo(b.x+3,y+R*s+8,b.x,y+R*s+14);ctx.stroke();
+   const g=ctx.createRadialGradient(b.x-R*.35*s,y-R*.4*s,R*.1*s,b.x,y,R*1.1*s);g.addColorStop(0,"#ffffffcc");g.addColorStop(.25,b.col);g.addColorStop(1,b.col);ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(b.x,y,R*.86*s,R*s,0,0,7);ctx.fill();
+   ctx.fillStyle=b.col;ctx.beginPath();ctx.moveTo(b.x,y+R*s-1);ctx.lineTo(b.x-4*s,y+R*s+5);ctx.lineTo(b.x+4*s,y+R*s+5);ctx.fill()}
+  if(!gold&&now>nextGold&&!over){gold={x:-R,y:by+bh*.3,vx:W/7,ph:0};nextGold=now+14000+Math.random()*8000}
+  if(gold){gold.x+=gold.vx*dt;gold.ph+=dt*2;gold.y+=Math.sin(gold.ph)*.6;const gg=ctx.createRadialGradient(gold.x-R*.3,gold.y-R*.4,2,gold.x,gold.y,R*1.2);gg.addColorStop(0,"#fff7cc");gg.addColorStop(.3,"#ffd166");gg.addColorStop(1,"#f4a100");ctx.shadowColor="#ffd166";ctx.shadowBlur=18;ctx.fillStyle=gg;ctx.beginPath();ctx.ellipse(gold.x,gold.y,R*.95,R*1.1,0,0,7);ctx.fill();ctx.shadowBlur=0;if(gold.x>W+R)gold=null}
+  for(let i=rings.length-1;i>=0;i--){const q=rings[i];q.r+=dt*(q.aim?60:140);q.l-=dt*(q.aim?2.2:2.6);if(q.l<=0){rings.splice(i,1);continue}ctx.strokeStyle=q.c;ctx.globalAlpha=q.l;ctx.lineWidth=q.aim?1.5:3;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,7);ctx.stroke();if(q.aim){ctx.beginPath();ctx.moveTo(q.x-q.r-5,q.y);ctx.lineTo(q.x+q.r+5,q.y);ctx.moveTo(q.x,q.y-q.r-5);ctx.lineTo(q.x,q.y+q.r+5);ctx.stroke()}ctx.globalAlpha=1}
+  for(let i=parts.length-1;i>=0;i--){const q=parts[i];q.vy+=dt*9;q.x+=q.vx;q.y+=q.vy;q.vx*=.97;q.l-=dt*1.4;q.rot+=.2;if(q.l<=0){parts.splice(i,1);continue}ctx.globalAlpha=q.l;ctx.fillStyle=q.c;if(q.sq){ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot);ctx.fillRect(-q.r,-q.r/2,q.r*2,q.r);ctx.restore()}else{ctx.beginPath();ctx.arc(q.x,q.y,q.r*.7,0,7);ctx.fill()}ctx.globalAlpha=1}
+  for(let i=texts.length-1;i>=0;i--){const q=texts[i];q.y-=dt*40;q.l-=dt*1.1;if(q.l<=0){texts.splice(i,1);continue}ctx.globalAlpha=q.l;ctx.fillStyle="#fff";ctx.strokeStyle="rgba(90,30,0,.5)";ctx.lineWidth=4;ctx.font=`800 ${q.big?26:19}px "Baloo Thambi 2",sans-serif`;ctx.strokeText(q.t,q.x,q.y);ctx.fillText(q.t,q.x,q.y);ctx.globalAlpha=1}
+  if(GM.mode==="relax"&&score>gget("cp-best-relax",0))gset("cp-best-relax",score);
+  if(GM.mode==="timed"&&!over&&now>=tEnd)endGame();hud();requestAnimationFrame(frame)};
+ requestAnimationFrame(frame)}
+function gameHome(){return `<section><button class="kcard gcardh" data-go="game"><span class="gball"><i style="background:#ff4d6d"></i><i style="background:#ffb703"></i><i style="background:#3a86ff"></i></span><span><small>${lang==="ta"?"ஒரு சிறு இடைவேளை":"Take a short break"}</small><b>${lang==="ta"?"பலூன் சுடுதல்":"Balloon Shoot"}</b><span>${lang==="ta"?"மெரினா ஸ்டைலில் பலூன்களை உடைத்து ரிலாக்ஸ் ஆகுங்கள்":"Pop balloons Marina-style and relax"}</span></span><i>›</i></button></section>`}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -1041,6 +1113,7 @@ const views={
   ${exploreHome()}
   ${aboutHome()}
   ${repsHome()}
+  ${gameHome()}
   ${rentHome()}
   <section><div class="head"><h2>Top news</h2>${more("news")}</div><div class="list">${news.slice(0,3).map(newsRow).join("")}</div></section>
   <section><div class="head"><h2>This week${contentLive?"":`<span class="stag">Sample</span>`}</h2>${more("events")}</div><div class="list">${events.slice(0,2).map(evRow).join("")}</div></section>`,
@@ -1051,6 +1124,7 @@ const views={
  rent:()=>rentView(),
  about:()=>aboutView(),
  reps:()=>repsView(),
+ game:()=>gameView(),
  news:()=>newsView(),
  events:()=>`${banner("events","Events","Concerts, comedy, markets &amp; more",["ticket","music","festival"])}<section><h2>Coming up${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${banner("food","Food","Chennai’s tastiest spots",["dosa","biryani","coffee"])}<section>
@@ -1061,9 +1135,9 @@ const views={
 
 const view=document.getElementById("view");
 new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
-function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
-view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const rf=e.target.closest("[data-rf]");if(rf){rentF[rf.dataset.rf]=rf.dataset.rv;const y=scrollY;go("rent");scrollTo(0,y);return}const nt=e.target.closest("[data-nt]");if(nt){newsT=nt.dataset.nt;go("news");return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
+view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const rf=e.target.closest("[data-rf]");if(rf){rentF[rf.dataset.rf]=rf.dataset.rv;const y=scrollY;go("rent");scrollTo(0,y);return}const gm=e.target.closest("[data-gm]");if(gm){GM.mode=gm.dataset.gm;go("game");return}if(e.target.closest("#gsnd")){GM.sound=!GM.sound;gset("cp-snd",GM.sound?"1":"0");e.target.closest("#gsnd").innerHTML=GM.sound?SND_ON:SND_OFF;return}const nt=e.target.closest("[data-nt]");if(nt){newsT=nt.dataset.nt;go("news");return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
 document.getElementById("lang").addEventListener("click",()=>setLang(lang==="en"?"ta":"en"));
 view.addEventListener("change",e=>{if(e.target.id==="area"&&AREAS[e.target.value]){nearA=e.target.value;nearLoc={lat:AREAS[nearA][0],lng:AREAS[nearA][1],gps:false};nearMsg="";rerenderNear()}});
