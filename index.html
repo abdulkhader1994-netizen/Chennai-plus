@@ -598,6 +598,17 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .cerr{position:absolute;inset:auto 20px 45%;color:#fff;text-align:center;font-weight:700}
 .cancard{background:linear-gradient(135deg,#5b2410,#9a4a1c 60%,#e0a060)!important;box-shadow:0 14px 30px rgba(91,36,16,.3)!important}
 .gico.cn{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:2px;padding:9px}.gico.cn i{border-radius:3px;background:linear-gradient(90deg,#7a3c1d,#d4955e 40%,#7a3c1d)}.gico.cn i:nth-child(1),.gico.cn i:nth-child(3),.gico.cn i:nth-child(4),.gico.cn i:nth-child(6){visibility:hidden}
+.c3{position:fixed;inset:0;z-index:300;background:#2b1208;touch-action:none;user-select:none;-webkit-user-select:none;overflow:hidden}
+.c3 canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+body.c3on{overflow:hidden}
+.c3b{position:absolute;border:0;background:none;cursor:pointer;padding:6px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45));z-index:2;-webkit-tap-highlight-color:transparent}
+.c3home{left:max(16px,env(safe-area-inset-left));top:max(14px,env(safe-area-inset-top))}.c3set{right:max(16px,env(safe-area-inset-right));top:max(14px,env(safe-area-inset-top))}
+.c3re{left:50%;top:calc(max(14px,env(safe-area-inset-top)) + 46px);transform:translateX(-50%);width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+.c3re:active{transform:translateX(-50%) scale(.92)}
+.c3menu{position:absolute;right:16px;top:calc(max(14px,env(safe-area-inset-top)) + 56px);z-index:3;background:rgba(255,248,240,.96);border-radius:16px;padding:6px;box-shadow:0 10px 24px rgba(0,0,0,.35)}.c3menu button{border:0;background:none;font:700 15px var(--body);color:#3b1a0b;padding:10px 14px;cursor:pointer}
+.c3load{position:absolute;inset:0;display:grid;place-items:center;color:#f5d6b8;font:700 16px var(--body)}
+.c3tip{position:absolute;left:50%;bottom:calc(max(18px,env(safe-area-inset-bottom)) + 150px);transform:translateX(-50%);padding:8px 16px;border-radius:999px;background:rgba(0,0,0,.45);color:#fff;font:700 13.5px var(--body);pointer-events:none;white-space:nowrap;transition:opacity .4s;animation:c3tip 1.6s ease-in-out infinite}.c3tip.hide{opacity:0;animation:none}
+@keyframes c3tip{50%{transform:translate(-50%,-8px)}}
 </style>
 </head>
 <body>
@@ -1287,7 +1298,7 @@ const pzVib=p=>{try{if(navigator.vibrate){navigator.vibrate(p);return}}catch(e){
 const PZICON=`<span class="pzicon"><i></i><i></i><i></i><i></i></span>`;
 function gamesView(){const jt=gget("cp-jta",1),je=gget("cp-jen",1);return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><h1 class="ntitle">${PT(["Games","விளையாட்டுகள்"])}</h1>
  <button class="kcard srtcard" data-go="sort"><span class="gico tb"><i><b style="background:#ffd60a"></b><b style="background:#e63946"></b><b style="background:#ffd60a"></b></i><i><b style="background:#3a86ff"></b><b style="background:#3a86ff"></b><b style="background:#3a86ff"></b></i><i><b style="background:#e63946"></b></i></span><span><small>${PT(["Level","நிலை"])} ${Math.min(100,gget("cp-sort",1))} / 100 · ★ ${Object.values(sortStars()).reduce((a,b)=>a+b,0)}</small><b>${PT(["Colour Sort","நிற வரிசை"])}</b><span>${PT(["One colour in each tube","ஒவ்வொரு குழாயிலும் ஒரே நிறம்"])}</span></span><i>›</i></button>
- <button class="kcard cancard" data-go="cans"><span class="gico mt"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15.5" y="6" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="10.5" y="17" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="20.5" y="17" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="5.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="15.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="25.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><defs><linearGradient id="cg"><stop offset="0" stop-color="#7a3c1d"/><stop offset=".4" stop-color="#e0a060"/><stop offset="1" stop-color="#6e3418"/></linearGradient></defs></svg></span><span><small>${PT(["Round","சுற்று"])} ${gget("cp-cans-r",1)} · ${gget("cp-cans-tot",0)} ${PT(["cans down","வீழ்ந்தவை"])}</small><b>${PT(["Knock the Cans","டப்பா அடி"])}</b><span>${PT(["Flick the ball at the soda cans","பந்தை வீசி டப்பாக்களை வீழ்த்து"])}</span></span><i>›</i></button>
+ <button class="kcard cancard" data-go="cans"><span class="gico mt"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15.5" y="6" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="10.5" y="17" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="20.5" y="17" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="5.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="15.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><rect x="25.5" y="28" width="9" height="10" rx="1.5" fill="url(#cg)"/><defs><linearGradient id="cg"><stop offset="0" stop-color="#7a3c1d"/><stop offset=".4" stop-color="#e0a060"/><stop offset="1" stop-color="#6e3418"/></linearGradient></defs></svg></span><span><small>${PT(["Relax · 3D","ரிலாக்ஸ் · 3D"])}</small><b>${PT(["Knock the Cans","டப்பா அடி"])}</b><span>${PT(["Swipe the wooden ball at the can pyramid","மரப் பந்தை வீசி டப்பாக்களை வீழ்த்து"])}</span></span><i>›</i></button>
  <button class="kcard mtcard" data-go="match"><span class="gico mt"><svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="#f2c98a" stroke-width="3.5" stroke-linecap="round"><line x1="7" y1="8" x2="7" y2="32"/><line x1="14" y1="20" x2="26" y2="20"/><line x1="20" y1="14" x2="20" y2="26"/><line x1="33" y1="8" x2="33" y2="32"/></g><g fill="#e0453a"><circle cx="7" cy="8" r="2.7"/><circle cx="26" cy="20" r="2.7"/><circle cx="20" cy="14" r="2.7"/><circle cx="33" cy="8" r="2.7"/></g></svg></span><span><small>${PT(["Level","நிலை"])} ${Math.min(100,gget("cp-match",1))} / 100 · ★ ${Object.values(jget("cp-match-st",{})).reduce((a,b)=>a+b,0)}</small><b>${PT(["Matchstick Puzzle","தீக்குச்சி புதிர்"])}</b><span>${PT(["Move a stick to fix the sum","தீக்குச்சியை நகர்த்தி கணக்கைச் சரிசெய்"])}</span></span><i>›</i></button>
  <button class="kcard jmbcard" data-go="jumble"><span class="gico lt"><i>அ</i><i>B</i><i>க</i><i>D</i></span><span><small>தமிழ் ${Math.min(jt,JTA.length)} · English ${Math.min(je,JEN.length)}</small><b>${PT(["Word Jumble","சொல் விளையாட்டு"])}</b><span>${PT(["Tamil and English words","தமிழ் மற்றும் ஆங்கில சொற்கள்"])}</span></span><i>›</i></button>
  <button class="kcard memcard" data-go="mem"><span class="gico mm"><i></i><i></i><i></i><i></i><i></i><i></i></span><span><small>${PT(["Best","சிறந்தது"])}: ${gget("cp-mem",0)}</small><b>${PT(["Memory Sequence","நினைவு வரிசை"])}</b><span>${PT(["How long a sequence can you remember?","எவ்வளவு நீள வரிசையை நினைவில் வைப்பீர்கள்?"])}</span></span><i>›</i></button>
@@ -1791,95 +1802,88 @@ function rPaint(st,tools){const {W,H,mk}=rCanvas(st);const [wc,wx]=mk(),[fc,fx]=
  tools.querySelector("[data-a=clr]").onclick=()=>{drips=[];wc.style.transition="opacity .35s";wc.style.opacity=0;setTimeout(()=>{wall();wc.style.opacity=1},380)};
  tools.querySelector("[data-a=save]").onclick=()=>{wx.fillStyle="rgba(0,0,0,.45)";wx.font="700 14px sans-serif";wx.fillText("Chennai+",10,H-10);wc.toBlob(async b=>{const f=new File([b],"paint-splash.png",{type:"image/png"});try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"My paint splash"});return}}catch(e){}const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="paint-splash.png";a.click()})}}
 // ---------- Knock the Cans (wooden ball + physics) ----------
-const loadMatter=()=>window.Matter?Promise.resolve():new Promise((ok,er)=>{const s=document.createElement("script");s.src="assets/lib/matter.min.js";s.onload=ok;s.onerror=er;document.head.append(s)});
-const CAN_L=[["pyr",7],["wall",6,5],["twin",4],["pyr",6],["tower",3,6],["pyr",7],["steps",6]];
 const CAN_B=[{c:"#d62828",t:"#fff",a:"KOLA",b:"BLAST"},{c:"#1d4ed8",t:"#fff",a:"BLU",b:"FIZZ",s:"#e11d48"},{c:"#111827",t:"#ef4444",a:"ZERO",b:"KOLA"},{c:"#cbd5e1",t:"#b91c1c",a:"LITE",b:"KOLA",dark:1},{c:"#15803d",t:"#fff",a:"GOLI",b:"SODA"},{c:"#ec4899",t:"#fff",a:"PANEER",b:"SODA"},{c:"#7f1d1d",t:"#fde68a",a:"NANNARI",b:"SARBATH"},{c:"#f59e0b",t:"#7c2d12",a:"MANGO",b:"FIZZ"}];
 function sTin(v,floor){if(!GM.sound)return;try{const A=rac(),t=A.currentTime+.002,f=(floor?520:900)+Math.random()*500;[1,2.76,5.4,8.9].forEach((m,i)=>{const o=A.createOscillator(),g=A.createGain();o.type="sine";o.frequency.value=f*m*(1+(Math.random()-.5)*.02);const d=(floor?.09:.14)/(1+i*.6);g.gain.setValueAtTime(Math.min(.5,v*.5)/(1+i*.8),t);g.gain.exponentialRampToValueAtTime(.0005,t+d);o.connect(g).connect(A.destination);o.start(t);o.stop(t+d+.02)});
  const n=A.createBufferSource();n.buffer=rNoise(A,.03);const hp=A.createBiquadFilter();hp.type="highpass";hp.frequency.value=2500;const ng=A.createGain();ng.gain.setValueAtTime(v*.5,t);ng.gain.exponentialRampToValueAtTime(.001,t+.025);n.connect(hp).connect(ng).connect(A.destination);n.start(t)}catch(e){}}
 function sWood(v,low){if(!GM.sound)return;try{const A=rac(),t=A.currentTime+.002,f=(low?380:700)+Math.random()*(low?200:700);const n=A.createBufferSource();n.buffer=rNoise(A,.08);const bp=A.createBiquadFilter();bp.type="bandpass";bp.frequency.value=f;bp.Q.value=7;const g=A.createGain();g.gain.setValueAtTime(Math.min(1.2,v*1.4),t);g.gain.exponentialRampToValueAtTime(.001,t+.07);n.connect(bp).connect(g).connect(A.destination);n.start(t);
  const o=A.createOscillator(),og=A.createGain();o.frequency.setValueAtTime(f*.35,t);o.frequency.exponentialRampToValueAtTime(f*.25,t+.05);og.gain.setValueAtTime(v*.35,t);og.gain.exponentialRampToValueAtTime(.001,t+.06);o.connect(og).connect(A.destination);o.start(t);o.stop(t+.07)}catch(e){}}
 function sWhoosh(s){if(!GM.sound)return;try{const A=rac(),t=A.currentTime+.002;const n=A.createBufferSource();n.buffer=rNoise(A,.4);const bp=A.createBiquadFilter();bp.type="bandpass";bp.Q.value=1.2;bp.frequency.setValueAtTime(350,t);bp.frequency.exponentialRampToValueAtTime(1400,t+.3);const g=A.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22*s,t+.08);g.gain.exponentialRampToValueAtTime(.001,t+.38);n.connect(bp).connect(g).connect(A.destination);n.start(t)}catch(e){}}
-function cansView(){return `<section class="wsx wood"><div class="wshead"><button class="wsic" data-go="games" aria-label="Back to games">${wsi("back")}</button><div class="wslv"><small>${PT(["ROUND","சுற்று"])}</small><b id="wslv"></b></div><button class="wsic" id="crest" aria-label="Restack the cans">${wsi("reset")}</button></div>
- <div class="rstage cstage" id="cstage"><div class="chud"><span id="cleft"></span><span id="cthrow"></span></div><div class="wsover" id="wsover" hidden></div></div>
- <div class="wstools"><button class="wstool" id="csnd">${GM.sound?SND_ON:SND_OFF}<span>${PT(["Sound","ஒலி"])}</span></button><div class="wstool rstat"><b id="ctot">${gget("cp-cans-tot",0).toLocaleString("en-IN")}</b><span>${PT(["cans down","வீழ்ந்தவை"])}</span></div></div>
- <p class="wsmv">${PT(["Drag the ball and flick it up. Faster flick = higher throw","பந்தை இழுத்து மேலே வீசுங்கள். வேகமாக வீசினால் உயரமாகச் செல்லும்"])}</p></section>`}
-function startCans(){const st=document.getElementById("cstage");if(!st)return;loadMatter().then(()=>cansRun(st)).catch(()=>{st.insertAdjacentHTML("beforeend",`<p class="cerr">${PT(["Could not load the game. Check your internet and try again.","விளையாட்டை ஏற்ற முடியவில்லை."])}</p>`)})}
-function cansRun(st){const M=Matter,W=st.clientWidth,H=Math.min(640,Math.max(500,innerHeight-250)),dpr=Math.min(2,devicePixelRatio||1);st.style.height=H+"px";
- const cv=document.createElement("canvas");cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+"px";st.prepend(cv);const x=cv.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);
- const floorY=H*.66,plankY=H*.6,plankH=13,pl=W*.07,pr=W*.93,groundY=H*.8,BR=W*.19,homeX=W/2,homeY=H+BR*.18;
- // static background
- const bgc=document.createElement("canvas");bgc.width=W*dpr;bgc.height=H*dpr;const b=bgc.getContext("2d");b.setTransform(dpr,0,0,dpr,0,0);
- let g=b.createLinearGradient(0,0,W,0);g.addColorStop(0,"#3b1a0b");g.addColorStop(.5,"#6b3219");g.addColorStop(1,"#3b1a0b");b.fillStyle=g;b.fillRect(0,0,W,floorY);
- for(let i=0;i<70;i++){const x0=Math.random()*W,amp=4+Math.random()*14,ph=Math.random()*6;b.strokeStyle=Math.random()<.5?`rgba(30,10,3,${.15+Math.random()*.25})`:`rgba(160,80,40,${.08+Math.random()*.12})`;b.lineWidth=1+Math.random()*2.5;b.beginPath();for(let y=0;y<=floorY;y+=8)b.lineTo(x0+Math.sin(y/(40+amp*3)+ph)*amp,y);b.stroke()}
- b.fillStyle="#2a1207";b.fillRect(0,floorY-10,W,10);
- g=b.createLinearGradient(0,floorY,0,H);g.addColorStop(0,"#9c6239");g.addColorStop(1,"#d9a46d");b.fillStyle=g;b.fillRect(0,floorY,W,H-floorY);
- b.strokeStyle="rgba(90,50,20,.3)";b.lineWidth=1;for(let i=-8;i<=8;i++){b.beginPath();b.moveTo(W/2+i*W*.05,floorY);b.lineTo(W/2+i*W*.32,H);b.stroke()}
- for(let i=0;i<40;i++){b.strokeStyle=`rgba(255,220,180,${Math.random()*.08})`;b.beginPath();const y0=floorY+Math.random()*(H-floorY);b.moveTo(0,y0);b.lineTo(W,y0+Math.random()*4);b.stroke()}
- g=b.createRadialGradient(W/2,floorY+20,10,W/2,floorY+20,W*.5);g.addColorStop(0,"rgba(0,0,0,.35)");g.addColorStop(1,"rgba(0,0,0,0)");b.fillStyle=g;b.fillRect(0,floorY,W,H*.2);
- const brick=(bx,by,bw,bh)=>{b.fillStyle="#8c4a35";b.fillRect(bx,by,bw,bh);for(let i=0;i<80;i++){b.fillStyle=Math.random()<.5?"rgba(60,20,10,.35)":"rgba(220,150,120,.25)";b.fillRect(bx+Math.random()*bw,by+Math.random()*bh,1.5,1.5)}b.fillStyle="rgba(255,255,255,.08)";b.fillRect(bx,by,bw,3);b.fillStyle="rgba(0,0,0,.25)";b.fillRect(bx,by+bh-3,bw,3)};
- const bh=(groundY-plankY-plankH)/3;[[pl+6,0],[pr-6-W*.22,0]].forEach(([bx])=>{for(let k=0;k<3;k++)brick(bx+(k===1?6:k===2?-4:0),plankY+plankH+k*bh,W*.22,bh-1)});
- g=b.createLinearGradient(0,plankY,0,plankY+plankH);g.addColorStop(0,"#e8b57a");g.addColorStop(1,"#a8692f");b.fillStyle=g;b.fillRect(pl,plankY,pr-pl,plankH);b.fillStyle="rgba(255,240,210,.35)";b.fillRect(pl,plankY,pr-pl,2);
- // can sizes
- let cw=Math.min(46,(pr-pl)*.86/7),ch=cw*1.28;
- const E=M.Engine.create({enableSleeping:true,positionIterations:14,velocityIterations:10});E.gravity.y=1.1;
- M.Composite.add(E.world,[M.Bodies.rectangle((pl+pr)/2,plankY+plankH/2,pr-pl,plankH,{isStatic:true,friction:1,label:"plank"}),M.Bodies.rectangle(W/2,groundY+40,W*3,80,{isStatic:true,friction:1,label:"floor"})]);
- let cans=[],gone=[],ball=null,drag=null,samples=[],throws=0,round=gget("cp-cans-r",1),total=0,over=false,lastSnd=0,sndCount=0;
- const WOODS=CAN_B;
- const lay=()=>{const [k,a,bb]=CAN_L[(round-1)%CAN_L.length],pos=[];const cx=(pl+pr)/2;
-  if(k==="pyr")for(let r=0;r<a;r++)for(let i=0;i<a-r;i++)pos.push([cx+(i-(a-r-1)/2)*cw,r]);
-  else if(k==="wall")for(let r=0;r<bb;r++)for(let i=0;i<a;i++)pos.push([cx+(i-(a-1)/2)*cw,r]);
-  else if(k==="twin")for(const off of[-1,1])for(let r=0;r<a;r++)for(let i=0;i<a-r;i++)pos.push([cx+off*(pr-pl)*.24+(i-(a-r-1)/2)*cw,r]);
-  else if(k==="tower")for(const off of[-1,0,1])for(let r=0;r<bb;r++)pos.push([cx+off*(pr-pl)*.3,r]);
-  else if(k==="steps")for(let i=0;i<a;i++)for(let r=0;r<=i;r++)pos.push([cx+(i-(a-1)/2)*cw,r]);
-  return pos};
- const build=()=>{cans.forEach(c=>M.Composite.remove(E.world,c));cans=[];gone=[];throws=0;over=false;document.getElementById("wslv").textContent=round;const L=CAN_L[(round-1)%CAN_L.length];ch=cw*(L[0]==="tower"?1.12:1.28);
-  for(const [px,r] of lay()){const c=M.Bodies.rectangle(px,plankY-ch/2-r*ch-.2,cw-1.2,ch-.4,{friction:.7,frictionStatic:1.2,restitution:.04,density:.0016,slop:.01,label:"can"});c.wood=WOODS[Math.floor(Math.random()*WOODS.length)];M.Sleeping.set(c,true);cans.push(c)}M.Composite.add(E.world,cans);hud();newBall()};
- const down=c=>c.out||c.position.y>plankY+ch*.2||c.position.x<pl-2||c.position.x>pr+2;
- const hud=()=>{const d=cans.filter(down).length;document.getElementById("cleft").textContent=`${PT(["Cans","டப்பா"])} ${d}/${cans.length}`;document.getElementById("cthrow").textContent=`${PT(["Throws","வீச்சு"])} ${throws}`;return d};
- const newBall=()=>{ball={x:homeX,y:H+BR*1.4,s:1,rot:0,ph:"in",t:0}};
- M.Events.on(E,"collisionStart",ev=>{const now=performance.now();if(now-lastSnd>120){lastSnd=now;sndCount=0}for(const p of ev.pairs){const a=p.bodyA,c=p.bodyB;if(a.label!=="can"&&c.label!=="can")continue;const v=Math.hypot(a.velocity.x-c.velocity.x,a.velocity.y-c.velocity.y);if(v<1.6||sndCount>5)continue;sndCount++;sTin(Math.min(1,v/9),a.label==="floor"||c.label==="floor"||a.label==="plank"||c.label==="plank")}});
- const impact=(tx,ty,s,vx)=>{const r=cw*.72*Math.pow(s,.6);let hit=0;cans.forEach(c=>M.Sleeping.set(c,false));
-  for(const c of cans){if(c.out)continue;const dx=c.position.x-tx,dy=c.position.y-ty,d=Math.hypot(dx/(cw*.5+r),dy/(ch*.5+r));
-   if(d<(s<.7?.55:1)){c.out=1;hit++;M.Composite.remove(E.world,c);gone.push({c,x:c.position.x,y:c.position.y,a:c.angle,va:(Math.random()-.5)*6,vx:dx*.6+vx*80,vy:-60-Math.random()*60,k:1,w:c.wood})}
-   else if(d<2.2){const f=(2.2-d)/1.2*s;M.Body.setVelocity(c,{x:Math.sign(dx||Math.random()-.5)*(2.5+Math.random()*3)*f+vx*3,y:-(1+Math.random()*2)*f});M.Body.setAngularVelocity(c,(Math.random()-.5)*.25*f)}}
-  if(hit){sWood(.7,1);for(let k=0;k<Math.min(4,hit);k++)setTimeout(()=>sTin(.9),k*35+10);pzVib([18,25,12])}else pzVib(10);return hit};
- const throwBall=(vx,vy)=>{const sp=Math.hypot(vx,vy);if(vy>-.04||sp<.06){ball.ph="home";return}const s=Math.max(.3,Math.min(1.7,sp/1.3));const topY=Math.min(...cans.map(c=>c.position.y-ch/2),plankY-ch);const f=(sp-.32)/2.5;const short=f<0;const ty=short?floorY+(groundY-floorY)*.35:plankY-ch*.35-Math.min(1.08,f)*(plankY-ch*.35-topY-ch*.3);const tx=Math.max(-W*.1,Math.min(W*1.1,ball.x+vx/Math.min(-.12,vy)*(ty-ball.y)));
-  ball.ph="fly";ball.t=0;ball.sx=ball.x;ball.sy=ball.y;ball.tx=tx;ball.ty=ty;ball.str=s;ball.vx=vx;ball.short=short;ball.dur=Math.max(.36,Math.min(1.05,1.05-sp*.25));ball.lob=Math.max(20,90-sp*35);throws++;hud();sWhoosh(Math.max(.4,s));pzVib(Math.round(12+s*14))};
- cv.onpointerdown=e=>{if(over||!ball||ball.ph!=="home")return;const [px,py]=rPos(cv,e);if(py<floorY)return;cv.setPointerCapture(e.pointerId);drag={ox:px-ball.x,oy:py-ball.y};samples=[[performance.now(),px,py]];ball.ph="drag";pzVib(8)};
- cv.onpointermove=e=>{if(!drag)return;const [px,py]=rPos(cv,e);ball.x=Math.max(BR*.4,Math.min(W-BR*.4,px-drag.ox));ball.y=Math.max(floorY+BR*.6,Math.min(H+BR*.3,py-drag.oy));samples.push([performance.now(),px,py]);if(samples.length>24)samples.shift()};
- cv.onpointerup=cv.onpointercancel=e=>{if(!drag)return;drag=null;samples.push([performance.now(),...rPos(cv,e)]);const now=performance.now(),rec=samples.filter(q=>now-q[0]<120);const a=rec.length>=3?rec[0]:samples[Math.max(0,samples.length-4)],z=samples[samples.length-1],dt=Math.max(30,z[0]-a[0]);throwBall((z[1]-a[1])/dt,(z[2]-a[2])/dt)};
- const drawCan=(c,px,py,ang,sc,dim)=>{const w=(cw-1.2)*sc,h=(ch-.4)*sc,B=c.wood||c;x.save();x.translate(px,py);x.rotate(ang);
-  const gg=x.createLinearGradient(-w/2,0,w/2,0);gg.addColorStop(0,"rgba(0,0,0,.45)");gg.addColorStop(.12,"rgba(0,0,0,.1)");gg.addColorStop(.3,"rgba(255,255,255,.45)");gg.addColorStop(.42,"rgba(255,255,255,.05)");gg.addColorStop(.85,"rgba(0,0,0,.2)");gg.addColorStop(1,"rgba(0,0,0,.5)");
-  x.fillStyle=B.c;x.fillRect(-w/2,-h/2,w,h);if(B.s){x.fillStyle=B.s;x.fillRect(-w/2,h*.1,w,h*.08)}
-  x.fillStyle=B.t;x.textAlign="center";x.textBaseline="middle";const f1=Math.min(w*.3,w*1.9/Math.max(3,B.a.length));x.font=`900 ${f1}px "Baloo Thambi 2",system-ui,sans-serif`;x.fillText(B.a,0,-h*.08);x.font=`800 ${Math.min(w*.17,w*1.5/B.b.length)}px system-ui,sans-serif`;x.fillText(B.b,0,h*.16);
-  x.fillStyle=gg;x.fillRect(-w/2,-h/2,w,h);
-  const rim=(y,hh)=>{const rg=x.createLinearGradient(-w/2,0,w/2,0);rg.addColorStop(0,"#6b7280");rg.addColorStop(.3,"#f3f4f6");rg.addColorStop(.6,"#9ca3af");rg.addColorStop(1,"#4b5563");x.fillStyle=rg;x.fillRect(-w/2,y,w,hh)};rim(-h/2,h*.09);rim(h/2-h*.07,h*.07);
-  x.fillStyle="#d1d5db";x.beginPath();x.ellipse(0,-h/2,w/2,w*.12,0,0,7);x.fill();x.fillStyle="#9ca3af";x.beginPath();x.ellipse(w*.12,-h/2,w*.12,w*.04,0,0,7);x.fill();
-  if(dim){x.fillStyle=`rgba(20,8,2,${dim})`;x.fillRect(-w/2,-h/2-w*.12,w,h+w*.24)}x.restore()};
- const drawBall=(bx,by,r,rot)=>{x.save();x.translate(bx+r*.15,by+r*.25);x.fillStyle="rgba(0,0,0,.18)";x.beginPath();x.ellipse(0,r*.7,r*.9,r*.25,0,0,7);x.fill();x.restore();const gg=x.createRadialGradient(bx-r*.35,by-r*.4,r*.1,bx,by,r);gg.addColorStop(0,"#f6dcc3");gg.addColorStop(.6,"#d9a982");gg.addColorStop(1,"#a8704c");x.fillStyle=gg;x.beginPath();x.arc(bx,by,r,0,7);x.fill();
-  x.save();x.beginPath();x.arc(bx,by,r,0,7);x.clip();x.strokeStyle="rgba(150,90,60,.35)";x.lineWidth=Math.max(1,r*.02);for(let k=1;k<9;k++){x.beginPath();x.ellipse(bx+Math.cos(rot)*r*.3,by+Math.sin(rot)*r*.2,r*k*.13,r*k*.1,rot,0,7);x.stroke()}x.restore()};
- let last=performance.now(),quiet=0;
- const loop=t=>{if(!cv.isConnected)return;const dt=Math.min(.033,(t-last)/1000);last=t;M.Engine.update(E,dt*1000);
-  x.drawImage(bgc,0,0,W,H);
-  for(let i=gone.length-1;i>=0;i--){const q=gone[i];q.vy+=500*dt;q.x+=q.vx*dt;q.y+=q.vy*dt*.6;q.a+=q.va*dt;q.k=Math.max(.55,q.k-dt*.9);if(q.y>plankY+80){gone.splice(i,1);continue}drawCan(q.w,q.x,q.y,q.a,q.k,.35)}
-  if(ball&&ball.ph==="behind"){drawBall(ball.x,ball.y,BR*ball.s,ball.rot)}
-  x.drawImage(bgc,pl*dpr,plankY*dpr,(pr-pl)*dpr,(groundY-plankY+4)*dpr,pl,plankY,pr-pl,groundY-plankY+4);
-  for(const c of cans)if(!c.out)drawCan(c,c.position.x,c.position.y,c.angle,1,0);
-  if(ball){if(ball.ph==="in"){ball.y+=(homeY-ball.y)*Math.min(1,dt*11);if(Math.abs(ball.y-homeY)<BR*.25)ball.ph="home"}
-   else if(ball.ph==="home"){ball.x+=(homeX-ball.x)*Math.min(1,dt*6);ball.y+=(homeY-ball.y)*Math.min(1,dt*6)}
-   else if(ball.ph==="fly"){ball.t+=dt/ball.dur;const k=Math.min(1,ball.t),e2=1-Math.pow(1-k,1.6);ball.x=ball.sx+(ball.tx-ball.sx)*e2;const e3=ball.short?k:e2;ball.y=ball.sy+(ball.ty-ball.sy)*e3-Math.sin(k*Math.PI)*ball.lob;ball.s=1-(1-cw*.62/BR*(ball.short?1.6:1))*e2;ball.rot+=dt*(3+ball.str*6);
-    if(k>=1&&ball.short){sWood(.5,1);pzVib(8);ball.ph="roll";ball.vy=-60;ball.vx2=ball.vx*40}else if(k>=1){const hit=impact(ball.tx,ball.ty,ball.str,ball.vx);if(!hit&&ball.ty>plankY&&ball.ty<plankY+plankH+bh*3&&(Math.abs(ball.tx-(pl+W*.11))<W*.11||Math.abs(ball.tx-(pr-W*.11))<W*.11||ball.ty<plankY+plankH))sWood(.8,1);ball.ph="behind";ball.vy=hit?-40:20;ball.vx2=ball.vx*60}}
-   else if(ball.ph==="roll"){ball.vy+=600*dt;ball.y+=ball.vy*dt;ball.x+=ball.vx2*dt;ball.s=Math.max(.2,ball.s-dt*.15);if(ball.y>ball.ty&&ball.vy>0){ball.y=ball.ty;ball.vy*=-.35;if(Math.abs(ball.vy)<25){ball.ph="gone";setTimeout(()=>{if(!over)newBall()},150)}else sWood(.25,1)}}
-   else if(ball.ph==="behind"){ball.vy+=1500*dt;ball.y+=ball.vy*dt;ball.x+=ball.vx2*dt;ball.s=Math.max(.15,ball.s-dt*.25);if(ball.y>plankY+20){ball.ph="gone";sWood(.35,1);setTimeout(()=>{if(!over)newBall()},150)}}
-   if(ball.ph!=="behind"&&ball.ph!=="gone")drawBall(ball.x,ball.y,BR*ball.s*(ball.ph==="drag"?.95:1),ball.rot)}
-  const d=hud();const moving=cans.some(c=>!c.out&&!c.isSleeping&&c.speed>.15);quiet=moving?0:quiet+dt;
-  if(!over&&cans.length&&d===cans.length&&quiet>.4){over=true;const S2=throws<=2?3:throws<=4?2:1;gset("cp-cans-tot",gget("cp-cans-tot",0)+cans.length);const tot=document.getElementById("ctot");if(tot)tot.textContent=gget("cp-cans-tot",0).toLocaleString("en-IN");gset("cp-cans-r",round+1);
-   const ov=document.getElementById("wsover");ov.hidden=false;ov.innerHTML=wsConf()+`<div class="wswin">${wsStars(S2)}<b>${PT(["All cans down!","எல்லா டப்பாக்களும் விழுந்தன!"])}</b><small>${throws} ${PT(["throws","வீச்சுகள்"])} · ${PT(["3 stars in 2 throws","2 வீச்சில் 3 நட்சத்திரம்"])}</small><button class="gbtn" id="cnext">${PT(["Next round","அடுத்த சுற்று"])} ›</button></div>`;
-   document.getElementById("cnext").onclick=()=>{ov.hidden=true;round++;build()}}
-  requestAnimationFrame(loop)};
- document.getElementById("crest").onclick=()=>{document.getElementById("wsover").hidden=true;build()};
- document.getElementById("csnd").onclick=e=>{GM.sound=!GM.sound;gset("cp-snd",GM.sound?"1":"0");e.currentTarget.firstElementChild.outerHTML=GM.sound?SND_ON:SND_OFF};
- build();requestAnimationFrame(loop)}
+// ---------- Knock the Cans (3D, relax) ----------
+const C3I={home:'<svg viewBox="0 0 24 24" width="34" height="34"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z" fill="#fff"/></svg>',re:'<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#555" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.3L4 9"/><path d="M4 4v5h5"/><path d="M4 13a8 8 0 0 0 14.3 4.3L20 15"/><path d="M20 20v-5h-5"/></svg>',gear:'<svg viewBox="0 0 24 24" width="34" height="34"><path fill="#fff" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1l.3 2.6h4l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>'};
+function cansView(){return `<div class="c3" id="c3"><canvas id="c3cv"></canvas><button class="c3b c3home" data-go="games" aria-label="Back to games">${C3I.home}</button><button class="c3b c3re" id="c3re" aria-label="Stack the cans again">${C3I.re}</button><button class="c3b c3set" id="c3set" aria-label="Settings">${C3I.gear}</button>
+ <div class="c3menu" id="c3menu" hidden><button id="c3snd"></button></div><div class="c3load" id="c3load">${PT(["Setting up the cans…","டப்பாக்களை அடுக்குகிறோம்…"])}</div><div class="c3tip" id="c3tip">${PT(["Swipe the ball up to throw","பந்தை மேலே தள்ளி வீசுங்கள்"])}</div></div>`}
+async function startCans(){const root=document.getElementById("c3");if(!root)return;document.body.classList.add("c3on");const load=document.getElementById("c3load");let T,P;
+ try{[T,P]=await Promise.all([import("./assets/lib/three.module.min.js"),import("./assets/lib/cannon-es.js")])}catch(e){load.textContent=PT(["Could not load the game. Check your internet and try again.","விளையாட்டை ஏற்ற முடியவில்லை."]);return}
+ if(!root.isConnected)return;load.remove();c3Run(root,T,P)}
+function c3Run(root,T,P){const cv=document.getElementById("c3cv");let W=root.clientWidth,H=root.clientHeight;
+ const R=new T.WebGLRenderer({canvas:cv,antialias:true,powerPreference:"high-performance"});R.setPixelRatio(Math.min(2,devicePixelRatio||1));R.setSize(W,H,false);R.shadowMap.enabled=true;R.shadowMap.type=T.PCFSoftShadowMap;R.outputColorSpace=T.SRGBColorSpace;R.toneMapping=T.ACESFilmicToneMapping;R.toneMappingExposure=1.1;
+ const scene=new T.Scene();scene.background=new T.Color("#2b1208");
+ const cam=new T.PerspectiveCamera(60,W/H,.1,60);const fitCam=()=>{const a=W/H;cam.aspect=a;cam.fov=a<.75?62:44;cam.position.set(0,a<.75?1.9:1.8,a<.75?4.4:4.6);cam.lookAt(0,a<.75?1.75:1.6,0);cam.updateProjectionMatrix()};fitCam();
+ // ---- procedural textures ----
+ const tex=(w,h,draw,rx=1,ry=1)=>{const c=document.createElement("canvas");c.width=w;c.height=h;draw(c.getContext("2d"),w,h);const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(rx,ry);t.anisotropy=4;return t};
+ const grain=(x,w,h,n,dark,light,amp,vert=true)=>{for(let i=0;i<n;i++){const p=Math.random()*(vert?w:h),a=amp*(.4+Math.random()),ph=Math.random()*9,fr=.004+Math.random()*.01;x.strokeStyle=Math.random()<.6?dark:light;x.globalAlpha=.15+Math.random()*.35;x.lineWidth=.6+Math.random()*2.4;x.beginPath();for(let q=0;q<=(vert?h:w);q+=6){const o=Math.sin(q*fr+ph)*a+Math.sin(q*fr*3.1+ph)*a*.3;vert?x.lineTo(p+o,q):x.lineTo(q,p+o)}x.stroke()}x.globalAlpha=1};
+ const wallT=tex(512,1024,(x,w,h)=>{const g=x.createLinearGradient(0,0,w,0);g.addColorStop(0,"#4a1c0c");g.addColorStop(.5,"#6e2c14");g.addColorStop(1,"#4a1c0c");x.fillStyle=g;x.fillRect(0,0,w,h);grain(x,w,h,140,"#2a0d04","#9a4a26",18)},2,1);
+ const floorT=tex(512,512,(x,w,h)=>{x.fillStyle="#c88a52";x.fillRect(0,0,w,h);for(let i=0;i<4;i++){x.fillStyle=`hsl(28,${48+Math.random()*10}%,${50+Math.random()*10}%)`;x.fillRect(i*w/4,0,w/4,h)}grain(x,w,h,120,"#8a5226","#f0c28a",4);x.fillStyle="rgba(70,35,10,.45)";for(let i=0;i<4;i++)x.fillRect(i*w/4,0,2,h)},3,5);
+ const canT=tex(256,256,(x,w,h)=>{x.fillStyle="#8e4a28";x.fillRect(0,0,w,h);for(let i=0;i<8;i++){x.fillStyle=`hsl(${20+Math.random()*8},${45+Math.random()*12}%,${30+Math.random()*12}%)`;x.fillRect(i*w/8,0,w/8+1,h)}grain(x,w,h,70,"#3e1a08","#c98a5a",3)});
+ const plankT=tex(512,128,(x,w,h)=>{x.fillStyle="#d29a62";x.fillRect(0,0,w,h);grain(x,w,h,60,"#9a6233","#f4cf9a",6,false)});
+ const corkT=tex(256,256,(x,w,h)=>{x.fillStyle="#8b4a35";x.fillRect(0,0,w,h);for(let i=0;i<5000;i++){x.fillStyle=Math.random()<.5?`rgba(50,15,8,${Math.random()*.6})`:`rgba(210,140,110,${Math.random()*.5})`;x.fillRect(Math.random()*w,Math.random()*h,1+Math.random()*2.5,1+Math.random()*2.5)}});
+ const ballT=tex(512,256,(x,w,h)=>{x.fillStyle="#e9c4a2";x.fillRect(0,0,w,h);for(let y=0;y<h;y+=3+Math.random()*7){x.strokeStyle=Math.random()<.5?"rgba(180,110,80,.45)":"rgba(255,235,215,.6)";x.lineWidth=1+Math.random()*2;x.beginPath();for(let q=0;q<=w;q+=8)x.lineTo(q,y+Math.sin(q*.02+y)*2);x.stroke()}});
+ const M=(o)=>new T.MeshStandardMaterial(o);
+ // ---- static scene ----
+ const add=(geo,mat,px,py,pz,cast=true,recv=true)=>{const m=new T.Mesh(geo,mat);m.position.set(px,py,pz);m.castShadow=cast;m.receiveShadow=recv;scene.add(m);return m};
+ const floor=add(new T.PlaneGeometry(14,16),M({map:floorT,roughness:.55,metalness:0}),0,0,2,false,true);floor.rotation.x=-Math.PI/2;
+ add(new T.PlaneGeometry(16,9),M({map:wallT,roughness:.6}),0,4.5,-1.0,false,true);
+ add(new T.BoxGeometry(16,.16,.06),M({color:"#3a160a",roughness:.6}),0,.08,-.97);
+ const plank=add(new T.BoxGeometry(2.25,.08,.48),M({map:plankT,roughness:.5}),0,.64,0);
+ const bricks=[];[[-.8,0],[.8,0]].forEach(([bx])=>{[[.0,.0,0],[.02,.175,.05],[-.03,.35,-.04]].forEach(([dx,y,ry])=>{const b=add(new T.BoxGeometry(.44,.17,.34),M({map:corkT,roughness:.95}),bx+dx*Math.sign(bx),y+.085,0);b.rotation.y=ry;bricks.push(b)})});
+ scene.add(new T.HemisphereLight("#ffe9d2","#40200c",.75));const sun=new T.DirectionalLight("#ffe0bd",2.1);sun.position.set(1.6,5.5,4.5);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-2.6,right:2.6,top:4.2,bottom:-1,near:1,far:14});sun.shadow.bias=-.0005;sun.shadow.normalBias=.02;scene.add(sun);
+ const spot=new T.PointLight("#ffb27a",6,8,1.6);spot.position.set(0,3.4,2.2);scene.add(spot);
+ // ---- physics ----
+ const world=new P.World({gravity:new P.Vec3(0,-9.82,0),allowSleep:true});world.broadphase=new P.SAPBroadphase(world);world.solver.iterations=14;
+ const mCan=new P.Material("can"),mGround=new P.Material("ground"),mBall=new P.Material("ball");
+ world.addContactMaterial(new P.ContactMaterial(mCan,mCan,{friction:.4,restitution:.15}));world.addContactMaterial(new P.ContactMaterial(mCan,mGround,{friction:.5,restitution:.2}));world.addContactMaterial(new P.ContactMaterial(mBall,mCan,{friction:.3,restitution:.35}));world.addContactMaterial(new P.ContactMaterial(mBall,mGround,{friction:.4,restitution:.35}));
+ const ground=new P.Body({mass:0,material:mGround});ground.addShape(new P.Plane());ground.quaternion.setFromEuler(-Math.PI/2,0,0);world.addBody(ground);
+ const wallB=new P.Body({mass:0,material:mGround});wallB.addShape(new P.Plane());wallB.position.set(0,0,-1.0);world.addBody(wallB);
+ const box=(hx,hy,hz,px,py,pz,ry=0)=>{const b=new P.Body({mass:0,material:mGround});b.addShape(new P.Box(new P.Vec3(hx,hy,hz)));b.position.set(px,py,pz);b.quaternion.setFromEuler(0,ry,0);world.addBody(b)};
+ box(1.125,.04,.24,0,.64,0);bricks.forEach(b=>box(.22,.085,.17,b.position.x,b.position.y,b.position.z,b.rotation.y));
+ // ---- cans ----
+ const cr=.105,chh=.3,canGeo=new T.CylinderGeometry(cr,cr,chh,8,1);const canMats=[0,1,2].map(i=>M({map:canT,roughness:.55,metalness:.05,flatShading:true,color:["#ffffff","#f3dccb","#e6c3a8"][i]}));
+ let cans=[];let lastSnd=0,sndN=0;
+ const knock=v=>{const now=performance.now();if(now-lastSnd>90){lastSnd=now;sndN=0}if(sndN++>4)return;sWood(Math.min(1,v/5),false)};
+ const stack=()=>{cans.forEach(c=>{world.removeBody(c.b);scene.remove(c.m)});cans=[];const rows=9,gap=.004;
+  for(let r=0;r<rows;r++){const n=rows-r;for(let i=0;i<n;i++){const px=(i-(n-1)/2)*(cr*2+gap),py=.68+chh/2+r*(chh+.001);
+   const m=new T.Mesh(canGeo,canMats[(r*3+i)%3]);m.castShadow=m.receiveShadow=true;m.rotation.y=Math.random()*.6;scene.add(m);
+   const b=new P.Body({mass:.22,material:mCan,linearDamping:.05,angularDamping:.12,sleepSpeedLimit:.15,sleepTimeLimit:.4});b.addShape(new P.Cylinder(cr,cr,chh,8));b.position.set(px,py,0);b.quaternion.setFromEuler(0,m.rotation.y,0);world.addBody(b);b.sleep();
+   b.addEventListener("collide",e=>{const v=Math.abs(e.contact.getImpactVelocityAlongNormal());if(v>.9)knock(v)});cans.push({m,b})}}};
+ // ---- ball ----
+ const BR=.3,REST=new T.Vector3(0,BR,2.05);const ballGeo=new T.SphereGeometry(BR,48,32),ballMat=M({map:ballT,roughness:.45});let balls=[],cur=null;
+ const newBall=()=>{const m=new T.Mesh(ballGeo,ballMat);m.castShadow=true;m.position.set(0,BR,3.4);scene.add(m);cur={m,b:null,state:"in"}};
+ // ---- input: drag the ball, flick to throw ----
+ const ray=new T.Raycaster(),ndc=new T.Vector2(),plane=new T.Plane(new T.Vector3(0,1,0),-BR);let drag=null,samples=[];
+ const toPlane=(cx,cy)=>{const r=cv.getBoundingClientRect();ndc.set((cx-r.left)/r.width*2-1,-(cy-r.top)/r.height*2+1);ray.setFromCamera(ndc,cam);const p=new T.Vector3();return ray.ray.intersectPlane(plane,p)?p:null};
+ cv.onpointerdown=e=>{if(!cur||cur.state!=="ready")return;const r=cv.getBoundingClientRect();const p=toPlane(e.clientX,e.clientY);if(!p&&(e.clientY-r.top)<r.height*.6)return;ray.setFromCamera(ndc,cam);const hit=ray.intersectObject(cur.m).length>0;if(!hit&&(e.clientY-r.top)<r.height*.68)return;
+  cv.setPointerCapture(e.pointerId);drag={off:p?p.clone().sub(cur.m.position):new T.Vector3()};samples=[[performance.now(),e.clientX,e.clientY]];cur.state="drag";pzVib(8);const tip=document.getElementById("c3tip");if(tip)tip.classList.add("hide")};
+ cv.onpointermove=e=>{if(!drag)return;const p=toPlane(e.clientX,e.clientY);if(p){const q=p.sub(drag.off);cur.m.position.x=Math.max(-.9,Math.min(.9,q.x));cur.m.position.z=Math.max(1.7,Math.min(2.6,q.z));cur.m.rotation.x-=.02}samples.push([performance.now(),e.clientX,e.clientY]);if(samples.length>30)samples.shift()};
+ cv.onpointerup=cv.onpointercancel=e=>{if(!drag)return;drag=null;samples.push([performance.now(),e.clientX,e.clientY]);const now=performance.now(),rec=samples.filter(q=>now-q[0]<110);const a=rec.length>=3?rec[0]:samples[Math.max(0,samples.length-4)],z=samples[samples.length-1],dt=Math.max(30,z[0]-a[0]);
+  const vx=(z[1]-a[1])/dt,vy=(z[2]-a[2])/dt,sp=Math.hypot(vx,vy),sc=900/Math.max(500,H);if(vy>-.05||sp<.08){cur.state="back";return}throwBall(vx*sc,vy*sc)};
+ const throwBall=(vx,vy)=>{const sp=Math.hypot(vx,vy),p0=cur.m.position.clone(),f=(sp-.3)/2.3;let tgt,Tt;
+  if(f<0){tgt=new T.Vector3(p0.x+vx/-vy*1.2,BR,p0.z-1.2-sp*5);Tt=.75}else{const yT=.72+Math.min(1.05,f)*chh*8.6,zT=.12;tgt=new T.Vector3(Math.max(-1.6,Math.min(1.6,p0.x+(vx/-vy)*(p0.z-zT)*.42)),yT,zT);Tt=Math.max(.24,Math.min(.8,.8-sp*.17))}
+  const g=9.82,v=new P.Vec3((tgt.x-p0.x)/Tt,(tgt.y-p0.y)/Tt+.5*g*Tt,(tgt.z-p0.z)/Tt);
+  const b=new P.Body({mass:1.4,material:mBall,linearDamping:.02,angularDamping:.3});b.addShape(new P.Sphere(BR));b.position.set(p0.x,p0.y,p0.z);b.velocity.copy(v);b.angularVelocity.set(-v.z*2.5,0,v.x*2);world.addBody(b);
+  let first=true;b.addEventListener("collide",e=>{const iv=Math.abs(e.contact.getImpactVelocityAlongNormal());if(iv<.6)return;const other=e.body;if(cans.some(c=>c.b===other)){if(first){first=false;cans.forEach(c=>c.b.wakeUp());pzVib([20,30,15])}knock(iv*1.3)}else sWood(Math.min(.7,iv/8),true)});
+  cur.b=b;cur.state="flying";cur.t=0;cur.born=performance.now();balls.push(cur);sWhoosh(Math.max(.4,Math.min(1.5,sp/1.5)));pzVib(Math.round(12+Math.min(20,sp*8)));const c2=cur;cur=null;setTimeout(newBall,700);};
+ // ---- loop ----
+ let last=performance.now();const loop=t=>{if(!root.isConnected){R.dispose();document.body.classList.remove("c3on");return}const dt=Math.min(.05,(t-last)/1000);last=t;world.fixedStep(1/60,dt);
+  for(const c of cans){c.m.position.copy(c.b.position);c.m.quaternion.copy(c.b.quaternion)}
+  for(let i=balls.length-1;i>=0;i--){const bl=balls[i];if(bl.b){bl.m.position.copy(bl.b.position);bl.m.quaternion.copy(bl.b.quaternion)}bl.age=(bl.age||0)+dt;const age=bl.age;if(age>2.2){const k=Math.max(0,1-(age-2.2)/.35);bl.m.scale.setScalar(k);if(k<=0){world.removeBody(bl.b);scene.remove(bl.m);balls.splice(i,1)}}}
+  if(cur){if(cur.state==="in"||cur.state==="back"){cur.m.position.lerp(REST,Math.min(1,dt*(cur.state==="in"?6:10)));cur.m.rotation.x-=dt*3*(cur.state==="in"?1:0);if(cur.m.position.distanceTo(REST)<.02){cur.m.position.copy(REST);cur.state="ready"}}}
+  R.render(scene,cam);requestAnimationFrame(loop)};
+ stack();newBall();requestAnimationFrame(loop);
+ document.getElementById("c3re").onclick=()=>{balls.forEach(o=>{if(o.b)world.removeBody(o.b);scene.remove(o.m)});balls=[];stack();sClick(true);pzVib(10)};
+ const menu=document.getElementById("c3menu"),snd=document.getElementById("c3snd"),sl=()=>{snd.textContent=(GM.sound?"🔊 ":"🔇 ")+PT(GM.sound?["Sound on","ஒலி உள்ளது"]:["Sound off","ஒலி இல்லை"])};sl();
+ document.getElementById("c3set").onclick=()=>{menu.hidden=!menu.hidden};snd.onclick=()=>{GM.sound=!GM.sound;gset("cp-snd",GM.sound?"1":"0");sl()};
+ const rs=()=>{if(!root.isConnected){removeEventListener("resize",rs);return}W=root.clientWidth;H=root.clientHeight;R.setSize(W,H,false);fitCam()};addEventListener("resize",rs)}
+
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
