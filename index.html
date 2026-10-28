@@ -431,7 +431,6 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .pzin{display:grid;gap:16px;min-width:0}
 .pzhead{display:grid;gap:2px;text-align:center}.pzhead span{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.5px}.pzhead b{font-family:var(--display);font-size:20px;line-height:1.25}
 .pzfoot{display:flex;justify-content:center}.pzskip{border:0;background:none;color:var(--muted);font:600 13px var(--body);cursor:pointer;padding:8px 12px}
-.pzok{position:absolute;inset:0;border-radius:24px;display:grid;place-items:center;font-size:80px;font-weight:800;color:#fff;background:rgba(34,197,94,.88);animation:pzpop .3s ease}.pzok.y{background:rgba(234,179,8,.88)}
 @keyframes pzpop{from{opacity:0;transform:scale(.92)}}
 .pzcard.shake{animation:pzshake .35s}@keyframes pzshake{25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-3px)}}
 .pzcard button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -450,6 +449,26 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .pzkeys button{font-size:34px;padding:10px;line-height:1.2}.pzkeys button:disabled{opacity:.45}.pzkeys .hit{animation:pzpop .2s}.pzplay{justify-self:center;font-size:15px;padding:10px 22px}
 .pzend{text-align:center;justify-items:center;padding:24px 16px}.pzem{font-size:32px;letter-spacing:4px}.pzpts{font:800 64px/1 var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.pzpts small{font-size:22px}.pzst{font-weight:700}
 .pzwa{display:inline-flex;align-items:center;background:#25d366;color:#fff!important;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px}
+.pzok{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:800;color:#fff;background:#22c55e;box-shadow:0 6px 16px rgba(34,197,94,.45);animation:pzbadge .4s cubic-bezier(.3,1.6,.5,1);z-index:2;inset:auto;inset-block-start:12px;inset-inline-end:12px}.pzok.y{background:#eab308;box-shadow:0 6px 16px rgba(234,179,8,.45)}
+@keyframes pzbadge{from{transform:scale(.2);opacity:0}}
+.pzcard{transition:box-shadow .3s}.pzcard.won{box-shadow:0 0 0 3px #22c55e,0 10px 28px rgba(34,197,94,.2)}.pzcard.won.wy{box-shadow:0 0 0 3px #eab308,0 10px 28px rgba(234,179,8,.2)}
+.lvbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-right:44px;padding-left:4px}.lvbar b{font-family:var(--display);font-size:20px;text-align:center;flex:1}.lvbar b small{font-size:13px;color:var(--muted);font-weight:600}
+.lvnav{border:0;width:38px;height:38px;border-radius:12px;background:var(--page);color:var(--ink);font-size:22px;font-weight:800;cursor:pointer;box-shadow:inset 0 0 0 1.5px rgba(255,140,0,.3)}.lvnav:disabled{opacity:.3;cursor:default}
+.gnext{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;text-align:center;padding-bottom:6px}.gnext[hidden]{display:none}
+.gbtn{border:0;cursor:pointer;background:var(--grad);color:#fff;font:700 16px var(--body);padding:12px 24px;border-radius:999px;box-shadow:0 8px 18px rgba(255,95,0,.3)}
+.pzslots .hint{box-shadow:inset 0 0 0 2px #eab308}
+.mstat{font-size:12.5px;font-weight:700;color:var(--muted);min-width:64px}.mstat:last-child{text-align:right}
+.memgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.memgrid button{border:0;aspect-ratio:1;border-radius:22px;background:var(--page);font-size:44px;cursor:pointer;box-shadow:0 4px 0 rgba(150,80,0,.18),inset 0 0 0 1.5px rgba(255,140,0,.25);transition:transform .12s,background .12s,box-shadow .12s}
+.memgrid button.lit{background:#ffe0b2;transform:scale(1.08);box-shadow:0 0 0 4px #ff8c00,0 10px 24px rgba(255,140,0,.45)}.memgrid button:disabled:not(.lit){opacity:.75}
+.mres{display:grid;width:100%}.mres b{font:800 52px/1 var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.mres span{color:var(--muted);font-weight:600}
+.srtcard{background:linear-gradient(135deg,#4c1d95,#7c3aed 60%,#c084fc)!important;box-shadow:0 14px 30px rgba(76,29,149,.3)!important}
+.jmbcard{background:linear-gradient(135deg,#9f1239,#e11d48 60%,#fb7185)!important;box-shadow:0 14px 30px rgba(159,18,57,.3)!important}
+.memcard{background:linear-gradient(135deg,#1e3a8a,#2563eb 60%,#38bdf8)!important;box-shadow:0 14px 30px rgba(30,58,138,.3)!important}
+.kcard>.gico{width:60px;height:60px;flex:none;border-radius:18px;background:rgba(255,255,255,.2);display:flex;align-items:flex-end;justify-content:center;gap:5px;padding:8px;box-sizing:border-box}
+.gico.tb i{width:12px;height:40px;border-radius:3px 3px 7px 7px;background:rgba(255,255,255,.35);display:flex;flex-direction:column-reverse;padding:1px;gap:1px;box-sizing:border-box;overflow:hidden}.gico.tb i b{display:block;height:9px;border-radius:50%;flex:none}
+.gico.lt{align-items:center;flex-wrap:wrap;align-content:center;gap:4px}.gico.lt i{width:20px;height:20px;border-radius:6px;background:#fff;color:#9f1239;font:800 13px/20px var(--display);text-align:center;font-style:normal}
+.gico.mm{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;align-content:center}.gico.mm i{aspect-ratio:1;border-radius:5px;background:rgba(255,255,255,.35)}.gico.mm i:nth-child(2),.gico.mm i:nth-child(6){background:#fde047}
+.kcard>.gball{flex:none;display:block}
 </style>
 </head>
 <body>
@@ -1190,11 +1209,11 @@ function puzzleView(){return `<section style="display:grid;gap:12px"><button cla
 function startPuzzle(){const el=document.getElementById("pzbody");if(!el)return;const s=pzState();jset("cp-pz",s);if(s.i>=5)return pzEnd(el,s);
  const P=[pzNum,pzMatch,pzSort,pzWord,pzMem][s.i](pzRng(pzDay()*7919+s.i*101));let misses=0,fin=false;
  el.innerHTML=`<div class="pzdots">${[0,1,2,3,4].map(k=>`<i class="${k<s.i?"r"+s.res[k]:k===s.i?"on":""}"></i>`).join("")}</div>
- <div class="pzcard"><div class="pzhead"><span>${s.i+1} / 5</span><b>${PT(P.t)}</b></div><div class="pzin">${P.h}</div><div class="pzfoot"><button class="pzskip" id="pzskip">${PT(["Skip this one","இதைத் தவிர்"])} ›</button></div><div class="pzok" hidden>✓</div></div>`;
+ <div class="pzcard"><div class="pzhead" style="padding:0 40px"><span>${s.i+1} / 5</span><b>${PT(P.t)}</b></div><div class="pzin">${P.h}</div><div class="pzfoot"><button class="pzskip" id="pzskip">${PT(["Skip this one","இதைத் தவிர்"])} ›</button></div><div class="pzok" hidden>✓</div></div>`;
  const card=el.querySelector(".pzcard");
  const finish=res=>{if(fin)return;fin=true;s.res.push(res);s.i++;jset("cp-pz",s);if(s.i>=5)pzComplete();
-  if(res!=="s"){const ok=card.querySelector(".pzok");ok.className="pzok "+res;ok.hidden=false;pzVib(30)}
-  setTimeout(()=>{if(!el.isConnected)return;s.i>=5?go("puzzle"):startPuzzle()},res==="s"?0:900)};
+  if(res!=="s"){const ok=card.querySelector(".pzok");ok.className="pzok "+res;ok.hidden=false;card.classList.add("won");if(res==="y")card.classList.add("wy");pzVib(30)}
+  setTimeout(()=>{if(!el.isConnected)return;s.i>=5?go("puzzle"):startPuzzle()},res==="s"?0:1100)};
  P.init(card.querySelector(".pzin"),()=>finish(misses?"y":"g"),quiet=>{misses++;if(quiet)return;card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30])});
  document.getElementById("pzskip").onclick=()=>finish("s")}
 function pzEnd(el,s){const pts=s.res.reduce((a,x)=>a+(x==="g"?20:x==="y"?10:0),0),em=s.res.map(x=>x==="g"?"🟩":x==="y"?"🟨":"⬜").join(""),stk=pzStreak();
@@ -1205,10 +1224,261 @@ function pzEnd(el,s){const pts=s.res.reduce((a,x)=>a+(x==="g"?20:x==="y"?10:0),0
  let tm;const cd=()=>{const e=document.getElementById("pzcd");if(!e)return clearInterval(tm);const ms=(pzDay()+1)*864e5-(Date.now()+19800000);if(ms<=1000){clearInterval(tm);return go("puzzle")}e.textContent=`${Math.floor(ms/36e5)}h ${Math.floor(ms%36e5/6e4)}m`};tm=setInterval(cd,30000);cd()}
 const PZICON=`<span class="pzicon"><i></i><i></i><i></i><i></i></span>`;
 function pzStatus(){const s=pzState(),st=pzStreak();return s.i>=5?`${PT(["Done for today","இன்று முடிந்தது"])} · 🔥 ${st}`:s.i?`${5-s.i} ${PT(["puzzles left today","புதிர்கள் மீதம்"])}`:PT(["5 new puzzles today","இன்று 5 புதிய புதிர்கள்"])}
-function gamesView(){return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><h1 class="ntitle">${PT(["Games","விளையாட்டுகள்"])}</h1>
- <button class="kcard pzcardh" data-go="puzzle">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Chennai Daily Puzzle","சென்னை தினசரி புதிர்"])}</b><span>${PT(["Numbers, shapes, colours, a Tamil word and memory","எண்கள், வடிவங்கள், நிறங்கள், தமிழ் சொல், நினைவாற்றல்"])}</span></span><i>›</i></button>
+function gamesView(){const jt=gget("cp-jta",1),je=gget("cp-jen",1);return `<section style="display:grid;gap:12px"><button class="back" data-go="home">‹ Home</button><h1 class="ntitle">${PT(["Games","விளையாட்டுகள்"])}</h1>
+ <button class="kcard pzcardh" data-go="puzzle">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Chennai Daily Puzzle","சென்னை தினசரி புதிர்"])}</b><span>${PT(["5 quick puzzles, new every day","தினமும் 5 புதிய புதிர்கள்"])}</span></span><i>›</i></button>
+ <button class="kcard srtcard" data-go="sort"><span class="gico tb"><i><b style="background:#ffd60a"></b><b style="background:#e63946"></b><b style="background:#ffd60a"></b></i><i><b style="background:#3a86ff"></b><b style="background:#3a86ff"></b><b style="background:#3a86ff"></b></i><i><b style="background:#e63946"></b></i></span><span><small>${PT(["Level","நிலை"])} ${Math.min(100,gget("cp-sort",1))} / 100</small><b>${PT(["Colour Sort","நிற வரிசை"])}</b><span>${PT(["One colour in each tube","ஒவ்வொரு குழாயிலும் ஒரே நிறம்"])}</span></span><i>›</i></button>
+ <button class="kcard jmbcard" data-go="jumble"><span class="gico lt"><i>அ</i><i>B</i><i>க</i><i>D</i></span><span><small>தமிழ் ${Math.min(jt,JTA.length)} · English ${Math.min(je,JEN.length)}</small><b>${PT(["Word Jumble","சொல் விளையாட்டு"])}</b><span>${PT(["Tamil and English words","தமிழ் மற்றும் ஆங்கில சொற்கள்"])}</span></span><i>›</i></button>
+ <button class="kcard memcard" data-go="mem"><span class="gico mm"><i></i><i></i><i></i><i></i><i></i><i></i></span><span><small>${PT(["Best","சிறந்தது"])}: ${gget("cp-mem",0)}</small><b>${PT(["Memory Sequence","நினைவு வரிசை"])}</b><span>${PT(["How long a sequence can you remember?","எவ்வளவு நீள வரிசையை நினைவில் வைப்பீர்கள்?"])}</span></span><i>›</i></button>
  <button class="kcard gcardh" data-go="game"><span class="gball"><i style="background:#ff4d6d"></i><i style="background:#ffb703"></i><i style="background:#3a86ff"></i></span><span><small>${PT(["Take a short break","ஒரு சிறு இடைவேளை"])}</small><b>${PT(["Balloon Shoot","பலூன் சுடுதல்"])}</b><span>${PT(["Pop balloons Marina-style and relax","மெரினா ஸ்டைலில் பலூன்களை உடைத்து ரிலாக்ஸ் ஆகுங்கள்"])}</span></span><i>›</i></button></section>`}
-function gameHome(){return `<section><button class="kcard pzcardh" data-go="games">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Games","விளையாட்டுகள்"])}</b><span>${PT(["Chennai Daily Puzzle · Balloon Shoot","சென்னை தினசரி புதிர் · பலூன் சுடுதல்"])}</span></span><i>›</i></button></section>`}
+function gameHome(){return `<section><button class="kcard pzcardh" data-go="games">${PZICON}<span><small>${pzStatus()}</small><b>${PT(["Games","விளையாட்டுகள்"])}</b><span>${PT(["Daily Puzzle · Colour Sort · Word Jumble · Memory · Balloons","தினசரி புதிர் · நிற வரிசை · சொல் · நினைவு · பலூன்"])}</span></span><i>›</i></button></section>`}
+// ---------- Separate games: Colour Sort (100 levels), Word Jumble (Tamil / English), Memory Sequence ----------
+const gWin=card=>{card.classList.add("won");const b=card.querySelector(".pzok");if(b){b.hidden=false;b.style.animation="none";void b.offsetWidth;b.style.animation=""}pzVib(30)};
+const gHead=(t,sub)=>`<button class="back" data-go="games">‹ ${PT(["Games","விளையாட்டுகள்"])}</button><div><h1 class="ntitle">${PT(t)}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${PT(sub)}</div></div>`;
+const SORTL=["121021201020","002111010222","100202120112","021120012201","011101222020","211001021022","121102201002","212201021010","2111310033232200","1120302012330213","3101322012330120","0310201313122302","3232332001020111","2112102103032033","3331221011020203","1123330300102212","2101022031313203","1321231322003010","0112221333003201","0231232113302010","2201302003323111","1322201133301020","1211030302201233","2103302123310021","0022312231113030","3220010101123323","3202012111300233","3103200023112123","1230210311203203","2032211100330321","31402431310213204402","40104112403232304321","34134141401023203202","04011233422404102331","24214134410003013223","44240320331103011422","43041323121400403221","20104034412043122133","31311202300242041344","10331402114304042223","31440431223211200304","21313034410034224012","20443223120304134011","30201122320130344441","31221213124400300443","33012200320441114423","10230340442140113223","31043141030220443212","02402411210421334330","40134400322230213141","31220104442104301323","12004221444033123031","02423244011130312340","11322443424100301230","44100143134222203031","531224131153405404520230","223354350501123450214014","254105213240034530251431","520304455213103144305212","004435053523401231121245","213053145134424003252105","305411242321341045030552","205043402123103455214351","241300523541430401522513","124515502403450331342012","221403110314024553545032","520124250313415403021543","404140212332345510535201","351141300245513354022402","305021425125450314203134","542415253003412133051042","312114555424200514003233","352100512553112444034203","021350435322011540351424","412512330435051200514342","355114021443032402525103","305315152211303405442024","251312443150514220530043","251510524121034332054403","531243223404514101250503","3262421553664110304234565010","0435346236260113021545025614","4535213142611062365003204654","1232035532464052016530164164","3335064366540211114205024256","1533540064624503620315221641","3061451062552400365623231144","0654431350103601125626425342","2435406213650110623215034456","3524106526532243341014566001","1203555660544062423061142331","3512546204421603115606530342","5402352363130602441406556211","4656536123224042501010635431","6111054252624030365604431352","0440231455664015233026161235","4003660513641240252561534132","4415634321602601045032251356","3625153211164065045342463020","1225214243336360060504114565"],SORTC=["#e63946","#ffd60a","#3a86ff","#06d6a0","#8338ec","#fb8500","#ff8fab"];let sortLv=0;
+function sortView(){return `<section style="display:grid;gap:12px">${gHead(["Colour Sort","நிற வரிசை"],["Put one colour in each tube · 100 levels","ஒவ்வொரு குழாயிலும் ஒரே நிறம் · 100 நிலைகள்"])}<div class="pzcard" id="sortc"></div></section>`}
+function startSort(){const card=document.getElementById("sortc");if(!card)return;const best=Math.min(100,gget("cp-sort",1));if(!sortLv||sortLv>best)sortLv=best;const L=sortLv,str=SORTL[L-1],C=new Set(str).size,cap=4,start=[];
+ for(let i=0;i<C;i++)start.push([...str.slice(i*cap,i*cap+cap)].map(Number));start.push([],[]);const n=start.length;card.classList.remove("won");
+ card.innerHTML=`<div class="lvbar"><button class="lvnav" data-d="-1" ${L<=1?"disabled":""} aria-label="Previous level">‹</button><b>${PT(["Level","நிலை"])} ${L}<small> / 100</small></b><button class="lvnav" data-d="1" ${L>=best?"disabled":""} aria-label="Next level">›</button></div>
+ <div class="pztubes" style="${n>6?`flex-wrap:wrap;row-gap:26px;max-width:${Math.ceil(n/2)*54-8}px;margin:0 auto`:""}"></div>
+ <div class="pzbar"><span class="pzmv"></span><button class="chip" data-a="undo">↶ ${PT(["Undo","பின்"])}</button><button class="chip" data-a="reset">↻ ${PT(["Restart","மீண்டும்"])}</button></div><div class="gnext" hidden></div><div class="pzok" hidden>✓</div>`;
+ let st=start.map(x=>x.slice()),hist=[],sel=-1,mv=0,over=false;const box=card.querySelector(".pztubes"),mvEl=card.querySelector(".pzmv");
+ const draw=()=>{box.innerHTML=st.map((x,i)=>`<button class="pztube${i===sel?" sel":""}" data-t="${i}" aria-label="Tube ${i+1}">${x.map(c=>`<i style="background:${SORTC[c]}"></i>`).join("")}</button>`).join("");mvEl.textContent=`${PT(["Moves","நகர்வுகள்"])}: ${mv}`};
+ box.onclick=e=>{const b=e.target.closest("[data-t]");if(!b||over)return;const i=+b.dataset.t;if(sel<0){if(st[i].length)sel=i;draw();return}if(i===sel){sel=-1;draw();return}
+  const from=st[sel],to=st[i],c=from[from.length-1];if(to.length<cap&&(!to.length||to[to.length-1]===c)){hist.push(st.map(x=>x.slice()));to.push(from.pop());mv++;sel=-1;pzVib(8);draw();
+   if(st.every(x=>!x.length||(x.length===cap&&x.every(y=>y===x[0])))){over=true;if(L===gget("cp-sort",1)&&L<100)gset("cp-sort",L+1);gWin(card);const nx=card.querySelector(".gnext");nx.hidden=false;
+    nx.innerHTML=L<100?`<button class="gbtn" id="gnx">${PT(["Next level","அடுத்த நிலை"])} ${L+1} ›</button>`:`<b>🏆 ${PT(["You finished all 100 levels!","100 நிலைகளையும் முடித்துவிட்டீர்கள்!"])}</b>`;
+    const g=document.getElementById("gnx");if(g)g.onclick=()=>{sortLv=L+1;startSort()}}}else{sel=st[i].length?i:-1;draw()}};
+ card.querySelector('[data-a="undo"]').onclick=()=>{if(over||!hist.length)return;st=hist.pop();mv--;sel=-1;draw()};
+ card.querySelector('[data-a="reset"]').onclick=()=>{if(over)return;st=start.map(x=>x.slice());hist=[];mv=0;sel=-1;draw()};
+ card.querySelectorAll(".lvnav").forEach(b=>b.onclick=()=>{sortLv=Math.max(1,Math.min(gget("cp-sort",1),L+ +b.dataset.d));startSort()});draw()}
+const tsplit=w=>w.match(/[^ா-்ௗ][ா-்ௗ]*/gu)||[];
+const jlist=(s,ta)=>s.trim().split("\n").map(x=>{const p=x.split("|");return{w:p[0],m:p[1],e:p[2],t:ta?tsplit(p[0]):[...p[0]]}}).map((o,i)=>({...o,i})).sort((a,b)=>a.t.length-b.t.length||a.i-b.i);
+const JTA=jlist(`மழை|rain|🌧️
+பூனை|cat|🐱
+யானை|elephant|🐘
+நாய்|dog|🐶
+மீன்|fish|🐟
+பால்|milk|🥛
+குடை|umbrella|☂️
+கிளி|parrot|🦜
+நிலா|moon|🌙
+வடை|vada|🍩
+தோசை|dosa|🥞
+காது|ear|👂
+வீடு|house|🏠
+சாவி|key|🔑
+தேன்|honey|🍯
+புலி|tiger|🐯
+ஆமை|tortoise|🐢
+பள்ளி|school|🏫
+மரம்|tree|🌳
+மூக்கு|nose|👃
+பணம்|money|💰
+கதவு|door|🚪
+உப்பு|salt|🧂
+அரிசி|rice|🍚
+முட்டை|egg|🥚
+பழம்|fruit|🍇
+கடல்|sea|🌊
+மணல்|sand|🏝️
+மயில்|peacock|🦚
+ரயில்|train|🚆
+வானம்|sky|🌤️
+கோலம்|kolam|✨
+ரசம்|rasam|🥣
+பறவை|bird|🐦
+குதிரை|horse|🐎
+இட்லி|idli|🍚
+காப்பி|coffee|☕
+சென்னை|Chennai|🏙️
+மெரினா|Marina|🏖️
+கோவில்|temple|🛕
+அம்மா|mother|👩
+அப்பா|father|👨
+தம்பி|younger brother|👦
+அக்கா|elder sister|👧
+பாட்டி|grandmother|👵
+தாத்தா|grandfather|👴
+நன்றி|thank you|🙏
+சினிமா|cinema|🎬
+கணினி|computer|💻
+மேகம்|cloud|☁️
+சந்தை|market|🛒
+பாம்பு|snake|🐍
+சட்டை|shirt|👕
+பாடல்|song|🎵
+பரிசு|gift|🎁
+மெட்ரோ|metro|🚇
+காற்று|wind|🌬️
+தங்கம்|gold|🪙
+பட்டம்|kite|🪁
+கப்பல்|ship|🚢
+விளக்கு|lamp|🪔
+மிட்டாய்|sweets|🍭
+பட்டாசு|crackers|🎆
+பரோட்டா|parotta|🫓
+பிரியாணி|biryani|🍛
+தேங்காய்|coconut|🥥
+சாம்பார்|sambar|🍲
+பொங்கல்|Pongal|🌾
+நண்பன்|friend|🤝
+மல்லிகை|jasmine|🌼
+ஆட்டோ|auto|🛺
+பேருந்து|bus|🚌
+சூரியன்|sun|☀️
+வணக்கம்|hello|👋
+தீபாவளி|Deepavali|🎇
+கடிகாரம்|clock|⏰
+சர்க்கரை|sugar|🍬
+புத்தகம்|book|📖
+கடற்கரை|beach|⛱️
+மாம்பழம்|mango|🥭
+மிதிவண்டி|bicycle|🚲
+வாழைப்பழம்|banana|🍌
+மழைக்காலம்|rainy season|🌧️
+ஆசிரியர்|teacher|🧑‍🏫
+மருத்துவர்|doctor|🩺
+மருத்துவமனை|hospital|🏥
+தொலைபேசி|telephone|☎️
+தண்ணீர்|water|💧
+நெருப்பு|fire|🔥
+நட்சத்திரம்|star|⭐
+பூந்தோட்டம்|flower garden|🌷
+கிரிக்கெட்|cricket|🏏
+கால்பந்து|football|⚽
+விமானம்|aeroplane|✈️
+உணவகம்|restaurant|🍽️
+திருவிழா|festival|🎉
+குரங்கு|monkey|🐒
+சிங்கம்|lion|🦁
+தக்காளி|tomato|🍅
+வெங்காயம்|onion|🧅
+மிளகாய்|chilli|🌶️
+எலுமிச்சை|lemon|🍋
+கரும்பு|sugarcane|🎋
+செருப்பு|slippers|🩴
+கண்ணாடி|spectacles|👓
+நாற்காலி|chair|🪑
+நடனம்|dance|💃
+ஓவியம்|painting|🎨
+கடிதம்|letter|✉️
+பலாப்பழம்|jackfruit|🍈
+கொண்டாட்டம்|celebration|🥳
+வண்ணத்துப்பூச்சி|butterfly|🦋
+உருளைக்கிழங்கு|potato|🥔`,1);
+const JEN=jlist(`RAIN|Falls from monsoon clouds|🌧️
+AUTO|Three-wheeler ride|🛺
+IDLI|Soft steamed breakfast|🍚
+DOSA|Crispy breakfast with chutney|🥞
+VADA|Fried snack with a hole|🍩
+SAND|You find it on the beach|🏝️
+KITE|Flies high on a string|🪁
+LAMP|Lit on Karthigai Deepam|🪔
+GOLD|Bought on Akshaya Tritiya|🪙
+BOAT|Fishermen take it to sea|🚤
+SILK|Kanchipuram saree fabric|🧵
+FORT|Fort St. George is one|🏰
+UPMA|Rava breakfast|🥣
+BEACH|Marina is one|🏖️
+METRO|Fast city train|🚇
+TRAIN|Runs on rails|🚆
+KOLAM|Rice-flour design at the doorstep|✨
+MANGO|King of fruits|🥭
+RASAM|Peppery soup to have with rice|🥣
+TIGER|Striped big cat|🐯
+OCEAN|The Bay of Bengal is part of one|🌊
+SAREE|Six yards of grace|👗
+LADDU|Round sweet ball|🟡
+HALWA|Sticky sweet, Tirunelveli is famous for it|🍮
+MUSIC|Carnatic is a style of it|🎵
+DANCE|Bharatanatyam is one|💃
+VEENA|Stringed instrument of Saraswati|🎶
+POORI|Puffed fried bread|🫓
+ADYAR|River in south Chennai|🏞️
+TEMPLE|Kapaleeshwarar is one|🛕
+COFFEE|Filter ____|☕
+SAMBAR|Lentil curry with idli|🍲
+PONGAL|Harvest festival in January|🌾
+CINEMA|Kollywood makes this|🎬
+PARROT|Green talking bird|🦜
+MARINA|Chennai's famous beach|🏖️
+GUINDY|Area with a national park|🦌
+EGMORE|Railway station near the museum|🚉
+SUNDAL|Beach snack of boiled chickpeas|🥜
+MARKET|Koyambedu has a huge one|🛒
+TICKET|You need one for the bus|🎫
+TIFFIN|Light meal like idli or dosa|🍱
+FILTER|____ coffee|☕
+MUSEUM|Government ____ in Egmore|🏛️
+BRIDGE|Napier ____ over the Cooum|🌉
+CRICKET|Chepauk hosts this game|🏏
+JASMINE|Madurai malli flower|🌼
+BIRYANI|Spiced rice dish|🍛
+PAROTTA|Layered flatbread with salna|🫓
+COCONUT|Fruit of the tall palm|🥥
+PEACOCK|National bird of India|🦚
+MONSOON|Brings Chennai rain in November|🌧️
+CYCLONE|Storm from the Bay of Bengal|🌀
+HARBOUR|Where big ships dock|⚓
+CENTRAL|Chennai ____ railway station|🚉
+LIBRARY|Anna Centenary ____|📚
+PAYASAM|Sweet milk pudding|🍮
+CHUTNEY|Coconut side dish|🥥
+SUNRISE|Early morning at Besant Nagar|🌅
+AIRPORT|Meenambakkam has one|✈️
+ELEPHANT|Temple animal with a trunk|🐘
+UMBRELLA|Carry one in the monsoon|☂️
+MYLAPORE|Home of Kapaleeshwarar temple|🛕
+TAMBARAM|Southern suburb with a big rail junction|🚆
+CARNATIC|South Indian classical music|🎶
+MARGAZHI|Month of the December music season|🎤
+FESTIVAL|Deepavali is one|🎉
+CRACKERS|Burst on Deepavali|🎆
+HOSPITAL|Where doctors work|🏥
+FISHERMAN|Goes to sea every dawn|🎣
+MRIDANGAM|Two-sided drum at Carnatic concerts|🥁
+VELACHERY|IT area with a big lake|🏙️
+LIGHTHOUSE|Tall tower on the Marina|🗼
+VADAPALANI|Area with a famous Murugan temple|🛕
+KODAMBAKKAM|Heart of Tamil cinema|🎬
+JIGARTHANDA|Cool Madurai drink|🥤`,0);
+let jMode=null;
+function jumbleView(){if(!jMode)jMode=localStorage.getItem("cp-jmode")||(lang==="ta"?"ta":"en");return `<section style="display:grid;gap:12px">${gHead(["Word Jumble","சொல் விளையாட்டு"],["Arrange the letters to make the word","எழுத்துக்களை வரிசைப்படுத்தி சொல்லை உருவாக்கு"])}
+ <div class="chips" style="margin:0"><button class="chip" data-jm="ta" aria-pressed="${jMode==="ta"}">தமிழ்</button><button class="chip" data-jm="en" aria-pressed="${jMode==="en"}">English</button></div><div class="pzcard" id="jumc"></div></section>`}
+function startJumble(){const card=document.getElementById("jumc");if(!card)return;document.querySelectorAll("[data-jm]").forEach(b=>b.onclick=()=>{jMode=b.dataset.jm;try{localStorage.setItem("cp-jmode",jMode)}catch(e){}go("jumble")});
+ const list=jMode==="ta"?JTA:JEN,key="cp-j"+jMode,L=Math.min(gget(key,1),list.length+1);card.classList.remove("won");
+ if(L>list.length){card.innerHTML=`<div class="gnext"><b>🏆 ${PT(["You solved every word! More coming soon.","எல்லா சொற்களையும் முடித்துவிட்டீர்கள்! விரைவில் மேலும்."])}</b><button class="chip" id="jre">↻ ${PT(["Play again from level 1","நிலை 1 முதல் மீண்டும்"])}</button></div>`;document.getElementById("jre").onclick=()=>{gset(key,1);startJumble()};return}
+ const w=list[L-1],r=pzRng(L*31+(jMode==="ta"?7:3));let tiles,k=0;do{tiles=pzShuf(w.t,r)}while(tiles.join("")===w.t.join("")&&++k<12);const n=w.t.length,sz=Math.max(30,Math.min(50,Math.floor((330-(n-1)*6)/n)));
+ card.innerHTML=`<div class="lvbar"><span></span><b>${PT(["Level","நிலை"])} ${L}<small> / ${list.length}</small></b><span></span></div>
+ <div class="pzclue"><span>${w.e}</span><b>${w.m}</b></div>
+ <div class="pzslots">${w.t.map((_,i)=>`<button data-s="${i}" style="width:${sz}px" aria-label="Box ${i+1}"></button>`).join("")}</div>
+ <div class="pztiles">${tiles.map((x,j)=>`<button data-j="${j}">${x}</button>`).join("")}</div>
+ <div class="pzbar" style="justify-content:center"><button class="chip" id="jhint">💡 ${PT(["Hint","குறிப்பு"])}</button><button class="chip" id="jclr">⌫ ${PT(["Clear","அழி"])}</button></div><div class="gnext" hidden></div><div class="pzok" hidden>✓</div>`;
+ const fill=[],slots=[...card.querySelectorAll("[data-s]")],tb=[...card.querySelectorAll("[data-j]")];let done=false;
+ const draw=()=>{slots.forEach((s,i)=>{s.textContent=fill[i]!=null?tiles[fill[i]]:"";s.classList.toggle("f",fill[i]!=null)});tb.forEach((b,j)=>b.classList.toggle("used",fill.includes(j)))};
+ const check=()=>{if(!slots.every((_,i)=>fill[i]!=null))return;if(fill.map(f=>tiles[f]).join("")===w.t.join("")){done=true;slots.forEach(s=>s.classList.add("ok"));gset(key,L+1);gWin(card);const nx=card.querySelector(".gnext");nx.hidden=false;nx.innerHTML=`<button class="gbtn" id="gnx">${PT(["Next word","அடுத்த சொல்"])} ›</button>`;document.getElementById("gnx").onclick=startJumble}
+  else{done=true;card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30]);setTimeout(()=>{fill.length=0;done=false;draw()},550)}};
+ tb.forEach((b,j)=>b.onclick=()=>{if(done||fill.includes(j))return;let p=0;while(fill[p]!=null)p++;if(p>=n)return;fill[p]=j;pzVib(6);draw();check()});
+ slots.forEach((s,i)=>s.onclick=()=>{if(done)return;fill[i]=null;draw()});
+ document.getElementById("jclr").onclick=()=>{if(done)return;fill.length=0;draw()};
+ document.getElementById("jhint").onclick=()=>{if(done)return;let p=0;while(p<n&&fill[p]!=null&&tiles[fill[p]]===w.t[p])p++;if(p>=n)return;for(let i=p;i<n;i++)fill[i]=null;
+  const keep=fill.slice(0,p);const j=tiles.findIndex((x,q)=>x===w.t[p]&&!keep.includes(q));fill[p]=j;slots[p].classList.add("hint");draw();check()};draw()}
+const MEMS=["🛺","☕","🌊","🛕","🎬","🚇"];
+function memView(){return `<section style="display:grid;gap:12px">${gHead(["Memory Sequence","நினைவு வரிசை"],["Watch the order, then repeat it. It grows by one each round.","வரிசையைப் பார்த்து அதையே தொடுங்கள். ஒவ்வொரு சுற்றிலும் ஒன்று கூடும்."])}<div class="pzcard" id="memc"></div></section>`}
+function startMem(){const card=document.getElementById("memc");if(!card)return;card.classList.remove("won");
+ card.innerHTML=`<div class="lvbar"><span class="mstat" id="mround"></span><b id="mmsg"></b><span class="mstat" id="mbest"></span></div><div class="memgrid">${MEMS.map((e,i)=>`<button data-k="${i}" disabled>${e}</button>`).join("")}</div><div class="gnext" id="mnext"><button class="gbtn" id="mgo">▶ ${PT(["Start","தொடங்கு"])}</button></div>`;
+ const keys=[...card.querySelectorAll("[data-k]")],msg=document.getElementById("mmsg"),nx=document.getElementById("mnext"),sl=ms=>new Promise(f=>setTimeout(f,ms));let seq=[],pos=0,busy=true;
+ const stat=()=>{document.getElementById("mround").textContent=`${PT(["Round","சுற்று"])} ${Math.max(1,seq.length-2)}`;document.getElementById("mbest").textContent=`${PT(["Best","சிறந்தது"])} ${gget("cp-mem",0)}`};
+ const lit=async(i,ms)=>{keys[i].classList.add("lit");await sl(ms);keys[i].classList.remove("lit")};
+ const round=async()=>{busy=true;keys.forEach(k=>k.disabled=true);let v;do{v=Math.floor(Math.random()*6)}while(v===seq[seq.length-1]);seq.push(v);while(seq.length<3){let u;do{u=Math.floor(Math.random()*6)}while(u===seq[seq.length-1]);seq.push(u)}
+  stat();msg.textContent=PT(["Watch","பாருங்கள்"]);pos=0;await sl(500);const sp=Math.max(320,700-seq.length*25);for(const i of seq){if(!card.isConnected)return;await lit(i,sp);await sl(180)}
+  msg.textContent=PT(["Your turn","உங்கள் முறை"]);keys.forEach(k=>k.disabled=false);busy=false};
+ keys.forEach(k=>k.onclick=()=>{if(busy)return;const i=+k.dataset.k;lit(i,180);pzVib(8);
+  if(i!==seq[pos]){busy=true;keys.forEach(x=>x.disabled=true);card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30]);const sc=seq.length-1,b=gget("cp-mem",0),nb=sc>b;if(nb)gset("cp-mem",sc);stat();
+   msg.textContent="";const share=encodeURIComponent(`I remembered a sequence of ${sc} on Chennai+ Memory 🧠 Can you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/#games`);
+   nx.innerHTML=`<div class="mres"><b>${sc}</b><span>${nb?PT(["New best!","புதிய சாதனை!"]):PT(["You remembered","நீங்கள் நினைவில் வைத்தது"])}</span></div><button class="gbtn" id="mgo">↻ ${PT(["Play again","மீண்டும் விளையாடு"])}</button><a class="pzwa" href="https://wa.me/?text=${share}" target="_blank" rel="noopener">${PT(["Share","பகிர்"])}</a>`;nx.hidden=false;document.getElementById("mgo").onclick=startMem;return}
+  pos++;if(pos===seq.length){busy=true;keys.forEach(x=>x.disabled=true);msg.textContent="✓";setTimeout(round,700)}});
+ stat();msg.textContent="";document.getElementById("mgo").onclick=()=>{nx.hidden=true;nx.innerHTML="";round()}}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
@@ -1236,6 +1506,9 @@ const views={
  game:()=>gameView(),
  games:()=>gamesView(),
  puzzle:()=>puzzleView(),
+ sort:()=>sortView(),
+ jumble:()=>jumbleView(),
+ mem:()=>memView(),
  news:()=>newsView(),
  events:()=>`${banner("events","Events","Concerts, comedy, markets &amp; more",["ticket","music","festival"])}<section><h2>Coming up${contentLive?"":`<span class="stag">Sample</span>`}</h2><div class="list">${events.map(evRow).join("")}</div></section>`,
  food:(f="All")=>`${banner("food","Food","Chennai’s tastiest spots",["dosa","biryani","coffee"])}<section>
@@ -1246,7 +1519,7 @@ const views={
 
 const view=document.getElementById("view");
 new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
-function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="puzzle")startPuzzle();if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="puzzle")startPuzzle();if(v==="sort")startSort();if(v==="jumble")startJumble();if(v==="mem")startMem();if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
 view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const rf=e.target.closest("[data-rf]");if(rf){rentF[rf.dataset.rf]=rf.dataset.rv;const y=scrollY;go("rent");scrollTo(0,y);return}const gm=e.target.closest("[data-gm]");if(gm){GM.mode=gm.dataset.gm;go("game");return}if(e.target.closest("#gsnd")){GM.sound=!GM.sound;if(!GM.sound&&GM.stop)GM.stop();gset("cp-snd",GM.sound?"1":"0");e.target.closest("#gsnd").innerHTML=GM.sound?SND_ON:SND_OFF;return}const nt=e.target.closest("[data-nt]");if(nt){newsT=nt.dataset.nt;go("news");return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
