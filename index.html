@@ -518,6 +518,30 @@ button.ftile{border:0;cursor:pointer;font-family:var(--body)}
 .wsmaph{display:flex;align-items:center;justify-content:space-between;padding:10px 10px 6px 16px}.wsmaph b{font:800 18px var(--display)}.wsmaph .wsic{width:38px;height:38px;box-shadow:none;background:var(--page)}
 .wsgrid{overflow:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:6px 12px 14px}
 .wsgrid button{border:0;border-radius:14px;aspect-ratio:1;display:grid;place-items:center;align-content:center;gap:1px;font:800 17px var(--display);color:#4c1d95;background:#f3edff;cursor:pointer}.wsgrid button small{font-size:9px;color:#f59e0b;letter-spacing:-1px}.wsgrid button.cur{background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff}.wsgrid button.cur small{color:#fde047}.wsgrid button:disabled{opacity:.45;cursor:default;font-size:14px}
+.wsx{--wa1:#7c3aed;--wa2:#db2777;--wsoft:#f3edff;--wst:radial-gradient(120% 80% at 50% 0%,#5b2a9a 0%,#2a1559 45%,#140b33 100%)}
+.wsx.rose{--wa1:#e11d48;--wa2:#f59e0b;--wsoft:#ffe4e6;--wst:radial-gradient(120% 80% at 50% 0%,#c0264f 0%,#6b0f2a 48%,#2a0612 100%)}
+.wsx.blue{--wa1:#2563eb;--wa2:#06b6d4;--wsoft:#dbeafe;--wst:radial-gradient(120% 80% at 50% 0%,#2f5bd3 0%,#152a73 48%,#070f33 100%)}
+.wsx.sun{--wa1:#ea580c;--wa2:#db2777;--wsoft:#ffedd5}
+.wsx .wslv small{color:var(--wa1)}.wsx .wslv b{background-image:linear-gradient(120deg,var(--wa1),var(--wa2))}.wsx .wslv b.wst{font-size:24px;padding:2px 0}
+.wsx .wsstage{background:var(--wst)}.wsx .wstool{color:var(--wa1)}.wsx .wslink{color:var(--wa1)}
+.wsx .wsgrid button{color:var(--wa1);background:var(--wsoft)}.wsx .wsgrid button.cur{background:linear-gradient(135deg,var(--wa1),var(--wa2));color:#fff}
+.wseg{display:flex;justify-self:center;background:var(--surface);border-radius:999px;padding:4px;gap:4px;box-shadow:0 4px 14px rgba(0,0,0,.08)}.wseg button{border:0;background:none;padding:9px 18px;border-radius:999px;font:700 14px var(--body);color:var(--muted);cursor:pointer;white-space:nowrap}.wseg button[aria-pressed="true"]{background:linear-gradient(120deg,var(--wa1),var(--wa2));color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.wsbest{display:flex;align-items:center;gap:6px;height:46px;padding:0 14px;border-radius:15px;background:var(--surface);color:#f59e0b;box-shadow:0 4px 14px rgba(20,30,90,.14)}.wsbest b{font:800 19px var(--display);color:var(--ink)}
+.jbody{display:grid;justify-items:center;gap:24px;width:100%}
+.jclue{display:grid;justify-items:center;gap:6px;color:#fff;text-align:center}.jemo{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-size:48px;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 2px rgba(255,255,255,.3),0 12px 26px rgba(0,0,0,.3)}.jclue b{font:800 25px var(--display)}.jclue small{opacity:.7;font-size:12.5px;font-weight:600}
+.jslots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:330px}.jslots button{border:0;border-radius:12px;padding:0;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);color:#fff;font-family:"Hind Madurai",var(--display);font-weight:800;cursor:pointer;transition:transform .15s}
+.jslots button.f{background:#fff;color:#4c0519;box-shadow:0 4px 0 rgba(0,0,0,.3)}.jslots button.hint{box-shadow:inset 0 0 0 2.5px #fde047}.jslots button.f.hint{box-shadow:0 0 0 2.5px #fde047,0 4px 0 rgba(0,0,0,.3)}.jslots button.ok{background:#22c55e;color:#fff;animation:wpop .45s cubic-bezier(.3,1.6,.5,1)}.jslots.shk{animation:pzshake .35s}
+.jtiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:330px;min-height:58px}.jtiles button{min-width:50px;height:54px;padding:0 10px;border:0;border-radius:14px;background:linear-gradient(#fff,#ffe4e6);color:#4c0519;font:800 24px "Hind Madurai",var(--display);box-shadow:0 5px 0 #fda4af,0 10px 18px rgba(0,0,0,.3);cursor:pointer;transition:transform .1s}.jtiles button:active{transform:translateY(3px);box-shadow:0 2px 0 #fda4af}.jtiles button.used{visibility:hidden}
+.wswin .jword{font:800 30px "Hind Madurai",var(--display)}
+.mpads{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:320px}
+.mpads button{aspect-ratio:1;border:0;border-radius:24px;cursor:pointer;font-size:42px;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.04));box-shadow:inset 0 0 0 2px rgba(255,255,255,.28),inset 0 -5px 0 var(--p),0 10px 18px rgba(0,0,0,.3);transition:transform .12s,box-shadow .15s,background .15s;-webkit-tap-highlight-color:transparent}
+.mpads button span{display:block;transition:transform .15s}.mpads button.lit{background:var(--p);transform:scale(1.07);box-shadow:0 0 0 3px #fff,0 0 30px var(--p),0 0 70px var(--p)}.mpads button.lit span{transform:scale(1.15)}
+.mpads button.bad{background:#ef4444;animation:pzshake .35s}.mpads button:disabled{cursor:default}
+.mpill{position:absolute;top:22px;left:50%;transform:translateX(-50%);padding:6px 18px;border-radius:999px;font:800 14px var(--body);color:#fff;background:rgba(255,255,255,.16);letter-spacing:.4px;white-space:nowrap}.mpill:empty{display:none}.mpill.go{background:#22c55e}
+.mdots{position:absolute;bottom:16px;left:12px;right:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}.mdots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25)}.mdots i.ok{background:#fde047}
+.mscore{font:800 68px/1 var(--display);background:linear-gradient(120deg,var(--wa1),var(--wa2));-webkit-background-clip:text;background-clip:text;color:transparent}.mbig{font-size:54px;line-height:1}
+.wsx .gwrap{border-radius:28px}
+.wsstage{overflow:clip}.wsx .wsstage{contain:paint}
 </style>
 </head>
 <body>
@@ -1139,14 +1163,12 @@ function repsHome(){return `<section><button class="kcard" data-go="reps" style=
 const SND_ON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>',SND_OFF='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 10l4 4M21 10l-4 4"/></svg>';let GM={mode:"relax",sound:true};try{GM.sound=localStorage.getItem("cp-snd")!=="0"}catch(e){}
 const gget=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:+v}catch(e){return d}},gset=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 function gameView(){const T=x=>lang==="ta"?x[1]:x[0];
- return `<section style="display:grid;gap:10px"><button class="back" data-go="games">‹ ${T(["Games","விளையாட்டுகள்"])}</button>
- <div class="ghead"><div><h1 class="ntitle">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</h1><div class="meta" style="color:var(--muted);font-size:13.5px">${T(["Marina beach stall · tap a balloon to burst it","மெரினா கடை · பலூனைத் தொட்டு உடையுங்கள்"])}</div></div>
- <button class="gsnd" id="gsnd" aria-label="Sound">${GM.sound?SND_ON:SND_OFF}</button></div>
- <div class="chips" style="margin:0"><button class="chip" data-gm="relax" aria-pressed="${GM.mode==="relax"}">${T(["Relax","ரிலாக்ஸ்"])}</button><button class="chip" data-gm="timed" aria-pressed="${GM.mode==="timed"}">${T(["60-second challenge","60 வினாடி சவால்"])}</button></div>
+ return `<section class="wsx sun"><div class="wshead"><button class="wsic" data-go="games" aria-label="Back to games">${wsi("back")}</button><div class="wslv"><small>${T(["MARINA STALL","மெரினா கடை"])}</small><b class="wst">${T(["Balloon Shoot","பலூன் சுடுதல்"])}</b></div><button class="wsic" id="gsnd" aria-label="Sound">${GM.sound?SND_ON:SND_OFF}</button></div>
+ <div class="wseg"><button data-gm="relax" aria-pressed="${GM.mode==="relax"}">${T(["Relax","ரிலாக்ஸ்"])}</button><button data-gm="timed" aria-pressed="${GM.mode==="timed"}">${T(["60-second challenge","60 வினாடி சவால்"])}</button></div>
  <div class="gwrap" id="gwrap"><canvas id="gcv" aria-label="Balloon shooting game: tap balloons to pop them"></canvas>
   <div class="ghud"><span id="gsc">0</span><span id="gx"></span></div>
   <div class="gover" id="gover" hidden></div></div>
- <p class="note" style="text-align:center">${T(["Total balloons popped","மொத்தம் உடைத்த பலூன்கள்"])}: <b id="gtot">${gget("cp-pops",0).toLocaleString("en-IN")}</b></p></section>`}
+ <p class="wsmv">${T(["Total balloons popped","மொத்தம் உடைத்த பலூன்கள்"])}: <b id="gtot">${gget("cp-pops",0).toLocaleString("en-IN")}</b></p></section>`}
 function startGame(){const cv=document.getElementById("gcv");if(!cv)return;const wrap=document.getElementById("gwrap"),ctx=cv.getContext("2d"),dpr=Math.min(2,devicePixelRatio||1);
  const W=wrap.clientWidth,H=Math.min(600,Math.max(440,innerHeight-300));cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
  const COLS=["#ff4d6d","#ffb703","#3a86ff","#8338ec","#06d6a0","#ff7a00","#f72585","#4cc9f0"];
@@ -1450,43 +1472,67 @@ LIGHTHOUSE|Tall tower on the Marina|🗼
 VADAPALANI|Area with a famous Murugan temple|🛕
 KODAMBAKKAM|Heart of Tamil cinema|🎬
 JIGARTHANDA|Cool Madurai drink|🥤`,0);
-let jMode=null;
-function jumbleView(){if(!jMode)jMode=localStorage.getItem("cp-jmode")||(lang==="ta"?"ta":"en");return `<section style="display:grid;gap:12px">${gHead(["Word Jumble","சொல் விளையாட்டு"],["Arrange the letters to make the word","எழுத்துக்களை வரிசைப்படுத்தி சொல்லை உருவாக்கு"])}
- <div class="chips" style="margin:0"><button class="chip" data-jm="ta" aria-pressed="${jMode==="ta"}">தமிழ்</button><button class="chip" data-jm="en" aria-pressed="${jMode==="en"}">English</button></div><div class="pzcard" id="jumc"></div></section>`}
-function startJumble(){const card=document.getElementById("jumc");if(!card)return;document.querySelectorAll("[data-jm]").forEach(b=>b.onclick=()=>{jMode=b.dataset.jm;try{localStorage.setItem("cp-jmode",jMode)}catch(e){}go("jumble")});
- const list=jMode==="ta"?JTA:JEN,key="cp-j"+jMode,L=Math.min(gget(key,1),list.length+1);card.classList.remove("won");
- if(L>list.length){card.innerHTML=`<div class="gnext"><b>🏆 ${PT(["You solved every word! More coming soon.","எல்லா சொற்களையும் முடித்துவிட்டீர்கள்! விரைவில் மேலும்."])}</b><button class="chip" id="jre">↻ ${PT(["Play again from level 1","நிலை 1 முதல் மீண்டும்"])}</button></div>`;document.getElementById("jre").onclick=()=>{gset(key,1);startJumble()};return}
- const w=list[L-1],r=pzRng(L*31+(jMode==="ta"?7:3));let tiles,k=0;do{tiles=pzShuf(w.t,r)}while(tiles.join("")===w.t.join("")&&++k<12);const n=w.t.length,sz=Math.max(30,Math.min(50,Math.floor((330-(n-1)*6)/n)));
- card.innerHTML=`<div class="lvbar"><span></span><b>${PT(["Level","நிலை"])} ${L}<small> / ${list.length}</small></b><span></span></div>
- <div class="pzclue"><span>${w.e}</span><b>${w.m}</b></div>
- <div class="pzslots">${w.t.map((_,i)=>`<button data-s="${i}" style="width:${sz}px" aria-label="Box ${i+1}"></button>`).join("")}</div>
- <div class="pztiles">${tiles.map((x,j)=>`<button data-j="${j}">${x}</button>`).join("")}</div>
- <div class="pzbar" style="justify-content:center"><button class="chip" id="jhint">💡 ${PT(["Hint","குறிப்பு"])}</button><button class="chip" id="jclr">⌫ ${PT(["Clear","அழி"])}</button></div><div class="gnext" hidden></div><div class="pzok" hidden>✓</div>`;
- const fill=[],slots=[...card.querySelectorAll("[data-s]")],tb=[...card.querySelectorAll("[data-j]")];let done=false;
- const draw=()=>{slots.forEach((s,i)=>{s.textContent=fill[i]!=null?tiles[fill[i]]:"";s.classList.toggle("f",fill[i]!=null)});tb.forEach((b,j)=>b.classList.toggle("used",fill.includes(j)))};
- const check=()=>{if(!slots.every((_,i)=>fill[i]!=null))return;if(fill.map(f=>tiles[f]).join("")===w.t.join("")){done=true;slots.forEach(s=>s.classList.add("ok"));gset(key,L+1);gWin(card);const nx=card.querySelector(".gnext");nx.hidden=false;nx.innerHTML=`<button class="gbtn" id="gnx">${PT(["Next word","அடுத்த சொல்"])} ›</button>`;document.getElementById("gnx").onclick=startJumble}
-  else{done=true;card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30]);setTimeout(()=>{fill.length=0;done=false;draw()},550)}};
- tb.forEach((b,j)=>b.onclick=()=>{if(done||fill.includes(j))return;let p=0;while(fill[p]!=null)p++;if(p>=n)return;fill[p]=j;pzVib(6);draw();check()});
- slots.forEach((s,i)=>s.onclick=()=>{if(done)return;fill[i]=null;draw()});
- document.getElementById("jclr").onclick=()=>{if(done)return;fill.length=0;draw()};
- document.getElementById("jhint").onclick=()=>{if(done)return;let p=0;while(p<n&&fill[p]!=null&&tiles[fill[p]]===w.t[p])p++;if(p>=n)return;for(let i=p;i<n;i++)fill[i]=null;
-  const keep=fill.slice(0,p);const j=tiles.findIndex((x,q)=>x===w.t[p]&&!keep.includes(q));fill[p]=j;slots[p].classList.add("hint");draw();check()};draw()}
-const MEMS=["🛺","☕","🌊","🛕","🎬","🚇"];
-function memView(){return `<section style="display:grid;gap:12px">${gHead(["Memory Sequence","நினைவு வரிசை"],["Watch the order, then repeat it. It grows by one each round.","வரிசையைப் பார்த்து அதையே தொடுங்கள். ஒவ்வொரு சுற்றிலும் ஒன்று கூடும்."])}<div class="pzcard" id="memc"></div></section>`}
-function startMem(){const card=document.getElementById("memc");if(!card)return;card.classList.remove("won");
- card.innerHTML=`<div class="lvbar"><span class="mstat" id="mround"></span><b id="mmsg"></b><span class="mstat" id="mbest"></span></div><div class="memgrid">${MEMS.map((e,i)=>`<button data-k="${i}" disabled>${e}</button>`).join("")}</div><div class="gnext" id="mnext"><button class="gbtn" id="mgo">▶ ${PT(["Start","தொடங்கு"])}</button></div>`;
- const keys=[...card.querySelectorAll("[data-k]")],msg=document.getElementById("mmsg"),nx=document.getElementById("mnext"),sl=ms=>new Promise(f=>setTimeout(f,ms));let seq=[],pos=0,busy=true;
- const stat=()=>{document.getElementById("mround").textContent=`${PT(["Round","சுற்று"])} ${Math.max(1,seq.length-2)}`;document.getElementById("mbest").textContent=`${PT(["Best","சிறந்தது"])} ${gget("cp-mem",0)}`};
- const lit=async(i,ms)=>{keys[i].classList.add("lit");await sl(ms);keys[i].classList.remove("lit")};
- const round=async()=>{busy=true;keys.forEach(k=>k.disabled=true);let v;do{v=Math.floor(Math.random()*6)}while(v===seq[seq.length-1]);seq.push(v);while(seq.length<3){let u;do{u=Math.floor(Math.random()*6)}while(u===seq[seq.length-1]);seq.push(u)}
-  stat();msg.textContent=PT(["Watch","பாருங்கள்"]);pos=0;await sl(500);const sp=Math.max(320,700-seq.length*25);for(const i of seq){if(!card.isConnected)return;await lit(i,sp);await sl(180)}
-  msg.textContent=PT(["Your turn","உங்கள் முறை"]);keys.forEach(k=>k.disabled=false);busy=false};
- keys.forEach(k=>k.onclick=()=>{if(busy)return;const i=+k.dataset.k;lit(i,180);pzVib(8);
-  if(i!==seq[pos]){busy=true;keys.forEach(x=>x.disabled=true);card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake");pzVib([30,40,30]);const sc=seq.length-1,b=gget("cp-mem",0),nb=sc>b;if(nb)gset("cp-mem",sc);stat();
-   msg.textContent="";const share=encodeURIComponent(`I remembered a sequence of ${sc} on Chennai+ Memory 🧠 Can you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/#games`);
-   nx.innerHTML=`<div class="mres"><b>${sc}</b><span>${nb?PT(["New best!","புதிய சாதனை!"]):PT(["You remembered","நீங்கள் நினைவில் வைத்தது"])}</span></div><button class="gbtn" id="mgo">↻ ${PT(["Play again","மீண்டும் விளையாடு"])}</button><a class="pzwa" href="https://wa.me/?text=${share}" target="_blank" rel="noopener">${PT(["Share","பகிர்"])}</a>`;nx.hidden=false;document.getElementById("mgo").onclick=startMem;return}
-  pos++;if(pos===seq.length){busy=true;keys.forEach(x=>x.disabled=true);msg.textContent="✓";setTimeout(round,700)}});
- stat();msg.textContent="";document.getElementById("mgo").onclick=()=>{nx.hidden=true;nx.innerHTML="";round()}}
+// ---------- Shared game-screen pieces (same style as Colour Sort) ----------
+Object.assign(WSI,{bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',shuf:'<path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>',clr:'<path d="M21 5H8l-6 7 6 7h13a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><path d="m12 9 6 6M18 9l-6 6"/>',eye:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>'});
+const wsConf=()=>`<div class="wsconf">${Array.from({length:36},(_,i)=>`<i style="left:${Math.random()*100}%;background:${SORTC[i%7]};animation-delay:${Math.random()*.4}s;--x:${(Math.random()-.5)*120}px;--r:${Math.random()*720}deg"></i>`).join("")}</div>`;
+const wsStars=s=>`<div class="wsstars">${[1,2,3].map(k=>`<span class="${k<=s?"on":""}" style="animation-delay:${.15+k*.18}s">${wsi("star",1)}</span>`).join("")}</div>`;
+function wsMap(ov,o){if(!ov.hidden&&ov.querySelector(".wsmap")){ov.hidden=true;return}ov.hidden=false;
+ ov.innerHTML=`<div class="wsmap"><div class="wsmaph"><b>${o.title}</b><button class="wsic" id="wsmapx" aria-label="Close">✕</button></div><div class="wsgrid">${Array.from({length:o.n},(_,i)=>{const l=i+1,lock=l>o.top;return `<button data-l="${l}" ${lock?"disabled":""} class="${l===o.cur?"cur":""}">${lock?"🔒":l}<small>${lock?"":"★".repeat(o.stars[l]||0).padEnd(3,"☆")}</small></button>`}).join("")}</div></div>`;
+ document.getElementById("wsmapx").onclick=()=>{ov.hidden=true};ov.querySelectorAll("[data-l]").forEach(x=>x.onclick=()=>o.pick(+x.dataset.l));const c=ov.querySelector(".cur");if(c)c.scrollIntoView({block:"center"})}
+const wsHead=(label,right)=>`<div class="wshead"><button class="wsic" data-go="games" aria-label="Back to games">${wsi("back")}</button><div class="wslv"><small>${label}</small><b id="wslv"></b></div>${right}</div>`;
+const wsStage=(cls,inner)=>`<div class="wsstage ${cls}"><i class="wsb"></i><i class="wsb"></i><i class="wsb"></i>${inner}<div class="wsover" id="wsover" hidden></div></div>`;
+const wsTool=(a,ic,t)=>`<button class="wstool" data-a="${a}">${wsi(ic)}<span>${PT(t)}</span></button>`;
+// ---------- Word Jumble ----------
+let jMode=null,jLv=0;
+function jumbleView(){if(!jMode)jMode=localStorage.getItem("cp-jmode")||(lang==="ta"?"ta":"en");
+ return `<section class="wsx rose">${wsHead(PT(["WORD","சொல்"]),`<button class="wsic" id="wsmapb" aria-label="All words">${wsi("map")}</button>`)}
+ <div class="wseg"><button data-jm="ta" aria-pressed="${jMode==="ta"}">தமிழ்</button><button data-jm="en" aria-pressed="${jMode==="en"}">English</button></div>
+ ${wsStage("jstage",`<div class="wsprog"><span id="wsprog"></span></div><div class="jbody" id="jbody"></div>`)}
+ <div class="wstools">${wsTool("hint","bulb",["Hint","குறிப்பு"])}${wsTool("shuf","shuf",["Shuffle","கலக்கு"])}${wsTool("clr","clr",["Clear","அழி"])}</div><p class="wsmv">${PT(["No hints and no mistakes = 3 stars","குறிப்பு, தவறு இல்லாமல் = 3 நட்சத்திரம்"])}</p></section>`}
+function startJumble(){const body=document.getElementById("jbody");if(!body)return;
+ document.querySelectorAll("[data-jm]").forEach(b=>b.onclick=()=>{if(b.dataset.jm===jMode)return;jMode=b.dataset.jm;jLv=0;try{localStorage.setItem("cp-jmode",jMode)}catch(e){}go("jumble")});
+ const list=jMode==="ta"?JTA:JEN,key="cp-j"+jMode,skey="cp-jst-"+jMode,top=Math.min(gget(key,1),list.length),ov=document.getElementById("wsover");if(!jLv||jLv>top)jLv=top;
+ const L=jLv,w=list[L-1],n=w.t.length,S=jget(skey,{});ov.hidden=true;ov.innerHTML="";document.getElementById("wslv").textContent=L;document.getElementById("wsprog").style.width=Math.max(2,Object.keys(S).length/list.length*100)+"%";
+ const r=pzRng(L*31+(jMode==="ta"?7:3));let order,k=0;do{order=pzShuf([...Array(n).keys()],r)}while(order.every((v,i)=>v===i)&&++k<12);
+ const T2=order.map(i=>w.t[i]);let disp=[...Array(n).keys()],fill=[],hints=0,wrong=0,done=false;const sz=Math.max(30,Math.min(50,Math.floor((300-(n-1)*6)/n)));
+ body.innerHTML=`<div class="jclue"><span class="jemo">${w.e}</span><b>${w.m}</b><small>${n} ${jMode==="ta"?PT(["Tamil letters","தமிழ் எழுத்துகள்"]):PT(["letters","எழுத்துகள்"])}</small></div>
+ <div class="jslots" id="jslots">${w.t.map((_,i)=>`<button data-s="${i}" style="width:${sz}px;height:${sz+8}px;font-size:${Math.min(22,sz*.5)}px" aria-label="Box ${i+1}"></button>`).join("")}</div><div class="jtiles" id="jtiles"></div>`;
+ const slots=[...body.querySelectorAll("[data-s]")],tb=document.getElementById("jtiles"),box=document.getElementById("jslots");
+ const draw=()=>{slots.forEach((s,i)=>{s.textContent=fill[i]!=null?T2[fill[i]]:"";s.classList.toggle("f",fill[i]!=null)});tb.innerHTML=disp.map(j=>`<button data-j="${j}" class="${fill.includes(j)?"used":""}">${T2[j]}</button>`).join("")};
+ const win=()=>{done=true;slots.forEach(s=>s.classList.add("ok"));pzVib(30);const st=hints+wrong===0?3:hints+wrong<=1?2:1;const s2=jget(skey,{});if(!s2[L]||s2[L]<st){s2[L]=st;jset(skey,s2)}if(L===gget(key,1))gset(key,L+1);
+  setTimeout(()=>{if(!ov.isConnected)return;ov.hidden=false;ov.innerHTML=wsConf()+`<div class="wswin">${wsStars(st)}<b class="jword">${w.w}</b><small>${w.e} ${w.m}</small>${L<list.length?`<button class="gbtn" id="wsnext">${PT(["Next word","அடுத்த சொல்"])} ›</button>`:`<b>🏆 ${PT(["You solved every word!","எல்லா சொற்களும் முடிந்தது!"])}</b>`}<button class="wslink" id="wsagain">${PT(["Replay this word","மீண்டும் விளையாடு"])}</button></div>`;
+   const nx=document.getElementById("wsnext");if(nx)nx.onclick=()=>{jLv=L+1;startJumble()};document.getElementById("wsagain").onclick=()=>startJumble()},450)};
+ const check=()=>{if(!slots.every((_,i)=>fill[i]!=null))return;if(fill.map(f=>T2[f]).join("")===w.t.join(""))return win();wrong++;done=true;box.classList.remove("shk");void box.offsetWidth;box.classList.add("shk");pzVib([30,40,30]);setTimeout(()=>{fill=[];slots.forEach(s=>s.classList.remove("hint"));done=false;draw()},600)};
+ tb.onclick=e=>{const b=e.target.closest("[data-j]");if(!b||done)return;const j=+b.dataset.j;if(fill.includes(j))return;let p=0;while(fill[p]!=null)p++;if(p>=n)return;fill[p]=j;pzVib(6);draw();check()};
+ slots.forEach((s,i)=>s.onclick=()=>{if(done||fill[i]==null)return;fill[i]=null;s.classList.remove("hint");draw()});
+ document.querySelector('.wstool[data-a="hint"]').onclick=()=>{if(done)return;let p=0;while(p<n&&fill[p]!=null&&T2[fill[p]]===w.t[p])p++;if(p>=n)return;for(let i=p;i<n;i++){fill[i]=null;slots[i].classList.remove("hint")}const keep=fill.slice(0,p);const q=T2.findIndex((x,z)=>x===w.t[p]&&!keep.includes(z));fill[p]=q;hints++;slots[p].classList.add("hint");draw();check()};
+ document.querySelector('.wstool[data-a="shuf"]').onclick=()=>{if(done)return;disp=pzShuf(disp,Math.random);draw()};
+ document.querySelector('.wstool[data-a="clr"]').onclick=()=>{if(done)return;fill=[];slots.forEach(s=>s.classList.remove("hint"));draw()};
+ document.getElementById("wsmapb").onclick=()=>wsMap(ov,{n:list.length,top,cur:L,stars:jget(skey,{}),title:PT(["Choose a word","சொல்லைத் தேர்ந்தெடு"]),pick:l=>{jLv=l;startJumble()}});draw()}
+// ---------- Memory Sequence ----------
+const MEMS=["🛺","☕","🌊","🛕","🎬","🚇"],MEMC=["#fb923c","#a3e635","#38bdf8","#f472b6","#c084fc","#facc15"];
+function memView(){return `<section class="wsx blue">${wsHead(PT(["ROUND","சுற்று"]),`<div class="wsbest" aria-label="Best score">${wsi("trophy")}<b id="mbest"></b></div>`)}
+ ${wsStage("mstage",`<div class="mpill" id="mmsg"></div><div class="mpads">${MEMS.map((e,i)=>`<button data-k="${i}" style="--p:${MEMC[i]}" disabled aria-label="Pad ${i+1}"><span>${e}</span></button>`).join("")}</div><div class="mdots" id="mdots"></div>`)}
+ <div class="wstools">${wsTool("show","eye",["Show again","மீண்டும் காட்டு"])}${wsTool("reset","reset",["Restart","மீண்டும்"])}</div><p class="wsmv">${PT(["Show again works once per game","மீண்டும் காட்டு: ஒரு ஆட்டத்தில் ஒருமுறை"])}</p></section>`}
+function startMem(){const pads=[...document.querySelectorAll(".mpads [data-k]")];if(!pads.length)return;const ov=document.getElementById("wsover"),msg=document.getElementById("mmsg"),dots=document.getElementById("mdots"),showB=document.querySelector('.wstool[data-a="show"]'),sl=ms=>new Promise(f=>setTimeout(f,ms));
+ let seq=[],pos=0,busy=true,peek=1,run=0;const best=()=>gget("cp-mem",0);document.getElementById("mbest").textContent=best();
+ const setRound=()=>{document.getElementById("wslv").textContent=Math.max(1,seq.length-2);dots.innerHTML=seq.map((_,i)=>`<i class="${i<pos?"ok":""}"></i>`).join("")};
+ const lit=async(i,ms)=>{pads[i].classList.add("lit");await sl(ms);pads[i].classList.remove("lit")};
+ const lock=()=>{busy=true;pads.forEach(p=>p.disabled=true);showB.disabled=true};
+ const play=async()=>{const id=++run;lock();msg.textContent=PT(["Watch","பாருங்கள்"]);msg.className="mpill";pos=0;setRound();await sl(500);const sp=Math.max(300,680-seq.length*25);
+  for(const i of seq){if(id!==run||!pads[0].isConnected)return;await lit(i,sp);await sl(170)}if(id!==run)return;msg.textContent=PT(["Your turn","உங்கள் முறை"]);msg.className="mpill go";pads.forEach(p=>p.disabled=false);showB.disabled=peek<1;busy=false};
+ const add=()=>{let v;do{v=Math.floor(Math.random()*6)}while(v===seq[seq.length-1]);seq.push(v)};
+ const next=()=>{add();while(seq.length<3)add();play()};
+ const begin=()=>{ov.hidden=true;seq=[];peek=1;next()};
+ const intro=()=>{run++;lock();seq=[];pos=0;setRound();document.getElementById("wslv").textContent=1;msg.textContent="";msg.className="mpill";ov.hidden=false;
+  ov.innerHTML=`<div class="wswin"><span class="mbig">🧠</span><b>${PT(["Ready?","தயாரா?"])}</b><small>${PT(["Watch the pads light up, then tap them in the same order. One more is added every round.","விளக்குகள் எரியும் வரிசையைப் பார்த்து அதையே தொடுங்கள். ஒவ்வொரு சுற்றிலும் ஒன்று கூடும்."])}</small><button class="gbtn" id="mgo">▶ ${PT(["Start","தொடங்கு"])}</button></div>`;document.getElementById("mgo").onclick=begin};
+ pads.forEach(p=>p.onclick=()=>{if(busy)return;const i=+p.dataset.k;lit(i,170);pzVib(8);
+  if(i!==seq[pos]){lock();p.classList.add("bad");setTimeout(()=>p.classList.remove("bad"),500);pzVib([30,40,30]);const sc=seq.length-1,nb=sc>best();if(nb)gset("cp-mem",sc);document.getElementById("mbest").textContent=best();msg.textContent="";
+   const share=encodeURIComponent(`I remembered a sequence of ${sc} on Chennai+ Memory 🧠 Can you beat me? https://abdulkhader1994-netizen.github.io/Chennai-plus/#games`);
+   setTimeout(()=>{if(!ov.isConnected)return;ov.hidden=false;ov.innerHTML=(nb?wsConf():"")+`<div class="wswin"><div class="mscore">${sc}</div><b>${nb?PT(["New best!","புதிய சாதனை!"]):PT(["Good try!","நல்ல முயற்சி!"])}</b><small>${PT(["Sequence remembered","நினைவில் வைத்த வரிசை"])} · ${PT(["Best","சிறந்தது"])} ${best()}</small><button class="gbtn" id="mgo">↻ ${PT(["Play again","மீண்டும் விளையாடு"])}</button><a class="pzwa" href="https://wa.me/?text=${share}" target="_blank" rel="noopener">${PT(["Share on WhatsApp","வாட்ஸ்அப்பில் பகிர்"])}</a></div>`;document.getElementById("mgo").onclick=begin},700);return}
+  pos++;setRound();if(pos===seq.length){lock();msg.textContent="✓";msg.className="mpill go";setTimeout(next,750)}});
+ showB.onclick=()=>{if(busy||peek<1)return;peek--;play()};
+ document.querySelector('.wstool[data-a="reset"]').onclick=intro;intro()}
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
