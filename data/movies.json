@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T10:40:56.384Z",
+ "updated": "2026-10-28T16:44:18.064Z",
  "items": [
   {
    "id": 1234139,
@@ -47,24 +47,6 @@
    "rating": null
   },
   {
-   "id": 1800255,
-   "title": "Enemy Of The Smuggler",
-   "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-10-30",
-   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
-   "rating": null
-  },
-  {
-   "id": 1596658,
-   "title": "Hello Kadhal",
-   "lang": "Tamil",
-   "genre": "Romance, Comedy",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
-   "rating": null
-  },
-  {
    "id": 1384528,
    "title": "OM Chapter 1",
    "lang": "Tamil",
@@ -89,6 +71,24 @@
    "genre": "Drama, Crime",
    "date": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/qhvvef3ayMfnuA4wQcPscC8em0A.jpg",
+   "rating": null
+  },
+  {
+   "id": 1728047,
+   "title": "Delivery Boy",
+   "lang": "Tamil",
+   "genre": "Action, Drama",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
+   "rating": null
+  },
+  {
+   "id": 1800255,
+   "title": "Enemy Of The Smuggler",
+   "lang": "Tamil",
+   "genre": "Crime, Action",
+   "date": "2026-10-30",
+   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
    "rating": null
   },
   {
