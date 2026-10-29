@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T12:43:46.983Z",
+ "updated": "2026-10-29T19:44:24.174Z",
  "items": [
   {
    "id": 1234139,
@@ -43,7 +43,7 @@
    "lang": "Tamil",
    "genre": "Action, Comedy",
    "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/o07oEIsJLPLbLWMCX54fZbUYh9y.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
    "rating": null
   },
   {
@@ -53,24 +53,6 @@
    "genre": "Crime, Action",
    "date": "2026-11-20",
    "poster": "https://image.tmdb.org/t/p/w342/gWWedXJXLrEaKCTrC4nMPPumDSb.jpg",
-   "rating": null
-  },
-  {
-   "id": 1431738,
-   "title": "Anbil Avan",
-   "lang": "Tamil",
-   "genre": "Romance, Thriller",
-   "date": "2026-10-02",
-   "poster": "https://image.tmdb.org/t/p/w342/2cN2WjL4xQvbJIhxSjGmhXL41rX.jpg",
-   "rating": null
-  },
-  {
-   "id": 1563192,
-   "title": "Lenin Pandiyan",
-   "lang": "Tamil",
-   "genre": "Drama, Crime",
-   "date": "2026-09-25",
-   "poster": "https://image.tmdb.org/t/p/w342/qhvvef3ayMfnuA4wQcPscC8em0A.jpg",
    "rating": null
   },
   {
@@ -89,6 +71,24 @@
    "genre": "Crime, Action",
    "date": "2026-10-30",
    "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
+   "rating": null
+  },
+  {
+   "id": 1431738,
+   "title": "Anbil Avan",
+   "lang": "Tamil",
+   "genre": "Romance, Thriller",
+   "date": "2026-10-02",
+   "poster": "https://image.tmdb.org/t/p/w342/2cN2WjL4xQvbJIhxSjGmhXL41rX.jpg",
+   "rating": null
+  },
+  {
+   "id": 1395215,
+   "title": "Sigma",
+   "lang": "Tamil",
+   "genre": "Action, Crime",
+   "date": "2026-10-02",
+   "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
    "rating": null
   },
   {
