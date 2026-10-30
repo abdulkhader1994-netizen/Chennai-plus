@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T19:44:24.174Z",
+ "updated": "2026-10-30T01:52:25.840Z",
  "items": [
   {
    "id": 1234139,
@@ -16,7 +16,7 @@
    "lang": "Tamil",
    "genre": "Drama, Comedy",
    "date": "2026-10-01",
-   "poster": "https://image.tmdb.org/t/p/w342/n8Df1H1TmcmZfjGgWh5uQyRFzHy.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/7wHBYs8HHmTGe4nXLpMEAoDSK2o.jpg",
    "rating": null
   },
   {
@@ -107,7 +107,7 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.3
+   "rating": 6.4
   },
   {
    "id": 1153576,
@@ -116,7 +116,7 @@
    "genre": "Action, Fantasy",
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
-   "rating": 6.3
+   "rating": 6.4
   },
   {
    "id": 1465063,
