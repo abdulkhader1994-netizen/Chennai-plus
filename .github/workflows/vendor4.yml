@@ -1,0 +1,20 @@
+name: Fetch table textures
+on:
+  push:
+    paths: [".github/workflows/vendor4.yml"]
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set +e
+          mkdir -p assets/cup
+          for t in wood_table_001 wood_table_worn dark_wood rosewood_veneer1 walnut_veneer fine_grained_wood kitchen_wood oak_veneer_01 plywood marble_01 white_marble_03 marble_tiles granite_tile beige_wall_001 green_felt fabric_pattern_05 laminate_floor_02 wood_planks; do
+            u=$(curl -fsSL https://api.polyhaven.com/files/$t | jq -r '.Diffuse["2k"].jpg.url // empty'); if [ -n "$u" ]; then curl -fsSL "$u" -o assets/cup/$t.jpg; fi
+          done
+          ls -la assets/cup > assets/cup/listing.txt
+          git config user.name "chennai-plus-bot"; git config user.email "actions@users.noreply.github.com"
+          git add assets; git commit -m "Add CC0 table textures for Cup Toss" || true; git pull --rebase; git push
