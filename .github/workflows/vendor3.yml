@@ -1,0 +1,24 @@
+name: Fetch Poly Haven skies and textures
+on:
+  push:
+    paths: [".github/workflows/vendor3.yml"]
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set +e
+          mkdir -p assets/sky assets/tex
+          for h in kloofendal_48d_partly_cloudy_puresky qwantani_sunset_puresky qwantani_night_puresky kloofendal_overcast_puresky; do
+            u=$(curl -fsSL https://api.polyhaven.com/files/$h | jq -r '.hdri["2k"].hdr.url'); curl -fsSL "$u" -o assets/sky/$h.hdr || echo "FAIL $h" >> assets/meta/fails.txt
+          done
+          for t in asphalt_02 coast_sand_01 leafy_grass interlocking_concrete_pavers red_brick_03 concrete_wall_004 plastered_wall_02; do
+            j=$(curl -fsSL https://api.polyhaven.com/files/$t)
+            for k in Diffuse nor_gl Rough; do u=$(echo "$j" | jq -r ".${k}[\"1k\"].jpg.url"); curl -fsSL "$u" -o assets/tex/${t}_${k}.jpg || echo "FAIL $t $k" >> assets/meta/fails.txt; done
+          done
+          ls -la assets/sky assets/tex > assets/meta/listing3.txt; cat assets/meta/fails.txt >> assets/meta/listing3.txt 2>/dev/null
+          git config user.name "chennai-plus-bot"; git config user.email "actions@users.noreply.github.com"
+          git add assets; git commit -m "Add Poly Haven CC0 skies and textures" || true; git pull --rebase; git push
