@@ -1,6 +1,15 @@
 {
- "updated": "2026-10-30T07:55:00.324Z",
+ "updated": "2026-10-30T14:50:13.097Z",
  "items": [
+  {
+   "id": 1515692,
+   "title": "Baththa",
+   "lang": "Tamil",
+   "genre": "Drama, Comedy",
+   "date": "2026-10-01",
+   "poster": "https://image.tmdb.org/t/p/w342/cWY636zXGECkRHbrqhQdFyP9n69.jpg",
+   "rating": null
+  },
   {
    "id": 1234139,
    "title": "Jailer 2",
@@ -8,15 +17,6 @@
    "genre": "Action, Comedy",
    "date": "2026-10-15",
    "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": null
-  },
-  {
-   "id": 1515692,
-   "title": "Baththa",
-   "lang": "Tamil",
-   "genre": "Drama, Comedy",
-   "date": "2026-10-01",
-   "poster": "https://image.tmdb.org/t/p/w342/7wHBYs8HHmTGe4nXLpMEAoDSK2o.jpg",
    "rating": null
   },
   {
@@ -29,6 +29,15 @@
    "rating": null
   },
   {
+   "id": 1402181,
+   "title": "Scene",
+   "lang": "Tamil",
+   "genre": "Action, Comedy",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "rating": null
+  },
+  {
    "id": 1538457,
    "title": "Meesaya Murukku 2",
    "lang": "Tamil",
@@ -38,12 +47,12 @@
    "rating": null
   },
   {
-   "id": 1402181,
-   "title": "Scene",
+   "id": 1395215,
+   "title": "Sigma",
    "lang": "Tamil",
-   "genre": "Action, Comedy",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "genre": "Action, Crime",
+   "date": "2026-10-02",
+   "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
    "rating": null
   },
   {
@@ -56,24 +65,6 @@
    "rating": null
   },
   {
-   "id": 1728047,
-   "title": "Delivery Boy",
-   "lang": "Tamil",
-   "genre": "Action, Drama",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
-   "rating": null
-  },
-  {
-   "id": 1800255,
-   "title": "Enemy Of The Smuggler",
-   "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-10-30",
-   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
-   "rating": null
-  },
-  {
    "id": 1431738,
    "title": "Anbil Avan",
    "lang": "Tamil",
@@ -83,12 +74,21 @@
    "rating": null
   },
   {
-   "id": 1395215,
-   "title": "Sigma",
+   "id": 1563192,
+   "title": "Lenin Pandiyan",
    "lang": "Tamil",
-   "genre": "Action, Crime",
-   "date": "2026-10-02",
-   "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
+   "genre": "Drama, Crime",
+   "date": "2026-09-25",
+   "poster": "https://image.tmdb.org/t/p/w342/qhvvef3ayMfnuA4wQcPscC8em0A.jpg",
+   "rating": null
+  },
+  {
+   "id": 1800255,
+   "title": "Enemy Of The Smuggler",
+   "lang": "Tamil",
+   "genre": "Crime, Action",
+   "date": "2026-10-30",
+   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
    "rating": null
   },
   {
@@ -107,16 +107,7 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.4
-  },
-  {
-   "id": 1153576,
-   "title": "Street Fighter",
-   "lang": "English",
-   "genre": "Action, Fantasy",
-   "date": "2026-10-16",
-   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
-   "rating": 6.4
+   "rating": 6.5
   },
   {
    "id": 1465063,
@@ -125,7 +116,16 @@
    "genre": "Animation, Adventure",
    "date": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-   "rating": 7.6
+   "rating": 7.7
+  },
+  {
+   "id": 1153576,
+   "title": "Street Fighter",
+   "lang": "English",
+   "genre": "Action, Fantasy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
+   "rating": 6.3
   }
  ]
 }
