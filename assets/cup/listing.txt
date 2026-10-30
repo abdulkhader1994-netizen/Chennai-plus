@@ -1,0 +1,19 @@
+total 36472
+drwxr-xr-x 2 runner runner    4096 Oct 30 14:44 .
+drwxr-xr-x 4 runner runner    4096 Oct 30 14:44 ..
+-rw-r--r-- 1 runner runner  235868 Oct 30 14:44 beige_wall_001.jpg
+-rw-r--r-- 1 runner runner 2894186 Oct 30 14:44 dark_wood.jpg
+-rw-r--r-- 1 runner runner 1327517 Oct 30 14:44 fine_grained_wood.jpg
+-rw-r--r-- 1 runner runner 2938829 Oct 30 14:44 granite_tile.jpg
+-rw-r--r-- 1 runner runner 3557700 Oct 30 14:44 kitchen_wood.jpg
+-rw-r--r-- 1 runner runner 3225117 Oct 30 14:44 laminate_floor_02.jpg
+-rw-r--r-- 1 runner runner       0 Oct 30 14:44 listing.txt
+-rw-r--r-- 1 runner runner 1269188 Oct 30 14:44 marble_01.jpg
+-rw-r--r-- 1 runner runner 3246069 Oct 30 14:44 marble_tiles.jpg
+-rw-r--r-- 1 runner runner 2831117 Oct 30 14:44 oak_veneer_01.jpg
+-rw-r--r-- 1 runner runner 4009658 Oct 30 14:44 plywood.jpg
+-rw-r--r-- 1 runner runner 3294736 Oct 30 14:44 rosewood_veneer1.jpg
+-rw-r--r-- 1 runner runner 2060618 Oct 30 14:44 walnut_veneer.jpg
+-rw-r--r-- 1 runner runner 2387732 Oct 30 14:44 wood_planks.jpg
+-rw-r--r-- 1 runner runner  924532 Oct 30 14:44 wood_table_001.jpg
+-rw-r--r-- 1 runner runner 3108339 Oct 30 14:44 wood_table_worn.jpg
