@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T10:30:22.720Z",
+ "updated": "2026-10-31T17:05:34.595Z",
  "items": [
   {
    "id": 1515692,
@@ -20,21 +20,21 @@
    "rating": null
   },
   {
-   "id": 1402181,
-   "title": "Scene",
-   "lang": "Tamil",
-   "genre": "Action, Comedy",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
-   "rating": null
-  },
-  {
    "id": 1395215,
    "title": "Sigma",
    "lang": "Tamil",
    "genre": "Action, Crime",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
+   "rating": null
+  },
+  {
+   "id": 1402181,
+   "title": "Scene",
+   "lang": "Tamil",
+   "genre": "Action, Comedy",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
    "rating": null
   },
   {
@@ -98,7 +98,7 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.7
+   "rating": 6.6
   },
   {
    "id": 1400940,
@@ -107,7 +107,7 @@
    "genre": "Horror, Thriller",
    "date": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
-   "rating": 7.4
+   "rating": 7.5
   },
   {
    "id": 1465063,
