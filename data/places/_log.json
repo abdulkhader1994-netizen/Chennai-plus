@@ -1,5 +1,14 @@
 {
- "at": "2026-10-31T01:21:46.942Z",
+ "at": "2026-10-31T04:05:34.193Z",
  "summary": {},
- "log": []
+ "log": [
+  "maps.mail.ru: HTTP 504",
+  "overpass-api.de: HTTP 502",
+  "overpass.kumi.systems: The operation was aborted due to timeout",
+  "station skipped: all map services failed",
+  "maps.mail.ru: HTTP 504",
+  "overpass-api.de: HTTP 502",
+  "overpass.kumi.systems: The operation was aborted due to timeout",
+  "food skipped: all map services failed"
+ ]
 }
