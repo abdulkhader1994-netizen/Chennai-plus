@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T17:59:48.418Z",
+ "updated": "2026-10-31T18:42:18.408Z",
  "hot": [
   {
    "type": "place",
@@ -57,15 +57,6 @@
   }
  ],
  "events": [
-  {
-   "date": "2026-10-31",
-   "title": "The Halloween Party - Grave Rave",
-   "area": "Secret Story - Nungambakkam",
-   "time": "20:00",
-   "price": "₹499nonwards",
-   "category": "Community",
-   "link": "https://link.district.in/DSTRKT/ows23vlu"
-  },
   {
    "date": "2026-11-15",
    "title": "Chennai Fitness Run 2026",
@@ -547,12 +538,6 @@
   }
  ],
  "deals": [
-  {
-   "store": "Swiggy",
-   "offer": "Flat ₹100 off on biryani orders above ₹399",
-   "valid": "2026-10-31",
-   "link": "https://www.swiggy.com"
-  },
   {
    "store": "Zomato",
    "offer": "Free delivery on your first 3 orders from new restaurants",
