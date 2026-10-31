@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T21:30:29.483Z",
+ "updated": "2026-10-31T03:39:07.186Z",
  "items": [
   {
    "id": 1515692,
@@ -20,30 +20,12 @@
    "rating": null
   },
   {
-   "id": 1578079,
-   "title": "Dorothy",
-   "lang": "Tamil",
-   "genre": "Crime, Drama",
-   "date": "2026-09-25",
-   "poster": "https://image.tmdb.org/t/p/w342/o3r5DmWhOKdFmeIUoRJj4CvCqOP.jpg",
-   "rating": null
-  },
-  {
    "id": 1402181,
    "title": "Scene",
    "lang": "Tamil",
    "genre": "Action, Comedy",
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
-   "rating": null
-  },
-  {
-   "id": 1538457,
-   "title": "Meesaya Murukku 2",
-   "lang": "Tamil",
-   "genre": "Comedy, Romance",
-   "date": "2026-09-25",
-   "poster": "https://image.tmdb.org/t/p/w342/qD1QwmInB9ezd2peVb5EbhaM4Mo.jpg",
    "rating": null
   },
   {
@@ -74,15 +56,6 @@
    "rating": null
   },
   {
-   "id": 1563192,
-   "title": "Lenin Pandiyan",
-   "lang": "Tamil",
-   "genre": "Drama, Crime",
-   "date": "2026-09-25",
-   "poster": "https://image.tmdb.org/t/p/w342/qhvvef3ayMfnuA4wQcPscC8em0A.jpg",
-   "rating": null
-  },
-  {
    "id": 1800255,
    "title": "Enemy Of The Smuggler",
    "lang": "Tamil",
@@ -92,13 +65,31 @@
    "rating": null
   },
   {
-   "id": 1400940,
-   "title": "Clayface",
-   "lang": "English",
-   "genre": "Horror, Thriller",
+   "id": 1596658,
+   "title": "Hello Kadhal",
+   "lang": "Tamil",
+   "genre": "Romance, Comedy",
+   "date": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
+   "rating": null
+  },
+  {
+   "id": 1728047,
+   "title": "Delivery Boy",
+   "lang": "Tamil",
+   "genre": "Action, Drama",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
+   "rating": null
+  },
+  {
+   "id": 1593350,
+   "title": "Haiku",
+   "lang": "Tamil",
+   "genre": "Romance, Comedy",
    "date": "2026-10-23",
-   "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
-   "rating": 7.5
+   "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
+   "rating": null
   },
   {
    "id": 1283515,
@@ -107,7 +98,16 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.5
+   "rating": 6.6
+  },
+  {
+   "id": 1400940,
+   "title": "Clayface",
+   "lang": "English",
+   "genre": "Horror, Thriller",
+   "date": "2026-10-23",
+   "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
+   "rating": 7.4
   },
   {
    "id": 1465063,
