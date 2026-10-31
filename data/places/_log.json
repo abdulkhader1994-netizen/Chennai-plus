@@ -1,10 +1,16 @@
 {
- "at": "2026-10-31T15:55:04.789Z",
+ "at": "2026-10-31T19:08:05.279Z",
  "summary": {
-  "tea": 308,
-  "mechanic": 69
+  "pharmacy": 319,
+  "fireworks": 0,
+  "sweets": 85,
+  "jewellery": 181,
+  "textiles": 113
  },
  "log": [
+  "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504",
   "maps.mail.ru: HTTP 504",
   "maps.mail.ru: HTTP 504"
  ]
