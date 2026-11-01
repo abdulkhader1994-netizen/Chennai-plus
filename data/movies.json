@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T13:23:23.612Z",
+ "updated": "2026-11-01T19:34:19.844Z",
  "items": [
   {
    "id": 1515692,
@@ -56,12 +56,12 @@
    "rating": null
   },
   {
-   "id": 1800255,
-   "title": "Enemy Of The Smuggler",
+   "id": 1786905,
+   "title": "All Pass",
    "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-10-30",
-   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
+   "genre": "Family, Drama",
+   "date": "2026-10-09",
+   "poster": "https://image.tmdb.org/t/p/w342/ruF5Y282FaN6VN9ujpYIP9CJe2V.jpg",
    "rating": null
   },
   {
@@ -74,21 +74,21 @@
    "rating": null
   },
   {
+   "id": 1794338,
+   "title": "Radhimaa (Documentary)",
+   "lang": "Tamil",
+   "genre": "",
+   "date": "2026-10-05",
+   "poster": "https://image.tmdb.org/t/p/w342/8cHsPWb2THmSHYgn32VrjSfhJ6c.jpg",
+   "rating": null
+  },
+  {
    "id": 1728047,
    "title": "Delivery Boy",
    "lang": "Tamil",
    "genre": "Action, Drama",
    "date": "2026-11-27",
    "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
-   "rating": null
-  },
-  {
-   "id": 1593350,
-   "title": "Haiku",
-   "lang": "Tamil",
-   "genre": "Romance, Comedy",
-   "date": "2026-10-23",
-   "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
    "rating": null
   },
   {
@@ -107,7 +107,7 @@
    "genre": "Horror, Thriller",
    "date": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
-   "rating": 7.5
+   "rating": 7.4
   },
   {
    "id": 1465063,
@@ -116,7 +116,7 @@
    "genre": "Animation, Adventure",
    "date": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-   "rating": 7.7
+   "rating": 7.8
   },
   {
    "id": 1153576,
