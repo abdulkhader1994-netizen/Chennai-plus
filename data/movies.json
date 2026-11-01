@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T06:12:50.667Z",
+ "updated": "2026-11-01T13:23:23.612Z",
  "items": [
   {
    "id": 1515692,
@@ -17,7 +17,7 @@
    "genre": "Action, Comedy",
    "date": "2026-10-15",
    "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": null
+   "rating": 8.1
   },
   {
    "id": 1395215,
@@ -98,7 +98,7 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.7
+   "rating": 6.8
   },
   {
    "id": 1400940,
