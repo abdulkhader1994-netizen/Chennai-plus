@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T08:39:39.923Z",
+ "updated": "2026-11-02T15:23:43.274Z",
  "items": [
   {
    "id": 1515692,
@@ -17,7 +17,7 @@
    "genre": "Action, Comedy",
    "date": "2026-10-15",
    "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": 8.1
+   "rating": 8
   },
   {
    "id": 1402181,
@@ -65,21 +65,21 @@
    "rating": null
   },
   {
-   "id": 1596658,
-   "title": "Hello Kadhal",
-   "lang": "Tamil",
-   "genre": "Romance, Comedy",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
-   "rating": null
-  },
-  {
    "id": 1794338,
    "title": "Radhimaa (Documentary)",
    "lang": "Tamil",
    "genre": "",
    "date": "2026-10-05",
    "poster": "https://image.tmdb.org/t/p/w342/8cHsPWb2THmSHYgn32VrjSfhJ6c.jpg",
+   "rating": null
+  },
+  {
+   "id": 1593350,
+   "title": "Haiku",
+   "lang": "Tamil",
+   "genre": "Romance, Comedy",
+   "date": "2026-10-23",
+   "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
    "rating": null
   },
   {
@@ -98,7 +98,7 @@
    "genre": "Mystery, Thriller",
    "date": "2026-10-02",
    "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 6.8
+   "rating": 6.9
   },
   {
    "id": 1400940,
@@ -116,7 +116,7 @@
    "genre": "Animation, Adventure",
    "date": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-   "rating": 7.9
+   "rating": 8
   },
   {
    "id": 1153576,
