@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T04:48:03.395Z",
+ "updated": "2026-11-03T11:23:46.071Z",
  "items": [
   {
    "id": 1515692,
@@ -83,12 +83,12 @@
    "rating": null
   },
   {
-   "id": 1728047,
-   "title": "Delivery Boy",
+   "id": 1327835,
+   "title": "Mookuthi Amman 2",
    "lang": "Tamil",
-   "genre": "Action, Drama",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
+   "genre": "Fantasy, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
   },
   {
@@ -116,7 +116,7 @@
    "genre": "Animation, Adventure",
    "date": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg",
-   "rating": 7.9
+   "rating": 8
   },
   {
    "id": 1153576,
