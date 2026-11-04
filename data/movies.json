@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04T13:41:18.091Z",
+ "updated": "2026-11-04T19:52:18.198Z",
  "items": [
   {
    "id": 1515692,
@@ -20,15 +20,6 @@
    "rating": 8
   },
   {
-   "id": 1395215,
-   "title": "Sigma",
-   "lang": "Tamil",
-   "genre": "Action, Crime",
-   "date": "2026-10-02",
-   "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
-   "rating": null
-  },
-  {
    "id": 1402181,
    "title": "Scene",
    "lang": "Tamil",
@@ -38,12 +29,30 @@
    "rating": null
   },
   {
+   "id": 1395215,
+   "title": "Sigma",
+   "lang": "Tamil",
+   "genre": "Action, Crime",
+   "date": "2026-10-02",
+   "poster": "https://image.tmdb.org/t/p/w342/18Lhkc3nf92bY1cacQomXIqihhN.jpg",
+   "rating": null
+  },
+  {
    "id": 1384528,
    "title": "Om: Chapter 1",
    "lang": "Tamil",
    "genre": "Crime, Action",
    "date": "2026-11-20",
    "poster": "https://image.tmdb.org/t/p/w342/gWWedXJXLrEaKCTrC4nMPPumDSb.jpg",
+   "rating": null
+  },
+  {
+   "id": 1327835,
+   "title": "Mookuthi Amman 2",
+   "lang": "Tamil",
+   "genre": "Fantasy, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
   },
   {
@@ -62,15 +71,6 @@
    "genre": "Family, Drama",
    "date": "2026-10-09",
    "poster": "https://image.tmdb.org/t/p/w342/ruF5Y282FaN6VN9ujpYIP9CJe2V.jpg",
-   "rating": null
-  },
-  {
-   "id": 1327835,
-   "title": "Mookuthi Amman 2",
-   "lang": "Tamil",
-   "genre": "Fantasy, Drama",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
   },
   {
