@@ -36,13 +36,13 @@
 .clkplate{margin:-4px 2px 12px;padding:5px 10px 4px;border-radius:6px;background:#f6c500;border:2px solid #151515;box-shadow:inset 0 0 0 2px #f6c500,inset 0 0 0 3px #151515,0 2px 0 rgba(0,0,0,.4);text-align:center;color:#141414;line-height:1.05}
 .clkplate b{display:block;font:800 17px "Baloo Thambi 2",var(--display)}
 .clkplate span{display:block;font:800 13px var(--body);letter-spacing:2.5px}
-.clkwrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:16px;padding:calc(max(14px,env(safe-area-inset-top)) + 54px) 16px calc(max(14px,env(safe-area-inset-bottom)) + 12px)}
+.clkwrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:14px;padding:calc(max(14px,env(safe-area-inset-top)) + 54px) 16px calc(max(14px,env(safe-area-inset-bottom)) + 12px)}
 .clkhd{text-align:center}
 .clkhd b{display:block;font:800 23px var(--display);letter-spacing:.2px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
 .clkmode{display:inline-flex;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px}
 .clkmode button{border:0;background:none;color:rgba(255,255,255,.72);font:700 13.5px var(--body);padding:7px 17px;border-radius:999px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .clkmode button.on{background:#fff;color:#161a23;box-shadow:0 2px 8px rgba(0,0,0,.35)}
-.clkdev{position:relative;width:min(100%,360px);border-radius:26px;padding:20px 20px 14px;background:linear-gradient(160deg,#41454e,#1d1f24 55%,#121317);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 0 rgba(0,0,0,.55),0 26px 44px rgba(0,0,0,.65),0 3px 0 #0a0b0d}
+.clkdev{position:relative;width:min(100%,360px);border-radius:24px;padding:16px 16px 10px;flex:none;background:linear-gradient(160deg,#41454e,#1d1f24 55%,#121317);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 0 rgba(0,0,0,.55),0 26px 44px rgba(0,0,0,.65),0 3px 0 #0a0b0d}
 .clkdev::before{content:"";position:absolute;inset:6px;border-radius:21px;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 .clkdev .scw{position:absolute;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a7adb5,#3b3f46 70%);box-shadow:inset 0 0 1px #000,0 1px 0 rgba(255,255,255,.08)}
 .clkdev .scw::after{content:"";position:absolute;left:1.5px;right:1.5px;top:4px;height:1.2px;background:rgba(0,0,0,.55);transform:rotate(35deg)}
@@ -50,8 +50,8 @@
 .clktg em{font:800 12px var(--body);letter-spacing:2px;color:#ffb020;font-style:normal;opacity:.8}
 .clkdigs{display:flex;align-items:flex-end;gap:3px}
 .clkdigs .sg{width:24px;height:auto;display:block}
-.clkdigs.red{--on:#ff3b2b;--off:rgba(255,60,40,.075);filter:drop-shadow(0 0 7px rgba(255,45,30,.55))}
-.clkdigs.amber{--on:#ffb020;--off:rgba(255,170,30,.08);filter:drop-shadow(0 0 5px rgba(255,170,30,.5))}
+.clkdigs.red{--on:#ff3b2b;--off:rgba(255,60,40,.045);filter:drop-shadow(0 0 7px rgba(255,45,30,.55))}
+.clkdigs.amber{--on:#ffb020;--off:rgba(255,170,30,.05);filter:drop-shadow(0 0 5px rgba(255,170,30,.5))}
 .sg polygon{fill:var(--off);transition:fill .04s}
 .sg polygon.on{fill:var(--on)}
 .clkdigs .dp{width:6px;height:6px;border-radius:50%;background:var(--on);margin:0 1px 1px -1px;flex:none}
@@ -62,23 +62,25 @@
 .clkscr .glare{position:absolute;inset:0;background:linear-gradient(162deg,rgba(255,255,255,.12),rgba(255,255,255,.02) 42%,transparent 43%);pointer-events:none}
 .clkscr.blink .clkdigs{animation:clkbl .5s steps(1) 3}
 @keyframes clkbl{50%{opacity:.12}}
-.clkmsg{min-height:44px;margin-top:10px;display:grid;place-items:center;text-align:center;font:600 14.5px var(--body);color:rgba(255,255,255,.75);line-height:1.3}
+.clkmsg{min-height:42px;margin-top:8px;display:grid;place-items:center;text-align:center;font:600 14.5px var(--body);color:rgba(255,255,255,.75);line-height:1.3}
 .clkmsg b{font:800 19px var(--display);color:#fff}
 .clkmsg.win{color:#ffd166;font:800 19px var(--display);animation:clkpop .45s cubic-bezier(.2,1.6,.4,1)}
 .clkmsg.near{color:#ffd166}.clkmsg.bad{color:#ff9d90}
 @keyframes clkpop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
-.clkbig{--c1:#a6ffb0;--c2:#22c03d;--c3:#0b6e1d;--c4:#064a12;position:relative;width:156px;height:156px;flex:none;border-radius:50%;border:0;padding:0;cursor:pointer;background:radial-gradient(circle at 50% 42%,#30343b,#0e0f12 72%);box-shadow:0 12px 26px rgba(0,0,0,.65),inset 0 2px 0 rgba(255,255,255,.14),inset 0 -3px 6px rgba(0,0,0,.6);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-.clkbig span{position:absolute;left:16px;right:16px;top:12px;bottom:20px;border-radius:50%;display:grid;place-items:center;font:800 22px var(--display);letter-spacing:1px;color:#fff;text-shadow:0 2px 2px rgba(0,0,0,.35);background:radial-gradient(circle at 38% 28%,var(--c1),var(--c2) 46%,var(--c3) 100%);box-shadow:0 8px 0 var(--c4),0 11px 12px rgba(0,0,0,.55),inset 0 -7px 14px rgba(0,0,0,.25),inset 0 5px 9px rgba(255,255,255,.35);transition:transform .05s,box-shadow .05s}
+.clkbig{--c1:#a6ffb0;--c2:#22c03d;--c3:#0b6e1d;--c4:#064a12;position:relative;width:140px;height:140px;flex:none;border-radius:50%;border:0;padding:0;cursor:pointer;background:radial-gradient(circle at 50% 42%,#30343b,#0e0f12 72%);box-shadow:0 12px 26px rgba(0,0,0,.65),inset 0 2px 0 rgba(255,255,255,.14),inset 0 -3px 6px rgba(0,0,0,.6);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.clkbig span{position:absolute;left:14px;right:14px;top:11px;bottom:18px;border-radius:50%;display:grid;place-items:center;font:800 22px var(--display);letter-spacing:1px;color:#fff;text-shadow:0 2px 2px rgba(0,0,0,.35);background:radial-gradient(circle at 38% 28%,var(--c1),var(--c2) 46%,var(--c3) 100%);box-shadow:0 8px 0 var(--c4),0 11px 12px rgba(0,0,0,.55),inset 0 -7px 14px rgba(0,0,0,.25),inset 0 5px 9px rgba(255,255,255,.35);transition:transform .05s,box-shadow .05s}
 .clkbig.dn span{transform:translateY(7px);box-shadow:0 1px 0 var(--c4),0 2px 4px rgba(0,0,0,.55),inset 0 -7px 14px rgba(0,0,0,.25),inset 0 5px 9px rgba(255,255,255,.3)}
 .clkbig.stop{--c1:#ffb6ab;--c2:#ee2b1f;--c3:#900d07;--c4:#5c0603}
 .clkbig.again{--c1:#ffe9a6;--c2:#f2a900;--c3:#9a6200;--c4:#6a4200}
 .clkbig.again span{font-size:19px}
-.clkacts{display:flex;gap:10px;min-height:40px}
+.clkrow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;width:100%}
+.clkacts{display:flex}
 .clkacts.hide{visibility:hidden}
-.clkacts button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:700 14px var(--body);padding:10px 18px;border-radius:999px;cursor:pointer}
+.clkacts button{border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;font:700 13.5px var(--body);padding:9px 15px;border-radius:999px;cursor:pointer;white-space:nowrap}
 .clkstats{font:600 13px var(--body);color:rgba(255,255,255,.7);text-shadow:0 1px 3px rgba(0,0,0,.6)}
 #clkfx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
-@media(max-height:740px){.clkwrap{gap:9px}.clkplate{margin-bottom:8px;padding:3px 8px}.clkplate b{font-size:15px}.clkplate span{font-size:11px}.clkdev{padding:14px 16px 8px}.clktg{margin-bottom:8px;padding:6px 12px}.clkscr{padding:11px 10px 10px}.clkscr .clkdigs .sg{width:clamp(40px,13vw,52px)}.clkmsg{min-height:36px;margin-top:6px}.clkbig{width:124px;height:124px}.clkbig span{left:13px;right:13px;top:10px;bottom:17px;font-size:19px}.clkacts button{padding:8px 16px}}
+@media(max-height:740px){.clkwrap{gap:9px}.clkdev{padding:14px 16px 8px}.clktg{margin-bottom:8px;padding:6px 12px}.clkscr{padding:11px 10px 10px}.clkscr .clkdigs .sg{width:clamp(40px,13vw,52px)}.clkmsg{min-height:36px;margin-top:6px}.clkbig{width:112px;height:112px}.clkbig span{left:11px;right:11px;top:9px;bottom:15px;font-size:17px}.clkacts button{padding:8px 16px}}
+@media(max-width:374px){.clkmode button{padding:7px 12px;font-size:13px}.clkacts button{padding:9px 12px;font-size:13px}.clkrow{gap:6px}}
 .clkcard{background:linear-gradient(135deg,#0d1530,#7e2a1d 55%,#f08a4b)!important;box-shadow:0 14px 30px rgba(120,20,15,.3)!important}
 body.gmon #view,body.gmon .c3{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .boxg{background:#5a3220}.boxmenu h2::before{display:none}.boxtip{display:none}
@@ -2067,23 +2069,21 @@ function clkScene(){const W=800,G=520,R=(a,b)=>a+Math.random()*(b-a);let s="";
  <line id="clkhh" x1="${cx}" y1="${tt+46}" x2="${cx}" y2="${tt+33}" stroke="#1a0f08" stroke-width="3" stroke-linecap="round"/><line id="clkmh" x1="${cx}" y1="${tt+46}" x2="${cx}" y2="${tt+26}" stroke="#1a0f08" stroke-width="2" stroke-linecap="round"/><circle cx="${cx}" cy="${tt+46}" r="2.2" fill="#1a0f08"/>
  ${row(x+10,x+tw-8,tt+108,48,14,10,.7)}`;
  // entrance arches + name board
- s+=`${[-60,0,60].map(d=>`<path d="M${cx+d-22} ${G}V${G-50}a22 22 0 0 1 44 0V${G}z" fill="url(#cwl)" stroke="#efe2c8" stroke-width="3"/>`).join("")}`;
+ s+=`${[-60,0,60].map(d=>`<path d="M${cx+d-22} ${G}V${G-50}a22 22 0 0 1 44 0V${G}z" fill="url(#cwl)" stroke="#efe2c8" stroke-width="3"/>`).join("")}<rect x="${cx-150}" y="${G-112}" width="300" height="50" rx="4" fill="#f6c500" stroke="#151515" stroke-width="3"/><rect x="${cx-145}" y="${G-107}" width="290" height="40" rx="2" fill="none" stroke="#151515" stroke-width="1.5"/><text x="${cx}" y="${G-89}" text-anchor="middle" font-family="Baloo Thambi 2,sans-serif" font-weight="800" font-size="19" fill="#151515">சென்னை சென்ட்ரல்</text><text x="${cx}" y="${G-71}" text-anchor="middle" font-family="Hind Madurai,sans-serif" font-weight="700" font-size="15" letter-spacing="3" fill="#151515">CHENNAI CENTRAL</text>`;
  // palms
  const palm=(px,h,sc)=>{let o=`<path d="M${px} ${G}q${-6*sc} ${-h/2} ${4*sc} ${-h}" stroke="#0c0f18" stroke-width="${5*sc}" fill="none"/>`;const tx=px+4*sc,ty=G-h;[-150,-110,-70,-30,10,50,200,240].forEach(a=>{const r=a*Math.PI/180,l=42*sc;o+=`<path d="M${tx} ${ty}q${Math.cos(r)*l*.6} ${Math.sin(r)*l*.6-14*sc} ${Math.cos(r)*l} ${Math.sin(r)*l+10*sc}" stroke="#0c0f18" stroke-width="${5*sc}" fill="none" stroke-linecap="round"/>`});return o};
- s+=palm(250,150,1)+palm(560,170,1.1)+palm(90,190,1.25)+palm(720,200,1.3);
- s+=`<rect y="${G-150}" width="${W}" height="150" fill="url(#chz)"/>`;
+ s+=palm(95,190,1.25)+palm(712,200,1.3);
+ s+=`<rect y="${G-60}" width="${W}" height="60" fill="url(#chz)" opacity=".5"/>`;
  return `<svg class="clkbg" viewBox="0 0 ${W} ${G}" preserveAspectRatio="xMidYMax slice" aria-hidden="true">${s}</svg>`}
 function clkView(){return `<div class="c3 clkg" id="clkg">${clkScene()}<div class="clkfloor" id="clkfloor"></div><button class="c3b c3home" id="clkhome" aria-label="Back">${C3I.home}</button>
 <div class="boxbar"><button class="boxbtn" id="clkrst" aria-label="Restart">↺</button><button class="boxbtn" id="clksnd" aria-label="Sound"></button></div>
 <div class="clkwrap">
 <div class="clkdev"><i class="scw" style="left:9px;top:9px"></i><i class="scw" style="right:9px;top:9px"></i><i class="scw" style="left:9px;bottom:9px"></i><i class="scw" style="right:9px;bottom:9px"></i>
-<div class="clkplate"><b>சென்னை சென்ட்ரல்</b><span>CHENNAI CENTRAL</span></div>
 <div class="clktg"><em>${PT(["STOP AT","இங்கே நிறுத்து"])}</em><div class="clkdigs amber" id="clkt"></div></div>
 <div class="clkscr" id="clkscr"><div class="clkdigs red" id="clkd"></div><div class="glare"></div></div>
 <div class="clkmsg" id="clkmsg"></div></div>
 <button class="clkbig" id="clkbig"><span id="clkbl">START</span></button>
-<div class="clkacts" id="clkacts"><button id="clknew">${PT(["New number ›","புதிய எண் ›"])}</button></div>
-<div class="clkmode" id="clkmode">${Object.keys(CLKM).map(m=>`<button data-m="${m}">${PT(CLKM[m])}</button>`).join("")}</div><div class="clkstats" id="clkstats"></div></div><canvas id="clkfx"></canvas></div>`}
+<div class="clkrow"><div class="clkmode" id="clkmode">${Object.keys(CLKM).map(m=>`<button data-m="${m}">${PT(CLKM[m])}</button>`).join("")}</div><span class="clkacts" id="clkacts"><button id="clknew">${PT(["New number ›","புதிய எண் ›"])}</button></span></div><div class="clkstats" id="clkstats"></div></div><canvas id="clkfx"></canvas></div>`}
 function startClk(){const root=document.getElementById("clkg");if(!root)return;document.body.classList.add("c3on");
  const $=id=>document.getElementById(id),big=$("clkbig"),bl=$("clkbl"),msg=$("clkmsg"),scr=$("clkscr"),dd=$("clkd"),td=$("clkt"),fx=$("clkfx"),fc=fx.getContext("2d");
  const sb=$("clksnd"),setSb=()=>sb.innerHTML=GM.sound?SND_ON:SND_OFF;setSb();sb.onclick=()=>{GM.sound=!GM.sound;gset("cp-snd",GM.sound?"1":"0");setSb()};
@@ -2095,7 +2095,7 @@ function startClk(){const root=document.getElementById("clkg");if(!root)return;d
   [277.2,349.2,415.3].forEach(f=>{const o=A.createOscillator(),v=A.createOscillator(),vg=A.createGain();o.type="sawtooth";o.frequency.value=f;v.frequency.value=5.5;vg.gain.value=f*.006;v.connect(vg).connect(o.frequency);o.connect(lp);o.start(t);v.start(t);o.stop(t+1.1);v.stop(t+1.1)})}catch(e){}};
  const bgS=root.querySelector(".clkbg"),flo=document.getElementById("clkfloor"),hh=document.getElementById("clkhh"),mh=document.getElementById("clkmh");
  const hands=()=>{const d=new Date(),m=d.getMinutes()+d.getSeconds()/60,hr=(d.getHours()%12)+m/60;hh.setAttribute("transform",`rotate(${hr*30} 400 164)`);mh.setAttribute("transform",`rotate(${m*6} 400 164)`)};hands();setInterval(()=>{if(root.isConnected)hands()},10000);
- const place=()=>{const W=root.clientWidth,dt=root.querySelector(".clkdev").getBoundingClientRect().top;let hgt=(dt-46)*520/164;if(W/800>hgt/520)hgt=dt-46+356*W/800;hgt=Math.max(240,hgt);bgS.style.height=hgt+"px";flo.style.top=(hgt-1)+"px"};
+ const place=()=>{const r0=root.getBoundingClientRect().top,dt=root.querySelector(".clkdev").getBoundingClientRect().top-r0,g=Math.max(170,Math.round(dt-18));bgS.style.height=g+"px";flo.style.top=g+"px"};
  const build=(el,n)=>{let h="";for(let i=0;i<n;i++){if(i===2)h+='<i class="dp"></i>';h+=`<svg class="sg" viewBox="-4 -4 76 112"><g transform="translate(12 0) skewX(-7)">${CLK_SEG}</g></svg>`}el.innerHTML=h;el._p=[...el.querySelectorAll("svg")].map(s=>[...s.querySelectorAll("polygon")])};
  const show=(el,str)=>{el._p.forEach((ps,i)=>{const on=CLK_MAP[str[i]]||"";ps.forEach(p=>p.classList.toggle("on",on.includes(p.dataset.s)))})};
  const fmt=v=>{const d=D(),k=10**d,s=Math.floor(v/k),f=v%k;return (s<10?" "+s:String(s%100))+String(f).padStart(d,"0")};
@@ -2125,7 +2125,7 @@ function startClk(){const root=document.getElementById("clkg");if(!root)return;d
  $("clkrst").onclick=()=>{sClick(true);tapFeel();reset()};
  $("clkhome").onclick=()=>{sClick(true);go("games")};
  root.querySelectorAll("#clkmode button").forEach(b=>b.onclick=()=>{if(state==="run")return;sClick(true);tapFeel();setMode(b.dataset.m)});
- const rs=()=>{fx.width=root.clientWidth*dpr;fx.height=root.clientHeight*dpr;place()};rs();new ResizeObserver(()=>{if(root.isConnected)rs()}).observe(root);
+ const rs=()=>{fx.width=root.clientWidth*dpr;fx.height=root.clientHeight*dpr;place()};{const ro=new ResizeObserver(()=>{if(root.isConnected)place()});ro.observe(root.querySelector(".clkdev"));ro.observe(root.querySelector(".clkrow"))}if(document.fonts)document.fonts.ready.then(()=>{if(root.isConnected)place()});rs();new ResizeObserver(()=>{if(root.isConnected)rs()}).observe(root);
  let last=performance.now();
  const loop=now=>{if(!root.isConnected){document.body.classList.remove("c3on");return}requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;
   if(state==="run"){const ms=now-t0,v=Math.floor(ms/U());
