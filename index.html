@@ -29,11 +29,17 @@
 .cupsc{position:absolute;left:0;right:0;top:calc(max(14px,env(safe-area-inset-top)) + 34px);text-align:center;color:#fff;pointer-events:none;z-index:2;text-shadow:0 2px 4px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.45)}.cupsc b{display:block;font:800 76px/1 var(--display)}.cupsc b.pop{animation:cuppop .45s ease}.cupsc small{font:700 13px var(--body);opacity:.85}
 @keyframes cuppop{40%{transform:scale(1.35)}100%{transform:scale(1)}}
 .cuptip{position:absolute;left:50%;bottom:calc(max(16px,env(safe-area-inset-bottom)) + 120px);transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;padding:9px 16px;border-radius:999px;font:700 13px var(--body);white-space:nowrap;pointer-events:none;transition:opacity .4s;z-index:2}.cuptip.hide{opacity:0}
-.c3.clkg{background:radial-gradient(120% 70% at 50% 32%,#2d3342 0%,#161a23 55%,#07090d 100%);color:#fff}
-.clkwrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:calc(max(14px,env(safe-area-inset-top)) + 54px) 16px calc(max(14px,env(safe-area-inset-bottom)) + 8px)}
+.c3.clkg{background:#0d1530;color:#fff}
+.clkbg{position:absolute;left:0;top:0;width:100%;height:58%;display:block}
+.clkfloor{position:absolute;left:0;right:0;top:58%;bottom:0;background:linear-gradient(#e9e4d8,#e9e4d8) 0 0/100% 4px no-repeat,radial-gradient(circle,#c99a00 1.6px,transparent 2.2px) 0 6px/9px 9px repeat-x,linear-gradient(#f2c200,#f2c200) 0 4px/100% 26px no-repeat,linear-gradient(90deg,rgba(0,0,0,.18) 1px,transparent 1px) 0 30px/70px 100% repeat-x,linear-gradient(#5b5e66,#2b2d33 45%,#16171b);box-shadow:0 -10px 30px rgba(0,0,0,.45)}
+.clktop{position:absolute;left:70px;right:110px;top:calc(max(14px,env(safe-area-inset-top)) + 10px);text-align:center;font:800 19px var(--display);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);z-index:2;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clkplate{margin:-4px 2px 12px;padding:5px 10px 4px;border-radius:6px;background:#f6c500;border:2px solid #151515;box-shadow:inset 0 0 0 2px #f6c500,inset 0 0 0 3px #151515,0 2px 0 rgba(0,0,0,.4);text-align:center;color:#141414;line-height:1.05}
+.clkplate b{display:block;font:800 17px "Baloo Thambi 2",var(--display)}
+.clkplate span{display:block;font:800 13px var(--body);letter-spacing:2.5px}
+.clkwrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:16px;padding:calc(max(14px,env(safe-area-inset-top)) + 54px) 16px calc(max(14px,env(safe-area-inset-bottom)) + 12px)}
 .clkhd{text-align:center}
 .clkhd b{display:block;font:800 23px var(--display);letter-spacing:.2px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
-.clkmode{display:inline-flex;margin-top:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px}
+.clkmode{display:inline-flex;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px}
 .clkmode button{border:0;background:none;color:rgba(255,255,255,.72);font:700 13.5px var(--body);padding:7px 17px;border-radius:999px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .clkmode button.on{background:#fff;color:#161a23;box-shadow:0 2px 8px rgba(0,0,0,.35)}
 .clkdev{position:relative;width:min(100%,360px);border-radius:26px;padding:20px 20px 14px;background:linear-gradient(160deg,#41454e,#1d1f24 55%,#121317);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 0 rgba(0,0,0,.55),0 26px 44px rgba(0,0,0,.65),0 3px 0 #0a0b0d}
@@ -70,10 +76,10 @@
 .clkacts{display:flex;gap:10px;min-height:40px}
 .clkacts.hide{visibility:hidden}
 .clkacts button{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:700 14px var(--body);padding:10px 18px;border-radius:999px;cursor:pointer}
-.clkstats{font:600 13px var(--body);color:rgba(255,255,255,.6)}
+.clkstats{font:600 13px var(--body);color:rgba(255,255,255,.7);text-shadow:0 1px 3px rgba(0,0,0,.6)}
 #clkfx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
-@media(max-height:740px){.clkwrap{gap:10px;padding-top:calc(max(14px,env(safe-area-inset-top)) + 56px)}.clkhd b{font-size:20px}.clkmode{margin-top:6px}.clkdev{padding:14px 16px 8px}.clktg{margin-bottom:8px;padding:6px 12px}.clkscr{padding:11px 10px 10px}.clkscr .clkdigs .sg{width:clamp(40px,13vw,52px)}.clkmsg{min-height:36px;margin-top:6px}.clkbig{width:124px;height:124px}.clkbig span{left:13px;right:13px;top:10px;bottom:17px;font-size:19px}.clkacts button{padding:8px 16px}}
-.clkcard{background:linear-gradient(135deg,#161a23,#4a1210 55%,#ff3b2b)!important;box-shadow:0 14px 30px rgba(120,20,15,.3)!important}
+@media(max-height:740px){.clkwrap{gap:9px}.clkplate{margin-bottom:8px;padding:3px 8px}.clkplate b{font-size:15px}.clkplate span{font-size:11px}.clkdev{padding:14px 16px 8px}.clktg{margin-bottom:8px;padding:6px 12px}.clkscr{padding:11px 10px 10px}.clkscr .clkdigs .sg{width:clamp(40px,13vw,52px)}.clkmsg{min-height:36px;margin-top:6px}.clkbig{width:124px;height:124px}.clkbig span{left:13px;right:13px;top:10px;bottom:17px;font-size:19px}.clkacts button{padding:8px 16px}}
+.clkcard{background:linear-gradient(135deg,#0d1530,#7e2a1d 55%,#f08a4b)!important;box-shadow:0 14px 30px rgba(120,20,15,.3)!important}
 body.gmon #view,body.gmon .c3{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .boxg{background:#5a3220}.boxmenu h2::before{display:none}.boxtip{display:none}
 .boxbar{position:absolute;right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));display:flex;gap:8px;z-index:3}
@@ -2026,16 +2032,58 @@ const CLK_SEG=(()=>{const T=11,h=(cx,cy,L)=>[[cx-L/2,cy],[cx-L/2+T/2,cy-T/2],[cx
 const CLK_MAP={"0":"abcdef","1":"bc","2":"abged","3":"abgcd","4":"fgbc","5":"afgcd","6":"afgedc","7":"abc","8":"abcdefg","9":"abcdfg","-":"g"," ":""};
 const CLKM={easy:["Easy","எளிது"],pro:["Pro","கடினம்"],blind:["Blind","கண்மூடி"]};
 const CLKD={easy:["Stop the clock exactly on the number","எண்ணில் சரியாக நிறுத்துங்கள்"],pro:["Hundredths! Stop exactly on the number","நூறில் ஒரு பங்கு! சரியாக நிறுத்துங்கள்"],blind:["The display goes dark after 1 second","1 விநாடிக்குப் பின் திரை அணையும்"]};
-function clkView(){return `<div class="c3 clkg" id="clkg"><button class="c3b c3home" id="clkhome" aria-label="Back">${C3I.home}</button>
+function clkScene(){const W=800,G=520,R=(a,b)=>a+Math.random()*(b-a);let s="";
+ const win=(x,y,w,h,lit)=>`<path d="M${x} ${y+h}V${y+w/2}a${w/2} ${w/2} 0 0 1 ${w} 0V${y+h}z" fill="${lit?"url(#cwl)":"#3a1712"}" stroke="#f3e6cf" stroke-width="1.6"/>`;
+ const row=(x0,x1,y,h,w,gap,p)=>{let o="";for(let x=x0;x+w<=x1;x+=w+gap)o+=win(x,y,w,h,Math.random()<p);return o};
+ const band=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#efe2c8"/>`;
+ const cren=(x0,x1,y)=>{let o="";for(let x=x0;x<x1;x+=12)o+=`<rect x="${x}" y="${y-7}" width="7" height="7" fill="#efe2c8"/>`;return o};
+ const tower=(cx,w,top,roof)=>{const x=cx-w/2;return `<rect x="${x}" y="${top}" width="${w}" height="${G-top}" fill="url(#cbr)"/>${band(x-3,top,w+6,6)}${band(x,top+60,w,4)}<path d="M${x-4} ${top}L${cx} ${top-roof}L${x+w+4} ${top}z" fill="#8e2f22" stroke="#efe2c8" stroke-width="2"/><rect x="${cx-1.5}" y="${top-roof-14}" width="3" height="14" fill="#efe2c8"/>${row(x+8,x+w-6,top+16,34,12,8,.5)}${cren(x-2,x+w+2,top)}`};
+ // sky
+ s+=`<defs><linearGradient id="csk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1530"/><stop offset=".45" stop-color="#2a2f5c"/><stop offset=".75" stop-color="#9b4a5a"/><stop offset="1" stop-color="#f08a4b"/></linearGradient>
+ <linearGradient id="cbr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c2503a"/><stop offset="1" stop-color="#7e2a1d"/></linearGradient>
+ <radialGradient id="cwl" cx=".5" cy=".7" r=".8"><stop offset="0" stop-color="#fff1c2"/><stop offset=".6" stop-color="#ffc768"/><stop offset="1" stop-color="#e48a2c"/></radialGradient>
+ <radialGradient id="cfc" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#fffbe8"/><stop offset="1" stop-color="#f1dfa8"/></radialGradient>
+ <radialGradient id="cgl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="rgba(255,220,140,.55)"/><stop offset="1" stop-color="rgba(255,220,140,0)"/></radialGradient>
+ <linearGradient id="chz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(10,12,20,0)"/><stop offset="1" stop-color="rgba(10,12,20,.85)"/></linearGradient></defs>
+ <rect width="${W}" height="${G}" fill="url(#csk)"/>`;
+ for(let i=0;i<40;i++)s+=`<circle cx="${R(0,W)}" cy="${R(0,200)}" r="${R(.5,1.3)}" fill="#fff" opacity="${R(.2,.7)}"/>`;
+ s+=`<circle cx="520" cy="120" r="13" fill="#fff6dc" opacity=".9"/><circle cx="525" cy="116" r="12" fill="#232b55"/>`;
+ // far wings
+ s+=`<rect x="0" y="370" width="140" height="${G-370}" fill="url(#cbr)" opacity=".85"/>${band(0,366,140,5)}${row(8,136,388,30,11,9,.45)}${row(8,136,440,30,11,9,.45)}
+ <rect x="660" y="370" width="140" height="${G-370}" fill="url(#cbr)" opacity=".85"/>${band(660,366,140,5)}${row(668,796,388,30,11,9,.45)}${row(668,796,440,30,11,9,.45)}`;
+ // main block
+ s+=`<rect x="130" y="300" width="540" height="${G-300}" fill="url(#cbr)"/>${band(126,296,548,7)}${cren(128,672,296)}${band(130,372,540,5)}${band(130,446,540,5)}
+ ${row(140,350,314,44,14,10,.6)}${row(450,662,314,44,14,10,.6)}${row(140,350,388,44,14,10,.6)}${row(450,662,388,44,14,10,.6)}${row(140,350,462,44,14,10,.5)}${row(450,662,462,44,14,10,.5)}`;
+ // side towers
+ s+=tower(205,48,232,40)+tower(595,48,232,40);
+ // central tower
+ const cx=400,tw=86,tt=118,x=cx-tw/2;
+ s+=`<rect x="${x}" y="${tt}" width="${tw}" height="${G-tt}" fill="url(#cbr)"/>${band(x-4,tt,tw+8,7)}${band(x-2,tt+92,tw+4,5)}${band(x-2,tt+170,tw+4,5)}
+ <path d="M${x-6} ${tt}L${cx} ${tt-82}L${x+tw+6} ${tt}z" fill="#8e2f22" stroke="#efe2c8" stroke-width="2.4"/><path d="M${cx} ${tt-82}L${x+tw+6} ${tt}L${cx+18} ${tt}z" fill="rgba(0,0,0,.18)"/>
+ <rect x="${cx-2}" y="${tt-104}" width="4" height="22" fill="#efe2c8"/><circle cx="${cx}" cy="${tt-106}" r="4" fill="#efe2c8"/>
+ ${[x-6,x+tw-8].map(t=>`<rect x="${t}" y="${tt-26}" width="14" height="26" fill="#a83c2b" stroke="#efe2c8" stroke-width="1.5"/><path d="M${t-2} ${tt-26}L${t+7} ${tt-46}L${t+16} ${tt-26}z" fill="#8e2f22" stroke="#efe2c8" stroke-width="1.5"/>`).join("")}
+ <circle cx="${cx}" cy="${tt+46}" r="44" fill="url(#cgl)"/><circle cx="${cx}" cy="${tt+46}" r="30" fill="#efe2c8"/><circle cx="${cx}" cy="${tt+46}" r="26" fill="url(#cfc)" stroke="#2b1a10" stroke-width="1.5"/>
+ ${[...Array(12)].map((_,i)=>{const a=i*Math.PI/6;return `<line x1="${cx+Math.sin(a)*21}" y1="${tt+46-Math.cos(a)*21}" x2="${cx+Math.sin(a)*24}" y2="${tt+46-Math.cos(a)*24}" stroke="#2b1a10" stroke-width="${i%3?1.2:2.4}"/>`}).join("")}
+ <line id="clkhh" x1="${cx}" y1="${tt+46}" x2="${cx}" y2="${tt+33}" stroke="#1a0f08" stroke-width="3" stroke-linecap="round"/><line id="clkmh" x1="${cx}" y1="${tt+46}" x2="${cx}" y2="${tt+26}" stroke="#1a0f08" stroke-width="2" stroke-linecap="round"/><circle cx="${cx}" cy="${tt+46}" r="2.2" fill="#1a0f08"/>
+ ${row(x+10,x+tw-8,tt+108,48,14,10,.7)}`;
+ // entrance arches + name board
+ s+=`${[-60,0,60].map(d=>`<path d="M${cx+d-22} ${G}V${G-50}a22 22 0 0 1 44 0V${G}z" fill="url(#cwl)" stroke="#efe2c8" stroke-width="3"/>`).join("")}`;
+ // palms
+ const palm=(px,h,sc)=>{let o=`<path d="M${px} ${G}q${-6*sc} ${-h/2} ${4*sc} ${-h}" stroke="#0c0f18" stroke-width="${5*sc}" fill="none"/>`;const tx=px+4*sc,ty=G-h;[-150,-110,-70,-30,10,50,200,240].forEach(a=>{const r=a*Math.PI/180,l=42*sc;o+=`<path d="M${tx} ${ty}q${Math.cos(r)*l*.6} ${Math.sin(r)*l*.6-14*sc} ${Math.cos(r)*l} ${Math.sin(r)*l+10*sc}" stroke="#0c0f18" stroke-width="${5*sc}" fill="none" stroke-linecap="round"/>`});return o};
+ s+=palm(250,150,1)+palm(560,170,1.1)+palm(90,190,1.25)+palm(720,200,1.3);
+ s+=`<rect y="${G-150}" width="${W}" height="150" fill="url(#chz)"/>`;
+ return `<svg class="clkbg" viewBox="0 0 ${W} ${G}" preserveAspectRatio="xMidYMax slice" aria-hidden="true">${s}</svg>`}
+function clkView(){return `<div class="c3 clkg" id="clkg">${clkScene()}<div class="clkfloor" id="clkfloor"></div><button class="c3b c3home" id="clkhome" aria-label="Back">${C3I.home}</button>
 <div class="boxbar"><button class="boxbtn" id="clkrst" aria-label="Restart">↺</button><button class="boxbtn" id="clksnd" aria-label="Sound"></button></div>
-<div class="clkwrap"><div class="clkhd"><b>${PT(["Stop the Clock","கடிகாரத்தை நிறுத்து"])}</b><div class="clkmode" id="clkmode">${Object.keys(CLKM).map(m=>`<button data-m="${m}">${PT(CLKM[m])}</button>`).join("")}</div></div>
+<div class="clkwrap">
 <div class="clkdev"><i class="scw" style="left:9px;top:9px"></i><i class="scw" style="right:9px;top:9px"></i><i class="scw" style="left:9px;bottom:9px"></i><i class="scw" style="right:9px;bottom:9px"></i>
+<div class="clkplate"><b>சென்னை சென்ட்ரல்</b><span>CHENNAI CENTRAL</span></div>
 <div class="clktg"><em>${PT(["STOP AT","இங்கே நிறுத்து"])}</em><div class="clkdigs amber" id="clkt"></div></div>
 <div class="clkscr" id="clkscr"><div class="clkdigs red" id="clkd"></div><div class="glare"></div></div>
 <div class="clkmsg" id="clkmsg"></div></div>
 <button class="clkbig" id="clkbig"><span id="clkbl">START</span></button>
 <div class="clkacts" id="clkacts"><button id="clknew">${PT(["New number ›","புதிய எண் ›"])}</button></div>
-<div class="clkstats" id="clkstats"></div></div><canvas id="clkfx"></canvas></div>`}
+<div class="clkmode" id="clkmode">${Object.keys(CLKM).map(m=>`<button data-m="${m}">${PT(CLKM[m])}</button>`).join("")}</div><div class="clkstats" id="clkstats"></div></div><canvas id="clkfx"></canvas></div>`}
 function startClk(){const root=document.getElementById("clkg");if(!root)return;document.body.classList.add("c3on");
  const $=id=>document.getElementById(id),big=$("clkbig"),bl=$("clkbl"),msg=$("clkmsg"),scr=$("clkscr"),dd=$("clkd"),td=$("clkt"),fx=$("clkfx"),fc=fx.getContext("2d");
  const sb=$("clksnd"),setSb=()=>sb.innerHTML=GM.sound?SND_ON:SND_OFF;setSb();sb.onclick=()=>{GM.sound=!GM.sound;gset("cp-snd",GM.sound?"1":"0");setSb()};
@@ -2043,6 +2091,11 @@ function startClk(){const root=document.getElementById("clkg");if(!root)return;d
  let mode=S.mode,target=0,state="idle",t0=0,lastSec=-1,parts=[],dpr=Math.min(2,devicePixelRatio||1);
  const D=()=>mode==="pro"?2:1,U=()=>mode==="pro"?10:100;
  const beep=(f,d,type,vol)=>{if(!GM.sound)return;try{const A=rac(),t=A.currentTime,o=A.createOscillator(),g=A.createGain();o.type=type||"square";o.frequency.value=f;g.gain.setValueAtTime(vol||.045,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(A.destination);o.start(t);o.stop(t+d+.03)}catch(e){}};
+ const horn=()=>{if(!GM.sound)return;try{const A=rac(),t=A.currentTime,lp=A.createBiquadFilter(),g=A.createGain();lp.type="lowpass";lp.frequency.value=1400;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.07,t+.06);g.gain.setValueAtTime(.07,t+.75);g.gain.exponentialRampToValueAtTime(.0001,t+1.05);lp.connect(g).connect(A.destination);
+  [277.2,349.2,415.3].forEach(f=>{const o=A.createOscillator(),v=A.createOscillator(),vg=A.createGain();o.type="sawtooth";o.frequency.value=f;v.frequency.value=5.5;vg.gain.value=f*.006;v.connect(vg).connect(o.frequency);o.connect(lp);o.start(t);v.start(t);o.stop(t+1.1);v.stop(t+1.1)})}catch(e){}};
+ const bgS=root.querySelector(".clkbg"),flo=document.getElementById("clkfloor"),hh=document.getElementById("clkhh"),mh=document.getElementById("clkmh");
+ const hands=()=>{const d=new Date(),m=d.getMinutes()+d.getSeconds()/60,hr=(d.getHours()%12)+m/60;hh.setAttribute("transform",`rotate(${hr*30} 400 164)`);mh.setAttribute("transform",`rotate(${m*6} 400 164)`)};hands();setInterval(()=>{if(root.isConnected)hands()},10000);
+ const place=()=>{const W=root.clientWidth,dt=root.querySelector(".clkdev").getBoundingClientRect().top;let hgt=(dt-46)*520/164;if(W/800>hgt/520)hgt=dt-46+356*W/800;hgt=Math.max(240,hgt);bgS.style.height=hgt+"px";flo.style.top=(hgt-1)+"px"};
  const build=(el,n)=>{let h="";for(let i=0;i<n;i++){if(i===2)h+='<i class="dp"></i>';h+=`<svg class="sg" viewBox="-4 -4 76 112"><g transform="translate(12 0) skewX(-7)">${CLK_SEG}</g></svg>`}el.innerHTML=h;el._p=[...el.querySelectorAll("svg")].map(s=>[...s.querySelectorAll("polygon")])};
  const show=(el,str)=>{el._p.forEach((ps,i)=>{const on=CLK_MAP[str[i]]||"";ps.forEach(p=>p.classList.toggle("on",on.includes(p.dataset.s)))})};
  const fmt=v=>{const d=D(),k=10**d,s=Math.floor(v/k),f=v%k;return (s<10?" "+s:String(s%100))+String(f).padStart(d,"0")};
@@ -2060,7 +2113,7 @@ function startClk(){const root=document.getElementById("clkg");if(!root)return;d
  function stop(){const now=performance.now(),v=Math.floor((now-t0)/U());state="stopped";scr.classList.remove("dark");show(dd,fmt(Math.min(v,99*10**D())));scr.classList.add("blink");beep(2300,.06);
   const s=S[mode],df=v-target;
   if(df===0){state="won";s.w++;s.s++;s.b=Math.max(s.b,s.s);setMsg("🎯 "+PT(["PERFECT! You stopped the clock!","அருமை! சரியாக நிறுத்தினீர்கள்!"]),"win");setBtn("again",PT(["NEXT","அடுத்து"]));
-   setTimeout(()=>{[1046.5,1318.5,1568,2093].forEach((f,i)=>setTimeout(()=>beep(f,.16,"square",.035),i*90));cupChime()},120);pzVib([30,50,30,50,60]);boom()}
+   setTimeout(()=>{[1046.5,1318.5,1568,2093].forEach((f,i)=>setTimeout(()=>beep(f,.16,"square",.035),i*90));cupChime();setTimeout(horn,520)},120);pzVib([30,50,30,50,60]);boom()}
   else{s.s=0;const near=Math.abs(df)<=(mode==="pro"?3:1);setMsg(`${near?PT(["So close! ","மிக அருகில்! "]):""}<b>${dstr(df)}</b> ${df<0?PT(["too early","முன்னதாக"]):PT(["too late","தாமதமாக"])}`,near?"near":"bad");
    setBtn("again",PT(["RETRY","மீண்டும்"]));setTimeout(()=>beep(near?520:170,.28,near?"triangle":"sawtooth",near?.05:.04),110);pzVib(near?[20,40,20]:40)}
   $("clkacts").classList.remove("hide");save();stats()}
@@ -2072,7 +2125,7 @@ function startClk(){const root=document.getElementById("clkg");if(!root)return;d
  $("clkrst").onclick=()=>{sClick(true);tapFeel();reset()};
  $("clkhome").onclick=()=>{sClick(true);go("games")};
  root.querySelectorAll("#clkmode button").forEach(b=>b.onclick=()=>{if(state==="run")return;sClick(true);tapFeel();setMode(b.dataset.m)});
- const rs=()=>{fx.width=root.clientWidth*dpr;fx.height=root.clientHeight*dpr};rs();new ResizeObserver(()=>{if(root.isConnected)rs()}).observe(root);
+ const rs=()=>{fx.width=root.clientWidth*dpr;fx.height=root.clientHeight*dpr;place()};rs();new ResizeObserver(()=>{if(root.isConnected)rs()}).observe(root);
  let last=performance.now();
  const loop=now=>{if(!root.isConnected){document.body.classList.remove("c3on");return}requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;
   if(state==="run"){const ms=now-t0,v=Math.floor(ms/U());
