@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T17:52:26.254Z",
+ "updated": "2026-11-05T18:48:12.972Z",
  "hot": [
   {
    "type": "place",
@@ -537,12 +537,5 @@
    "link": ""
   }
  ],
- "deals": [
-  {
-   "store": "Zomato",
-   "offer": "Free delivery on your first 3 orders from new restaurants",
-   "valid": "2026-11-05",
-   "link": "https://www.zomato.com"
-  }
- ]
+ "deals": []
 }
