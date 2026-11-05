@@ -1,5 +1,16 @@
 {
- "at": "2026-11-05T10:21:45.011Z",
- "summary": {},
- "log": []
+ "at": "2026-11-05T13:36:33.344Z",
+ "summary": {
+  "petrol": 265,
+  "bus": 936,
+  "hotel": 441,
+  "mall": 80,
+  "cinema": 74,
+  "hospital": 892
+ },
+ "log": [
+  "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504"
+ ]
 }
