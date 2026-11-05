@@ -1,15 +1,20 @@
 {
- "at": "2026-11-05T16:25:49.130Z",
+ "at": "2026-11-05T19:24:58.771Z",
  "summary": {
-  "mechanic": 69
+  "tea": 308,
+  "pharmacy": 319,
+  "fireworks": 0,
+  "sweets": 85,
+  "jewellery": 182,
+  "textiles": 110
  },
  "log": [
   "maps.mail.ru: HTTP 504",
   "maps.mail.ru: HTTP 504",
-  "overpass-api.de: HTTP 502",
-  "overpass.kumi.systems: HTTP 504",
-  "tea skipped: all map services failed",
   "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504",
+  "maps.mail.ru: HTTP 504",
+  "overpass-api.de: HTTP 502",
   "maps.mail.ru: HTTP 504"
  ]
 }
