@@ -1,15 +1,6 @@
 {
- "updated": "2026-11-05T21:41:40.530Z",
+ "updated": "2026-11-06T04:27:44.452Z",
  "items": [
-  {
-   "id": 1515692,
-   "title": "Baththa",
-   "lang": "Tamil",
-   "genre": "Drama, Comedy",
-   "date": "2026-10-01",
-   "poster": "https://image.tmdb.org/t/p/w342/7wHBYs8HHmTGe4nXLpMEAoDSK2o.jpg",
-   "rating": null
-  },
   {
    "id": 1234139,
    "title": "Jailer 2",
@@ -25,7 +16,7 @@
    "lang": "Tamil",
    "genre": "Action, Comedy",
    "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/2zHOUW3jRqa3opGH8iw11Hsm9Rf.jpg",
    "rating": null
   },
   {
@@ -89,6 +80,15 @@
    "genre": "Romance, Comedy",
    "date": "2026-12-04",
    "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
+   "rating": null
+  },
+  {
+   "id": 1728047,
+   "title": "Delivery Boy",
+   "lang": "Tamil",
+   "genre": "Action, Drama",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
    "rating": null
   },
   {
