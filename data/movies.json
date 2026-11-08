@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T15:29:18.991Z",
+ "updated": "2026-11-08T22:07:06.481Z",
  "items": [
   {
    "id": 1327835,
@@ -119,13 +119,13 @@
    "rating": 6.3
   },
   {
-   "id": 891621,
-   "title": "Wild Horse Nine",
+   "id": 1562642,
+   "title": "Ghost Soldier",
    "lang": "English",
-   "genre": "Comedy, Crime",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
-   "rating": 8.1
+   "genre": "Action, Thriller",
+   "date": "2026-11-11",
+   "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
+   "rating": null
   }
  ]
 }
