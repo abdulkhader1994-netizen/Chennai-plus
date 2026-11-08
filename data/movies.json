@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T02:45:16.917Z",
+ "updated": "2026-11-08T08:45:46.231Z",
  "items": [
   {
    "id": 1402181,
@@ -38,15 +38,6 @@
    "rating": null
   },
   {
-   "id": 1786905,
-   "title": "All Pass",
-   "lang": "Tamil",
-   "genre": "Family, Drama",
-   "date": "2026-10-09",
-   "poster": "https://image.tmdb.org/t/p/w342/ruF5Y282FaN6VN9ujpYIP9CJe2V.jpg",
-   "rating": null
-  },
-  {
    "id": 1384528,
    "title": "OM: Chapter 1",
    "lang": "Tamil",
@@ -62,6 +53,15 @@
    "genre": "Romance, Comedy",
    "date": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
+   "rating": null
+  },
+  {
+   "id": 1786905,
+   "title": "All Pass",
+   "lang": "Tamil",
+   "genre": "Family, Drama",
+   "date": "2026-10-09",
+   "poster": "https://image.tmdb.org/t/p/w342/ruF5Y282FaN6VN9ujpYIP9CJe2V.jpg",
    "rating": null
   },
   {
@@ -125,7 +125,7 @@
    "genre": "Comedy, Crime",
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
-   "rating": 8.3
+   "rating": 8.2
   }
  ]
 }
