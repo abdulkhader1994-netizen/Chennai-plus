@@ -86,7 +86,8 @@ body.gmon #view,body.gmon .c3{-webkit-user-select:none;user-select:none;-webkit-
 .boxg{background:#5a3220}.boxmenu h2::before{display:none}.boxtip{display:none}
 .boxbar{position:absolute;right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));display:flex;gap:8px;z-index:3}
 .boxbtn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.28);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:grid;place-items:center;font-size:20px;color:#fff;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s}.boxbtn:active{transform:scale(.9)}.boxbtn svg{width:24px;height:24px;color:#fff;stroke:#fff}
-.boxg:not(.playing) #boxhint,.boxg:not(.playing) #boxreset{display:none}
+.boxg:not(.playing) #boxhint,.boxg:not(.playing) #boxreset,.boxg:not(.playing) #boxlvl{display:none}
+.boxg .c3home,.boxg .boxbar{z-index:6}
 .boxttl{position:absolute;left:12px;right:12px;top:calc(max(12px,env(safe-area-inset-top)) + 52px);text-align:center;color:#fff;pointer-events:none;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}.boxttl b{display:block;font:800 21px var(--display)}.boxttl small{display:block;font:600 12.5px var(--body);opacity:.85;margin-top:2px}
 .boxmenu{position:absolute;inset:0;z-index:2;display:none;flex-direction:column;align-items:center;justify-content:center;padding:max(70px,calc(env(safe-area-inset-top) + 60px)) 18px 30px;color:#fff;gap:4px;overflow:auto}.boxmenu.show{display:flex}
 .boxmenu h2{margin:0;font:800 34px var(--display);text-shadow:0 3px 14px rgba(0,0,0,.55);text-align:center}.boxmenu>p{margin:0 0 16px;opacity:.85;font:600 14px var(--body);text-align:center}
@@ -2146,7 +2147,7 @@ const BOXL4=["#e63946","#f4a261","#2a9d8f","#457b9d","#e9c46a","#8e5bb0","#3aa86
 const BOXIMG={};
 function boxImg(n){if(!BOXIMG[n]){const i=new Image();i.src="./assets/cup/"+n+".jpg";BOXIMG[n]=i}return BOXIMG[n]}
 function boxView(){return `<div class="c3 boxg" id="boxg"><canvas id="boxcv"></canvas><button class="c3b c3home" id="boxhome" aria-label="Back">${C3I.home}</button>
- <div class="boxbar"><button class="boxbtn" id="boxhint" aria-label="Hint">💡</button><button class="boxbtn" id="boxreset" aria-label="Reset"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button><button class="boxbtn" id="boxsnd" aria-label="Sound"></button></div>
+ <div class="boxbar"><button class="boxbtn" id="boxlvl" aria-label="Levels"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></svg></button><button class="boxbtn" id="boxhint" aria-label="Hint">💡</button><button class="boxbtn" id="boxreset" aria-label="Reset"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button><button class="boxbtn" id="boxsnd" aria-label="Sound"></button></div>
  <div class="boxttl" id="boxttl"><b></b><small></small></div><div class="boxtip" id="boxtip">${PT(["Drag pieces into the box · Tap a piece to rotate","துண்டுகளை இழுத்து பெட்டியில் வையுங்கள் · சுழற்ற தட்டுங்கள்"])}</div>
  <div class="boxmenu" id="boxmenu"></div><div class="boxwin" id="boxwin"></div><i class="boxsafe" id="boxsafe"></i></div>`}
 function startBox(){const root=document.getElementById("boxg");if(!root)return;document.body.classList.add("c3on");
@@ -2265,7 +2266,7 @@ function startBox(){const root=document.getElementById("boxg");if(!root)return;d
   menu.classList.add("show");
   menu.querySelectorAll("[data-pk]").forEach(b=>b.onclick=()=>{sClick(true);tapFeel();showMenu(b.dataset.pk||null)});
   menu.querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>{sClick(true);tapFeel();load(pid,+b.dataset.lv)})}
- document.getElementById("boxhome").onclick=()=>{sClick(true);if(state!=="menu")showMenu(pack);else if(menu.querySelector(".boxback"))showMenu(null);else go("games")};
+ document.getElementById("boxhome").onclick=()=>{sClick(true);go("games")};document.getElementById("boxlvl").onclick=()=>{sClick(true);tapFeel();showMenu(pack)};
  document.getElementById("boxreset").onclick=()=>{if(state!=="play")return;sClick(true);tapFeel();P.forEach(p=>{home(p)});moves=0};
  document.getElementById("boxhint").onclick=()=>{if(state!=="play")return;tapFeel();const S2=L.s,sv=q=>S2[q.i];const ord=[...P].sort((a,b)=>a.i-b.i);const p=ord.find(q=>{const v=sv(q);return !(q.on&&q.on[0]===v[0]&&q.on[1]===v[1]&&q.r===v[2])});if(!p)return;const s=[];s[p.i]=sv(p);const i=p.i;
   p.r=s[i][2];const cellsT=new Set(p.sp[p.r].fp.map(([X,Y])=>(X+s[i][0])+","+(Y+s[i][1])));
