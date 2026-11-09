@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T11:23:55.080Z",
+ "updated": "2026-11-09T17:56:18.926Z",
  "items": [
   {
    "id": 1327835,
@@ -26,7 +26,7 @@
    "genre": "Action, Comedy",
    "date": "2026-10-15",
    "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": 8.2
+   "rating": 8
   },
   {
    "id": 926867,
@@ -47,21 +47,21 @@
    "rating": null
   },
   {
-   "id": 1786905,
-   "title": "All Pass",
-   "lang": "Tamil",
-   "genre": "Family, Drama",
-   "date": "2026-10-09",
-   "poster": "https://image.tmdb.org/t/p/w342/sQiLftJQCZPjZuzpn8Xzb5I6tlW.jpg",
-   "rating": null
-  },
-  {
    "id": 1593350,
    "title": "Haiku",
    "lang": "Tamil",
    "genre": "Romance, Comedy",
    "date": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
+   "rating": null
+  },
+  {
+   "id": 1786905,
+   "title": "All Pass",
+   "lang": "Tamil",
+   "genre": "Family, Drama",
+   "date": "2026-10-09",
+   "poster": "https://image.tmdb.org/t/p/w342/sQiLftJQCZPjZuzpn8Xzb5I6tlW.jpg",
    "rating": null
   },
   {
@@ -74,21 +74,21 @@
    "rating": null
   },
   {
-   "id": 1728763,
-   "title": "Drones",
+   "id": 1596658,
+   "title": "Hello Kadhal",
    "lang": "Tamil",
    "genre": "Romance, Comedy",
-   "date": "2026-10-16",
-   "poster": "https://image.tmdb.org/t/p/w342/k14luImbnzAhFZzqFKgvVrnOF4D.jpg",
+   "date": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
    "rating": null
   },
   {
-   "id": 1800255,
-   "title": "Enemy Of The Smuggler",
+   "id": 1728047,
+   "title": "Delivery Boy",
    "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-10-30",
-   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
+   "genre": "Action, Drama",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
    "rating": null
   },
   {
@@ -110,6 +110,15 @@
    "rating": 7.4
   },
   {
+   "id": 891621,
+   "title": "Wild Horse Nine",
+   "lang": "English",
+   "genre": "Comedy, Crime",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg",
+   "rating": 8.1
+  },
+  {
    "id": 1153576,
    "title": "Street Fighter",
    "lang": "English",
@@ -117,15 +126,6 @@
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/8nP4lF51Ea861YfHEEqhZBLYv3e.jpg",
    "rating": 6.3
-  },
-  {
-   "id": 1562642,
-   "title": "Ghost Soldier",
-   "lang": "English",
-   "genre": "Action, Thriller",
-   "date": "2026-11-11",
-   "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": null
   }
  ]
 }
