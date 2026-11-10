@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://abdulkhader1994-netizen.github.io/Chennai-plus/sitemap.xml

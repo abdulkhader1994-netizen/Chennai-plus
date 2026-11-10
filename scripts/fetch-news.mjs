@@ -35,7 +35,8 @@ async function readFeed(url) {
       if (host === "news.google.com") { site = attr(it, "source", "url"); const i = title.lastIndexOf(" - "); if (i > 0) { source = source || title.slice(i + 3); title = title.slice(0, i); } }
       else site = "https://" + host;
       const when = new Date(tag(it, "pubDate") || tag(it, "dc:date") || Date.now());
-      return { title, source: source || host, site, link: tag(it, "link"), published: isNaN(when) ? new Date().toISOString() : when.toISOString() };
+      const desc = host === "news.google.com" ? "" : tag(it, "description").slice(0, 400);
+      return { title, source: source || host, site, link: tag(it, "link"), published: isNaN(when) ? new Date().toISOString() : when.toISOString(), ...(desc && desc !== title ? { desc } : {}) };
     }).filter((x) => x.title && /^https?:/.test(x.link));
   } catch (e) { console.warn(`Skipped ${url.slice(0, 80)}: ${e.message}`); return []; }
 }

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="Chennai Plus: weather, alerts, news, events, food and places near you.">
+<meta name="description" content="Chennai Plus: weather, alerts, news, events, food and places near you."><link rel="alternate" type="application/rss+xml" title="Chennai Plus News" href="feed.xml">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -115,6 +115,37 @@
 .argar button.on{border-color:#f6c21a;background:rgba(246,194,26,.16)}.argar button.lock{opacity:.6}
 .argar i{width:36px;height:36px;border-radius:10px;flex:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3)}
 .argar span{flex:1}.argar em{font:800 13px var(--display);font-style:normal;color:#ffd166;white-space:nowrap}
+.stl{display:grid;gap:10px}
+.stc{display:grid;gap:5px;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:16px;padding:13px 15px;cursor:pointer;font:inherit;-webkit-tap-highlight-color:transparent}
+.stc b{font-family:var(--display);font-weight:800;font-size:16.5px;line-height:1.25}.stc small{color:var(--muted);font-size:12px}.stc .sts{color:var(--muted);font-size:14px;line-height:1.45}
+.stc.big{background:linear-gradient(135deg,#c2410c,#f59e0b);color:#fff;border:0;padding:18px;box-shadow:0 14px 30px rgba(194,65,12,.22)}.stc.big b{font-size:21px}.stc.big .sts,.stc.big small{color:rgba(255,255,255,.88)}.stc.big .stb{background:rgba(255,255,255,.22);color:#fff}
+.stb{justify-self:start;display:inline-block;background:var(--sea);color:#fff;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.story{display:grid;gap:10px}.story h1{margin:4px 0 0;font-family:var(--display);font-weight:800;font-size:27px;line-height:1.18;text-wrap:balance}.sdek{margin:0;color:var(--muted);font-size:16.5px;line-height:1.5}.smeta{font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:12px}
+.story .sbody p{margin:0 0 16px;font-size:16.5px;line-height:1.7}html[lang=ta] .story .sbody p{font-size:17px;line-height:1.85}
+.sacts{display:flex;gap:10px}.sbtn{flex:1;text-align:center;border:0;border-radius:12px;padding:11px;font:700 14.5px var(--body);background:var(--sea);color:#fff;text-decoration:none;cursor:pointer}.sbtn.alt{background:none;border:1px solid var(--line);color:var(--ink)}
+.ssrc{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px}.ssrc a{color:var(--sea);text-decoration:none;font-weight:700}.ssrc a span{display:block;color:var(--muted);font-weight:400;font-size:13px}.ssrc small{color:var(--muted);font-size:12px;line-height:1.45}
+.dnav{display:none}
+@media(min-width:1000px){
+ html body .app{max-width:1200px;padding-bottom:48px}
+ html body nav{display:none}
+ html body header{padding-inline:24px}
+ html body .dnav{display:flex;gap:2px;margin-left:auto;margin-right:14px}
+ html body .dl{border:0;background:none;font:600 14.5px var(--body);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+ html body .dl:hover{color:var(--ink);background:var(--surface)}
+ html body .dl.on{color:#fff;background:var(--sea)}
+ html body main#view{padding-inline:24px;padding-top:24px}
+ html body #view[data-v=home]{display:block;column-count:2;column-gap:32px}
+ html body #view[data-v=home]>*{break-inside:avoid;margin:0 0 28px}
+ html body #view[data-v=news]{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:36px;align-items:start}
+ html body #view[data-v=news]>.nhead{grid-column:1/-1}
+ html body #view[data-v=news]:has(>.own)>.own{grid-column:1;grid-row:2/span 12;position:sticky;top:84px}
+ html body #view[data-v=news]:has(>.own)>section:not(.nhead):not(.own){grid-column:2}
+ html body #view[data-v=story]>.story{max-width:760px;margin:0 auto;width:100%}
+ html body #view[data-v=story] .story h1{font-size:38px}
+ html body #view[data-v=games]>section:first-child{grid-template-columns:repeat(2,minmax(0,1fr));max-width:980px;margin:0 auto;width:100%}
+ html body #view[data-v=games]>section:first-child>:not(.kcard){grid-column:1/-1}
+ html body #view:not([data-v=home]):not([data-v=news]):not([data-v=games]):not([data-v=story])>*{max-width:860px;width:100%;margin-inline:auto}
+}
 .autocard{background:linear-gradient(135deg,#1d1d1f,#3f3418 45%,#f6c21a)!important;box-shadow:0 14px 30px rgba(120,90,10,.3)!important}
 .clkcard{background:linear-gradient(135deg,#0d1530,#7e2a1d 55%,#f08a4b)!important;box-shadow:0 14px 30px rgba(120,20,15,.3)!important}
 body.gmon #view,body.gmon .c3{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -769,6 +800,7 @@ body.c3on{overflow:hidden}body.rlxon{overflow:hidden}
 <div class="app">
 <header>
   <div class="logo"><img src="icon-192.png" alt=""><div><div class="brand">Chennai<span>+</span></div><div class="sub" data-t="tag">Namma ooru, all in one place</div></div></div>
+  <div class="dnav" role="navigation" aria-label="Sections"><button class="dl" data-go="home" data-t="home">Home</button><button class="dl" data-go="news" data-t="news">News</button><button class="dl" data-go="near" data-t="near">Near me</button><button class="dl" data-go="events" data-t="events">Events</button><button class="dl" data-go="food" data-t="food">Food</button><button class="dl" data-go="explore" data-t="explore">Explore</button><button class="dl" data-go="games" data-t="games">Games</button></div>
   <button class="lang" id="lang" aria-label="Switch language">தமிழ்</button>
 </header>
 <main id="view"></main>
@@ -783,8 +815,8 @@ body.c3on{overflow:hidden}body.rlxon{overflow:hidden}
 </div></nav>
 
 <script>
-const T={en:{tag:"Namma ooru, all in one place",home:"Home",news:"News",events:"Events",food:"Food",offers:"Offers",near:"Near me",btn:"தமிழ்"},
- ta:{tag:"நம்ம ஊரு, எல்லாம் ஒரே இடத்தில்",home:"முகப்பு",news:"செய்திகள்",events:"நிகழ்வுகள்",food:"உணவு",offers:"சலுகைகள்",near:"அருகில்",btn:"English"}};
+const T={en:{games:"Games",explore:"Explore",tag:"Namma ooru, all in one place",home:"Home",news:"News",events:"Events",food:"Food",offers:"Offers",near:"Near me",btn:"தமிழ்"},
+ ta:{games:"விளையாட்டு",explore:"சுற்றுலா",tag:"நம்ம ஊரு, எல்லாம் ஒரே இடத்தில்",home:"முகப்பு",news:"செய்திகள்",events:"நிகழ்வுகள்",food:"உணவு",offers:"சலுகைகள்",near:"அருகில்",btn:"English"}};
 let lang="en";try{lang=localStorage.getItem("cp-lang")||"en"}catch(e){}
 
 const alerts=[
@@ -1190,11 +1222,30 @@ function newsView(){const L2=k=>lang==="ta"?NT[k].ta:NT[k].en;const list=newsOf(
  if(!NEWS||!NEWS.topics)return `${banner("news","Chennai news","Fresh headlines every 30 minutes",["paper","film","rain"])}<section><div class="list">${news.map(newsRow).join("")}</div></section>`;
  const f=list[0];const row=x=>`<a class="nrow nlink" href="${esc(x.link)}" target="_blank" rel="noopener"><div class="txt"><h3>${esc(x.title)}</h3><div class="nmeta">${favi(x)}<span>${esc(x.source)}</span><span>· ${ago(x.published)}</span></div></div></a>`;
  return `<section class="nhead"><h1 class="ntitle">${lang==="ta"?"செய்திகள்":"News"}</h1>${tabs}</section>
+ ${storiesSec(newsT)}
  ${f?`<section><a class="feat nlink" style="background:linear-gradient(135deg,${t.g})" href="${esc(f.link)}" target="_blank" rel="noopener"><span class="fcat">${L2(newsT)}</span><h3>${esc(f.title)}</h3><div class="fmeta">${esc(f.source)} • ${ago(f.published)}</div>${art(t.art,"fart")}</a></section>`:""}
  ${newsT==="cinema"&&movies.length?`<section><h2>${lang==="ta"?"திரைப்பட வெளியீடுகள்":"Movie releases"}</h2><div class="mv">${movies.map(posterCard).join("")}</div></section>`:""}
  ${list.length>1?`<section>${list.length>4?`<h2>${lang==="ta"?"முக்கியமானவை":"Top stories"}</h2><div class="nstrip">${list.slice(1,4).map(x=>`<a class="ncard nlink" href="${esc(x.link)}" target="_blank" rel="noopener"><div class="ncart" style="background:linear-gradient(135deg,${t.g})">${art(t.art)}</div><h3>${esc(x.title)}</h3><div class="nmeta">${favi(x)}<span>${esc(x.source)}</span></div></a>`).join("")}</div>`:""}
   <h2 style="margin-top:18px">${lang==="ta"?"சமீபத்தியவை":"Latest"}</h2><div class="list">${list.slice(list.length>4?4:1).map(row).join("")}</div></section>`:`<section><p class="note">${lang==="ta"?"இந்தப் பிரிவில் இப்போது செய்திகள் இல்லை.":"No headlines in this section right now."}</p></section>`}`}
 function centerNT(){const c=document.getElementById("ntabs");const el=c&&c.querySelector('[aria-pressed="true"]');if(el)c.scrollLeft=el.offsetLeft-c.offsetLeft-16}
+// ---------- Chennai Plus stories (own AI-assisted articles, data/articles.json) ----------
+let ARTS=[];const NTCAT={chennai:null,tn:["Tamil Nadu"],politics:["Politics"],cinema:["Cinema"],sports:["Sports"],business:["Business"],weather:["Weather"]};
+async function loadArticles(){try{const r=await fetch("data/articles.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();ARTS=(j.items||[]).filter(a=>!a.skipped&&a.en&&a.ta);
+ if(ARTS.length){const v=view.dataset.v;if(["home","news"].includes(v)){const y=window.scrollY;go(v);window.scrollTo(0,y)}}}catch(e){}}
+const artL=a=>lang==="ta"&&a.ta&&a.ta.title?a.ta:a.en;
+const artCat=a=>lang==="ta"?(a.catTa||a.cat):a.cat;
+const storyCard=(a,big)=>{const t=artL(a);return `<button class="stc${big?" big":""}" data-story="${esc(a.slug)}"><span class="stb">${esc(artCat(a))}</span><b>${esc(t.title)}</b>${big?`<span class="sts">${esc(t.summary)}</span>`:""}<small>${ago(a.date)}</small></button>`};
+function storiesSec(topic){const list=ARTS.filter(a=>!NTCAT[topic]||NTCAT[topic].includes(a.cat)).slice(0,6);if(!list.length)return"";
+ return `<section class="own"><div class="head"><h2>${lang==="ta"?"சென்னை பிளஸ் செய்திகள்":"Chennai Plus stories"}</h2></div><div class="stl">${list.map((a,i)=>storyCard(a,i===0)).join("")}</div></section>`}
+function storiesHome(){if(!ARTS.length)return"";return `<section><div class="head"><h2>${lang==="ta"?"இன்றைய செய்திகள்":"Today's stories"}</h2>${more("news")}</div><div class="stl">${ARTS.slice(0,3).map((a,i)=>storyCard(a,i===0)).join("")}</div></section>`}
+const storyUrl=a=>new URL("news/"+a.slug+".html"+(lang==="ta"?"?lang=ta":""),location.href).href;
+function storyView(slug){const a=ARTS.find(x=>x.slug===slug);if(!a)return `<section><button class="back" data-go="news">‹ ${lang==="ta"?"செய்திகள்":"News"}</button><p class="note">${lang==="ta"?"இந்த செய்தி கிடைக்கவில்லை.":"This story is not available."}</p></section>`;
+ const t=artL(a);return `<section class="story"><button class="back" data-go="news">‹ ${lang==="ta"?"செய்திகள்":"News"}</button><span class="stb">${esc(artCat(a))}</span><h1>${esc(t.title)}</h1><p class="sdek">${esc(t.summary)}</p>
+ <div class="smeta">${lang==="ta"?"சென்னை பிளஸ் செய்திப் பிரிவு":"Chennai Plus News Desk"} · ${new Date(a.date).toLocaleString(LOC(),{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"})}</div>
+ <div class="sbody">${t.body.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+ <div class="sacts"><button class="sbtn" id="stshare">${lang==="ta"?"பகிர்":"Share"}</button><a class="sbtn alt" href="${storyUrl(a)}" target="_blank" rel="noopener">${lang==="ta"?"இணையப் பக்கம்":"Web page"}</a></div>
+ <div class="ssrc"><b>${lang==="ta"?"ஆதாரங்கள்":"Sources"}</b>${a.src.map(s=>`<a href="${esc(s.u)}" target="_blank" rel="noopener nofollow">${esc(s.n)}<span>${esc(s.t)}</span></a>`).join("")}<small>${lang==="ta"?"இந்தச் செய்தியை மேலே உள்ள செய்தி அறிக்கைகளின் தகவல்களை மட்டும் பயன்படுத்தி, AI உதவியுடன் சென்னை பிளஸ் எழுதியது.":"Chennai Plus wrote this story with the help of AI, using only the facts in the reports above."}</small></div></section>`}
+function bindStories(){document.querySelectorAll("[data-story]").forEach(b=>b.onclick=()=>{if(typeof sClick==="function")sClick(true);go("story",b.dataset.story);window.scrollTo(0,0)});const sh=document.getElementById("stshare");if(sh)sh.onclick=async()=>{const a=ARTS.find(x=>x.slug===view.dataset.arg);if(!a)return;const u=storyUrl(a),t=artL(a).title;try{if(navigator.share)await navigator.share({title:t,url:u});else{await navigator.clipboard.writeText(u);sh.textContent=lang==="ta"?"இணைப்பு நகலெடுக்கப்பட்டது":"Link copied"}}catch(e){}}}
 let contentLive=false;
 async function loadContent(){try{const r=await fetch("data/content.json?ts="+Date.now());if(!r.ok)return;const j=await r.json();let any=false;
  const mo=d=>new Date(d+"T00:00").toLocaleDateString(LOC(),{month:"short"}),dy=d=>d.slice(8,10);
@@ -2903,11 +2954,13 @@ function rRain(st,tools){const {W,H,dpr,mk}=rCanvas(st);const [c,x]=mk(),[fc,fx]
 function rainAlert(){return W&&W.rain?alertHTML({k:"Rain",t:`Rain likely around ${W.rain.at} (${W.rain.p}% chance). Carry an umbrella and avoid low-lying subways.`,w:"Live forecast • Open-Meteo",lvl:"warn"}):""}
 
 const views={
+ story:s=>storyView(s),
  home:()=>`${weather()}
   ${festCard()}
   ${quickSec()}
   ${ratesSec()}
   <section><h2>Alerts</h2>${rainAlert()||`<div class="alert info"><span class="pill">OK</span><p>No alerts right now<time>Rain and city alerts will show up here.</time></p></div>`}</section>
+  ${storiesHome()}
   ${hotSec()}
   ${buzzSec()}
   ${exploreHome()}
@@ -2943,7 +2996,7 @@ const views={
 
 const view=document.getElementById("view");
 new MutationObserver(ms=>{if(lang!=="ta")return;ms.forEach(m=>m.addedNodes.forEach(trTree))}).observe(view,{childList:true,subtree:true});
-function go(v,arg){document.body.classList.toggle("rlxon",v==="relax");document.body.classList.toggle("gmon",["game","sort","jumble","mem","match","relax","cans","box","clk","auto"].includes(v));view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="sort")startSort();if(v==="jumble")startJumble();if(v==="mem")startMem();if(v==="match")startMatch();if(v==="relax")startRelax();if(v==="cans")startCans();if(v==="box")startBox();if(v==="clk")startClk();if(v==="auto")startAuto();if(v==="games")document.querySelectorAll("[data-rlx]").forEach(b=>b.onclick=()=>{rlxK=b.dataset.rlx;go("relax")});if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));window.scrollTo(0,0)}
+function go(v,arg){if(v==="story"&&!arg)arg=view.dataset.arg;view.dataset.arg=arg||"";document.body.classList.toggle("rlxon",v==="relax");document.body.classList.toggle("gmon",["game","sort","jumble","mem","match","relax","cans","box","clk","auto"].includes(v));view.dataset.v=v;view.innerHTML=views[v](arg)+credits(v);if(v==="near")centerCat();if(v==="news")centerNT();if(v==="news"||v==="home"||v==="story")bindStories();if(v==="travel")initTravel();if(v==="festival")requestAnimationFrame(startFW);if(v==="game")requestAnimationFrame(startGame);if(v==="sort")startSort();if(v==="jumble")startJumble();if(v==="mem")startMem();if(v==="match")startMatch();if(v==="relax")startRelax();if(v==="cans")startCans();if(v==="box")startBox();if(v==="clk")startClk();if(v==="auto")startAuto();if(v==="games")document.querySelectorAll("[data-rlx]").forEach(b=>b.onclick=()=>{rlxK=b.dataset.rlx;go("relax")});if(v==="reps"){const q=document.getElementById("repq");if(q)q.addEventListener("input",()=>{repQ=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("reps");const n=document.getElementById("repq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},300)})}if(v==="rent"){const q=document.getElementById("rq");if(q)q.addEventListener("input",()=>{rentF.q=q.value;clearTimeout(q._t);q._t=setTimeout(()=>{const pos=q.selectionStart;go("rent");const n=document.getElementById("rq");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}},350)})}document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.v===v));document.querySelectorAll(".dl").forEach(t=>t.classList.toggle("on",t.dataset.go===v||(v==="story"&&t.dataset.go==="news")||(t.dataset.go==="games"&&["sort","jumble","mem","match","relax","game"].includes(v))));window.scrollTo(0,0)}
 document.querySelector("nav").addEventListener("click",e=>{const t=e.target.closest(".tab");if(t)go(t.dataset.v)});
 view.addEventListener("click",e=>{const q=e.target.closest("[data-q]");if(q){const v=q.dataset.q;if(v.startsWith("near:")){nearC=v.slice(5);go("near")}else go(v);return}const s=e.target.closest("[data-go]");if(s)go(s.dataset.go);const xb=e.target.closest("[data-x]");if(xb){exF=xb.dataset.x;const y=window.scrollY;go("explore");window.scrollTo(0,y);return}const rf=e.target.closest("[data-rf]");if(rf){rentF[rf.dataset.rf]=rf.dataset.rv;const y=scrollY;go("rent");scrollTo(0,y);return}const gm=e.target.closest("[data-gm]");if(gm){GM.mode=gm.dataset.gm;go("game");return}if(e.target.closest("#gsnd")){GM.sound=!GM.sound;if(!GM.sound&&GM.stop)GM.stop();gset("cp-snd",GM.sound?"1":"0");e.target.closest("#gsnd").innerHTML=GM.sound?SND_ON:SND_OFF;return}const nt=e.target.closest("[data-nt]");if(nt){newsT=nt.dataset.nt;go("news");return}const tm=e.target.closest("[data-tm]");if(tm){trMode=tm.dataset.tm;document.querySelectorAll("[data-tm]").forEach(b=>b.setAttribute("aria-pressed",b===tm));document.getElementById("tres").innerHTML=travelResults();return}const nb=e.target.closest("[data-n]");if(nb){nearC=nb.dataset.n;const k=nearC+"|"+nearLoc.lat.toFixed(3)+","+nearLoc.lng.toFixed(3);if(nearState[k]==="error")delete nearState[k];go("near");return}const bz=e.target.closest("[data-b]");if(bz){buzzF=bz.dataset.b;const v=document.querySelector('.tab[aria-selected="true"]').dataset.v,y=window.scrollY;go(v);window.scrollTo(0,y);return}const h=e.target.closest("[data-h]");if(h){hotF=h.dataset.h;const y=window.scrollY;go("home");window.scrollTo(0,y);return}const c=e.target.closest("[data-f]");if(c)go("food",c.dataset.f)});
 function setLang(l){const changed=l!==lang;lang=l;document.documentElement.lang=l;if(changed&&view.dataset.v){const y=window.scrollY;go(view.dataset.v);window.scrollTo(0,y)}else trTree(view);document.querySelectorAll("[data-t]").forEach(n=>n.textContent=T[l][n.dataset.t]);document.getElementById("lang").textContent=T[l].btn;try{localStorage.setItem("cp-lang",l)}catch(e){}}
@@ -2953,7 +3006,7 @@ view.addEventListener("click",e=>{if(e.target.closest("#gps"))useGPS();if(e.targ
 (function(){const sp=document.getElementById("splash");if(!sp)return;if(lang==="ta"){const t=document.getElementById("sptag");if(t)t.textContent="நம்ம ஊரு, எல்லாம் ஒரே இடத்தில்"}
  const t0=performance.now();const hide=()=>{const wait=Math.max(0,1300-(performance.now()-t0));setTimeout(()=>{sp.classList.add("hide");setTimeout(()=>sp.remove(),600)},wait)};
  if(document.readyState==="complete")hide();else window.addEventListener("load",hide);setTimeout(hide,2600)})();
-setLang(lang);go(/^#(puzzle|games)$/.test(location.hash)?"games":"home");loadWeather();loadNews();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadRates();loadMovies();loadContent()},30*60e3);
+setLang(lang);go(/^#(puzzle|games)$/.test(location.hash)?"games":"home");loadWeather();loadNews();loadArticles();loadRates();loadMovies();loadContent();loadExplore();loadFestivals();loadCfg().then(loadRent);setInterval(()=>{loadWeather();loadNews();loadArticles();loadRates();loadMovies();loadContent()},30*60e3);
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!reloaded){reloaded=true;location.reload()}})}
 </script>
 
