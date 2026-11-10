@@ -1,11 +1,5 @@
 {
- "at": "2026-11-10T10:15:08.000Z",
- "summary": {
-  "station": 152,
-  "food": 1172
- },
- "log": [
-  "maps.mail.ru: HTTP 504",
-  "maps.mail.ru: HTTP 504"
- ]
+ "at": "2026-11-10T13:26:17.954Z",
+ "summary": {},
+ "log": []
 }
