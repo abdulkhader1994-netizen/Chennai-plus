@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T02:44:11.853Z",
+ "updated": "2026-11-11T09:29:28.300Z",
  "items": [
   {
    "id": 1327835,
@@ -26,7 +26,7 @@
    "genre": "Action, Comedy",
    "date": "2026-10-15",
    "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": 7.9
+   "rating": 8
   },
   {
    "id": 926867,
@@ -92,15 +92,6 @@
    "rating": null
   },
   {
-   "id": 1283515,
-   "title": "Verity",
-   "lang": "English",
-   "genre": "Mystery, Thriller",
-   "date": "2026-10-02",
-   "poster": "https://image.tmdb.org/t/p/w342/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg",
-   "rating": 7
-  },
-  {
    "id": 1400940,
    "title": "Clayface",
    "lang": "English",
@@ -108,6 +99,15 @@
    "date": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
    "rating": 7.4
+  },
+  {
+   "id": 1562642,
+   "title": "Ghost Soldier",
+   "lang": "English",
+   "genre": "Action, Thriller",
+   "date": "2026-11-11",
+   "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
+   "rating": null
   },
   {
    "id": 891621,
@@ -119,13 +119,13 @@
    "rating": 8.1
   },
   {
-   "id": 1562642,
-   "title": "Ghost Soldier",
+   "id": 1153576,
+   "title": "Street Fighter",
    "lang": "English",
-   "genre": "Action, Thriller",
-   "date": "2026-11-11",
-   "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": null
+   "genre": "Action, Fantasy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/dJPT2Uf12X6aFg8i5N67NTpIZ9t.jpg",
+   "rating": 6.3
   }
  ]
 }
