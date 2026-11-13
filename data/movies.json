@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12T17:48:17.411Z",
+ "updated": "2026-11-13T00:55:49.064Z",
  "items": [
   {
    "id": 1327835,
@@ -92,15 +92,6 @@
    "rating": null
   },
   {
-   "id": 1400940,
-   "title": "Clayface",
-   "lang": "English",
-   "genre": "Horror, Thriller",
-   "date": "2026-10-23",
-   "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
-   "rating": 7.4
-  },
-  {
    "id": 1562642,
    "title": "Ghost Soldier",
    "lang": "English",
@@ -108,6 +99,15 @@
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
    "rating": null
+  },
+  {
+   "id": 1400940,
+   "title": "Clayface",
+   "lang": "English",
+   "genre": "Horror, Thriller",
+   "date": "2026-10-23",
+   "poster": "https://image.tmdb.org/t/p/w342/9l1NuFjel2j89hiuiJbsxfblqjy.jpg",
+   "rating": 7.4
   },
   {
    "id": 891621,
