@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T15:16:27.866Z",
+ "updated": "2026-11-13T21:19:24.657Z",
  "items": [
   {
    "id": 1327835,
@@ -101,6 +101,15 @@
    "rating": null
   },
   {
+   "id": 791523,
+   "title": "Wildwood",
+   "lang": "English",
+   "genre": "Animation, Fantasy",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+   "rating": 8.5
+  },
+  {
    "id": 1400940,
    "title": "Clayface",
    "lang": "English",
@@ -117,15 +126,6 @@
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/dJPT2Uf12X6aFg8i5N67NTpIZ9t.jpg",
    "rating": 6.3
-  },
-  {
-   "id": 1117898,
-   "title": "The Cat in the Hat",
-   "lang": "English",
-   "genre": "Animation, Fantasy",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/mWN6knIVJ2o7eGwSm7mOgSCwNUc.jpg",
-   "rating": 7.4
   }
  ]
 }
