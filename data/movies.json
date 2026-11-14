@@ -1,6 +1,15 @@
 {
- "updated": "2026-11-14T10:36:54.184Z",
+ "updated": "2026-11-14T17:29:48.788Z",
  "items": [
+  {
+   "id": 1234139,
+   "title": "Jailer 2",
+   "lang": "Tamil",
+   "genre": "Action, Comedy",
+   "date": "2026-10-15",
+   "poster": "https://image.tmdb.org/t/p/w342/1ei2UWNDRx5xKR7HjvEj17qExvL.jpg",
+   "rating": 8
+  },
   {
    "id": 1327835,
    "title": "Mookuthi Amman 2",
@@ -9,15 +18,6 @@
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
-  },
-  {
-   "id": 1234139,
-   "title": "Jailer 2",
-   "lang": "Tamil",
-   "genre": "Action, Comedy",
-   "date": "2026-10-15",
-   "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": 8
   },
   {
    "id": 1402181,
@@ -29,21 +29,12 @@
    "rating": null
   },
   {
-   "id": 926867,
-   "title": "Nooru Kodi Vaanavil",
-   "lang": "Tamil",
-   "genre": "Romance, Drama",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/gSJodOp12s5qFU3pO9Cz1sjQSYZ.jpg",
-   "rating": null
-  },
-  {
    "id": 1384528,
-   "title": "O.M – Operation Mole",
+   "title": "O.M: Operation Mole",
    "lang": "Tamil",
    "genre": "Crime, Action",
    "date": "2026-11-20",
-   "poster": "https://image.tmdb.org/t/p/w342/31mG1yHATnrKa2ZGqVSt41PcsOq.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/vFnFLqXjf7RQfkNxrrys43BZKxJ.jpg",
    "rating": null
   },
   {
@@ -56,30 +47,30 @@
    "rating": null
   },
   {
-   "id": 1213227,
-   "title": "Train",
+   "id": 926867,
+   "title": "Nooru Kodi Vaanavil",
    "lang": "Tamil",
-   "genre": "Thriller, Drama",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
+   "genre": "Romance, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/gSJodOp12s5qFU3pO9Cz1sjQSYZ.jpg",
    "rating": null
   },
   {
-   "id": 1728047,
-   "title": "Delivery Boy",
+   "id": 1655020,
+   "title": "John Doe",
    "lang": "Tamil",
-   "genre": "Action, Drama",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
+   "genre": "Action, Mystery",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
    "rating": null
   },
   {
-   "id": 1596658,
-   "title": "Hello Kadhal",
+   "id": 1680033,
+   "title": "Appa Kutty",
    "lang": "Tamil",
-   "genre": "Romance, Comedy",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
+   "genre": "Crime, Thriller",
+   "date": "2026-11-20",
+   "poster": "https://image.tmdb.org/t/p/w342/6h0XuDkjNOTYpmdMop5nDrBREum.jpg",
    "rating": null
   },
   {
@@ -89,6 +80,15 @@
    "genre": "Crime, Action",
    "date": "2026-10-30",
    "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
+   "rating": null
+  },
+  {
+   "id": 1728047,
+   "title": "Delivery Boy",
+   "lang": "Tamil",
+   "genre": "Action, Drama",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/5JykVg5yWm5QiFyeEBq3diDmI5.jpg",
    "rating": null
   },
   {
