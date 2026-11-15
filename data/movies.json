@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:02:32.566Z",
+ "updated": "2026-11-15T06:54:52.258Z",
  "items": [
   {
    "id": 1234139,
@@ -56,15 +56,6 @@
    "rating": null
   },
   {
-   "id": 1655020,
-   "title": "John Doe",
-   "lang": "Tamil",
-   "genre": "Action, Mystery",
-   "date": "2026-11-13",
-   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
-   "rating": null
-  },
-  {
    "id": 1680033,
    "title": "Appa Kutty",
    "lang": "Tamil",
@@ -80,6 +71,15 @@
    "genre": "Crime, Action",
    "date": "2026-10-30",
    "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
+   "rating": null
+  },
+  {
+   "id": 1655020,
+   "title": "John Doe",
+   "lang": "Tamil",
+   "genre": "Action, Mystery",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
    "rating": null
   },
   {
