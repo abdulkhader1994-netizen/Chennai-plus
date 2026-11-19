@@ -1,15 +1,6 @@
 {
- "updated": "2026-11-19T05:57:25.236Z",
+ "updated": "2026-11-19T11:59:03.705Z",
  "items": [
-  {
-   "id": 1402181,
-   "title": "Scene",
-   "lang": "Tamil",
-   "genre": "Comedy, Crime",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
-   "rating": 8.4
-  },
   {
    "id": 1327835,
    "title": "Mookuthi Amman 2",
@@ -18,6 +9,15 @@
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
+  },
+  {
+   "id": 1402181,
+   "title": "Scene",
+   "lang": "Tamil",
+   "genre": "Comedy, Crime",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "rating": 8.4
   },
   {
    "id": 1384528,
@@ -98,7 +98,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 9
+   "rating": 8.9
   },
   {
    "id": 1153576,
@@ -107,7 +107,7 @@
    "genre": "Action, Fantasy",
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
-   "rating": 6.3
+   "rating": 6.2
   },
   {
    "id": 791523,
