@@ -1,15 +1,6 @@
 {
- "updated": "2026-11-18T22:48:29.355Z",
+ "updated": "2026-11-19T05:57:25.236Z",
  "items": [
-  {
-   "id": 1234139,
-   "title": "Jailer 2",
-   "lang": "Tamil",
-   "genre": "Action, Comedy",
-   "date": "2026-10-15",
-   "poster": "https://image.tmdb.org/t/p/w342/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg",
-   "rating": 8
-  },
   {
    "id": 1402181,
    "title": "Scene",
@@ -92,6 +83,15 @@
    "rating": null
   },
   {
+   "id": 1213227,
+   "title": "Train",
+   "lang": "Tamil",
+   "genre": "Thriller, Drama",
+   "date": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
+   "rating": null
+  },
+  {
    "id": 1562642,
    "title": "Ghost Soldier",
    "lang": "English",
@@ -113,7 +113,7 @@
    "id": 791523,
    "title": "Wildwood",
    "lang": "English",
-   "genre": "Animation, Fantasy",
+   "genre": "Adventure, Animation",
    "date": "2026-11-13",
    "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
    "rating": 8.5
