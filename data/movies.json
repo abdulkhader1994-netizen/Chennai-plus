@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T00:54:44.366Z",
+ "updated": "2026-11-20T07:12:32.041Z",
  "items": [
   {
    "id": 1384528,
@@ -57,7 +57,7 @@
   },
   {
    "id": 1728763,
-   "title": "Drones1",
+   "title": "Drones",
    "lang": "Tamil",
    "genre": "Romance, Comedy",
    "date": "2026-10-16",
@@ -98,13 +98,13 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 9
+   "rating": 9.1
   },
   {
    "id": 1153576,
    "title": "Street Fighter",
    "lang": "English",
-   "genre": "Action, Fantasy",
+   "genre": "Action, Comedy",
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
    "rating": 6.2
