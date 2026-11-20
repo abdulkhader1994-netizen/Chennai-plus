@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-19T18:54:37.424Z",
+ "updated": "2026-11-20T00:54:44.366Z",
  "items": [
   {
-   "id": 1327835,
-   "title": "Mookuthi Amman 2",
+   "id": 1384528,
+   "title": "O.M: Operation Mole",
    "lang": "Tamil",
-   "genre": "Fantasy, Drama",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
+   "genre": "Crime, Action",
+   "date": "2026-11-20",
+   "poster": "https://image.tmdb.org/t/p/w342/vFnFLqXjf7RQfkNxrrys43BZKxJ.jpg",
    "rating": null
   },
   {
@@ -20,12 +20,12 @@
    "rating": 8.4
   },
   {
-   "id": 1384528,
-   "title": "O.M: Operation Mole",
+   "id": 1327835,
+   "title": "Mookuthi Amman 2",
    "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-11-20",
-   "poster": "https://image.tmdb.org/t/p/w342/vFnFLqXjf7RQfkNxrrys43BZKxJ.jpg",
+   "genre": "Fantasy, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
   },
   {
@@ -56,6 +56,15 @@
    "rating": null
   },
   {
+   "id": 1728763,
+   "title": "Drones1",
+   "lang": "Tamil",
+   "genre": "Romance, Comedy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/k14luImbnzAhFZzqFKgvVrnOF4D.jpg",
+   "rating": null
+  },
+  {
    "id": 926867,
    "title": "Nooru Kodi Vaanavil",
    "lang": "Tamil",
@@ -65,30 +74,21 @@
    "rating": null
   },
   {
-   "id": 1680033,
-   "title": "Appa Kutty",
-   "lang": "Tamil",
-   "genre": "Crime, Thriller",
-   "date": "2026-11-20",
-   "poster": "https://image.tmdb.org/t/p/w342/6h0XuDkjNOTYpmdMop5nDrBREum.jpg",
-   "rating": null
-  },
-  {
-   "id": 1318314,
-   "title": "Irandu Vaanam",
-   "lang": "Tamil",
-   "genre": "Romance, Fantasy",
-   "date": "2026-12-11",
-   "poster": "https://image.tmdb.org/t/p/w342/krpKed84YWgXLOUDtvwPnbqIPhB.jpg",
-   "rating": null
-  },
-  {
    "id": 1213227,
    "title": "Train",
    "lang": "Tamil",
    "genre": "Thriller, Drama",
    "date": "2026-12-04",
    "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
+   "rating": null
+  },
+  {
+   "id": 1680033,
+   "title": "Appa Kutty",
+   "lang": "Tamil",
+   "genre": "Crime, Thriller",
+   "date": "2026-11-20",
+   "poster": "https://image.tmdb.org/t/p/w342/6h0XuDkjNOTYpmdMop5nDrBREum.jpg",
    "rating": null
   },
   {
@@ -113,7 +113,7 @@
    "id": 791523,
    "title": "Wildwood",
    "lang": "English",
-   "genre": "Adventure, Animation",
+   "genre": "Animation, Adventure",
    "date": "2026-11-13",
    "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
    "rating": 8.5
