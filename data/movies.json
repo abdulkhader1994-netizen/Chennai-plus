@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T20:45:57.456Z",
+ "updated": "2026-11-21T03:17:59.506Z",
  "items": [
   {
    "id": 1384528,
@@ -38,15 +38,6 @@
    "rating": null
   },
   {
-   "id": 1655020,
-   "title": "John Doe",
-   "lang": "Tamil",
-   "genre": "Action, Mystery",
-   "date": "2026-11-13",
-   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
-   "rating": null
-  },
-  {
    "id": 1593350,
    "title": "Haiku",
    "lang": "Tamil",
@@ -56,12 +47,12 @@
    "rating": null
   },
   {
-   "id": 1728763,
-   "title": "Drones",
+   "id": 1655020,
+   "title": "John Doe",
    "lang": "Tamil",
-   "genre": "Romance, Comedy",
-   "date": "2026-10-16",
-   "poster": "https://image.tmdb.org/t/p/w342/k14luImbnzAhFZzqFKgvVrnOF4D.jpg",
+   "genre": "Action, Mystery",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
    "rating": null
   },
   {
@@ -83,12 +74,21 @@
    "rating": null
   },
   {
-   "id": 1213227,
-   "title": "Train",
+   "id": 1540824,
+   "title": "Sathyavan Savithiri",
    "lang": "Tamil",
-   "genre": "Thriller, Drama",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
+   "genre": "Drama, Crime",
+   "date": "2026-11-20",
+   "poster": "https://image.tmdb.org/t/p/w342/6CTZmOW9YrHxxaYjK56rB8DvefR.jpg",
+   "rating": null
+  },
+  {
+   "id": 1800255,
+   "title": "Enemy Of The Smuggler",
+   "lang": "Tamil",
+   "genre": "Crime, Action",
+   "date": "2026-10-30",
+   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
    "rating": null
   },
   {
@@ -98,7 +98,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 8.8
+   "rating": 8.9
   },
   {
    "id": 1153576,
