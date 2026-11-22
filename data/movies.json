@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T06:28:56.884Z",
+ "updated": "2026-11-22T12:46:08.378Z",
  "items": [
   {
    "id": 1384528,
@@ -98,16 +98,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 9
-  },
-  {
-   "id": 791523,
-   "title": "Wildwood",
-   "lang": "English",
-   "genre": "Animation, Adventure",
-   "date": "2026-11-13",
-   "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
-   "rating": 8.5
+   "rating": 8.9
   },
   {
    "id": 1153576,
@@ -117,6 +108,15 @@
    "date": "2026-10-16",
    "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
    "rating": 6.2
+  },
+  {
+   "id": 791523,
+   "title": "Wildwood",
+   "lang": "English",
+   "genre": "Animation, Adventure",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
+   "rating": 8.5
   },
   {
    "id": 1400940,
