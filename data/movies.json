@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T12:46:08.378Z",
+ "updated": "2026-11-22T19:45:36.986Z",
  "items": [
   {
    "id": 1384528,
@@ -11,15 +11,6 @@
    "rating": null
   },
   {
-   "id": 1327835,
-   "title": "Mookuthi Amman 2",
-   "lang": "Tamil",
-   "genre": "Fantasy, Drama",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
-   "rating": null
-  },
-  {
    "id": 1402181,
    "title": "Scene",
    "lang": "Tamil",
@@ -27,6 +18,15 @@
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
    "rating": 8.4
+  },
+  {
+   "id": 1327835,
+   "title": "Mookuthi Amman 2",
+   "lang": "Tamil",
+   "genre": "Fantasy, Drama",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
+   "rating": null
   },
   {
    "id": 1593350,
@@ -44,15 +44,6 @@
    "genre": "Horror",
    "date": "2026-11-27",
    "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
-   "rating": null
-  },
-  {
-   "id": 1655020,
-   "title": "John Doe",
-   "lang": "Tamil",
-   "genre": "Action, Mystery",
-   "date": "2026-11-13",
-   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
    "rating": null
   },
   {
@@ -74,6 +65,15 @@
    "rating": null
   },
   {
+   "id": 1655020,
+   "title": "John Doe",
+   "lang": "Tamil",
+   "genre": "Action, Mystery",
+   "date": "2026-11-13",
+   "poster": "https://image.tmdb.org/t/p/w342/nt7ErINVZAJ3PIprfSYJJshaFJc.jpg",
+   "rating": null
+  },
+  {
    "id": 926867,
    "title": "Nooru Kodi Vaanavil",
    "lang": "Tamil",
@@ -83,12 +83,12 @@
    "rating": null
   },
   {
-   "id": 1213227,
-   "title": "Train",
+   "id": 1318314,
+   "title": "Irandu Vaanam",
    "lang": "Tamil",
-   "genre": "Thriller, Drama",
-   "date": "2026-12-04",
-   "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
+   "genre": "Romance, Fantasy",
+   "date": "2026-12-11",
+   "poster": "https://image.tmdb.org/t/p/w342/krpKed84YWgXLOUDtvwPnbqIPhB.jpg",
    "rating": null
   },
   {
@@ -98,16 +98,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 8.9
-  },
-  {
-   "id": 1153576,
-   "title": "Street Fighter",
-   "lang": "English",
-   "genre": "Action, Comedy",
-   "date": "2026-10-16",
-   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
-   "rating": 6.2
+   "rating": 9
   },
   {
    "id": 791523,
@@ -117,6 +108,15 @@
    "date": "2026-11-13",
    "poster": "https://image.tmdb.org/t/p/w342/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg",
    "rating": 8.5
+  },
+  {
+   "id": 1153576,
+   "title": "Street Fighter",
+   "lang": "English",
+   "genre": "Action, Comedy",
+   "date": "2026-10-16",
+   "poster": "https://image.tmdb.org/t/p/w342/ccxdepKqORLwccbzvO4eAGkN0IC.jpg",
+   "rating": 6.2
   },
   {
    "id": 1400940,
