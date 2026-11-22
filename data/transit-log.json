@@ -1,15 +1,18 @@
 {
- "at": "2026-11-15T04:32:33.975Z",
+ "at": "2026-11-22T04:39:16.855Z",
  "summary": {
-  "stops": 3885,
+  "stops": 3754,
   "bus": 3925,
   "busNumbers": 2099,
-  "train": 7,
-  "metro": 8
+  "train": 0,
+  "metro": 0
  },
  "log": [
   "gtfs: 5402 routes, 6542 stops, 1389081 stop_times rows, 4725 patterns, metro patterns skipped 791",
-  "osm: 20 train/metro routes"
+  "overpass-api.de: fetch failed",
+  "maps.mail.ru: HTTP 504",
+  "overpass.kumi.systems: The operation was aborted due to timeout",
+  "osm failed: all map services failed"
  ],
  "sample": [
   [
