@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T12:21:22.432Z",
+ "updated": "2026-11-25T21:55:45.706Z",
  "items": [
   {
    "id": 1384528,
@@ -25,7 +25,7 @@
    "lang": "Tamil",
    "genre": "Comedy, Crime",
    "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/erQy6X0wg40HEkwO5WWQShUgC0V.jpg",
    "rating": 8
   },
   {
@@ -47,21 +47,21 @@
    "rating": null
   },
   {
-   "id": 1827989,
-   "title": "Pei Pidichirukku",
-   "lang": "Tamil",
-   "genre": "Horror",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
-   "rating": null
-  },
-  {
    "id": 1540824,
    "title": "Sathyavan Savithiri",
    "lang": "Tamil",
    "genre": "Drama, Crime",
    "date": "2026-11-20",
    "poster": "https://image.tmdb.org/t/p/w342/6CTZmOW9YrHxxaYjK56rB8DvefR.jpg",
+   "rating": null
+  },
+  {
+   "id": 1827989,
+   "title": "Pei Pidichirukku",
+   "lang": "Tamil",
+   "genre": "Horror",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
    "rating": null
   },
   {
@@ -74,21 +74,21 @@
    "rating": null
   },
   {
-   "id": 1318314,
-   "title": "Irandu Vaanam",
-   "lang": "Tamil",
-   "genre": "Romance, Fantasy",
-   "date": "2026-12-11",
-   "poster": "https://image.tmdb.org/t/p/w342/krpKed84YWgXLOUDtvwPnbqIPhB.jpg",
-   "rating": null
-  },
-  {
    "id": 1596658,
    "title": "Hello Kadhal",
    "lang": "Tamil",
    "genre": "Romance, Comedy",
    "date": "2026-12-04",
    "poster": "https://image.tmdb.org/t/p/w342/ufqNEYT11OwcQDwS4FvM5zZruCm.jpg",
+   "rating": null
+  },
+  {
+   "id": 1318314,
+   "title": "Irandu Vaanam",
+   "lang": "Tamil",
+   "genre": "Romance, Fantasy",
+   "date": "2026-12-11",
+   "poster": "https://image.tmdb.org/t/p/w342/krpKed84YWgXLOUDtvwPnbqIPhB.jpg",
    "rating": null
   },
   {
@@ -124,8 +124,8 @@
    "lang": "English",
    "genre": "Drama, History",
    "date": "2026-11-13",
-   "poster": "https://image.tmdb.org/t/p/w342/sPID7NqwpNdSAEMhazCvidxxeNo.jpg",
-   "rating": 8.4
+   "poster": "https://image.tmdb.org/t/p/w342/8q8AF8xvV1drhACtEL2Iti5gJ8P.jpg",
+   "rating": 8.3
   }
  ]
 }
