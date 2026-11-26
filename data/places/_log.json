@@ -1,13 +1,10 @@
 {
- "at": "2026-11-25T23:42:29.677Z",
+ "at": "2026-11-26T08:34:40.016Z",
  "summary": {
-  "petrol": 266,
-  "bus": 936,
-  "hotel": 441,
-  "food": 1176,
-  "mall": 78,
-  "cinema": 74,
-  "hospital": 892
+  "station": 152,
+  "sweets": 85
  },
- "log": []
+ "log": [
+  "maps.mail.ru: HTTP 504"
+ ]
 }
