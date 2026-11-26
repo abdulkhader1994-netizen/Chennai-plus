@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T14:14:57.524Z",
+ "updated": "2026-11-26T23:13:22.524Z",
  "items": [
   {
    "id": 1384528,
@@ -96,7 +96,7 @@
    "title": "You Can See Everything",
    "lang": "English",
    "genre": "Documentary",
-   "date": "2026-11-27",
+   "date": "2026-11-26",
    "poster": "https://image.tmdb.org/t/p/w342/mVh3qkw2NUFxWWyF0G1hg2Wh0K5.jpg",
    "rating": 8.6
   },
@@ -107,7 +107,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 9
+   "rating": 8.9
   },
   {
    "id": 791523,
@@ -125,7 +125,7 @@
    "genre": "Drama, History",
    "date": "2026-11-13",
    "poster": "https://image.tmdb.org/t/p/w342/8q8AF8xvV1drhACtEL2Iti5gJ8P.jpg",
-   "rating": 8.4
+   "rating": 8.3
   }
  ]
 }
