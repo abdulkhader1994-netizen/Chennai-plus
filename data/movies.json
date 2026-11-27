@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T23:13:22.524Z",
+ "updated": "2026-11-27T05:16:33.163Z",
  "items": [
   {
    "id": 1384528,
@@ -25,7 +25,7 @@
    "lang": "Tamil",
    "genre": "Comedy, Crime",
    "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/erQy6X0wg40HEkwO5WWQShUgC0V.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
    "rating": 8
   },
   {
@@ -34,7 +34,7 @@
    "lang": "Tamil",
    "genre": "Romance, Comedy",
    "date": "2026-10-23",
-   "poster": "https://image.tmdb.org/t/p/w342/thZGedKvZnnvuLpNWEA1nmalM7K.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/7kdhwEauV07gbHXdlBtVp6AhqZk.jpg",
    "rating": null
   },
   {
@@ -56,15 +56,6 @@
    "rating": null
   },
   {
-   "id": 1827989,
-   "title": "Pei Pidichirukku",
-   "lang": "Tamil",
-   "genre": "Horror",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
-   "rating": null
-  },
-  {
    "id": 1655020,
    "title": "John Doe",
    "lang": "Tamil",
@@ -83,12 +74,21 @@
    "rating": null
   },
   {
+   "id": 1827989,
+   "title": "Pei Pidichirukku",
+   "lang": "Tamil",
+   "genre": "Horror",
+   "date": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
+   "rating": null
+  },
+  {
    "id": 1318314,
    "title": "Irandu Vaanam",
    "lang": "Tamil",
    "genre": "Romance, Fantasy",
-   "date": "2026-12-11",
-   "poster": "https://image.tmdb.org/t/p/w342/krpKed84YWgXLOUDtvwPnbqIPhB.jpg",
+   "date": "2026-12-24",
+   "poster": "https://image.tmdb.org/t/p/w342/7G71CQINlT9lFlT9xxTrwdqnUfs.jpg",
    "rating": null
   },
   {
