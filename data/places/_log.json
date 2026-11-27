@@ -1,15 +1,5 @@
 {
- "at": "2026-11-26T19:10:59.390Z",
- "summary": {
-  "tea": 309,
-  "mechanic": 69,
-  "pharmacy": 320,
-  "fireworks": 0,
-  "jewellery": 182,
-  "textiles": 114
- },
- "log": [
-  "maps.mail.ru: HTTP 504",
-  "maps.mail.ru: HTTP 504"
- ]
+ "at": "2026-11-27T03:39:51.133Z",
+ "summary": {},
+ "log": []
 }
