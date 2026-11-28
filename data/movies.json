@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T07:01:58.992Z",
+ "updated": "2026-11-28T16:20:29.950Z",
  "items": [
   {
    "id": 1384528,
@@ -11,6 +11,15 @@
    "rating": null
   },
   {
+   "id": 1402181,
+   "title": "Scene",
+   "lang": "Tamil",
+   "genre": "Comedy, Romance",
+   "date": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
+   "rating": 8.1
+  },
+  {
    "id": 1327835,
    "title": "Mookuthi Amman 2",
    "lang": "Tamil",
@@ -18,15 +27,6 @@
    "date": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/dNNzsstJeQxnESyH0hZcLGblLMz.jpg",
    "rating": null
-  },
-  {
-   "id": 1402181,
-   "title": "Scene",
-   "lang": "Tamil",
-   "genre": "Comedy, Crime",
-   "date": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/kfc4w3OX8QsFm8f9MPUdmGheNl3.jpg",
-   "rating": 8.1
   },
   {
    "id": 1680033,
@@ -44,6 +44,15 @@
    "genre": "Drama, Crime",
    "date": "2026-11-20",
    "poster": "https://image.tmdb.org/t/p/w342/6CTZmOW9YrHxxaYjK56rB8DvefR.jpg",
+   "rating": null
+  },
+  {
+   "id": 1800255,
+   "title": "Enemy Of The Smuggler",
+   "lang": "Tamil",
+   "genre": "Crime, Action",
+   "date": "2026-10-30",
+   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
    "rating": null
   },
   {
@@ -69,26 +78,17 @@
    "title": "Irandu Vaanam",
    "lang": "Tamil",
    "genre": "Romance, Fantasy",
-   "date": "2026-12-24",
+   "date": "2026-12-11",
    "poster": "https://image.tmdb.org/t/p/w342/7G71CQINlT9lFlT9xxTrwdqnUfs.jpg",
    "rating": null
   },
   {
-   "id": 1800255,
-   "title": "Enemy Of The Smuggler",
+   "id": 1213227,
+   "title": "Train",
    "lang": "Tamil",
-   "genre": "Crime, Action",
-   "date": "2026-10-30",
-   "poster": "https://image.tmdb.org/t/p/w342/pDZxgWM1t2fTOB5IUyPJGlDFthl.jpg",
-   "rating": null
-  },
-  {
-   "id": 1827989,
-   "title": "Pei Pidichirukku",
-   "lang": "Tamil",
-   "genre": "Horror",
-   "date": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/o1xgEsjV46PYiq1v12nvQHWFOYS.jpg",
+   "genre": "Thriller, Drama",
+   "date": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/kdR0jx7i8AmRn3UijWLb9j7osi2.jpg",
    "rating": null
   },
   {
@@ -107,7 +107,7 @@
    "genre": "Action, Thriller",
    "date": "2026-11-11",
    "poster": "https://image.tmdb.org/t/p/w342/8Y4oJ5iUs3hgPcDB3SIEmsNYjZk.jpg",
-   "rating": 8.9
+   "rating": 8.7
   },
   {
    "id": 791523,
